@@ -15,6 +15,25 @@
   <i>स्थानीय काम और कामगारों का आधुनिक डिजिटल मंच | Connecting Local Employers with Verified Skilled Workers</i>
 </p>
 
+<p align="center">
+  <a href="https://tushar-kumar-code.github.io/DailyJob/">
+    <img src="https://img.shields.io/badge/🚀_LIVE_DEMO-OPEN_APPLICATION-00C853?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Open Application">
+  </a>
+</p>
+
+---
+
+## 🔗 Live Application Access (एप्लिकेशन लिंक)
+
+> ### 🌐 **[👉 Click Here to Open DailyJob Web App](https://tushar-kumar-code.github.io/DailyJob/)**
+> *Live on GitHub Pages: Instant access to the DailyJob user interface.*
+
+| Environment | Access URL | Description |
+| :--- | :--- | :--- |
+| **🌐 Live Production (Web)** | **[tushar-kumar-code.github.io/DailyJob](https://tushar-kumar-code.github.io/DailyJob/)** | Live interactive frontend application |
+| **💻 Local Development** | **[http://localhost:8000](http://localhost:8000)** | Local full-stack environment via `.\RUN.bat` |
+| **⚡ Interactive API Docs** | **[http://localhost:8000/docs](http://localhost:8000/docs)** | FastAPI Swagger REST API documentation |
+
 ---
 
 ## 📖 Overview (परियोजना परिचय)
