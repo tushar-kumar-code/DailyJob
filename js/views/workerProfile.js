@@ -18,12 +18,12 @@ async function renderWorkerProfileView() {
 
   const profile = isEmployer ? await appState.getEmployerProfile() : await appState.getWorkerProfile();
 
-  // Real user details from authentication & profile creation
-  const realName = authUser?.username || authUser?.name || profile.name || "User";
-  const realEmail = authUser?.email || profile.email || "No email registered";
+  // Real user details from authentication & profile creation - ZERO fake fallbacks
+  const realName = (authUser?.fullName || authUser?.name || authUser?.username || profile.name || "User").trim();
+  const realEmail = (authUser?.email || profile.email || "ईमेल दर्ज नहीं").trim();
+  const realPhone = (authUser?.mobile_number || authUser?.mobileNumber || authUser?.phone || profile.phone || "").trim();
   const realUserId = authUser?.user_id || authUser?.id || profile.id || "usr_dailyjob";
-  const realAge = authUser?.age || authUser?.profile?.age || profile.age || 24;
-  const realProfession = authUser?.profile?.profession || profile.profession || profile.primaryTrade || profile.industry || (isEmployer ? "Contractor & Employer" : "General Worker");
+  const realAge = authUser?.age || authUser?.profile?.age || profile.age || null;
   const userTypeLabel = isEmployer ? "Employer" : "Job Seeker";
   const userTypeBadge = isEmployer ? "Verified Employer" : "Verified Job Seeker";
   const avatarLetter = (realName.charAt(0) || 'U').toUpperCase();
@@ -34,8 +34,10 @@ async function renderWorkerProfileView() {
   const workerProf = window.authService?.getWorkerProfile ? window.authService.getWorkerProfile() : (authUser?.worker_profile || authUser?.job_seeker_profile || (authUser?.profile?.user_type === 'job_seeker' ? authUser.profile : null));
   const employerProf = window.authService?.getEmployerProfile ? window.authService.getEmployerProfile() : (authUser?.employer_profile || (authUser?.profile?.user_type === 'employer' ? authUser.profile : null));
 
-  const workerTradeDisplay = workerProf?.profession || workerProf?.preferences?.preferred_roles?.[0] || profile.primaryTrade || "कामगार";
+  const workerTradeDisplay = workerProf?.profession || workerProf?.categoryTitle || workerProf?.preferences?.preferred_roles?.[0] || profile.profession || profile.primaryTrade || "कामगार";
   const employerTradeDisplay = employerProf?.business_info?.industry || employerProf?.profession || employerProf?.industry || profile.industry || "Employer";
+  const realProfession = isEmployer ? employerTradeDisplay : workerTradeDisplay;
+  const realLocation = profile.city || profile.area || authUser?.profile?.current_city || workerProf?.personal?.current_city || workerProf?.cityName || employerProf?.location?.city || employerProf?.workLocation || "";
 
   return `
     <div class="worker-profile-page" style="max-width: 640px; margin: 0 auto; padding-bottom: 2rem;">
@@ -57,9 +59,11 @@ async function renderWorkerProfileView() {
           <span class="badge ${isEmployer ? 'badge-primary' : 'badge-success'} font-bold">
             ${userTypeBadge}
           </span>
-          <span class="badge font-bold" style="background: #e0f2fe; color: #0369a1; font-size: 0.8rem;">
-            🎂 ${realAge} Years
-          </span>
+          ${realAge ? `
+            <span class="badge font-bold" style="background: #e0f2fe; color: #0369a1; font-size: 0.8rem;">
+              🎂 ${realAge} Years
+            </span>
+          ` : ''}
           <span class="badge badge-warning font-bold">
             ${profile.rating ? `⭐ ${profile.rating} Rating` : '⭐ नया खाता'}
           </span>
@@ -153,11 +157,21 @@ async function renderWorkerProfileView() {
             <span class="font-bold" style="word-break: break-all;">${escapeHTML(realEmail)}</span>
           </div>
 
-          <!-- 🎂 Real Age -->
-          <div class="flex justify-between items-center">
-            <span class="text-secondary">Age:</span>
-            <span class="font-bold text-primary" style="font-size: 1.05rem;">${realAge} Years</span>
-          </div>
+          <!-- 📞 Phone Number -->
+          ${realPhone ? `
+            <div class="flex justify-between items-center">
+              <span class="text-secondary">Mobile Number:</span>
+              <span class="font-bold text-primary">+91 ${escapeHTML(realPhone)}</span>
+            </div>
+          ` : ''}
+
+          <!-- 🎂 Real Age (Only shown if provided) -->
+          ${realAge ? `
+            <div class="flex justify-between items-center">
+              <span class="text-secondary">Age:</span>
+              <span class="font-bold text-primary" style="font-size: 1.05rem;">${realAge} Years</span>
+            </div>
+          ` : ''}
 
           <!-- 🆔 Real User Account ID -->
           <div class="flex justify-between items-center">
@@ -208,13 +222,13 @@ async function renderWorkerProfileView() {
           <!-- 📍 Area / Location -->
           <div class="flex justify-between items-center">
             <span class="text-secondary">📍 स्थान (Location):</span>
-            <span class="font-bold">${escapeHTML(profile.area || profile.city || "Raipur, Chhattisgarh")}</span>
+            <span class="font-bold">${escapeHTML(realLocation || "स्थान दर्ज नहीं (Location not set)")}</span>
           </div>
 
           <!-- 📞 Phone / Contact -->
           <div class="flex justify-between items-center">
             <span class="text-secondary">📞 संपर्क (Contact):</span>
-            <span class="font-bold">${escapeHTML(profile.phone || authUser?.mobile_number || "उपलब्ध नहीं")}</span>
+            <span class="font-bold">${realPhone ? `+91 ${escapeHTML(realPhone)}` : 'उपलब्ध नहीं'}</span>
           </div>
 
           <!-- 🛠 Primary Trade / Skills -->
@@ -223,11 +237,13 @@ async function renderWorkerProfileView() {
             <span class="font-bold text-primary-color">${escapeHTML(realProfession)}</span>
           </div>
 
-          <!-- 🎂 Age for Job Matching -->
-          <div class="flex justify-between items-center">
-            <span class="text-secondary">🎂 आयु / उम्र (Age):</span>
-            <span class="font-bold text-primary">${realAge} वर्ष (नियोक्ता जॉब ऑफर हेतु)</span>
-          </div>
+          <!-- 🎂 Age for Job Matching (Only if provided) -->
+          ${realAge ? `
+            <div class="flex justify-between items-center">
+              <span class="text-secondary">🎂 आयु / उम्र (Age):</span>
+              <span class="font-bold text-primary">${realAge} वर्ष (Job Matching)</span>
+            </div>
+          ` : ''}
 
           <!-- ⭐ Rating -->
           <div class="flex justify-between items-center">

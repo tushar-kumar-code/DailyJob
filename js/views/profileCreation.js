@@ -11,50 +11,53 @@
  * 5. Employer Flow: Adaptive (Household/Shop skips GST/CIN; Corporate gets business fields).
  */
 
-// Adaptive Profile State
+// Adaptive Profile State - 100% Real User Data (Zero Dummy Defaults)
 let adaptiveState = {
   activeFlow: "job_seeker", // "job_seeker" | "employer"
   currentStepIndex: 0,
   lang: "hi", // "hi" | "en"
   isSpeaking: false,
 
-  // Job Seeker Answers
+  // Job Seeker Answers - Pure User Selections
   jobSeeker: {
-    workType: "daily", // "daily" | "part_time" | "full_time" | "permanent" | "temporary" | "remote" | "any" | "undecided"
-    category: "cooking", // Category key
-    categoryTitle: "खाना बनाना (Cook)",
-    skillDetail: "", // Deep-dive answer (e.g. "घर का खाना", "Two Wheeler License")
-    hasExperience: "yes", // "yes" | "no" | "little"
-    experienceYears: "1-3y", // "<6m" | "6m-1y" | "1-3y" | "3-5y" | "5y+"
-    education: "", // 10th | 12th | Diploma | Graduation (Only for professional categories!)
-    locationType: "nearby", // "nearby" | "city" | "anywhere" | "home"
+    workType: "", // "daily" | "part_time" | "full_time" | "permanent" | "temporary" | "remote" | "any" | "undecided"
+    category: "", // Category key
+    categoryTitle: "",
+    skillDetail: "",
+    hasExperience: "", // "yes" | "no" | "little"
+    experienceYears: "", // "<6m" | "6m-1y" | "1-3y" | "3-5y" | "5y+"
+    education: "",
+    locationType: "",
     cityName: "",
-    timing: "any", // "morning" | "afternoon" | "evening" | "night" | "any"
-    startDate: "today", // "today" | "tomorrow" | "this_week" | "next_month" | "not_sure"
-    wageType: "daily", // "daily" | "monthly" | "negotiable"
-    expectedWage: "500", // "300" | "400" | "500" | "600" | "700+" | salary range | "negotiable"
+    timing: "",
+    startDate: "",
+    wageType: "",
+    expectedWage: "",
     fullName: "",
     mobileNumber: "",
     email: "",
+    age: "",
+    gender: "",
+    date_of_birth: "",
     professionalLinks: { resume_url: "", linkedin_url: "" }
   },
 
-  // Employer Answers
+  // Employer Answers - Pure User Selections
   employer: {
-    empCategory: "home", // "home" | "shop" | "restaurant" | "construction" | "factory" | "office" | "farm" | "delivery" | "security" | "skilled" | "professional" | "other"
-    empCategoryTitle: "घर के काम (House / Domestic)",
+    empCategory: "",
+    empCategoryTitle: "",
     isCorporate: false,
     contactName: "",
     companyName: "",
     mobileNumber: "",
     officialEmail: "",
     industry: "",
-    neededRole: "खाना बनाने वाला (Cook)",
-    neededCount: "1",
+    neededRole: "",
+    neededCount: "",
     workLocation: "",
-    workTiming: "फुल टाइम (Full-time)",
-    paymentOffer: "500/दिन",
-    startDate: "आज या कल से"
+    workTiming: "",
+    paymentOffer: "",
+    startDate: ""
   }
 };
 
@@ -166,22 +169,48 @@ function renderDailyJobProfileCreationView(queryParams = {}) {
 
   const currentUser = window.authService.user || {};
 
-  // Prepopulate contact info from account
-  if (!adaptiveState.jobSeeker.fullName) {
-    adaptiveState.jobSeeker.fullName = currentUser.name || currentUser.username || currentUser.fullName || "";
-    adaptiveState.jobSeeker.mobileNumber = currentUser.mobile_number || "";
-    adaptiveState.jobSeeker.email = currentUser.email || "";
+  // Completely sync real user details from authenticated account
+  const realName = (currentUser.fullName || currentUser.name || currentUser.username || "").trim();
+  const realMobile = (currentUser.mobile_number || currentUser.mobileNumber || currentUser.phone || "").trim();
+  const realEmail = (currentUser.email || "").trim();
+
+  if (realName) {
+    if (!adaptiveState.jobSeeker.fullName) adaptiveState.jobSeeker.fullName = realName;
+    if (!adaptiveState.employer.contactName) adaptiveState.employer.contactName = realName;
   }
-  if (!adaptiveState.employer.contactName) {
-    adaptiveState.employer.contactName = currentUser.name || currentUser.username || "";
-    adaptiveState.employer.mobileNumber = currentUser.mobile_number || "";
-    adaptiveState.employer.officialEmail = currentUser.email || "";
+  if (realMobile) {
+    if (!adaptiveState.jobSeeker.mobileNumber) adaptiveState.jobSeeker.mobileNumber = realMobile;
+    if (!adaptiveState.employer.mobileNumber) adaptiveState.employer.mobileNumber = realMobile;
+  }
+  if (realEmail) {
+    if (!adaptiveState.jobSeeker.email) adaptiveState.jobSeeker.email = realEmail;
+    if (!adaptiveState.employer.officialEmail) adaptiveState.employer.officialEmail = realEmail;
+  }
+
+  // Prepopulate from existing user profiles if already set by user previously
+  const existingWorker = currentUser.worker_profile || currentUser.job_seeker_profile || (currentUser.profile?.user_type === 'job_seeker' ? currentUser.profile : null);
+  if (existingWorker) {
+    if (existingWorker.workType && !adaptiveState.jobSeeker.workType) adaptiveState.jobSeeker.workType = existingWorker.workType;
+    if (existingWorker.category && !adaptiveState.jobSeeker.category) adaptiveState.jobSeeker.category = existingWorker.category;
+    if ((existingWorker.categoryTitle || existingWorker.profession) && !adaptiveState.jobSeeker.categoryTitle) {
+      adaptiveState.jobSeeker.categoryTitle = existingWorker.categoryTitle || existingWorker.profession;
+    }
+    if (existingWorker.cityName && !adaptiveState.jobSeeker.cityName) adaptiveState.jobSeeker.cityName = existingWorker.cityName;
+    if (existingWorker.expectedWage && !adaptiveState.jobSeeker.expectedWage) adaptiveState.jobSeeker.expectedWage = existingWorker.expectedWage;
+    if (existingWorker.skillDetail && !adaptiveState.jobSeeker.skillDetail) adaptiveState.jobSeeker.skillDetail = existingWorker.skillDetail;
+  }
+
+  const existingEmployer = currentUser.employer_profile || (currentUser.profile?.user_type === 'employer' ? currentUser.profile : null);
+  if (existingEmployer) {
+    if (existingEmployer.companyName && !adaptiveState.employer.companyName) adaptiveState.employer.companyName = existingEmployer.companyName;
+    if (existingEmployer.workLocation && !adaptiveState.employer.workLocation) adaptiveState.employer.workLocation = existingEmployer.workLocation;
+    if (existingEmployer.neededRole && !adaptiveState.employer.neededRole) adaptiveState.employer.neededRole = existingEmployer.neededRole;
   }
 
   // Determine flow from queryParams or user account type
-  if (queryParams.type === "employer" || currentUser.account_type === "employer") {
+  if (queryParams.type === "employer" || currentUser.account_type === "employer" || currentUser.role === "employer") {
     adaptiveState.activeFlow = "employer";
-  } else if (queryParams.type === "job_seeker") {
+  } else if (queryParams.type === "job_seeker" || currentUser.account_type === "job_seeker") {
     adaptiveState.activeFlow = "job_seeker";
   }
 
@@ -787,6 +816,9 @@ function renderCurrentAdaptiveStepHTML(stepKey) {
     // -------------------------------------------------------------------------
     case "js_ready": {
       const js = adaptiveState.jobSeeker;
+      const currentUser = window.authService?.user || {};
+      const realDisplayName = (js.fullName || currentUser.fullName || currentUser.name || currentUser.username || "साथी").trim();
+      const realDisplayMobile = (js.mobileNumber || currentUser.mobile_number || currentUser.mobileNumber || currentUser.phone || "").trim();
 
       return `
         <div class="profile-celebration-hero">
@@ -796,18 +828,21 @@ function renderCurrentAdaptiveStepHTML(stepKey) {
           </h2>
           <p class="celebration-subtitle">
             ${isHi 
-              ? `${escapeHTML(js.fullName || 'साथी')}, आपके चुने हुए हुनर <strong>${escapeHTML(js.categoryTitle || js.category)}</strong> के अनुसार काम तुरंत उपलब्ध हैं।` 
-              : `${escapeHTML(js.fullName || 'User')}, matching jobs for <strong>${escapeHTML(js.categoryTitle || js.category)}</strong> are ready for you.`}
+              ? `${escapeHTML(realDisplayName)}, आपके चुने हुए हुनर <strong>${escapeHTML(js.categoryTitle || js.category || 'हुनर')}</strong> के अनुसार काम उपलब्ध हैं।` 
+              : `${escapeHTML(realDisplayName)}, matching jobs for <strong>${escapeHTML(js.categoryTitle || js.category || 'your skills')}</strong> are ready.`}
           </p>
 
           <div style="background: var(--bg-surface-muted); padding: 1.25rem; border-radius: var(--radius-lg); text-align: left; max-width: 480px; margin: 0 auto 1.5rem auto; border: 1px solid var(--border-subtle);">
             <div style="font-size: 0.85rem; font-weight: 700; color: var(--text-secondary); margin-bottom: 0.5rem; text-transform: uppercase;">आपकी मुख्य जानकारी:</div>
             <div style="font-size: 0.95rem; line-height: 1.6; color: var(--text-primary);">
-              • काम का प्रकार: <strong>${escapeHTML(js.workType)}</strong><br/>
-              • हुनर / पेशा: <strong>${escapeHTML(js.categoryTitle)}</strong><br/>
-              • अनुभव: <strong>${js.hasExperience === 'yes' ? 'हाँ (अनुभवी)' : 'नया (Fresher)'}</strong><br/>
-              • लोकेशन: <strong>${escapeHTML(js.cityName || 'मेरे आसपास')}</strong><br/>
-              • अपेक्षित कमाई: <strong>${escapeHTML(js.expectedWage)}</strong>
+              • नाम: <strong>${escapeHTML(realDisplayName)}</strong><br/>
+              ${realDisplayMobile ? `• मोबाइल: <strong>+91 ${escapeHTML(realDisplayMobile)}</strong><br/>` : ''}
+              • काम का प्रकार: <strong>${escapeHTML(js.workType || 'दर्ज नहीं')}</strong><br/>
+              • हुनर / पेशा: <strong>${escapeHTML(js.categoryTitle || js.category || 'दर्ज नहीं')}</strong><br/>
+              ${js.skillDetail ? `• मुख्य कार्य: <strong>${escapeHTML(js.skillDetail)}</strong><br/>` : ''}
+              • अनुभव: <strong>${js.hasExperience === 'yes' ? 'अनुभवी' : (js.hasExperience === 'no' ? 'नया (Fresher)' : 'दर्ज नहीं')}</strong><br/>
+              • लोकेशन: <strong>${escapeHTML(js.cityName || (js.locationType === 'nearby' ? 'मेरे आसपास (GPS)' : 'स्थान दर्ज नहीं'))}</strong><br/>
+              • अपेक्षित कमाई: <strong>${escapeHTML(js.expectedWage ? `₹${js.expectedWage}` : 'बातचीत अनुसार')}</strong>
             </div>
           </div>
 
@@ -1212,6 +1247,28 @@ window.useGPSLocation = function() {
 
 window.adaptiveGoNext = function() {
   const steps = getAdaptiveStepList();
+  const currentKey = steps[adaptiveState.currentStepIndex];
+
+  // Validation: Only proceed if user has chosen an option for required questions
+  if (currentKey === "js_work_type" && !adaptiveState.jobSeeker.workType) {
+    if (typeof showToast === 'function') {
+      showToast(adaptiveState.lang === 'hi' ? "कृपया काम का प्रकार चुनें" : "Please select a work type", "info");
+    }
+    return;
+  }
+  if (currentKey === "js_category" && !adaptiveState.jobSeeker.category) {
+    if (typeof showToast === 'function') {
+      showToast(adaptiveState.lang === 'hi' ? "कृपया अपना काम / हुनर चुनें" : "Please choose your skill or work", "info");
+    }
+    return;
+  }
+  if (currentKey === "emp_category" && !adaptiveState.employer.empCategory) {
+    if (typeof showToast === 'function') {
+      showToast(adaptiveState.lang === 'hi' ? "कृपया कार्य श्रेणी चुनें" : "Please select category", "info");
+    }
+    return;
+  }
+
   if (adaptiveState.currentStepIndex < steps.length - 1) {
     adaptiveState.currentStepIndex += 1;
     renderAdaptiveDOM();
@@ -1236,46 +1293,61 @@ window.toggleAdaptiveRole = function() {
 };
 
 // ---------------------------------------------------------------------------
-// 7. Profile Submission & Backend Persistence
+// 7. Profile Submission & Backend Persistence (100% Real User Data)
 // ---------------------------------------------------------------------------
 window.completeAdaptiveJobSeekerProfile = async function() {
   const js = adaptiveState.jobSeeker;
-  const currentUser = window.authService.user || {};
+  const currentUser = window.authService?.user || {};
 
-  // Build normalized payload matching JobSeekerProfileRequest
+  const realFullName = (js.fullName || currentUser.fullName || currentUser.name || currentUser.username || "कामगार").trim();
+  const realMobile = (js.mobileNumber || currentUser.mobile_number || currentUser.mobileNumber || currentUser.phone || "").trim();
+  const realEmail = (js.email || currentUser.email || "").trim();
+  const realCity = (js.cityName || "").trim();
+  const realWage = js.expectedWage ? (parseInt(js.expectedWage, 10) || js.expectedWage) : null;
+  const realProfession = js.categoryTitle || js.skillDetail || (js.category ? js.category : "कामगार");
+
+  // Build normalized payload - ZERO dummy or hardcoded defaults
   const payload = {
     personal: {
-      full_name: js.fullName || currentUser.name || currentUser.username || "कामगार",
+      full_name: realFullName,
       profile_photo: "",
-      date_of_birth: "1998-01-01",
-      age: 26,
-      gender: "Prefer not to say",
-      mobile_number: js.mobileNumber || currentUser.mobile_number || "9876543210",
-      email: js.email || currentUser.email || "worker@dailyjob.local",
-      current_city: js.cityName || "रायपुर (Raipur)",
-      current_state: "छत्तीसगढ़ (Chhattisgarh)",
+      date_of_birth: js.date_of_birth || null,
+      age: js.age ? parseInt(js.age, 10) : (currentUser.age || null),
+      gender: js.gender || null,
+      mobile_number: realMobile,
+      email: realEmail,
+      current_city: realCity,
+      current_state: js.state || "",
       country: "India",
       preferred_language: adaptiveState.lang === "hi" ? "Hindi" : "English"
     },
     employment_status: {
-      status: js.workType === "daily" ? "Daily Wage Worker" : (js.hasExperience === "no" ? "Fresher" : "Working Professional")
+      status: js.workType ? (js.workType === "daily" ? "Daily Wage Worker" : (js.hasExperience === "no" ? "Fresher" : "Working Professional")) : "Job Seeker"
     },
-    education: js.education ? [{ level: js.education, degree: js.education, university: "", graduation_year: "2023" }] : [],
-    skills: [
-      { name: js.skillDetail || js.categoryTitle || "जनरल हेल्पर", category: "Technical", level: "Intermediate" }
-    ],
+    education: js.education ? [{ level: js.education, degree: js.education, university: "", graduation_year: "" }] : [],
+    skills: (js.categoryTitle || js.skillDetail) ? [
+      { name: js.skillDetail || js.categoryTitle, category: js.category || "General", level: "Primary" }
+    ] : [],
     has_experience: js.hasExperience === "yes",
-    experience: js.hasExperience === "yes" ? [{ job_title: js.categoryTitle, company_name: "Prior Work", employment_type: "Daily" }] : [],
+    experience: js.hasExperience === "yes" && (js.categoryTitle || js.experienceYears) ? [{ job_title: js.categoryTitle || "", years: js.experienceYears || "" }] : [],
     preferences: {
-      looking_for: [js.workType === "daily" ? "Daily Wage" : "Full-time"],
-      preferred_roles: [js.categoryTitle],
-      work_modes: [js.locationType === "home" ? "Work from Home" : "On-site"],
-      preferred_cities: [js.cityName || "Raipur"],
-      expected_salary_min: parseInt(js.expectedWage, 10) || 500
+      looking_for: js.workType ? [js.workType] : [],
+      preferred_roles: js.categoryTitle ? [js.categoryTitle] : [],
+      work_modes: js.locationType === "home" ? ["Work from Home"] : (js.locationType ? ["On-site"] : []),
+      preferred_cities: realCity ? [realCity] : [],
+      expected_salary_min: realWage
     },
-    languages: [{ language: "Hindi", speaking_level: "Fluent/Native" }],
+    languages: [{ language: adaptiveState.lang === "hi" ? "Hindi" : "English", speaking_level: "Fluent" }],
     portfolio: js.professionalLinks || {},
-    visibility: { visibility: "public_employers", allow_contact: true }
+    visibility: { visibility: "public_employers", allow_contact: true },
+    profession: realProfession,
+    category: js.category || "",
+    categoryTitle: js.categoryTitle || "",
+    workType: js.workType || "",
+    expectedWage: js.expectedWage || "",
+    cityName: realCity,
+    mobileNumber: realMobile,
+    fullName: realFullName
   };
 
   try {
@@ -1297,36 +1369,50 @@ window.completeAdaptiveJobSeekerProfile = async function() {
 
 window.completeAdaptiveEmployerProfile = async function() {
   const emp = adaptiveState.employer;
-  const currentUser = window.authService.user || {};
+  const currentUser = window.authService?.user || {};
+
+  const realContactName = (emp.contactName || currentUser.fullName || currentUser.name || currentUser.username || "Employer").trim();
+  const realMobile = (emp.mobileNumber || currentUser.mobile_number || currentUser.mobileNumber || currentUser.phone || "").trim();
+  const realEmail = (emp.officialEmail || currentUser.email || "").trim();
+  const realCity = (emp.workLocation || "").trim();
+  const realCompany = (emp.companyName || realContactName).trim();
 
   const payload = {
     business_type: emp.isCorporate ? "Private Company" : "Individual / Household",
     business_info: {
-      name: emp.companyName || emp.contactName || "नियोक्ता (Employer)",
-      industry: emp.empCategoryTitle || "Services"
+      name: realCompany,
+      industry: emp.empCategoryTitle || emp.industry || "General Services"
     },
     location: {
-      city: emp.workLocation || "रायपुर (Raipur)",
-      state: "छत्तीसगढ़",
+      city: realCity,
+      state: "",
       work_model: "On-site"
     },
     recruiter_info: {
-      name: emp.contactName || currentUser.name || "Employer Contact",
-      mobile_number: emp.mobileNumber || currentUser.mobile_number || "9876543210",
-      official_email: emp.officialEmail || currentUser.email || "employer@dailyjob.local"
+      name: realContactName,
+      mobile_number: realMobile,
+      official_email: realEmail
     },
     hiring_info: {
-      hiring_types: ["Full-time", "Daily Wage"],
-      categories: [emp.neededRole || emp.empCategoryTitle]
+      hiring_types: emp.workTiming ? [emp.workTiming] : [],
+      categories: emp.neededRole ? [emp.neededRole] : (emp.empCategoryTitle ? [emp.empCategoryTitle] : [])
     },
     hiring_location: {
-      cities: [emp.workLocation || "Raipur"],
+      cities: realCity ? [realCity] : [],
       onsite_hiring: true
     },
+    payment_offer: emp.paymentOffer || "",
+    needed_count: emp.neededCount || "1",
     verification: { status: "not_verified" },
     company_profile: {},
-    hiring_preferences: { candidate_experience: "Fresher" },
-    visibility: { visibility: "public" }
+    hiring_preferences: {},
+    visibility: { visibility: "public" },
+    profession: emp.empCategoryTitle || emp.industry || "",
+    industry: emp.empCategoryTitle || emp.industry || "",
+    companyName: realCompany,
+    workLocation: realCity,
+    mobileNumber: realMobile,
+    contactName: realContactName
   };
 
   try {

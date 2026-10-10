@@ -80,17 +80,18 @@ class AppState {
       this.currentRole = user.role;
     }
 
-    // Update active worker or employer profile with real logged-in account information
-    const userProfession = user.profile?.profession || "Job Seeker";
-    const userType = user.profile?.user_type || (this.currentRole === "employer" ? "employer" : "job_seeker");
-    const userAge = user.age || user.profile?.age || 24;
+    // Update active worker or employer profile with real logged-in account information (Zero Dummy Data)
+    const userProfession = user.profile?.profession || user.worker_profile?.profession || user.worker_profile?.categoryTitle || user.employer_profile?.profession || (this.currentRole === "employer" ? "Employer" : "कामगार");
+    const userType = user.profile?.user_type || user.account_type || (this.currentRole === "employer" ? "employer" : "job_seeker");
+    const userAge = user.age || user.profile?.age || user.worker_profile?.personal?.age || null;
+    const userPhone = user.phone || user.mobile_number || user.mobileNumber || "";
 
     if (!this.workers || this.workers.length === 0) {
       this.workers = [{
         id: this.currentUserId || "usr_worker",
         name: displayName,
         username: user.username || displayName,
-        phone: user.phone || user.mobile_number || "",
+        phone: userPhone,
         email: user.email || "",
         age: userAge,
         primaryTrade: userProfession,
@@ -107,7 +108,7 @@ class AppState {
       this.workers[0].id = this.currentUserId || this.workers[0].id;
       this.workers[0].name = displayName;
       this.workers[0].username = user.username || displayName;
-      this.workers[0].phone = user.phone || user.mobile_number || this.workers[0].phone || "";
+      this.workers[0].phone = userPhone || this.workers[0].phone || "";
       this.workers[0].email = user.email || "";
       this.workers[0].age = userAge;
       this.workers[0].primaryTrade = userProfession;
@@ -123,7 +124,7 @@ class AppState {
         id: this.currentUserId || "usr_employer",
         name: displayName,
         username: user.username || displayName,
-        phone: user.phone || user.mobile_number || "",
+        phone: userPhone,
         email: user.email || "",
         age: userAge,
         rating: user.rating || 0,
@@ -139,6 +140,7 @@ class AppState {
       this.employer.id = this.currentUserId || this.employer.id;
       this.employer.name = displayName;
       this.employer.username = user.username || displayName;
+      this.employer.phone = userPhone || this.employer.phone || "";
       this.employer.email = user.email || "";
       this.employer.age = userAge;
       this.employer.industry = userProfession;
