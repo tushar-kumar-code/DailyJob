@@ -368,10 +368,11 @@ function renderWorkerCardForEmployer(worker, isMatched = false, hasApplied = fal
   const workerName = worker.name || 'कामगार';
   const tradeName = worker.primaryTrade || worker.profession || 'कामगार';
   const icon = worker.tradeIcon || '👷';
-  const wage = worker.expectedWage ? `₹${worker.expectedWage}/दिन` : '₹500/दिन';
-  const city = worker.city || 'रायपुर (Raipur)';
-  const rating = worker.rating || 4.8;
-  const jobsDone = worker.jobsCompleted || 12;
+  const wage = worker.expectedWage ? `₹${worker.expectedWage}/दिन` : 'बातचीत अनुसार (Negotiable)';
+  const city = worker.city || worker.area || 'स्थान दर्ज नहीं';
+  const isVerified = Boolean(worker.verified || worker.isVerified);
+  const ratingText = worker.rating ? `⭐ ${worker.rating} (${worker.jobsCompleted || 0} काम)` : `⭐ नया खाता (${worker.jobsCompleted ? worker.jobsCompleted + ' काम' : '0 काम'})`;
+  const expText = worker.experience && worker.experience[0] ? escapeHTML(worker.experience[0].job_title) : escapeHTML(tradeName);
 
   return `
     <div class="card p-3" style="border-radius: var(--radius-lg); border: 1.5px solid ${hasApplied ? 'var(--color-success)' : (isMatched ? '#93c5fd' : 'var(--border-subtle)')}; background: #ffffff; box-shadow: 0 2px 6px rgba(0,0,0,0.03);">
@@ -386,9 +387,15 @@ function renderWorkerCardForEmployer(worker, isMatched = false, hasApplied = fal
               <h3 style="font-size: 1.05rem; font-weight: 800; margin: 0; color: var(--text-primary);">
                 ${escapeHTML(workerName)}
               </h3>
-              <span class="badge badge-success font-bold" style="font-size: 0.7rem; padding: 1px 6px;">
-                ✓ Verified
-              </span>
+              ${isVerified ? `
+                <span class="badge badge-success font-bold" style="font-size: 0.7rem; padding: 1px 6px;">
+                  ✓ Verified
+                </span>
+              ` : `
+                <span class="badge badge-neutral font-bold" style="font-size: 0.7rem; padding: 1px 6px;">
+                  नया प्रोफाइल
+                </span>
+              `}
             </div>
             <div class="text-secondary mt-1" style="font-size: 0.82rem;">
               <span style="color: var(--color-primary); font-weight: 700;">${icon} ${escapeHTML(tradeName)}</span>
@@ -420,8 +427,8 @@ function renderWorkerCardForEmployer(worker, isMatched = false, hasApplied = fal
 
       <!-- Rating & Skills Line -->
       <div class="flex items-center justify-between text-secondary mb-2 pt-1" style="font-size: 0.8rem; border-top: 1px solid #f1f5f9;">
-        <span>⭐ ${rating} (${jobsDone}+ काम पूरे)</span>
-        <span>${worker.experience && worker.experience[0] ? escapeHTML(worker.experience[0].job_title) : 'सत्यापित दैनिक मजदूर'}</span>
+        <span>${ratingText}</span>
+        <span>${expText}</span>
       </div>
 
       <!-- Action Buttons: Call & Hire/Offer -->

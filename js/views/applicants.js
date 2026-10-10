@@ -226,8 +226,10 @@ async function renderMatchingWorkersForJob(job, existingApplicants = []) {
 
 // Global modal preview for Worker Profile
 window.viewWorkerModal = async function(workerId) {
-  const worker = (appState.workers && appState.workers.find(w => w && w.id === workerId)) || (appState.workers && appState.workers[0]) || { name: 'कामगार', age: 26, city: 'रायपुर' };
+  const worker = (appState.workers && appState.workers.find(w => w && w.id === workerId)) || (appState.workers && appState.workers[0]) || { name: 'कामगार' };
   const workerName = worker.name || 'कामगार';
+  const ageDisplay = worker.age ? `🎂 उम्र: <strong>${worker.age} वर्ष</strong> • ` : '';
+  const locationDisplay = `📍 ${escapeHTML(worker.area || worker.city || 'स्थान दर्ज नहीं')}`;
   const bodyHTML = `
     <div>
       <div class="text-center mb-3">
@@ -236,7 +238,7 @@ window.viewWorkerModal = async function(workerId) {
         </div>
         <h3 style="font-weight: 800; font-size: 1.15rem;">${escapeHTML(workerName)}</h3>
         <p class="text-muted" style="font-size: 0.85rem;">
-          🎂 उम्र: <strong>${worker.age || 26} वर्ष</strong> • 📍 ${escapeHTML(worker.area || worker.city || 'रायपुर')}
+          ${ageDisplay}${locationDisplay}
         </p>
       </div>
 

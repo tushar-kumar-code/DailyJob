@@ -396,7 +396,7 @@ class AppState {
       }];
     }
 
-    const userAge = personal.age || userSource?.age || userSource?.profile?.age || baseWorker.age || 26;
+    const userAge = personal.age || userSource?.age || userSource?.profile?.age || baseWorker.age || null;
     const phone = personal.mobile_number || userSource?.mobile_number || userSource?.phone || baseWorker.phone || "";
 
     return {
@@ -425,7 +425,7 @@ class AppState {
     const displayName = authUser?.username || authUser?.name || authUser?.fullName || baseEmployer.name || "Employer";
     const empProfile = authUser?.employer_profile || {};
     const userProfession = empProfile.business_info?.industry || empProfile.business_type || authUser?.profile?.profession || baseEmployer.industry || baseEmployer.businessType || "Employer";
-    const userAge = authUser?.age || authUser?.profile?.age || baseEmployer.age || 28;
+    const userAge = authUser?.age || authUser?.profile?.age || baseEmployer.age || null;
     const phone = empProfile.recruiter_info?.mobile_number || authUser?.mobile_number || authUser?.phone || baseEmployer.phone || "";
     return {
       id: authUser?.user_id || authUser?.id || baseEmployer.id || this.currentUserId || "emp-user",

@@ -24,8 +24,9 @@ async function renderWorkerProfileView() {
   const realPhone = (authUser?.mobile_number || authUser?.mobileNumber || authUser?.phone || profile.phone || "").trim();
   const realUserId = authUser?.user_id || authUser?.id || profile.id || "usr_dailyjob";
   const realAge = authUser?.age || authUser?.profile?.age || profile.age || null;
+  const isAccountVerified = Boolean(authUser?.is_verified || profile.verified || profile.is_verified);
   const userTypeLabel = isEmployer ? "Employer" : "Job Seeker";
-  const userTypeBadge = isEmployer ? "Verified Employer" : "Verified Job Seeker";
+  const userTypeBadge = isEmployer ? (isAccountVerified ? "✓ Verified Employer" : "Employer Account") : (isAccountVerified ? "✓ Verified Job Seeker" : "Job Seeker Account");
   const avatarLetter = (realName.charAt(0) || 'U').toUpperCase();
 
   const trade = INITIAL_TRADES ? INITIAL_TRADES.find(t => t.id === profile.primaryTrade || t.id === profile.tradeId) : null;
@@ -91,7 +92,7 @@ async function renderWorkerProfileView() {
                 <div>
                   <div class="font-bold" style="font-size: 0.95rem; color: #15803d;">Job Seeker Profile (Worker)</div>
                   <div class="text-secondary" style="font-size: 0.82rem; margin-top: 2px;">
-                    ${workerProf ? `Trade: <strong>${escapeHTML(workerTradeDisplay)}</strong> • Age: ${workerProf.age || realAge} Years` : 'Profile not yet configured'}
+                    ${workerProf ? `Trade: <strong>${escapeHTML(workerTradeDisplay)}</strong>${(workerProf.age || realAge) ? ` • Age: ${workerProf.age || realAge} Years` : ''}` : 'Profile not yet configured'}
                   </div>
                 </div>
               </div>
@@ -116,7 +117,7 @@ async function renderWorkerProfileView() {
                 <div>
                   <div class="font-bold" style="font-size: 0.95rem; color: #1d4ed8;">Employer Profile</div>
                   <div class="text-secondary" style="font-size: 0.82rem; margin-top: 2px;">
-                    ${employerProf ? `Industry: <strong>${escapeHTML(employerTradeDisplay)}</strong> • Age: ${employerProf.age || realAge} Years` : 'Profile details ready'}
+                    ${employerProf ? `Industry: <strong>${escapeHTML(employerTradeDisplay)}</strong>` : 'Profile details ready'}
                   </div>
                 </div>
               </div>

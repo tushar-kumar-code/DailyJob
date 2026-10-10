@@ -133,16 +133,25 @@ const UI = {
 
   // Simple Trust & Reputation
   renderTrustScore(worker) {
+    const isIdVerified = Boolean(worker && (worker.verified || worker.identityVerified || worker.is_verified));
+    const isSkillVerified = Boolean(worker && (worker.skillVerified || worker.skill_verified));
+    const ratingText = (worker && worker.rating && worker.rating > 0) ? `⭐ ${worker.rating} रेटिंग` : '⭐ नया खाता (0 रेटिंग)';
+    const jobsCount = (worker && (worker.jobsCompleted || worker.totalHires || 0)) || 0;
+
     return `
-      <div class="card mb-3" style="background: #f0fdf4; border: 1.5px solid #bbf7d0;">
-        <h4 style="font-weight: 700; color: #166534; font-size: 1rem; margin-bottom: 0.6rem;">
-          भरोसे की जानकारी
+      <div class="card mb-3" style="background: var(--bg-surface); border: 1.5px solid var(--border-subtle);">
+        <h4 style="font-weight: 700; color: var(--text-primary); font-size: 1rem; margin-bottom: 0.6rem;">
+          भरोसे की जानकारी (Trust & Verification)
         </h4>
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; font-size: 0.88rem;">
-          <div class="font-bold" style="color: #047857;">🟢 Identity verified</div>
-          <div class="font-bold" style="color: #047857;">🟢 Skill verified</div>
-          <div class="font-bold" style="color: #b45309;">⭐ ${worker.rating} रेटिंग</div>
-          <div class="font-bold" style="color: var(--text-primary);">💼 ${worker.jobsCompleted} काम पूरे</div>
+          <div class="font-bold" style="color: ${isIdVerified ? '#047857' : 'var(--text-secondary)'};">
+            ${isIdVerified ? '🟢 Identity Verified' : '⚪ पहचान सत्यापन बाकी (Unverified)'}
+          </div>
+          <div class="font-bold" style="color: ${isSkillVerified ? '#047857' : 'var(--text-secondary)'};">
+            ${isSkillVerified ? '🟢 Skill Verified' : '⚪ हुनर सत्यापन बाकी (Unverified)'}
+          </div>
+          <div class="font-bold" style="color: #b45309;">${ratingText}</div>
+          <div class="font-bold" style="color: var(--text-primary);">💼 ${jobsCount} काम पूरे</div>
         </div>
       </div>
     `;

@@ -130,7 +130,10 @@ function getAdaptiveStepList() {
   // Q4: Experience (Always asked in simple conversational form)
   list.push("js_experience");
 
-  // Q5: Education (ONLY asked if Software, Teaching, Computer, or Professional! Never for cleaner/cook/driver/daily worker)
+  // Q5: Age (Always asked directly from the user - 100% real data)
+  list.push("js_age");
+
+  // Q6: Education (ONLY asked if Software, Teaching, Computer, or Professional! Never for cleaner/cook/driver/daily worker)
   const isEducatedCategory = ["software", "computer", "teaching"].includes(js.category) ||
                              ["permanent", "full_time"].includes(js.workType) && ["office", "manager"].includes(js.category);
   if (isEducatedCategory) {
@@ -536,7 +539,68 @@ function renderCurrentAdaptiveStepHTML(stepKey) {
     }
 
     // -------------------------------------------------------------------------
-    // Job Seeker Q5: Education (ONLY for educated/professional categories)
+    // Job Seeker Q5: Age (आयु / उम्र) - Direct User Input, ZERO False Data
+    // -------------------------------------------------------------------------
+    case "js_age": {
+      const currentAge = adaptiveState.jobSeeker.age || "";
+      const title = isHi ? "आपकी उम्र (Age) कितनी है?" : "What is your age?";
+      const subtitle = isHi ? "अपनी असली उम्र दर्ज करें (कम से कम 18 वर्ष):" : "Enter your real age (at least 18 years):";
+
+      return `
+        <div class="adaptive-question-hero">
+          <div class="adaptive-question-header">
+            <div>
+              <h2 class="adaptive-question-title" id="current-q-text">${title}</h2>
+              <p class="adaptive-question-subtitle">${subtitle}</p>
+            </div>
+          </div>
+
+          <div style="background: var(--bg-surface-muted); padding: 1.25rem; border-radius: var(--radius-lg); border: 1px solid var(--border-subtle); margin-bottom: 1.25rem; max-width: 420px;">
+            <label class="dailyjob-step-label" style="font-size: 0.95rem; font-weight: 700; display: block; margin-bottom: 0.5rem;">
+              🎂 ${isHi ? 'अपनी उम्र दर्ज करें (वर्ष में):' : 'Enter your age (in years):'}
+            </label>
+            <div style="display: flex; gap: 0.75rem; align-items: center;">
+              <input 
+                type="number" 
+                id="adaptive-user-age-input"
+                class="form-control" 
+                min="18" 
+                max="90" 
+                value="${currentAge}" 
+                placeholder="उदा. 24"
+                oninput="adaptiveState.jobSeeker.age = this.value ? parseInt(this.value, 10) : '';"
+                style="font-size: 1.3rem; font-weight: 800; text-align: center; border-radius: 10px; padding: 0.6rem; width: 140px;"
+                autofocus
+              />
+              <span style="font-weight: 700; font-size: 1.05rem; color: var(--text-secondary);">${isHi ? 'वर्ष' : 'Years'}</span>
+            </div>
+            <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.6rem; margin-bottom: 0;">
+              ℹ️ ${isHi ? 'कामगार की आयु 18 वर्ष या उससे अधिक होनी अनिवार्य है।' : 'Worker must be at least 18 years old.'}
+            </p>
+          </div>
+
+          <div>
+            <label class="dailyjob-step-label" style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0.5rem; display: block;">
+              ⚡ ${isHi ? 'या सीधा टच करके चुनें (Quick Select):' : 'Or quick select:'}
+            </label>
+            <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+              ${[18, 20, 22, 24, 25, 28, 30, 32, 35, 40, 45, 50].map(val => `
+                <button 
+                  type="button" 
+                  class="btn btn-sm ${currentAge === val ? 'btn-primary' : 'btn-secondary'}"
+                  onclick="adaptiveState.jobSeeker.age = ${val}; renderAdaptiveDOM();"
+                  style="min-width: 48px; font-weight: 700; border-radius: 8px;">
+                  ${val}
+                </button>
+              `).join("")}
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    // -------------------------------------------------------------------------
+    // Job Seeker Q6: Education (ONLY for educated/professional categories)
     // -------------------------------------------------------------------------
     case "js_education": {
       const edu = adaptiveState.jobSeeker.education;
@@ -1262,6 +1326,18 @@ window.adaptiveGoNext = function() {
     }
     return;
   }
+  if (currentKey === "js_age") {
+    const ageInput = document.getElementById("adaptive-user-age-input");
+    if (ageInput && ageInput.value) {
+      adaptiveState.jobSeeker.age = parseInt(ageInput.value, 10);
+    }
+    if (!adaptiveState.jobSeeker.age || isNaN(adaptiveState.jobSeeker.age) || adaptiveState.jobSeeker.age < 18 || adaptiveState.jobSeeker.age > 99) {
+      if (typeof showToast === 'function') {
+        showToast(adaptiveState.lang === 'hi' ? "कृपया वैध उम्र (18 वर्ष या अधिक) दर्ज करें" : "Please enter a valid age (18+)", "warning");
+      }
+      return;
+    }
+  }
   if (currentKey === "emp_category" && !adaptiveState.employer.empCategory) {
     if (typeof showToast === 'function') {
       showToast(adaptiveState.lang === 'hi' ? "कृपया कार्य श्रेणी चुनें" : "Please select category", "info");
@@ -1447,8 +1523,8 @@ function renderAdaptiveDOM() {
 // ---------------------------------------------------------------------------
 window.handleCompleteProfile = async function() {
   const userType = adaptiveState.activeFlow === "employer" ? "employer" : "job_seeker";
-  const numAge = 26;
-  const profession = adaptiveState.jobSeeker.categoryTitle || "Electrician";
+  const numAge = adaptiveState.jobSeeker.age ? parseInt(adaptiveState.jobSeeker.age, 10) : (window.authService?.user?.age || null);
+  const profession = adaptiveState.jobSeeker.categoryTitle || "कामगार";
 
   return await window.authService.saveProfile({
     user_type: userType,
