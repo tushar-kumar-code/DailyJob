@@ -1,0 +1,4756 @@
+[
+  {
+    "user_id": "usr_seed_worker_01",
+    "name": "Ravi Kumar",
+    "email": "ravi@example.com",
+    "password_hash": "f62eb29b380fb353683a6697486e92efbf075836881c96bbf049da8bcf82903332ebbc5b064c9bb4377bb9c3a3782741ee2b45055b8e90616e138ae33b47926e",
+    "salt": "a1b2c3d4e5f60718293a4b5c6d7e8f90",
+    "auth_provider": "local",
+    "role": "worker",
+    "created_at": "2026-10-01T10:00:00.000Z",
+    "updated_at": "2026-10-01T10:00:00.000Z"
+  },
+  {
+    "user_id": "usr_seed_employer_01",
+    "name": "Rajesh Sharma",
+    "email": "rajesh@example.com",
+    "password_hash": "f62eb29b380fb353683a6697486e92efbf075836881c96bbf049da8bcf82903332ebbc5b064c9bb4377bb9c3a3782741ee2b45055b8e90616e138ae33b47926e",
+    "salt": "a1b2c3d4e5f60718293a4b5c6d7e8f90",
+    "auth_provider": "local",
+    "role": "employer",
+    "created_at": "2026-10-01T10:00:00.000Z",
+    "updated_at": "2026-10-01T10:00:00.000Z"
+  },
+  {
+    "user_id": "usr_360a865d819d49499a800bf514313e76",
+    "name": "Ravi Kumar",
+    "email": "ravi.kumar@gmail.com",
+    "auth_provider": "google",
+    "google_sub": "google_test_1791307145708",
+    "role": "worker",
+    "created_at": "2026-10-06T17:19:05.708Z",
+    "updated_at": "2026-10-06T17:19:05.708Z"
+  },
+  {
+    "user_id": "usr_e1fdfc8d895f4a28b942c6f00c6876d0",
+    "name": "Tushar Sharma",
+    "email": "testuser_1791307265488@example.com",
+    "password_hash": "2e5d3d18265d3e73985d5ab8e0fd48d690b78609e420e2d741265003339e50070cbd2a70a36c9e3bc3f1fdc6d33bd7294aa2911bbc22c24dbc266f874d2107fe",
+    "salt": "af1ef3dd7ab6aac9bcff25de5832f0f8",
+    "auth_provider": "local",
+    "role": "worker",
+    "created_at": "2026-10-06T17:21:05.686Z",
+    "updated_at": "2026-10-06T17:21:06.184Z"
+  },
+  {
+    "user_id": "usr_54c405c5899841a698af3a23002b9c80",
+    "name": "Tushar Sharma",
+    "email": "testuser_1791335696011@example.com",
+    "password_hash": "b9ffc57d8c8d99dfde5bec62b75b64d5b596cec589cca06b556533acc018bb2a6903fcae512657c76847150a6124f97f2955b75f9d56533bdea1b67b24f97a4c",
+    "salt": "480902781ce6c8440c20e540508b1149",
+    "auth_provider": "local",
+    "role": "worker",
+    "created_at": "2026-10-07T01:14:56.124Z",
+    "updated_at": "2026-10-07T01:14:56.397Z"
+  },
+  {
+    "user_id": "usr_cc4303ac27a2454291ddcb6657239791",
+    "username": "Tushar Sharma",
+    "name": "Tushar Sharma",
+    "email": "testuser_1791336118699@example.com",
+    "password_hash": "b69e833179b4d01c409a2f8b8941c6aa8f12026f37598d4895985f69394d6aacb112914a77c4c893b58c47d634a3fb450b1b8e3f3d609bb46ba73ac9cfd5ae6b",
+    "salt": "d09ec0c5e02ce1821100ab91080bfa8c",
+    "auth_provider": "local",
+    "role": "worker",
+    "saved_data": null,
+    "created_at": "2026-10-07T01:21:58.814Z",
+    "updated_at": "2026-10-07T01:21:59.078Z"
+  },
+  {
+    "user_id": "usr_2fa73ab36a8042c5863364f8f078df67",
+    "username": "rahul_verma",
+    "name": "rahul_verma",
+    "email": "dailyjob_user_1791336119086@example.com",
+    "password_hash": "0a40ff4f00138f901366e7517f689d4abf6c6bcc47d4553d0bbd7acb444bf36de3e25cd6e30a0cc72b9cccdddac0cd9c58ec02a9d66b2896d3b25294f72172a1",
+    "salt": "305210a7f2ee71df6bb87d91d35ea245",
+    "auth_provider": "local",
+    "role": "worker",
+    "saved_data": {
+      "savedJobIds": [
+        "job-101",
+        "job-104"
+      ],
+      "appliedJobs": [
+        {
+          "jobId": "job-101",
+          "date": "2026-10-07"
+        }
+      ],
+      "customNotes": "My saved daily jobs checklist"
+    },
+    "created_at": "2026-10-07T01:21:59.130Z",
+    "updated_at": "2026-10-07T01:21:59.281Z"
+  },
+  {
+    "user_id": "usr_ff3dce027fbc44489ece0a8f673c9126",
+    "username": "Tushar Sharma",
+    "name": "Tushar Sharma",
+    "email": "testuser_1791336230070@example.com",
+    "password_hash": "155f7ef6f2cde111d182470651bcd8db326730d3ec81ff4c16ed3a45bf1abdb29fcf45a801a57eb43520d385606e80bddf2065ef6904d71f2118fc131b9dcc91",
+    "salt": "310456f76f68abf42f413c93458d5ca2",
+    "auth_provider": "local",
+    "role": "worker",
+    "saved_data": null,
+    "created_at": "2026-10-07T01:23:50.205Z",
+    "updated_at": "2026-10-07T01:23:50.642Z"
+  },
+  {
+    "user_id": "usr_e2e76ba683744e79a91c6289e2219076",
+    "username": "rahul_verma",
+    "name": "rahul_verma",
+    "email": "dailyjob_user_1791336230651@example.com",
+    "password_hash": "c567c37b58fd0f81a9f328f6bcae82f9d773758610b86c37de8e0d27220d8d5005b75c27d0f9d68b54337d3a6cf985bc05c262dcb40d39215cda6fb9a0d37edc",
+    "salt": "98e34c32bdfcf551c008028fe7690090",
+    "auth_provider": "local",
+    "role": "worker",
+    "saved_data": {
+      "savedJobIds": [
+        "job-101",
+        "job-104"
+      ],
+      "appliedJobs": [
+        {
+          "jobId": "job-101",
+          "date": "2026-10-07"
+        }
+      ],
+      "customNotes": "My saved daily jobs checklist"
+    },
+    "created_at": "2026-10-07T01:23:50.726Z",
+    "updated_at": "2026-10-07T01:23:50.983Z"
+  },
+  {
+    "user_id": "usr_12319991fb864da988e1142acdf2feab",
+    "username": "Tushar Sharma",
+    "name": "Tushar Sharma",
+    "email": "testuser_1791374169066@example.com",
+    "password_hash": "72367bd2836d80db4c4705ec55425fdca0c6861ea01a0107481ce8e8fc136eb3db81c5b50b4ed6209bee686b6b165a7a86e1be56637169f7d23fe2faab177cf2",
+    "salt": "74205ab20830f048a6a0c30f3194dd70",
+    "auth_provider": "local",
+    "role": "worker",
+    "saved_data": null,
+    "created_at": "2026-10-07T11:56:09.267Z",
+    "updated_at": "2026-10-07T11:56:09.723Z"
+  },
+  {
+    "user_id": "usr_6e17b87e815f43e39bf071890ce56aa7",
+    "username": "rahul_verma",
+    "name": "rahul_verma",
+    "email": "dailyjob_user_1791374169733@example.com",
+    "password_hash": "29320dea4e154a00b38e8e6dd637826c8408a8a2f50c014f7fe12bb7424e47cd7f6469b4c542d7c8bdecfe6c73773a97f25c9feac7d71fa2b14bd07c261f8929",
+    "salt": "f12848d3c2d465a7979a04b2204120db",
+    "auth_provider": "local",
+    "role": "worker",
+    "saved_data": {
+      "savedJobIds": [
+        "job-101",
+        "job-104"
+      ],
+      "appliedJobs": [
+        {
+          "jobId": "job-101",
+          "date": "2026-10-07"
+        }
+      ],
+      "customNotes": "My saved daily jobs checklist"
+    },
+    "created_at": "2026-10-07T11:56:09.809Z",
+    "updated_at": "2026-10-07T11:56:10.066Z"
+  },
+  {
+    "user_id": "usr_fb3aa4ad805746c3bc495585d3bbdf41",
+    "username": "dailyjob_tester",
+    "name": "dailyjob_tester",
+    "email": "test_browser_user_1@example.com",
+    "password_hash": "a62fc4230929841cc7f2620537b574542bb6124f11cfee3b5167b601b25eb85aa226d56dbd80d57f8994f0732b5f5e645b314e8516731d82c24c70e1be9f228c",
+    "salt": "60100fc3b91d849092e0a6796bfb6181",
+    "auth_provider": "local",
+    "role": "worker",
+    "saved_data": null,
+    "created_at": "2026-10-07T11:59:29.191Z",
+    "updated_at": "2026-10-07T12:05:27.705Z"
+  },
+  {
+    "user_id": "usr_60507460932c4c3fb8d40df990645aa0",
+    "username": "Tushar Kumar",
+    "name": "Tushar Kumar",
+    "email": "tushar1400@gmail.com",
+    "password_hash": "a92196f24b068d6600f3d0812501190323b16b15739562f56822175dc21d8c91fb62314ca9edf3c5ba4c4a0bf7b876f23a39dea5526309e747d8b3968ca6c046",
+    "salt": "839633ea1e5d9fab7822c8ccdab5c294",
+    "auth_provider": "local",
+    "role": "worker",
+    "saved_data": null,
+    "created_at": "2026-10-07T12:10:14.399Z",
+    "updated_at": "2026-10-07T13:21:33.426Z",
+    "profile_completed": true,
+    "profile": {
+      "user_type": "job_seeker",
+      "profession": "Cook",
+      "custom_profession": null,
+      "completed_at": "2026-10-07T12:30:20.269Z"
+    }
+  },
+  {
+    "user_id": "usr_7e9c1b24341d410ba10be2b6be2cf9e3",
+    "username": "Tushar Sharma",
+    "name": "Tushar Sharma",
+    "email": "testuser_1791375339454@example.com",
+    "password_hash": "bbd9a4763dd01dea73f29436df30d151e623d77047752c9820c2ccc676d0369ca14363988620f09638fbd3d72ae52ff10e50a5b1ac17860b07700a2c0f7e085a",
+    "salt": "5e22852ec512d77e6ed22ecab86011df",
+    "auth_provider": "local",
+    "role": "worker",
+    "saved_data": null,
+    "created_at": "2026-10-07T12:15:39.668Z",
+    "updated_at": "2026-10-07T12:15:39.990Z"
+  },
+  {
+    "user_id": "usr_ea8d9424a16a458ea5483e171f181924",
+    "username": "rahul_verma",
+    "name": "rahul_verma",
+    "email": "dailyjob_user_1791375339999@example.com",
+    "password_hash": "6522f6536137bd6c06bf635f1f7e42fa6e585e362293173ba6325e722d8a217ade6a653f87adef7c603445b42a5a6ec89a5bebafc03751fd83c290decfe8574a",
+    "salt": "041bf5f28a9f6e61692c5a8bbee23949",
+    "auth_provider": "local",
+    "role": "worker",
+    "saved_data": {
+      "savedJobIds": [
+        "job-101",
+        "job-104"
+      ],
+      "appliedJobs": [
+        {
+          "jobId": "job-101",
+          "date": "2026-10-07"
+        }
+      ],
+      "customNotes": "My saved daily jobs checklist"
+    },
+    "created_at": "2026-10-07T12:15:40.051Z",
+    "updated_at": "2026-10-07T12:15:40.235Z"
+  },
+  {
+    "user_id": "usr_a0d116d665fe40fc92cfc2ceef703676",
+    "username": "Tushar Sharma",
+    "name": "Tushar Sharma",
+    "email": "testuser_1791375860128@example.com",
+    "password_hash": "07f71c79ffb738ea888b42e417ee0baefc22120210fe14c7100c9bbe676da5ee4fd33bacea43af069f44bf0110047886b99f48be7d47e5c65d997d6b4e867e46",
+    "salt": "63e8ca8d7865bb700c8940656dd9986b",
+    "auth_provider": "local",
+    "role": "worker",
+    "profile_completed": false,
+    "profile": null,
+    "saved_data": null,
+    "created_at": "2026-10-07T12:24:20.347Z",
+    "updated_at": "2026-10-07T12:24:20.750Z"
+  },
+  {
+    "user_id": "usr_36d4f023d4f243abb3de8cfbd5bf6d08",
+    "username": "rahul_verma",
+    "name": "rahul_verma",
+    "email": "dailyjob_user_1791375860758@example.com",
+    "password_hash": "b6b4ba87f3050279149ecea074d42a7752cd4e22d37d5b2c8ec5107ba0b47ba3f5ec70606e503242136aa7711d6cb018481bc00a63ff17c9b7384c178fa7b5e7",
+    "salt": "d62beb4204d8d8bfb30d78c95a201e09",
+    "auth_provider": "local",
+    "role": "worker",
+    "profile_completed": false,
+    "profile": null,
+    "saved_data": {
+      "savedJobIds": [
+        "job-101",
+        "job-104"
+      ],
+      "appliedJobs": [
+        {
+          "jobId": "job-101",
+          "date": "2026-10-07"
+        }
+      ],
+      "customNotes": "My saved daily jobs checklist"
+    },
+    "created_at": "2026-10-07T12:24:20.829Z",
+    "updated_at": "2026-10-07T12:24:21.057Z"
+  },
+  {
+    "user_id": "usr_dbce02bb6a204a67884672d3db10fdf3",
+    "username": "rohit_worker",
+    "name": "rohit_worker",
+    "email": "prof_user_1791375861064@example.com",
+    "password_hash": "d74125130178a97c3a32579f402945bb5238a2e91bf93582dada6189080892cb6ff2c0ba35406771a25f2a070d9ba390b644a739312b2bfa64bf5eb4e84f85be",
+    "salt": "4fd139823e65c2011aee2978b757fe76",
+    "auth_provider": "local",
+    "role": "worker",
+    "profile_completed": true,
+    "profile": {
+      "user_type": "job_seeker",
+      "profession": "Electrician",
+      "custom_profession": null,
+      "completed_at": "2026-10-07T12:24:21.145Z"
+    },
+    "saved_data": null,
+    "created_at": "2026-10-07T12:24:21.133Z",
+    "updated_at": "2026-10-07T12:24:21.379Z"
+  },
+  {
+    "user_id": "usr_6c19c570afe946519d16bfc73e22cbbb",
+    "username": "sharma_contractor",
+    "name": "sharma_contractor",
+    "email": "emp_user_1791375861149@example.com",
+    "password_hash": "5d5877a57359c9f4915c726d13d632202d5fd26e9b783dab7989dab9d0352fcbdb01f6a34376c731763ec16e40596a2de5654e3a921f2e6ef92b1ec07131aec3",
+    "salt": "df8d866168d97bb2a1c3ef4396da3800",
+    "auth_provider": "local",
+    "role": "employer",
+    "profile_completed": true,
+    "profile": {
+      "user_type": "employer",
+      "profession": "Event Catering & Tent Services",
+      "custom_profession": "Event Catering & Tent Services",
+      "completed_at": "2026-10-07T12:24:21.230Z"
+    },
+    "saved_data": null,
+    "created_at": "2026-10-07T12:24:21.223Z",
+    "updated_at": "2026-10-07T12:24:21.306Z"
+  },
+  {
+    "user_id": "usr_8f860b001720447c8d32992e9d93bb91",
+    "username": "suresh_electrician",
+    "name": "suresh_electrician",
+    "email": "seeker_flow_1791376074675@example.com",
+    "password_hash": "d460c06ea5b903e7752e65be57aa9e94a8e50f342bf3047271943551e4e965eae5ae5aae1f3c1e0a6e4b0e2a9882fe3ba08ba07398b466070d2d79bfd90ec509",
+    "salt": "e5859e2f104961239e37bb2314db4bf6",
+    "auth_provider": "local",
+    "role": "worker",
+    "profile_completed": true,
+    "profile": {
+      "user_type": "job_seeker",
+      "profession": "Electrician",
+      "custom_profession": null,
+      "completed_at": "2026-10-07T12:27:54.821Z"
+    },
+    "saved_data": null,
+    "created_at": "2026-10-07T12:27:54.806Z",
+    "updated_at": "2026-10-07T12:27:54.907Z"
+  },
+  {
+    "user_id": "usr_638b5eb90ffc4a9186d6f577a4f18510",
+    "username": "vikram_builder",
+    "name": "vikram_builder",
+    "email": "emp_flow_1791376074911@example.com",
+    "password_hash": "59cf95a7d03c5200910a35d3b49fae54d5bd1125df74c87e86506b31db0b2a0e461d8ff09a070f51f16ab1c6da10e2801071f56003b16f88a115da60ca79387b",
+    "salt": "489cec6727359c1509c99406fc5a41fa",
+    "auth_provider": "local",
+    "role": "employer",
+    "profile_completed": true,
+    "profile": {
+      "user_type": "employer",
+      "profession": "Solar Panel Installation & Roofing",
+      "custom_profession": "Solar Panel Installation & Roofing",
+      "completed_at": "2026-10-07T12:27:55.008Z"
+    },
+    "saved_data": null,
+    "created_at": "2026-10-07T12:27:55.001Z",
+    "updated_at": "2026-10-07T12:27:55.101Z"
+  },
+  {
+    "user_id": "usr_c31633c917624fc68db716ec399d63de",
+    "username": "temp_user",
+    "name": "temp_user",
+    "email": "temp_1791376075108@example.com",
+    "password_hash": "1a2ceb808824e7e433059d1168dab133320209fbdcdeac38e70fd8e0be3dc8da7361e9e9776d554752adf0414cdc4684751060c329aeb9d53c5cb1b73e711526",
+    "salt": "be39ace00355327f64f714070e695580",
+    "auth_provider": "local",
+    "role": "worker",
+    "profile_completed": false,
+    "profile": null,
+    "saved_data": null,
+    "created_at": "2026-10-07T12:27:55.190Z",
+    "updated_at": "2026-10-07T12:27:55.190Z"
+  },
+  {
+    "user_id": "usr_4ccae85d00f84973847e2f5cbcc411ab",
+    "username": "suresh_electrician",
+    "name": "suresh_electrician",
+    "email": "seeker_flow_1791377232171@example.com",
+    "password_hash": "e8b1a7ee77b371400febd3786d0831b89ec297992b7fc144989e3ab1624d25d3847d89a19897216513518cd4459ed3fc5dcbe8b997aa27b350fa930400c4a064",
+    "salt": "c9374550a2875716165e739ec890ff09",
+    "auth_provider": "local",
+    "role": "worker",
+    "profile_completed": true,
+    "profile": {
+      "user_type": "job_seeker",
+      "profession": "Electrician",
+      "custom_profession": null,
+      "completed_at": "2026-10-07T12:47:12.381Z"
+    },
+    "saved_data": null,
+    "created_at": "2026-10-07T12:47:12.353Z",
+    "updated_at": "2026-10-07T12:47:12.457Z"
+  },
+  {
+    "user_id": "usr_659b6a76076b4f4a8ccbf885f1bdaf58",
+    "username": "vikram_builder",
+    "name": "vikram_builder",
+    "email": "emp_flow_1791377232462@example.com",
+    "password_hash": "7489e6bb90973156462c860d6041dd83f9a46f4c0bd715c455067beed2ebaa6aa3aba10de149aaf657e0f26a7d43ec2f4c01f9f660bfe3e3aa1cc84a7408dc00",
+    "salt": "fcdc33d5a384b0500ff537c1b50bbe7f",
+    "auth_provider": "local",
+    "role": "employer",
+    "profile_completed": true,
+    "profile": {
+      "user_type": "employer",
+      "profession": "Solar Panel Installation & Roofing",
+      "custom_profession": "Solar Panel Installation & Roofing",
+      "completed_at": "2026-10-07T12:47:12.551Z"
+    },
+    "saved_data": null,
+    "created_at": "2026-10-07T12:47:12.534Z",
+    "updated_at": "2026-10-07T12:47:12.628Z"
+  },
+  {
+    "user_id": "usr_f8f91fd37ecf48ccb24bf6183803c979",
+    "username": "temp_user",
+    "name": "temp_user",
+    "email": "temp_1791377232633@example.com",
+    "password_hash": "097a41b9c290732681af54b145e0e277e9b2e29cb363fd1c561f84a609173a412c2c5da05d4a4c0c114d70fcc5d7e13df7ed9c6f4fee294d02835d35f09e2ea0",
+    "salt": "0db3389ab17441b01990e791907f9e7e",
+    "auth_provider": "local",
+    "role": "worker",
+    "profile_completed": false,
+    "profile": null,
+    "saved_data": null,
+    "created_at": "2026-10-07T12:47:12.703Z",
+    "updated_at": "2026-10-07T12:47:12.703Z"
+  },
+  {
+    "user_id": "usr_7e5e40381198437c9c5476075fe624f0",
+    "username": "Tushar Sharma",
+    "name": "Tushar Sharma",
+    "email": "testuser_1791377618320@example.com",
+    "password_hash": "7cd9f1d805fc657bb95b8ea0ad429d25ee57ce96c23c685e8db52f70100aa91fd47778497b8137cde92344414b6d092014b5b5a5f4357305ef617c8bd492739d",
+    "salt": "09256f9e1b9b0ae2c1de0075c79215d9",
+    "auth_provider": "local",
+    "role": "worker",
+    "profile_completed": false,
+    "profile": null,
+    "saved_data": null,
+    "created_at": "2026-10-07T12:53:38.493Z",
+    "updated_at": "2026-10-07T12:53:38.908Z"
+  },
+  {
+    "user_id": "usr_2bab68892f89437d85236ca97ffc6a30",
+    "username": "rahul_verma",
+    "name": "rahul_verma",
+    "email": "dailyjob_user_1791377618916@example.com",
+    "password_hash": "70959720e66a9b3e74386080c14905dc5dde5d17a635f65be0efeee0d8fa200401166f2855b289aebdce7d296e51134bc96588261ef1cc3519e82862f5eb75dc",
+    "salt": "607ada54484f5f5427277b99c9f8d467",
+    "auth_provider": "local",
+    "role": "worker",
+    "profile_completed": false,
+    "profile": null,
+    "saved_data": {
+      "savedJobIds": [
+        "job-101",
+        "job-104"
+      ],
+      "appliedJobs": [
+        {
+          "jobId": "job-101",
+          "date": "2026-10-07"
+        }
+      ],
+      "customNotes": "My saved daily jobs checklist"
+    },
+    "created_at": "2026-10-07T12:53:38.997Z",
+    "updated_at": "2026-10-07T12:53:39.227Z"
+  },
+  {
+    "user_id": "usr_10c3eb9006a24a7e85121b8d106e3fb3",
+    "username": "rohit_worker",
+    "name": "rohit_worker",
+    "email": "prof_user_1791377619234@example.com",
+    "password_hash": "cacc33bc867dba09f42644802297f6a591a0c6d6a3d87e5d9b6782b1c08003aa74cd538cb87ecefa5950ac47644319631d8178b187ab98720422f99feb504410",
+    "salt": "7e186336920e504c4a0ffee825cea7c8",
+    "auth_provider": "local",
+    "role": "worker",
+    "profile_completed": true,
+    "profile": {
+      "user_type": "job_seeker",
+      "profession": "Electrician",
+      "custom_profession": null,
+      "completed_at": "2026-10-07T12:53:39.314Z"
+    },
+    "saved_data": null,
+    "created_at": "2026-10-07T12:53:39.301Z",
+    "updated_at": "2026-10-07T12:53:39.534Z"
+  },
+  {
+    "user_id": "usr_d2de6494f6eb4c3b94e4e36f90170bb4",
+    "username": "sharma_contractor",
+    "name": "sharma_contractor",
+    "email": "emp_user_1791377619318@example.com",
+    "password_hash": "6505b2733751daad62be5fd66f56774fe9bb674c86ae8388c5c19e4067eb494637b4027efbdaf06e85aa1331e8ec98b62f41452773dfb5c3891f1fd366b6c666",
+    "salt": "e15b5f7f4d593ca219d3ca261a3d64e0",
+    "auth_provider": "local",
+    "role": "employer",
+    "profile_completed": true,
+    "profile": {
+      "user_type": "employer",
+      "profession": "Event Catering & Tent Services",
+      "custom_profession": "Event Catering & Tent Services",
+      "completed_at": "2026-10-07T12:53:39.392Z"
+    },
+    "saved_data": null,
+    "created_at": "2026-10-07T12:53:39.387Z",
+    "updated_at": "2026-10-07T12:53:39.464Z"
+  },
+  {
+    "user_id": "usr_adc5feb157604644953866059104e7d4",
+    "username": "Tushar",
+    "name": "Tushar",
+    "email": "tushardewangan@gmail.com",
+    "password_hash": "022f680b9e8bf2877944da9be4877b34aaca31d0bd3a9d7abad1bec6935afac5d7fcc03aaa3dd9bbf75a5d932fe4221c48823297644deedbf0c1782b455a55c6",
+    "salt": "da5ea8d2fa776dcd98899054b989e690",
+    "auth_provider": "local",
+    "role": "employer",
+    "profile_completed": true,
+    "profile": {
+      "user_type": "job_seeker",
+      "age": 18,
+      "profession": "Painter",
+      "custom_profession": null,
+      "completed_at": "2026-10-08T04:36:49.524Z"
+    },
+    "saved_data": null,
+    "created_at": "2026-10-07T13:22:09.932Z",
+    "updated_at": "2026-10-08T10:22:23.121Z",
+    "age": 18,
+    "worker_profile": {
+      "user_type": "job_seeker",
+      "age": 18,
+      "profession": "Painter",
+      "custom_profession": null,
+      "completed_at": "2026-10-08T04:36:49.524Z"
+    }
+  },
+  {
+    "user_id": "usr_bd7fa84a1e77484da4e0a581f6da86c0",
+    "username": "Tushar Sharma",
+    "name": "Tushar Sharma",
+    "email": "testuser_1791379381887@example.com",
+    "password_hash": "31e401e67051ca156cbecabd1e6e26bee2afbd1132ec3000776f6b169bacc1b215ed2be95f1df1296f3480841400489f8fb0d9d6c298d48733feb1ae0e7878bb",
+    "salt": "9d6d10fc9bb63bfcf12c17841b32b078",
+    "auth_provider": "local",
+    "role": "worker",
+    "profile_completed": false,
+    "profile": null,
+    "saved_data": null,
+    "created_at": "2026-10-07T13:23:02.064Z",
+    "updated_at": "2026-10-07T13:23:02.459Z"
+  },
+  {
+    "user_id": "usr_381cf9d2b47445ba9b269570aabe82e8",
+    "username": "rahul_verma",
+    "name": "rahul_verma",
+    "email": "dailyjob_user_1791379382470@example.com",
+    "password_hash": "0d9e818ce8f5ab681cccd24fad0b64ac7c2159aca69be916d8d7e9811b3fc1cfed44667668d4234283c8aa00fbb1b0782efc744bbd7d1c3ac28de2597c4877fd",
+    "salt": "026335a4278e15133e8e225939df3d1a",
+    "auth_provider": "local",
+    "role": "worker",
+    "profile_completed": false,
+    "profile": null,
+    "saved_data": {
+      "savedJobIds": [
+        "job-101",
+        "job-104"
+      ],
+      "appliedJobs": [
+        {
+          "jobId": "job-101",
+          "date": "2026-10-07"
+        }
+      ],
+      "customNotes": "My saved daily jobs checklist"
+    },
+    "created_at": "2026-10-07T13:23:02.534Z",
+    "updated_at": "2026-10-07T13:23:02.765Z"
+  },
+  {
+    "user_id": "usr_500c4eaf8bff487285dc530af1c9cce2",
+    "username": "rohit_worker",
+    "name": "rohit_worker",
+    "email": "prof_user_1791379382775@example.com",
+    "password_hash": "6237a6651d59c6d4d582a35ceaf24c89c63a92cacc0fb475881d0c3a571536bb5c547f0cef8e8549ff8e21113eb5d0ecb2989ee3e09129486326500c3a31bfbf",
+    "salt": "ef58fbe34e3bff1e79335e4899054a3c",
+    "auth_provider": "local",
+    "role": "worker",
+    "profile_completed": true,
+    "profile": {
+      "user_type": "job_seeker",
+      "age": 26,
+      "profession": "Electrician",
+      "custom_profession": null,
+      "completed_at": "2026-10-07T13:23:02.862Z"
+    },
+    "saved_data": null,
+    "created_at": "2026-10-07T13:23:02.846Z",
+    "updated_at": "2026-10-07T13:23:03.096Z",
+    "age": 26
+  },
+  {
+    "user_id": "usr_e2cf2f1055184d8a875ca7fbeb2d726d",
+    "username": "sharma_contractor",
+    "name": "sharma_contractor",
+    "email": "emp_user_1791379382869@example.com",
+    "password_hash": "447e0b7e92c00492d10f78faf93ae03d391e77f78d39f96069c0db21f6a0af75ad801aee41dc2b43efb4c90dd2271b7f08e2fee871a3d47933731bc1460bddc1",
+    "salt": "8004a27e731e1062cf2515bf38c41b3f",
+    "auth_provider": "local",
+    "role": "employer",
+    "profile_completed": true,
+    "profile": {
+      "user_type": "employer",
+      "age": 38,
+      "profession": "Event Catering & Tent Services",
+      "custom_profession": "Event Catering & Tent Services",
+      "completed_at": "2026-10-07T13:23:02.947Z"
+    },
+    "saved_data": null,
+    "created_at": "2026-10-07T13:23:02.941Z",
+    "updated_at": "2026-10-07T13:23:03.021Z",
+    "age": 38
+  },
+  {
+    "user_id": "usr_59ee77f746734968a6f5a32c39bd10c1",
+    "username": "suresh_electrician",
+    "name": "suresh_electrician",
+    "email": "seeker_flow_1791379401342@example.com",
+    "password_hash": "767a2ec5bdac97cacd551edbda353c7091824a3c93465e393a73292465c673c57a7d38cba84130f86ec3f065aaa168316b73be73fe35b44a5138a342e5cff4b9",
+    "salt": "09152486fed9c5f80899ff6145c9365e",
+    "auth_provider": "local",
+    "role": "worker",
+    "profile_completed": true,
+    "profile": {
+      "user_type": "job_seeker",
+      "age": 26,
+      "profession": "Electrician",
+      "custom_profession": null,
+      "completed_at": "2026-10-07T13:23:21.486Z"
+    },
+    "saved_data": null,
+    "created_at": "2026-10-07T13:23:21.472Z",
+    "updated_at": "2026-10-07T13:23:21.561Z",
+    "age": 26
+  },
+  {
+    "user_id": "usr_a530fc6a937f4a63998ee3104fdd7e42",
+    "username": "vikram_builder",
+    "name": "vikram_builder",
+    "email": "emp_flow_1791379401566@example.com",
+    "password_hash": "ea9924f1b4452a0cf219dbe739d550d407f821eedd044d84456f8f0ed93f0968b61cfbc51d6f4531f888f5a8567dd0dc3e54d21f67c6502881caa8482d935d17",
+    "salt": "a08d95a6084ae8d56ace5b25a2481ed3",
+    "auth_provider": "local",
+    "role": "employer",
+    "profile_completed": true,
+    "profile": {
+      "user_type": "employer",
+      "age": 35,
+      "profession": "Solar Panel Installation & Roofing",
+      "custom_profession": "Solar Panel Installation & Roofing",
+      "completed_at": "2026-10-07T13:23:21.648Z"
+    },
+    "saved_data": null,
+    "created_at": "2026-10-07T13:23:21.641Z",
+    "updated_at": "2026-10-07T13:23:21.721Z",
+    "age": 35
+  },
+  {
+    "user_id": "usr_743dc288a6cf4d5f922ba287b639a3ed",
+    "username": "temp_user",
+    "name": "temp_user",
+    "email": "temp_1791379401726@example.com",
+    "password_hash": "b999e8a9514f70cf724d60211c516053fc38c6a3078f988e40971c60f4a77e7a0ca9bc82ee2ef74b1a7c63148af8ca8a979cc7bc48a6ec061feaf0ed28750252",
+    "salt": "5282e62274ae83eccafb58b98e07fe30",
+    "auth_provider": "local",
+    "role": "worker",
+    "profile_completed": false,
+    "profile": null,
+    "saved_data": null,
+    "created_at": "2026-10-07T13:23:21.791Z",
+    "updated_at": "2026-10-07T13:23:21.791Z"
+  },
+  {
+    "user_id": "usr_e93e15a015d647d084acddaa5c13e82f",
+    "username": "suresh_electrician",
+    "name": "suresh_electrician",
+    "email": "seeker_flow_1791379988332@example.com",
+    "password_hash": "f57497dd5835b5b927f09a33f4435931e04e19333bb07c2eb3f3f47cbfbcc0c4db7c3303b4dab8defd282e97dc4ddff6d144691a6140a6ef6e31ea57e1f55afd",
+    "salt": "9b0e73cd2b8de94c878a2254da714822",
+    "auth_provider": "local",
+    "role": "worker",
+    "profile_completed": true,
+    "profile": {
+      "user_type": "job_seeker",
+      "age": 26,
+      "profession": "Electrician",
+      "custom_profession": null,
+      "completed_at": "2026-10-07T13:33:08.428Z"
+    },
+    "saved_data": null,
+    "created_at": "2026-10-07T13:33:08.418Z",
+    "updated_at": "2026-10-07T13:33:08.477Z",
+    "age": 26
+  },
+  {
+    "user_id": "usr_c34cc690a5da407f9ded5761c48e03e5",
+    "username": "vikram_builder",
+    "name": "vikram_builder",
+    "email": "emp_flow_1791379988483@example.com",
+    "password_hash": "e005faace109ed17a29fcb96f7160d86c6ce10d24cd54d326fb9928273588b38491fdf1394af4c7f931de4ba362b859f1cec09ecf7dd2962623e8011955502e1",
+    "salt": "b6f5870e861e1fee962cfe61bf874d55",
+    "auth_provider": "local",
+    "role": "employer",
+    "profile_completed": true,
+    "profile": {
+      "user_type": "employer",
+      "age": 35,
+      "profession": "Solar Panel Installation & Roofing",
+      "custom_profession": "Solar Panel Installation & Roofing",
+      "completed_at": "2026-10-07T13:33:08.531Z"
+    },
+    "saved_data": null,
+    "created_at": "2026-10-07T13:33:08.526Z",
+    "updated_at": "2026-10-07T13:33:08.581Z",
+    "age": 35
+  },
+  {
+    "user_id": "usr_7434776dfbbb4b40a9219f2663dc5172",
+    "username": "temp_user",
+    "name": "temp_user",
+    "email": "temp_1791379988587@example.com",
+    "password_hash": "4d57caf82ad8cfbfe09b1ffd8eb2bd1b0687bd2d8f2a713ee846c9c481a128d17cf6797d8ab025a26f32b049952e967f63859e51db92d2c7fe70949760cfd415",
+    "salt": "2cdc7cbd68fef762762eefb8c6e56c7d",
+    "auth_provider": "local",
+    "role": "worker",
+    "profile_completed": false,
+    "profile": null,
+    "saved_data": null,
+    "created_at": "2026-10-07T13:33:08.631Z",
+    "updated_at": "2026-10-07T13:33:08.631Z"
+  },
+  {
+    "user_id": "usr_586a2c88e1fa4c34a909cbfff637bb68",
+    "username": "Tushar Sharma",
+    "name": "Tushar Sharma",
+    "email": "testuser_1791379996603@example.com",
+    "password_hash": "87f67c88c82d9aa926e907d9e378c7857408c6ea48f96f4645a0c97ad05a6aa0f135c6f31858f0bb3dba095f6e43b28dd16a63c77ee9b7be8f5f1cc2a174a16a",
+    "salt": "08674d1196139d91948b177d8ced702d",
+    "auth_provider": "local",
+    "role": "worker",
+    "profile_completed": false,
+    "profile": null,
+    "saved_data": null,
+    "created_at": "2026-10-07T13:33:16.694Z",
+    "updated_at": "2026-10-07T13:33:16.950Z"
+  },
+  {
+    "user_id": "usr_6a7eeb83eac447308d3e979f2c4a6a40",
+    "username": "rahul_verma",
+    "name": "rahul_verma",
+    "email": "dailyjob_user_1791379996959@example.com",
+    "password_hash": "daa32507a2359b1188c28a6e6eaf6bb9a0a7aebd16a76dd6a014e988aff449e9d4a132178f8993fe258391cd758be295f1ad6bbe0e351211b539bc8924c93661",
+    "salt": "13ea64b4e8f7c25e2a7d9a88abb1a5f8",
+    "auth_provider": "local",
+    "role": "worker",
+    "profile_completed": false,
+    "profile": null,
+    "saved_data": {
+      "savedJobIds": [
+        "job-101",
+        "job-104"
+      ],
+      "appliedJobs": [
+        {
+          "jobId": "job-101",
+          "date": "2026-10-07"
+        }
+      ],
+      "customNotes": "My saved daily jobs checklist"
+    },
+    "created_at": "2026-10-07T13:33:17.005Z",
+    "updated_at": "2026-10-07T13:33:17.158Z"
+  },
+  {
+    "user_id": "usr_c219d6d6f2394010872c4f7ef2ca9811",
+    "username": "rohit_worker",
+    "name": "rohit_worker",
+    "email": "prof_user_1791379997165@example.com",
+    "password_hash": "6942e6f1f3dfe61a3cea5ec2879677e583f4ee428be7ed0c35525b7eec8d3586f24761241b4475d1d83a36a6f4c49b99e6888ac08340612bd72f6f0f450d742c",
+    "salt": "36f199357da8460d9aeca981afbd07ac",
+    "auth_provider": "local",
+    "role": "worker",
+    "profile_completed": true,
+    "profile": {
+      "user_type": "job_seeker",
+      "age": 26,
+      "profession": "Electrician",
+      "custom_profession": null,
+      "completed_at": "2026-10-07T13:33:17.223Z"
+    },
+    "saved_data": null,
+    "created_at": "2026-10-07T13:33:17.210Z",
+    "updated_at": "2026-10-07T13:33:17.377Z",
+    "age": 26
+  },
+  {
+    "user_id": "usr_efb1895a3e634092b883c39e2bbbc06b",
+    "username": "sharma_contractor",
+    "name": "sharma_contractor",
+    "email": "emp_user_1791379997228@example.com",
+    "password_hash": "93e085f3297b6ee15b21a74bec75446ffe43ce99164aa93654d6a1bcaf5d533dbecad7954d6d0bac1e63f7b482a4883eb5e65f00a0f5531d09e97b6ca3f43b63",
+    "salt": "30555d2eac271a47b25888c891791f12",
+    "auth_provider": "local",
+    "role": "employer",
+    "profile_completed": true,
+    "profile": {
+      "user_type": "employer",
+      "age": 38,
+      "profession": "Event Catering & Tent Services",
+      "custom_profession": "Event Catering & Tent Services",
+      "completed_at": "2026-10-07T13:33:17.279Z"
+    },
+    "saved_data": null,
+    "created_at": "2026-10-07T13:33:17.274Z",
+    "updated_at": "2026-10-07T13:33:17.328Z",
+    "age": 38
+  },
+  {
+    "user_id": "usr_20ec5b64a7e84c49991109a0282391b3",
+    "username": "Tushar Sharma",
+    "name": "Tushar Sharma",
+    "email": "testuser_1791381595389@example.com",
+    "password_hash": "449ffcfd542e1a69904a02c85ed754202c56c75d4ab0d0f02046ab08ec926acabe2535355500df11c471899dcba6bd9f8fd9b3188979f17b1efe79eee7d5beed",
+    "salt": "ba38cc5cb414cb4f444f25423b488b62",
+    "auth_provider": "local",
+    "role": "worker",
+    "profile_completed": false,
+    "profile": null,
+    "saved_data": null,
+    "created_at": "2026-10-07T13:59:55.575Z",
+    "updated_at": "2026-10-07T13:59:55.974Z"
+  },
+  {
+    "user_id": "usr_ebd55fdf80ef4794881fa1856da3e5b6",
+    "username": "rahul_verma",
+    "name": "rahul_verma",
+    "email": "dailyjob_user_1791381595982@example.com",
+    "password_hash": "2bbaad688a0f9efe39986666a552ae3e5ada289114d90b4b7cc828de5cdb3e197cd975d09525b052d0eca6e900ca273fed58e22755a9c3b16ca984afcd6ee98a",
+    "salt": "7311af84d26ba88fe0b84ecbecd458ab",
+    "auth_provider": "local",
+    "role": "worker",
+    "profile_completed": false,
+    "profile": null,
+    "saved_data": {
+      "savedJobIds": [
+        "job-101",
+        "job-104"
+      ],
+      "appliedJobs": [
+        {
+          "jobId": "job-101",
+          "date": "2026-10-07"
+        }
+      ],
+      "customNotes": "My saved daily jobs checklist"
+    },
+    "created_at": "2026-10-07T13:59:56.049Z",
+    "updated_at": "2026-10-07T13:59:56.277Z"
+  },
+  {
+    "user_id": "usr_1aad68011fbd43119e2001a874541378",
+    "username": "rohit_worker",
+    "name": "rohit_worker",
+    "email": "prof_user_1791381596285@example.com",
+    "password_hash": "191f98c92ca13ef7fefb4335ad2d6c6c61ee08e9f42d21e6f0da696c4d4369ab7c373488164846045e5234d2f933cfb2dd6e5b643694266543ccc8219c1dfb2e",
+    "salt": "a921332f39b8ceaa995ae1d43ff175d8",
+    "auth_provider": "local",
+    "role": "worker",
+    "profile_completed": true,
+    "profile": {
+      "user_type": "job_seeker",
+      "age": 26,
+      "profession": "Electrician",
+      "custom_profession": null,
+      "completed_at": "2026-10-07T13:59:56.369Z"
+    },
+    "saved_data": null,
+    "created_at": "2026-10-07T13:59:56.351Z",
+    "updated_at": "2026-10-07T13:59:56.603Z",
+    "age": 26
+  },
+  {
+    "user_id": "usr_cf90ccaf55d1486aa578ed5b61e171fd",
+    "username": "sharma_contractor",
+    "name": "sharma_contractor",
+    "email": "emp_user_1791381596373@example.com",
+    "password_hash": "e1ebf7d307392ca9089fd8aa2e15d78900227b21613a8ba4c6796cb865929938497b149b732405f1a05770f05747c725e81d703525bb9575fdcb1d28452cfdca",
+    "salt": "5b41c259cecf6de3937a96632033fcec",
+    "auth_provider": "local",
+    "role": "employer",
+    "profile_completed": true,
+    "profile": {
+      "user_type": "employer",
+      "age": 38,
+      "profession": "Event Catering & Tent Services",
+      "custom_profession": "Event Catering & Tent Services",
+      "completed_at": "2026-10-07T13:59:56.445Z"
+    },
+    "saved_data": null,
+    "created_at": "2026-10-07T13:59:56.440Z",
+    "updated_at": "2026-10-07T13:59:56.527Z",
+    "age": 38
+  },
+  {
+    "user_id": "usr_3c35d633efe94d7f8c7ff9cd8a032664",
+    "username": "suresh_electrician",
+    "name": "suresh_electrician",
+    "email": "seeker_flow_1791381673219@example.com",
+    "password_hash": "8f31155e3ad7b524b04a66a9f11f8bdbb6fe3354f98e3a48073bb65e4c8aca8152874ced061f68b50766bd76d10c09957452fd791322abe9c9eb045e09c8f503",
+    "salt": "2d7fee30c1252b43e40c5d5fe22c7bcc",
+    "auth_provider": "local",
+    "role": "worker",
+    "profile_completed": true,
+    "profile": {
+      "user_type": "job_seeker",
+      "age": 26,
+      "profession": "Electrician",
+      "custom_profession": null,
+      "completed_at": "2026-10-07T14:01:13.360Z"
+    },
+    "saved_data": null,
+    "created_at": "2026-10-07T14:01:13.346Z",
+    "updated_at": "2026-10-07T14:01:13.447Z",
+    "age": 26
+  },
+  {
+    "user_id": "usr_52c602e0b2544a28a63cbf07b9876bc1",
+    "username": "vikram_builder",
+    "name": "vikram_builder",
+    "email": "emp_flow_1791381673455@example.com",
+    "password_hash": "857edd20244410096bde18456ea1daf6d5cf0821bcf8d2cf801d15448a2936576530ec8d90f05220f364cf0a4983d6dcb7be22455ab7a579ac1c51d707da59f6",
+    "salt": "14fe9fe356153c2f5c4b351e14b5f1e8",
+    "auth_provider": "local",
+    "role": "employer",
+    "profile_completed": true,
+    "profile": {
+      "user_type": "employer",
+      "age": 35,
+      "profession": "Solar Panel Installation & Roofing",
+      "custom_profession": "Solar Panel Installation & Roofing",
+      "completed_at": "2026-10-07T14:01:13.540Z"
+    },
+    "saved_data": null,
+    "created_at": "2026-10-07T14:01:13.529Z",
+    "updated_at": "2026-10-07T14:01:13.623Z",
+    "age": 35
+  },
+  {
+    "user_id": "usr_ee5a6c5ea7c945cd8ee5c92953e314ee",
+    "username": "temp_user",
+    "name": "temp_user",
+    "email": "temp_1791381673627@example.com",
+    "password_hash": "74e5479d3c4079b98f7db06fa112356e89fb407ff98e6a689c07599d2c32872906e678de749df1942543003b6b86260ebdc22b33bc5e8bc786fe9f1f4bda8573",
+    "salt": "e2ed360cc25e5be4e20daf94414ddafb",
+    "auth_provider": "local",
+    "role": "worker",
+    "profile_completed": false,
+    "profile": null,
+    "saved_data": null,
+    "created_at": "2026-10-07T14:01:13.707Z",
+    "updated_at": "2026-10-07T14:01:13.707Z"
+  },
+  {
+    "user_id": "usr_6a9eafbcdd544cad9017d6bf32066046",
+    "username": "cleanuser",
+    "name": "cleanuser",
+    "email": "testminimal@dailyjob.com",
+    "password_hash": "a5382bbdddb7d1509f79260ac22abc47bca93d0f97d35acde8ef22ffa5c1c86f70c586292b50f7dcdef5f5f2160d5145fa1fc698ab40e5fa61b4fd709c818020",
+    "salt": "70e3b084ae1bd4df39e204b765304bf6",
+    "auth_provider": "local",
+    "role": "worker",
+    "profile_completed": true,
+    "profile": {
+      "user_type": "job_seeker",
+      "age": 18,
+      "profession": "Cook",
+      "custom_profession": null,
+      "completed_at": "2026-10-07T14:13:51.294Z"
+    },
+    "saved_data": null,
+    "created_at": "2026-10-07T14:08:24.870Z",
+    "updated_at": "2026-10-07T14:13:51.294Z",
+    "age": 18
+  },
+  {
+    "user_id": "usr_e5df8c12fea84973b1e94003ea7e8d01",
+    "username": "dual_user_450728",
+    "name": "dual_user_450728",
+    "email": "dual_450728@dailyjob.com",
+    "password_hash": "fa7fba70f299e96a9b5ef18129155d6b925d2bcd7dd25902f429ea96c57424098e65acf6987d375adb97586652b0bd29cb7f49925a094abe26999943a3daec12",
+    "salt": "3e6863f6d5473b637a67313d03ec16ed",
+    "auth_provider": "local",
+    "role": "employer",
+    "profile_completed": true,
+    "profile": {
+      "user_type": "employer",
+      "age": 25,
+      "profession": "Shop & Retail",
+      "custom_profession": null,
+      "completed_at": "2026-10-07T14:45:43.926Z"
+    },
+    "saved_data": null,
+    "created_at": "2026-10-07T14:45:43.882Z",
+    "updated_at": "2026-10-07T14:45:44.007Z",
+    "age": 25,
+    "worker_profile": {
+      "user_type": "job_seeker",
+      "age": 25,
+      "profession": "Plumber",
+      "custom_profession": null,
+      "completed_at": "2026-10-07T14:45:43.920Z"
+    },
+    "employer_profile": {
+      "user_type": "employer",
+      "age": 25,
+      "profession": "Shop & Retail",
+      "custom_profession": null,
+      "completed_at": "2026-10-07T14:45:43.926Z"
+    }
+  },
+  {
+    "user_id": "usr_f5001a56fb8441c18f71039fb38c0866",
+    "username": "Tushar Sharma",
+    "name": "Tushar Sharma",
+    "email": "testuser_1791384361909@example.com",
+    "password_hash": "541e280174df4b567e590f79735f9e29372c0b392b433263279eaf88eae568551285247f0684ac09f365c467fc7ed4bbc50074ac1935bb12842c788ce24d215a",
+    "salt": "b924dbc58d1c38f39a7233b227f24d0a",
+    "auth_provider": "local",
+    "role": "worker",
+    "profile_completed": false,
+    "profile": null,
+    "saved_data": null,
+    "created_at": "2026-10-07T14:46:02.079Z",
+    "updated_at": "2026-10-07T14:46:02.514Z"
+  },
+  {
+    "user_id": "usr_4b4ab481a9cb409ea935bd82bb33935a",
+    "username": "rahul_verma",
+    "name": "rahul_verma",
+    "email": "dailyjob_user_1791384362523@example.com",
+    "password_hash": "f82d7e3b394f82aae5ac15ac261fd5d440e8cf71f9b73c14c5518a43511bbf56e8db4b6b2a5efe0ecee4c25b46baa41665dfd955045f9aacb7fc1c11a5d172cd",
+    "salt": "31e24d65154f9592ff54c466aa3c2ee1",
+    "auth_provider": "local",
+    "role": "worker",
+    "profile_completed": false,
+    "profile": null,
+    "saved_data": {
+      "savedJobIds": [
+        "job-101",
+        "job-104"
+      ],
+      "appliedJobs": [
+        {
+          "jobId": "job-101",
+          "date": "2026-10-07"
+        }
+      ],
+      "customNotes": "My saved daily jobs checklist"
+    },
+    "created_at": "2026-10-07T14:46:02.586Z",
+    "updated_at": "2026-10-07T14:46:02.812Z"
+  },
+  {
+    "user_id": "usr_a4f51511a8504862b96cb433c91830e4",
+    "username": "rohit_worker",
+    "name": "rohit_worker",
+    "email": "prof_user_1791384362819@example.com",
+    "password_hash": "452f89348ed21ccf45e037f7e4044b9b99208492b9ec30b7e7fcc5406bbfefaa5676593681a7fe9e62f271a92d68b520a475d3cf10fc190f909c837105adf395",
+    "salt": "1dceae68895cb930b0903a0784a51e0e",
+    "auth_provider": "local",
+    "role": "worker",
+    "profile_completed": true,
+    "profile": {
+      "user_type": "job_seeker",
+      "age": 26,
+      "profession": "Electrician",
+      "custom_profession": null,
+      "completed_at": "2026-10-07T14:46:02.902Z"
+    },
+    "saved_data": null,
+    "created_at": "2026-10-07T14:46:02.888Z",
+    "updated_at": "2026-10-07T14:46:03.133Z",
+    "age": 26,
+    "worker_profile": {
+      "user_type": "job_seeker",
+      "age": 26,
+      "profession": "Electrician",
+      "custom_profession": null,
+      "completed_at": "2026-10-07T14:46:02.902Z"
+    }
+  },
+  {
+    "user_id": "usr_0324024194f94fda9f3000375974570b",
+    "username": "sharma_contractor",
+    "name": "sharma_contractor",
+    "email": "emp_user_1791384362908@example.com",
+    "password_hash": "aeb96988e5f189f07a0e4516736f3ada6fc14cfdbd23aed00155427488e16b008fed80f3329f167dcccaddc3990f45505aafb055bb8f213efed67b21fd3f2817",
+    "salt": "54174bf3f6e77016d21086c1a8445fb3",
+    "auth_provider": "local",
+    "role": "employer",
+    "profile_completed": true,
+    "profile": {
+      "user_type": "employer",
+      "age": 38,
+      "profession": "Event Catering & Tent Services",
+      "custom_profession": "Event Catering & Tent Services",
+      "completed_at": "2026-10-07T14:46:02.985Z"
+    },
+    "saved_data": null,
+    "created_at": "2026-10-07T14:46:02.979Z",
+    "updated_at": "2026-10-07T14:46:03.061Z",
+    "age": 38,
+    "employer_profile": {
+      "user_type": "employer",
+      "age": 38,
+      "profession": "Event Catering & Tent Services",
+      "custom_profession": "Event Catering & Tent Services",
+      "completed_at": "2026-10-07T14:46:02.985Z"
+    }
+  },
+  {
+    "user_id": "usr_0ff0947095bb4a9286f077d8d105232e",
+    "username": "suresh_electrician",
+    "name": "suresh_electrician",
+    "email": "seeker_flow_1791384379686@example.com",
+    "password_hash": "b6810f4837420c68a93da8485532a9ea5de89d4fdeaa666b62f9293b81371a4eb6465b325690b73827ac29c79028bcca45535c95849dc77814bcfee37950a7c9",
+    "salt": "14898d5d41a9c3ff86418d4fef5c69b3",
+    "auth_provider": "local",
+    "role": "worker",
+    "profile_completed": true,
+    "profile": {
+      "user_type": "job_seeker",
+      "age": 26,
+      "profession": "Electrician",
+      "custom_profession": null,
+      "completed_at": "2026-10-07T14:46:19.832Z"
+    },
+    "saved_data": null,
+    "created_at": "2026-10-07T14:46:19.815Z",
+    "updated_at": "2026-10-07T14:46:19.933Z",
+    "age": 26,
+    "worker_profile": {
+      "user_type": "job_seeker",
+      "age": 26,
+      "profession": "Electrician",
+      "custom_profession": null,
+      "completed_at": "2026-10-07T14:46:19.832Z"
+    }
+  },
+  {
+    "user_id": "usr_b37c697b4a84436b83fa7bee0adce9f0",
+    "username": "vikram_builder",
+    "name": "vikram_builder",
+    "email": "emp_flow_1791384379939@example.com",
+    "password_hash": "6313a57dd1d6956d327f49733c67c87576aa7cf9840ef038e971a939c2a7041bb8cebd2591f1525ad16bceddd15cf10edf5b86f9565ef39ec1627ef6980b9878",
+    "salt": "a8c76eb431b09315051e498777040b48",
+    "auth_provider": "local",
+    "role": "employer",
+    "profile_completed": true,
+    "profile": {
+      "user_type": "employer",
+      "age": 35,
+      "profession": "Solar Panel Installation & Roofing",
+      "custom_profession": "Solar Panel Installation & Roofing",
+      "completed_at": "2026-10-07T14:46:20.027Z"
+    },
+    "saved_data": null,
+    "created_at": "2026-10-07T14:46:20.018Z",
+    "updated_at": "2026-10-07T14:46:20.103Z",
+    "age": 35,
+    "employer_profile": {
+      "user_type": "employer",
+      "age": 35,
+      "profession": "Solar Panel Installation & Roofing",
+      "custom_profession": "Solar Panel Installation & Roofing",
+      "completed_at": "2026-10-07T14:46:20.027Z"
+    }
+  },
+  {
+    "user_id": "usr_809a763125234b4f94f1026e4351d317",
+    "username": "temp_user",
+    "name": "temp_user",
+    "email": "temp_1791384380121@example.com",
+    "password_hash": "c73f8fdb26d1639b9637ee0c82a32ab6f7388f691ac6440a4e6996c4c0171ec5dc93799c68cb18f605892dd0537e5fcf3a3ac9c4d93323b0875ed63ee9dda31f",
+    "salt": "48493382173e89ed263ddde7e57639f1",
+    "auth_provider": "local",
+    "role": "worker",
+    "profile_completed": false,
+    "profile": null,
+    "saved_data": null,
+    "created_at": "2026-10-07T14:46:20.189Z",
+    "updated_at": "2026-10-07T14:46:20.189Z"
+  },
+  {
+    "user_id": "usr_8967521357e24fae9c241c90c9a7712d",
+    "username": "Tushar Sharma",
+    "name": "Tushar Sharma",
+    "email": "testuser_1791436306506@example.com",
+    "password_hash": "08885349375f3c0082333fef3de2202990bc405617fe7938cd654e1c1c727bf3457dba4ce1e2d6386d89c4e5c24497d1e8c188ac5d84faa002d1c827373b082b",
+    "salt": "dd9b19f81287bad8629e1f6630499065",
+    "auth_provider": "local",
+    "role": "worker",
+    "profile_completed": false,
+    "profile": null,
+    "saved_data": null,
+    "created_at": "2026-10-08T05:11:46.736Z",
+    "updated_at": "2026-10-08T05:11:47.210Z"
+  },
+  {
+    "user_id": "usr_4c429d285f7f4c58aef13b5652de4b35",
+    "username": "rahul_verma",
+    "name": "rahul_verma",
+    "email": "dailyjob_user_1791436307224@example.com",
+    "password_hash": "e41d3896b994e97190f6acb7b20d3c7a8928632e1e10b0ccda03d79786289a2b92c0a5d8116f76bff322d8ffc091b5f3ee4634bcaf7faad80ba129df22592214",
+    "salt": "ad79cb0b8f4364037c6d6648ab9d0e80",
+    "auth_provider": "local",
+    "role": "worker",
+    "profile_completed": false,
+    "profile": null,
+    "saved_data": {
+      "savedJobIds": [
+        "job-101",
+        "job-104"
+      ],
+      "appliedJobs": [
+        {
+          "jobId": "job-101",
+          "date": "2026-10-07"
+        }
+      ],
+      "customNotes": "My saved daily jobs checklist"
+    },
+    "created_at": "2026-10-08T05:11:47.294Z",
+    "updated_at": "2026-10-08T05:11:47.529Z"
+  },
+  {
+    "user_id": "usr_15ec726532f245a79266e66f374e7b67",
+    "username": "rohit_worker",
+    "name": "rohit_worker",
+    "email": "prof_user_1791436307538@example.com",
+    "password_hash": "3bf1f5d408d9356115d5be5fe59ccea2113028fe4933174a252e9e608506a356b8d1986136f38145de523789901c740d8e8c27cef0709d512225e385b8266b67",
+    "salt": "fde50674e39f6305125da4ebc56a42d3",
+    "auth_provider": "local",
+    "role": "worker",
+    "profile_completed": true,
+    "profile": {
+      "user_type": "job_seeker",
+      "age": 26,
+      "profession": "Electrician",
+      "custom_profession": null,
+      "completed_at": "2026-10-08T05:11:47.618Z"
+    },
+    "saved_data": null,
+    "created_at": "2026-10-08T05:11:47.603Z",
+    "updated_at": "2026-10-08T05:11:47.863Z",
+    "age": 26,
+    "worker_profile": {
+      "user_type": "job_seeker",
+      "age": 26,
+      "profession": "Electrician",
+      "custom_profession": null,
+      "completed_at": "2026-10-08T05:11:47.618Z"
+    }
+  },
+  {
+    "user_id": "usr_28e3f942cae445ea93feb4943d0fe3b2",
+    "username": "sharma_contractor",
+    "name": "sharma_contractor",
+    "email": "emp_user_1791436307622@example.com",
+    "password_hash": "5d48f7ce2733a711bd09d6e71125fb8b3b55dd723b00ec2888fbfd0777096d9b72b074c21451ff72a0ecefde9f525583c80caa9f461706fb33d7ed603d4c585d",
+    "salt": "2125f0b76cae0887676d6f8317d203fb",
+    "auth_provider": "local",
+    "role": "employer",
+    "profile_completed": true,
+    "profile": {
+      "user_type": "employer",
+      "age": 38,
+      "profession": "Event Catering & Tent Services",
+      "custom_profession": "Event Catering & Tent Services",
+      "completed_at": "2026-10-08T05:11:47.705Z"
+    },
+    "saved_data": null,
+    "created_at": "2026-10-08T05:11:47.699Z",
+    "updated_at": "2026-10-08T05:11:47.776Z",
+    "age": 38,
+    "employer_profile": {
+      "user_type": "employer",
+      "age": 38,
+      "profession": "Event Catering & Tent Services",
+      "custom_profession": "Event Catering & Tent Services",
+      "completed_at": "2026-10-08T05:11:47.705Z"
+    }
+  },
+  {
+    "user_id": "usr_469f2b19346a4d1b8dc2ffadfc93ab4f",
+    "username": "dual_user_597056",
+    "name": "dual_user_597056",
+    "email": "dual_597056@dailyjob.com",
+    "password_hash": "516e9701fa63bafcd9162a01e6ba99e7c95305be1a622080f6b20c0320b28dcb92b05a14a5fbaa135cd3924f9da87e1dd214e5c41aaf019e3983a7ae12eda681",
+    "salt": "302b73a5ddc2fa62366afdd0a2d4b6d9",
+    "auth_provider": "local",
+    "role": "employer",
+    "profile_completed": true,
+    "profile": {
+      "user_type": "employer",
+      "age": 25,
+      "profession": "Shop & Retail",
+      "custom_profession": null,
+      "completed_at": "2026-10-08T05:17:54.560Z"
+    },
+    "saved_data": null,
+    "created_at": "2026-10-08T05:17:54.540Z",
+    "updated_at": "2026-10-08T05:17:54.655Z",
+    "age": 25,
+    "worker_profile": {
+      "user_type": "job_seeker",
+      "age": 25,
+      "profession": "Plumber",
+      "custom_profession": null,
+      "completed_at": "2026-10-08T05:17:54.552Z"
+    },
+    "employer_profile": {
+      "user_type": "employer",
+      "age": 25,
+      "profession": "Shop & Retail",
+      "custom_profession": null,
+      "completed_at": "2026-10-08T05:17:54.560Z"
+    }
+  },
+  {
+    "user_id": "usr_41a5c092d99d4a0ebb1889dea4056a69",
+    "username": "user_1791436782872",
+    "name": "user_1791436782872",
+    "email": "role_test_1791436782872@example.com",
+    "password_hash": "2eeee1dc08efd1af93ad5e2d80e52dd95dc47f77705aacceba1d5a0de8b7d8f3806313744b127c58db1c346d9d98e0357e346f1752623cd5a221bc40cb9de330",
+    "salt": "2d1951fff95684c0dfac15c5afeb3b65",
+    "auth_provider": "local",
+    "role": "worker",
+    "profile_completed": true,
+    "profile": {
+      "user_type": "job_seeker",
+      "age": 27,
+      "profession": "Electrician",
+      "custom_profession": null,
+      "completed_at": "2026-10-08T05:19:43.016Z"
+    },
+    "saved_data": null,
+    "created_at": "2026-10-08T05:19:43.000Z",
+    "updated_at": "2026-10-08T05:19:43.042Z",
+    "age": 27,
+    "worker_profile": {
+      "user_type": "job_seeker",
+      "age": 27,
+      "profession": "Electrician",
+      "custom_profession": null,
+      "completed_at": "2026-10-08T05:19:43.016Z"
+    }
+  },
+  {
+    "user_id": "usr_0908b79abf0c46fa888adbbbeacd889c",
+    "username": "user_1791436960066",
+    "name": "user_1791436960066",
+    "email": "role_test_1791436960066@example.com",
+    "password_hash": "37c4694cb934210ede45b5d625423873e13243e50c53177e22e346ed02dae8a495c8dd445a2502ef521e966c59504440bb9713f1dad0f441613c444b4489e5b2",
+    "salt": "531bd7112a0535135902efd6f2f83775",
+    "auth_provider": "local",
+    "role": "worker",
+    "profile_completed": true,
+    "profile": {
+      "user_type": "job_seeker",
+      "age": 27,
+      "profession": "Electrician",
+      "custom_profession": null,
+      "completed_at": "2026-10-08T05:22:40.234Z"
+    },
+    "saved_data": null,
+    "created_at": "2026-10-08T05:22:40.211Z",
+    "updated_at": "2026-10-08T05:22:40.264Z",
+    "age": 27,
+    "worker_profile": {
+      "user_type": "job_seeker",
+      "age": 27,
+      "profession": "Electrician",
+      "custom_profession": null,
+      "completed_at": "2026-10-08T05:22:40.234Z"
+    }
+  },
+  {
+    "user_id": "usr_71db439d1f59424f96d2e59586bff39e",
+    "username": "suresh_electrician",
+    "name": "suresh_electrician",
+    "email": "seeker_flow_1791436971811@example.com",
+    "password_hash": "58e4e0fe44ac0f64a18d269cb6624070d6cd8a286dd689d64629e7ced1fe7dc36d2ecbb91645dc898317a54a0c48494c60d3f272867b378370e47a6aa8862cfb",
+    "salt": "9569c1e868a70581efc6c9f11e9e71e8",
+    "auth_provider": "local",
+    "role": "worker",
+    "profile_completed": true,
+    "profile": {
+      "user_type": "job_seeker",
+      "age": 26,
+      "profession": "Electrician",
+      "custom_profession": null,
+      "completed_at": "2026-10-08T05:22:51.942Z"
+    },
+    "saved_data": null,
+    "created_at": "2026-10-08T05:22:51.928Z",
+    "updated_at": "2026-10-08T05:22:52.021Z",
+    "age": 26,
+    "worker_profile": {
+      "user_type": "job_seeker",
+      "age": 26,
+      "profession": "Electrician",
+      "custom_profession": null,
+      "completed_at": "2026-10-08T05:22:51.942Z"
+    }
+  },
+  {
+    "user_id": "usr_2e28df88e0d540a88ecefdbce6cd80ee",
+    "username": "vikram_builder",
+    "name": "vikram_builder",
+    "email": "emp_flow_1791436972027@example.com",
+    "password_hash": "33a5bee7694759dd0cb8d234de7f11a95bb3102b8a67e737f4e6cd1290cdd100a4fcbf38c90252e6f02bbd2f0a3620d06677fa2743892b7c00796b0b46f9ad4f",
+    "salt": "0dca8861caff2f6c5132276ab49a35bf",
+    "auth_provider": "local",
+    "role": "employer",
+    "profile_completed": true,
+    "profile": {
+      "user_type": "employer",
+      "age": 35,
+      "profession": "Solar Panel Installation & Roofing",
+      "custom_profession": "Solar Panel Installation & Roofing",
+      "completed_at": "2026-10-08T05:22:52.108Z"
+    },
+    "saved_data": null,
+    "created_at": "2026-10-08T05:22:52.098Z",
+    "updated_at": "2026-10-08T05:22:52.198Z",
+    "age": 35,
+    "employer_profile": {
+      "user_type": "employer",
+      "age": 35,
+      "profession": "Solar Panel Installation & Roofing",
+      "custom_profession": "Solar Panel Installation & Roofing",
+      "completed_at": "2026-10-08T05:22:52.108Z"
+    }
+  },
+  {
+    "user_id": "usr_5a6fcc6880944fc6a179118a6a7e6f58",
+    "username": "temp_user",
+    "name": "temp_user",
+    "email": "temp_1791436972204@example.com",
+    "password_hash": "b66b65d1b7c883c7bc7c435e66fa093ed6bbd2022d98f76c189741bbd990790fee8c3a11915a80b901c4d04e3579f6ff1edc5574addb7c903cc800e4f1991dc5",
+    "salt": "f1c36e10b0ff73cb05cee3eeaa153687",
+    "auth_provider": "local",
+    "role": "worker",
+    "profile_completed": false,
+    "profile": null,
+    "saved_data": null,
+    "created_at": "2026-10-08T05:22:52.284Z",
+    "updated_at": "2026-10-08T05:22:52.284Z"
+  },
+  {
+    "user_id": "usr_1c41bf0881d6451382d240e0b130ce31",
+    "username": "Tushar Sharma",
+    "name": "Tushar Sharma",
+    "email": "testuser_1791453724018@example.com",
+    "password_hash": "4c70d7a2969d7d28b6343b6dcfd83b92785afa9246be88ad36d55d5afa0a48e379662101612d9a753638f2127bebc36ec0b386bbcb77095f01143c89ee6da933",
+    "salt": "969295cf47e76e38e474fbe0141e3aa9",
+    "auth_provider": "local",
+    "role": "worker",
+    "profile_completed": false,
+    "profile": null,
+    "saved_data": null,
+    "created_at": "2026-10-08T10:02:04.209Z",
+    "updated_at": "2026-10-08T10:02:04.624Z"
+  },
+  {
+    "user_id": "usr_0f9a5ccf1af745cfabb1b7c954b932a2",
+    "username": "rahul_verma",
+    "name": "rahul_verma",
+    "email": "dailyjob_user_1791453724632@example.com",
+    "password_hash": "da96b05120f38a3eb6d1fe0d4eb635ba76558d36db561b160a644a5a1c9a9fc7b774d249d6ce4bd4a7a4c7438a2d9b93d717eef5176187c1ddf00c22e26a1db4",
+    "salt": "6b367774978e3f9d69a8b0d21afaf82d",
+    "auth_provider": "local",
+    "role": "worker",
+    "profile_completed": false,
+    "profile": null,
+    "saved_data": {
+      "savedJobIds": [
+        "job-101",
+        "job-104"
+      ],
+      "appliedJobs": [
+        {
+          "jobId": "job-101",
+          "date": "2026-10-07"
+        }
+      ],
+      "customNotes": "My saved daily jobs checklist"
+    },
+    "created_at": "2026-10-08T10:02:04.712Z",
+    "updated_at": "2026-10-08T10:02:04.964Z"
+  },
+  {
+    "user_id": "usr_513bb4e4d6544791bfd5b6882c860585",
+    "username": "rohit_worker",
+    "name": "rohit_worker",
+    "email": "prof_user_1791453724972@example.com",
+    "password_hash": "9234747be4b55aa339c7997e4135088c8e15af5b199cc7650294aeaa39bba1eae45ae93d75c93a4c1b1ba0abfda25c9c8714fe98352e1e1dc308843604a450a5",
+    "salt": "bd83fb7b7b7ffde971af8bf51244233d",
+    "auth_provider": "local",
+    "role": "worker",
+    "profile_completed": true,
+    "profile": {
+      "user_type": "job_seeker",
+      "age": 26,
+      "profession": "Electrician",
+      "custom_profession": null,
+      "completed_at": "2026-10-08T10:02:05.063Z"
+    },
+    "saved_data": null,
+    "created_at": "2026-10-08T10:02:05.046Z",
+    "updated_at": "2026-10-08T10:02:05.301Z",
+    "age": 26,
+    "worker_profile": {
+      "user_type": "job_seeker",
+      "age": 26,
+      "profession": "Electrician",
+      "custom_profession": null,
+      "completed_at": "2026-10-08T10:02:05.063Z"
+    }
+  },
+  {
+    "user_id": "usr_1208d719ec404989a3448caca51f26ca",
+    "username": "sharma_contractor",
+    "name": "sharma_contractor",
+    "email": "emp_user_1791453725068@example.com",
+    "password_hash": "7a4e80965f5216ece2c1ba777240e9f6f32bee9e61512ac1a4e71ad1f48d183e7ad2db4f1bef0cff8b205a50c70a3ada8c6f344c8675fa84a7e19af0644dbc95",
+    "salt": "1d245c6852d454465f8d6ceb0d44b5e3",
+    "auth_provider": "local",
+    "role": "employer",
+    "profile_completed": true,
+    "profile": {
+      "user_type": "employer",
+      "age": 38,
+      "profession": "Event Catering & Tent Services",
+      "custom_profession": "Event Catering & Tent Services",
+      "completed_at": "2026-10-08T10:02:05.145Z"
+    },
+    "saved_data": null,
+    "created_at": "2026-10-08T10:02:05.139Z",
+    "updated_at": "2026-10-08T10:02:05.228Z",
+    "age": 38,
+    "employer_profile": {
+      "user_type": "employer",
+      "age": 38,
+      "profession": "Event Catering & Tent Services",
+      "custom_profession": "Event Catering & Tent Services",
+      "completed_at": "2026-10-08T10:02:05.145Z"
+    }
+  },
+  {
+    "user_id": "usr_3f15c28e86814b329cd50043298bb662",
+    "username": "Tushar Sharma",
+    "name": "Tushar Sharma",
+    "email": "testuser_1791454269638@example.com",
+    "password_hash": "526826488c76d04c045176a3cdf28fff0536bedc5c60deee75b56b37053d4c7381434e8f8d3cc87e0870a7fb6102da053c11605182d8b0f70faf884ffc486097",
+    "salt": "9cc431557cf539d60b8a3074dc403fb7",
+    "auth_provider": "local",
+    "role": "worker",
+    "profile_completed": false,
+    "profile": null,
+    "saved_data": null,
+    "created_at": "2026-10-08T10:11:09.772Z",
+    "updated_at": "2026-10-08T10:11:10.211Z"
+  },
+  {
+    "user_id": "usr_d365d71b00f14492be11d5187a3b747b",
+    "username": "rahul_verma",
+    "name": "rahul_verma",
+    "email": "dailyjob_user_1791454270220@example.com",
+    "password_hash": "832c34928c84fb797ebd78af6cbd269f7ecec3bcf018af6900918c8412ddf8c0fb52357ec94c450b2485b0ce60fdd831b8da8a4a32d494719eaaed0c4ff2a544",
+    "salt": "73a92423992f022365784dd755bd838a",
+    "auth_provider": "local",
+    "role": "worker",
+    "profile_completed": false,
+    "profile": null,
+    "saved_data": {
+      "savedJobIds": [
+        "job-101",
+        "job-104"
+      ],
+      "appliedJobs": [
+        {
+          "jobId": "job-101",
+          "date": "2026-10-07"
+        }
+      ],
+      "customNotes": "My saved daily jobs checklist"
+    },
+    "created_at": "2026-10-08T10:11:10.297Z",
+    "updated_at": "2026-10-08T10:11:10.546Z"
+  },
+  {
+    "user_id": "usr_0e1879537c8749de8dca5290ccdd272c",
+    "username": "rohit_worker",
+    "name": "rohit_worker",
+    "email": "prof_user_1791454270553@example.com",
+    "password_hash": "0d54e6cea5156d32e09e7cda78ac32c69d9f9aeeb114a86981a53c97194c3bee5cc7cf14696b7bf8c0baa2eb62ee4400994844c5f157ea9d905718e77adfef71",
+    "salt": "269b4d55e56bf4cc57ab7fba5f6d4fdc",
+    "auth_provider": "local",
+    "role": "worker",
+    "profile_completed": true,
+    "profile": {
+      "user_type": "job_seeker",
+      "age": 26,
+      "profession": "Electrician",
+      "custom_profession": null,
+      "completed_at": "2026-10-08T10:11:10.659Z"
+    },
+    "saved_data": null,
+    "created_at": "2026-10-08T10:11:10.630Z",
+    "updated_at": "2026-10-08T10:11:10.908Z",
+    "age": 26,
+    "worker_profile": {
+      "user_type": "job_seeker",
+      "age": 26,
+      "profession": "Electrician",
+      "custom_profession": null,
+      "completed_at": "2026-10-08T10:11:10.659Z"
+    }
+  },
+  {
+    "user_id": "usr_efdcf38700c14acdb2ec50d0eb6aca9a",
+    "username": "sharma_contractor",
+    "name": "sharma_contractor",
+    "email": "emp_user_1791454270664@example.com",
+    "password_hash": "c61d5903834ab779a73514ee232d470dc93a78ef4302217f919bd96c5c8115fd73a8b30843020fec3708e7aa62f87da2afab5a3cb3c446df6491698f86f8526c",
+    "salt": "a02ba2bc8c35df64407cdad8bf94edd8",
+    "auth_provider": "local",
+    "role": "employer",
+    "profile_completed": true,
+    "profile": {
+      "user_type": "employer",
+      "age": 38,
+      "profession": "Event Catering & Tent Services",
+      "custom_profession": "Event Catering & Tent Services",
+      "completed_at": "2026-10-08T10:11:10.744Z"
+    },
+    "saved_data": null,
+    "created_at": "2026-10-08T10:11:10.737Z",
+    "updated_at": "2026-10-08T10:11:10.827Z",
+    "age": 38,
+    "employer_profile": {
+      "user_type": "employer",
+      "age": 38,
+      "profession": "Event Catering & Tent Services",
+      "custom_profession": "Event Catering & Tent Services",
+      "completed_at": "2026-10-08T10:11:10.744Z"
+    }
+  },
+  {
+    "user_id": "usr_03e34ca22a5a4ca9a4acdb98bf337c93",
+    "username": "dual_user_511564",
+    "name": "dual_user_511564",
+    "email": "dual_511564@dailyjob.com",
+    "password_hash": "863c670e33d85926784ac15b35d4abc81f3d988ce4211ec15b72a373ce112e8616f891da6bb7a4ac5562483daf3fd3ca2c40fb44f2595c9cf63ac5bb52c285b2",
+    "salt": "188ea0f6b849208288b04b4ac8d71490",
+    "auth_provider": "local",
+    "role": "employer",
+    "profile_completed": true,
+    "profile": {
+      "user_type": "employer",
+      "age": 25,
+      "profession": "Shop & Retail",
+      "custom_profession": null,
+      "completed_at": "2026-10-08T10:11:11.139Z"
+    },
+    "saved_data": null,
+    "created_at": "2026-10-08T10:11:11.122Z",
+    "updated_at": "2026-10-08T10:11:11.237Z",
+    "age": 25,
+    "worker_profile": {
+      "user_type": "job_seeker",
+      "age": 25,
+      "profession": "Plumber",
+      "custom_profession": null,
+      "completed_at": "2026-10-08T10:11:11.133Z"
+    },
+    "employer_profile": {
+      "user_type": "employer",
+      "age": 25,
+      "profession": "Shop & Retail",
+      "custom_profession": null,
+      "completed_at": "2026-10-08T10:11:11.139Z"
+    }
+  },
+  {
+    "user_id": "usr_5d305a6ac3954054a333ed42fc62b98b",
+    "username": "user_1791454271388",
+    "name": "user_1791454271388",
+    "email": "role_test_1791454271388@example.com",
+    "password_hash": "81a23918f12fb98679a41bafc898a4c9911a592f94898d20efe0e98a17a5f9fcd7ace57e8cf4bf5f32b3df586a0c94128782f31bbfcd9da0656ec5c3f8c720bf",
+    "salt": "3d9f983176af4a31ae2e4743ee6ae41c",
+    "auth_provider": "local",
+    "role": "worker",
+    "profile_completed": true,
+    "profile": {
+      "user_type": "job_seeker",
+      "age": 27,
+      "profession": "Electrician",
+      "custom_profession": null,
+      "completed_at": "2026-10-08T10:11:11.552Z"
+    },
+    "saved_data": null,
+    "created_at": "2026-10-08T10:11:11.520Z",
+    "updated_at": "2026-10-08T10:11:11.569Z",
+    "age": 27,
+    "worker_profile": {
+      "user_type": "job_seeker",
+      "age": 27,
+      "profession": "Electrician",
+      "custom_profession": null,
+      "completed_at": "2026-10-08T10:11:11.552Z"
+    }
+  },
+  {
+    "user_id": "usr_8560c15bc3e84d83810fb4d6c0ebd670",
+    "username": "suresh_electrician",
+    "name": "suresh_electrician",
+    "email": "seeker_flow_1791454271687@example.com",
+    "password_hash": "61c5961c31ad4b5bae9bf011bbafdd69bd4c590d5b04346f57cfff2299e905a794c9a940a13a0479dbf71b1df5a5f3b8f989291e9b5a3d8925dff723b73dc8b8",
+    "salt": "0a972ec2ec67481ce6a7e3ac1e87f627",
+    "auth_provider": "local",
+    "role": "worker",
+    "profile_completed": true,
+    "profile": {
+      "user_type": "job_seeker",
+      "age": 26,
+      "profession": "Electrician",
+      "custom_profession": null,
+      "completed_at": "2026-10-08T10:11:11.875Z"
+    },
+    "saved_data": null,
+    "created_at": "2026-10-08T10:11:11.855Z",
+    "updated_at": "2026-10-08T10:11:11.965Z",
+    "age": 26,
+    "worker_profile": {
+      "user_type": "job_seeker",
+      "age": 26,
+      "profession": "Electrician",
+      "custom_profession": null,
+      "completed_at": "2026-10-08T10:11:11.875Z"
+    }
+  },
+  {
+    "user_id": "usr_f931c8e7ffc94349941919195d328951",
+    "username": "vikram_builder",
+    "name": "vikram_builder",
+    "email": "emp_flow_1791454271970@example.com",
+    "password_hash": "020eb2e5a5311d76cdb40fcdaafc8d5bdded6d80d755e2f0be81debc03d3118c98533007757856dade7ec5881a1fbea1d6b66ba8660a890c2979887f9cd49225",
+    "salt": "24a7133e27bee67252a45f462891d97f",
+    "auth_provider": "local",
+    "role": "employer",
+    "profile_completed": true,
+    "profile": {
+      "user_type": "employer",
+      "age": 35,
+      "profession": "Solar Panel Installation & Roofing",
+      "custom_profession": "Solar Panel Installation & Roofing",
+      "completed_at": "2026-10-08T10:11:12.065Z"
+    },
+    "saved_data": null,
+    "created_at": "2026-10-08T10:11:12.055Z",
+    "updated_at": "2026-10-08T10:11:12.155Z",
+    "age": 35,
+    "employer_profile": {
+      "user_type": "employer",
+      "age": 35,
+      "profession": "Solar Panel Installation & Roofing",
+      "custom_profession": "Solar Panel Installation & Roofing",
+      "completed_at": "2026-10-08T10:11:12.065Z"
+    }
+  },
+  {
+    "user_id": "usr_71116be3c98c4c6695b9dc9e769009e8",
+    "username": "temp_user",
+    "name": "temp_user",
+    "email": "temp_1791454272161@example.com",
+    "password_hash": "03f7eb4c2e2e85f82c1e656cb54ff911203b7182fe5abad2c655fd134d5a0dd5e8a35c314f12e00b597b1379850b4938533856cfa337f62fa53c0ec5988bfd87",
+    "salt": "4132b0fa17ad94e148b99ae9507949dc",
+    "auth_provider": "local",
+    "role": "worker",
+    "profile_completed": false,
+    "profile": null,
+    "saved_data": null,
+    "created_at": "2026-10-08T10:11:12.230Z",
+    "updated_at": "2026-10-08T10:11:12.230Z"
+  },
+  {
+    "user_id": "usr_2293493472e84d3b8c0ed45ff7fe6356",
+    "username": "Tushar Sharma",
+    "name": "Tushar Sharma",
+    "email": "testuser_1791454693079@example.com",
+    "password_hash": "87d3461860869c574d0e2badd01dfec781b2c305554ef91eea26f6452c57f200cd20d7fb6425a04642584857ffdde2f4a45a4c8ef8388fd40a62e853d9bdba05",
+    "salt": "30ddc93f0ac876274ff108007bbc919f",
+    "auth_provider": "local",
+    "role": "worker",
+    "profile_completed": false,
+    "profile": null,
+    "saved_data": null,
+    "created_at": "2026-10-08T10:18:13.194Z",
+    "updated_at": "2026-10-08T10:18:13.570Z"
+  },
+  {
+    "user_id": "usr_d481446b4ba84809b28f2c4c84978385",
+    "username": "rahul_verma",
+    "name": "rahul_verma",
+    "email": "dailyjob_user_1791454693579@example.com",
+    "password_hash": "d5a9362b62987f765e2935ebb73563c0f3ab173fc58465dbf35cde247d93db0e602d6a515f35af938bfc7a4a1f81aabb8c27a5cb2aa0a37b0861577a6aca57df",
+    "salt": "ba16e46a1d1323df6d15a356dc22db54",
+    "auth_provider": "local",
+    "role": "worker",
+    "profile_completed": false,
+    "profile": null,
+    "saved_data": {
+      "savedJobIds": [
+        "job-101",
+        "job-104"
+      ],
+      "appliedJobs": [
+        {
+          "jobId": "job-101",
+          "date": "2026-10-07"
+        }
+      ],
+      "customNotes": "My saved daily jobs checklist"
+    },
+    "created_at": "2026-10-08T10:18:13.651Z",
+    "updated_at": "2026-10-08T10:18:13.987Z"
+  },
+  {
+    "user_id": "usr_d94746ea00cc42679fff454b6f7c8d64",
+    "username": "rohit_worker",
+    "name": "rohit_worker",
+    "email": "prof_user_1791454693994@example.com",
+    "password_hash": "848765d27d1a15077bc5af3f49389a3e50e55708f0c49101ba40f5dc0e3cd72dc6b80bbad6b458680b44368d032019bd7f29d6980109664cd499ee1d6b077a01",
+    "salt": "873d1c652d7a189336007ce9a59705ec",
+    "auth_provider": "local",
+    "role": "worker",
+    "profile_completed": true,
+    "profile": {
+      "user_type": "job_seeker",
+      "age": 26,
+      "profession": "Electrician",
+      "custom_profession": null,
+      "completed_at": "2026-10-08T10:18:14.072Z"
+    },
+    "saved_data": null,
+    "created_at": "2026-10-08T10:18:14.058Z",
+    "updated_at": "2026-10-08T10:18:14.290Z",
+    "age": 26,
+    "worker_profile": {
+      "user_type": "job_seeker",
+      "age": 26,
+      "profession": "Electrician",
+      "custom_profession": null,
+      "completed_at": "2026-10-08T10:18:14.072Z"
+    }
+  },
+  {
+    "user_id": "usr_3950c13b2e084ea2a61e0c1fe4459a70",
+    "username": "sharma_contractor",
+    "name": "sharma_contractor",
+    "email": "emp_user_1791454694076@example.com",
+    "password_hash": "21653f5d12a31dbfa26294e0a3b3725bf6bc4296d3f07a92bc93eb6fc73772059d75394c4347ae271f63d6ed4276cedc0474ad491a2e23887de782842369c3a1",
+    "salt": "f6f848875b448a78b158e4fcaac35b83",
+    "auth_provider": "local",
+    "role": "employer",
+    "profile_completed": true,
+    "profile": {
+      "user_type": "employer",
+      "age": 38,
+      "profession": "Event Catering & Tent Services",
+      "custom_profession": "Event Catering & Tent Services",
+      "completed_at": "2026-10-08T10:18:14.147Z"
+    },
+    "saved_data": null,
+    "created_at": "2026-10-08T10:18:14.140Z",
+    "updated_at": "2026-10-08T10:18:14.219Z",
+    "age": 38,
+    "employer_profile": {
+      "user_type": "employer",
+      "age": 38,
+      "profession": "Event Catering & Tent Services",
+      "custom_profession": "Event Catering & Tent Services",
+      "completed_at": "2026-10-08T10:18:14.147Z"
+    }
+  },
+  {
+    "user_id": "usr_7a04325746a4422b849c85cdd5572e42",
+    "username": "dual_user_826875",
+    "name": "dual_user_826875",
+    "email": "dual_826875@dailyjob.com",
+    "password_hash": "3e62b0a738e5462dd1e5dbca78ace9bc9ad15281896076b0109bf6b8cd577eed5f7fd5665d88a9e651397a1e3ec36ac18b8bc299f136d5ffdf55ff8c7a844adf",
+    "salt": "1a4dc9e8658f3737cb54fbfb11e4d9ad",
+    "auth_provider": "local",
+    "role": "employer",
+    "profile_completed": true,
+    "profile": {
+      "user_type": "employer",
+      "age": 25,
+      "profession": "Shop & Retail",
+      "custom_profession": null,
+      "completed_at": "2026-10-08T10:18:14.533Z"
+    },
+    "saved_data": null,
+    "created_at": "2026-10-08T10:18:14.516Z",
+    "updated_at": "2026-10-08T10:18:14.627Z",
+    "age": 25,
+    "worker_profile": {
+      "user_type": "job_seeker",
+      "age": 25,
+      "profession": "Plumber",
+      "custom_profession": null,
+      "completed_at": "2026-10-08T10:18:14.526Z"
+    },
+    "employer_profile": {
+      "user_type": "employer",
+      "age": 25,
+      "profession": "Shop & Retail",
+      "custom_profession": null,
+      "completed_at": "2026-10-08T10:18:14.533Z"
+    }
+  },
+  {
+    "user_id": "usr_c8e11896cc1f47bba5d55bf283d8de52",
+    "username": "user_1791454694761",
+    "name": "user_1791454694761",
+    "email": "role_test_1791454694761@example.com",
+    "password_hash": "e45cf3fc715a9886e8f254dbc5d570d380cdaba67c5fdfc1323325428efd3142892a3cda82a2cd9e8059de1c4d800b7293ded53523e54abed07e42d2d4360418",
+    "salt": "91864ae637385100b05185b6bf0fc1ae",
+    "auth_provider": "local",
+    "role": "worker",
+    "profile_completed": true,
+    "profile": {
+      "user_type": "job_seeker",
+      "age": 27,
+      "profession": "Electrician",
+      "custom_profession": null,
+      "completed_at": "2026-10-08T10:18:14.887Z"
+    },
+    "saved_data": null,
+    "created_at": "2026-10-08T10:18:14.873Z",
+    "updated_at": "2026-10-08T10:18:14.904Z",
+    "age": 27,
+    "worker_profile": {
+      "user_type": "job_seeker",
+      "age": 27,
+      "profession": "Electrician",
+      "custom_profession": null,
+      "completed_at": "2026-10-08T10:18:14.887Z"
+    }
+  },
+  {
+    "user_id": "usr_778cc8e5025047a69f7ce6965f26e3c4",
+    "username": "suresh_electrician",
+    "name": "suresh_electrician",
+    "email": "seeker_flow_1791454695039@example.com",
+    "password_hash": "89d271f0451694d5585133a0a78c15b12e462155c2fb155aa2ad749b2345c011dcaae659f316585fbdae2cfc5d1b03896b9128887a33ad3ee37f805de974394c",
+    "salt": "08a2ae1610982856f0c6fb153f494dd0",
+    "auth_provider": "local",
+    "role": "worker",
+    "profile_completed": true,
+    "profile": {
+      "user_type": "job_seeker",
+      "age": 26,
+      "profession": "Electrician",
+      "custom_profession": null,
+      "completed_at": "2026-10-08T10:18:15.150Z"
+    },
+    "saved_data": null,
+    "created_at": "2026-10-08T10:18:15.138Z",
+    "updated_at": "2026-10-08T10:18:15.220Z",
+    "age": 26,
+    "worker_profile": {
+      "user_type": "job_seeker",
+      "age": 26,
+      "profession": "Electrician",
+      "custom_profession": null,
+      "completed_at": "2026-10-08T10:18:15.150Z"
+    }
+  },
+  {
+    "user_id": "usr_9bedf490c5fe47018e61019c37cbbfe2",
+    "username": "vikram_builder",
+    "name": "vikram_builder",
+    "email": "emp_flow_1791454695225@example.com",
+    "password_hash": "67ff053cdde4bfd388915a88a4dce596ceddea98f389935f9b984f7568276b525d78130ebcafe62e0beb361f413b40272bca2692581a3bc830b4ca9eaef55284",
+    "salt": "6bf9b1efec5e828b3db66e804b6c3d9f",
+    "auth_provider": "local",
+    "role": "employer",
+    "profile_completed": true,
+    "profile": {
+      "user_type": "employer",
+      "age": 35,
+      "profession": "Solar Panel Installation & Roofing",
+      "custom_profession": "Solar Panel Installation & Roofing",
+      "completed_at": "2026-10-08T10:18:15.297Z"
+    },
+    "saved_data": null,
+    "created_at": "2026-10-08T10:18:15.289Z",
+    "updated_at": "2026-10-08T10:18:15.382Z",
+    "age": 35,
+    "employer_profile": {
+      "user_type": "employer",
+      "age": 35,
+      "profession": "Solar Panel Installation & Roofing",
+      "custom_profession": "Solar Panel Installation & Roofing",
+      "completed_at": "2026-10-08T10:18:15.297Z"
+    }
+  },
+  {
+    "user_id": "usr_0c121b8005fb418fbfac42c366849279",
+    "username": "temp_user",
+    "name": "temp_user",
+    "email": "temp_1791454695387@example.com",
+    "password_hash": "da83b94b8ac141a4fc7308b0929fc5df59c6ff0a2c751c3bb585c762004eac69eaf2363e1ff891c45d97358e9edda72c314a577302db044262690654a214eff9",
+    "salt": "d875e72ede93525a7040447ed26f168a",
+    "auth_provider": "local",
+    "role": "worker",
+    "profile_completed": false,
+    "profile": null,
+    "saved_data": null,
+    "created_at": "2026-10-08T10:18:15.459Z",
+    "updated_at": "2026-10-08T10:18:15.459Z"
+  },
+  {
+    "user_id": "usr_d54473a29147453db19d2fc77298db3f",
+    "username": "Mannu Bhai",
+    "name": "Mannu Bhai",
+    "email": "mannubhai@gmail.com",
+    "password_hash": "04d5d1e6da4f583d1d8b3a78705a4547c6f54527216684652ce9188b7f88653aaa0f95ccbf2f290e19c8bc6c4bf1a37bb49a72175e77b4ead5e33017e1688742",
+    "salt": "ff7312dd6b444afbaa7247b5dce4e80e",
+    "auth_provider": "local",
+    "role": "employer",
+    "profile_completed": true,
+    "profile": {
+      "user_type": "employer",
+      "age": 18,
+      "profession": "Home & Domestic Services",
+      "custom_profession": null,
+      "completed_at": "2026-10-08T10:27:34.026Z"
+    },
+    "saved_data": null,
+    "created_at": "2026-10-08T10:26:39.578Z",
+    "updated_at": "2026-10-08T10:27:34.026Z",
+    "age": 18,
+    "employer_profile": {
+      "user_type": "employer",
+      "age": 18,
+      "profession": "Home & Domestic Services",
+      "custom_profession": null,
+      "completed_at": "2026-10-08T10:27:34.026Z"
+    }
+  },
+  {
+    "user_id": "usr_f4cc6cb297c249d793cb8e329ff86ac5",
+    "username": "Mannu Bhai",
+    "name": "Mannu Bhai",
+    "email": "mannu@gmail.com",
+    "password_hash": "f1388a799724d26868568d7ce4d45f3e787246f7e99480e2645232441907166780dbf14a5976824f85ac13669955a9382e5ec947939b44dca0d04ecad6fb3c80",
+    "salt": "5ccd21a6fb4b653b082cb3fc84e089fa",
+    "auth_provider": "local",
+    "role": "employer",
+    "profile_completed": true,
+    "profile": {
+      "user_type": "employer",
+      "age": 24,
+      "profession": "Construction & Building",
+      "custom_profession": null,
+      "completed_at": "2026-10-08T10:30:05.860Z"
+    },
+    "saved_data": null,
+    "created_at": "2026-10-08T10:29:53.301Z",
+    "updated_at": "2026-10-08T10:30:05.860Z",
+    "age": 24,
+    "employer_profile": {
+      "user_type": "employer",
+      "age": 24,
+      "profession": "Construction & Building",
+      "custom_profession": null,
+      "completed_at": "2026-10-08T10:30:05.860Z"
+    }
+  },
+  {
+    "user_id": "usr_8f8ce9614e494abe872c4d87a0100547",
+    "username": "Tushar Sharma",
+    "name": "Tushar Sharma",
+    "email": "testuser_1791458654395@example.com",
+    "mobile_number": null,
+    "account_type": "job_seeker",
+    "password_hash": "6c3fb819c984123bf12e193bb8b18cb32d197fd8e318256fb155a9cf98cd1142ed00cec0a8e7e2c63085e3992fea4dc8d0b5a6b5b0c591617184d169bc659880",
+    "salt": "566ec6355045f67aea48b2f437e4245c",
+    "auth_provider": "local",
+    "role": "worker",
+    "profile_completed": false,
+    "completion_percentage": 0,
+    "profile": null,
+    "saved_data": null,
+    "created_at": "2026-10-08T11:24:14.603Z",
+    "updated_at": "2026-10-08T11:24:15.254Z"
+  },
+  {
+    "user_id": "usr_6e472cc4812f4ae8be80fab4bb5aebad",
+    "username": "rahul_verma",
+    "name": "rahul_verma",
+    "email": "dailyjob_user_1791458655268@example.com",
+    "mobile_number": null,
+    "account_type": "job_seeker",
+    "password_hash": "8351d25d0de0a58391f574fe19fe88eeca8582cadf356491e95d01e65abb05b29c35a41356c232b22a51c427c73d26313ea2172ee7d54ace9c5b532c943f9492",
+    "salt": "26ec7d698caeb1b5d4310ae4f6a32ad2",
+    "auth_provider": "local",
+    "role": "worker",
+    "profile_completed": false,
+    "completion_percentage": 0,
+    "profile": null,
+    "saved_data": {
+      "savedJobIds": [
+        "job-101",
+        "job-104"
+      ],
+      "appliedJobs": [
+        {
+          "jobId": "job-101",
+          "date": "2026-10-07"
+        }
+      ],
+      "customNotes": "My saved daily jobs checklist"
+    },
+    "created_at": "2026-10-08T11:24:15.353Z",
+    "updated_at": "2026-10-08T11:24:15.654Z"
+  },
+  {
+    "user_id": "usr_80815f0cc8094f49b9095a13c21fde63",
+    "username": "rohit_worker",
+    "name": "rohit_worker",
+    "email": "prof_user_1791458655671@example.com",
+    "mobile_number": null,
+    "account_type": "job_seeker",
+    "password_hash": "e712287e6df7dd08dcd16f28413cf1db6b342587b6f985046ad3e4036b36a837245e2d7e5deb49421f50a53f438ec32ffe46b38853544037cd1fd9db5d2473ef",
+    "salt": "980d628e2da4bf373e5a2bad8c183b47",
+    "auth_provider": "local",
+    "role": "worker",
+    "profile_completed": true,
+    "completion_percentage": 0,
+    "profile": {
+      "user_type": "job_seeker",
+      "age": 26,
+      "profession": "Electrician",
+      "custom_profession": null,
+      "completed_at": "2026-10-08T11:24:15.792Z"
+    },
+    "saved_data": null,
+    "created_at": "2026-10-08T11:24:15.755Z",
+    "updated_at": "2026-10-08T11:24:16.174Z",
+    "age": 26,
+    "worker_profile": {
+      "user_type": "job_seeker",
+      "age": 26,
+      "profession": "Electrician",
+      "custom_profession": null,
+      "completed_at": "2026-10-08T11:24:15.792Z"
+    }
+  },
+  {
+    "user_id": "usr_ad2bbff99806419c9b6139c762cac002",
+    "username": "sharma_contractor",
+    "name": "sharma_contractor",
+    "email": "emp_user_1791458655812@example.com",
+    "mobile_number": null,
+    "account_type": "job_seeker",
+    "password_hash": "3c49c714ce091244af446dd8b8fa635f211f1a48c300df1fdda8443d3e643c7f192590ba571fa71396a13fe6a54d0b33e248dbb2fafc550fba270d548f1af16f",
+    "salt": "ca69d75e6234cf696184f3c4e2b3a2db",
+    "auth_provider": "local",
+    "role": "employer",
+    "profile_completed": true,
+    "completion_percentage": 0,
+    "profile": {
+      "user_type": "employer",
+      "age": 38,
+      "profession": "Event Catering & Tent Services",
+      "custom_profession": "Event Catering & Tent Services",
+      "completed_at": "2026-10-08T11:24:15.938Z"
+    },
+    "saved_data": null,
+    "created_at": "2026-10-08T11:24:15.922Z",
+    "updated_at": "2026-10-08T11:24:16.048Z",
+    "age": 38,
+    "employer_profile": {
+      "user_type": "employer",
+      "age": 38,
+      "profession": "Event Catering & Tent Services",
+      "custom_profession": "Event Catering & Tent Services",
+      "completed_at": "2026-10-08T11:24:15.938Z"
+    }
+  },
+  {
+    "user_id": "usr_d2dda37233f346e6867f24620b8491ce",
+    "username": "dual_user_947085",
+    "name": "dual_user_947085",
+    "email": "dual_947085@dailyjob.com",
+    "mobile_number": null,
+    "account_type": "job_seeker",
+    "password_hash": "978a86081c8bb03e25f926c8e676a9f8e07d15eaba08f41ee745b499598e8325ee72098185ee09bbdb4d0849ba01755a221551ba5f5fdb02df71f8273ee0e474",
+    "salt": "5f55c7586b96b135bbe75aa8d5a14dad",
+    "auth_provider": "local",
+    "role": "employer",
+    "profile_completed": true,
+    "completion_percentage": 0,
+    "profile": {
+      "user_type": "employer",
+      "age": 25,
+      "profession": "Shop & Retail",
+      "custom_profession": null,
+      "completed_at": "2026-10-08T11:24:16.599Z"
+    },
+    "saved_data": null,
+    "created_at": "2026-10-08T11:24:16.542Z",
+    "updated_at": "2026-10-08T11:24:16.771Z",
+    "age": 25,
+    "worker_profile": {
+      "user_type": "job_seeker",
+      "age": 25,
+      "profession": "Plumber",
+      "custom_profession": null,
+      "completed_at": "2026-10-08T11:24:16.579Z"
+    },
+    "employer_profile": {
+      "user_type": "employer",
+      "age": 25,
+      "profession": "Shop & Retail",
+      "custom_profession": null,
+      "completed_at": "2026-10-08T11:24:16.599Z"
+    }
+  },
+  {
+    "user_id": "usr_046d3e9386f54b039b952840ec0e5f4c",
+    "username": "user_1791458656979",
+    "name": "user_1791458656979",
+    "email": "role_test_1791458656979@example.com",
+    "mobile_number": null,
+    "account_type": "job_seeker",
+    "password_hash": "c0e0e793748bcabc54333f4e0caad732618b4dd899d94f940f1a7c53d85bae2a10340474819655730fca313b81251b783109b370ab59df4b8dfd75d052971e98",
+    "salt": "7923bc5055e66a662bfb3940ff6a6182",
+    "auth_provider": "local",
+    "role": "worker",
+    "profile_completed": true,
+    "completion_percentage": 0,
+    "profile": {
+      "user_type": "job_seeker",
+      "age": 27,
+      "profession": "Electrician",
+      "custom_profession": null,
+      "completed_at": "2026-10-08T11:24:17.186Z"
+    },
+    "saved_data": null,
+    "created_at": "2026-10-08T11:24:17.157Z",
+    "updated_at": "2026-10-08T11:24:17.224Z",
+    "age": 27,
+    "worker_profile": {
+      "user_type": "job_seeker",
+      "age": 27,
+      "profession": "Electrician",
+      "custom_profession": null,
+      "completed_at": "2026-10-08T11:24:17.186Z"
+    }
+  },
+  {
+    "user_id": "usr_4bec388ec1c94c15b68017785f10e78f",
+    "username": "suresh_electrician",
+    "name": "suresh_electrician",
+    "email": "seeker_flow_1791458657373@example.com",
+    "mobile_number": null,
+    "account_type": "job_seeker",
+    "password_hash": "55e5372ccc9116e880cdd7b9167f040cb140b5f35a20205b9328d9f4bd1971a16cbe475ec4e940702b0cc7a6ec118894b2d446c89aca9e74456cbf5b3b48f015",
+    "salt": "3a97a2b18fde6589a6098a03f4d013ee",
+    "auth_provider": "local",
+    "role": "worker",
+    "profile_completed": true,
+    "completion_percentage": 0,
+    "profile": {
+      "user_type": "job_seeker",
+      "age": 26,
+      "profession": "Electrician",
+      "custom_profession": null,
+      "completed_at": "2026-10-08T11:24:17.554Z"
+    },
+    "saved_data": null,
+    "created_at": "2026-10-08T11:24:17.534Z",
+    "updated_at": "2026-10-08T11:24:17.649Z",
+    "age": 26,
+    "worker_profile": {
+      "user_type": "job_seeker",
+      "age": 26,
+      "profession": "Electrician",
+      "custom_profession": null,
+      "completed_at": "2026-10-08T11:24:17.554Z"
+    }
+  },
+  {
+    "user_id": "usr_f4424520de414e2aa847c5c95b231d03",
+    "username": "vikram_builder",
+    "name": "vikram_builder",
+    "email": "emp_flow_1791458657665@example.com",
+    "mobile_number": null,
+    "account_type": "job_seeker",
+    "password_hash": "2f39af0f0eb495621358fa11fb5e95819cb024a061b4bde24177cbe70a99d63c9dbdb6541149b6eb34325fe3f2010005dcc574b5b8713472217654b346854bce",
+    "salt": "19fb3e1042bf05346c293dd753ece89e",
+    "auth_provider": "local",
+    "role": "employer",
+    "profile_completed": true,
+    "completion_percentage": 0,
+    "profile": {
+      "user_type": "employer",
+      "age": 35,
+      "profession": "Solar Panel Installation & Roofing",
+      "custom_profession": "Solar Panel Installation & Roofing",
+      "completed_at": "2026-10-08T11:24:17.795Z"
+    },
+    "saved_data": null,
+    "created_at": "2026-10-08T11:24:17.765Z",
+    "updated_at": "2026-10-08T11:24:17.903Z",
+    "age": 35,
+    "employer_profile": {
+      "user_type": "employer",
+      "age": 35,
+      "profession": "Solar Panel Installation & Roofing",
+      "custom_profession": "Solar Panel Installation & Roofing",
+      "completed_at": "2026-10-08T11:24:17.795Z"
+    }
+  },
+  {
+    "user_id": "usr_506fea96fd844f8da12a73ffee524f3d",
+    "username": "temp_user",
+    "name": "temp_user",
+    "email": "temp_1791458657910@example.com",
+    "mobile_number": null,
+    "account_type": "job_seeker",
+    "password_hash": "2ec234122626ec34f81d6a56a1326b5801c32e62e45fd9fa0545ca9ee7c64b1b8adfd34af24cd5785a90a9e12ce8f848c8c642e2e8a666e1adcf4915355a2d79",
+    "salt": "1e6160a3b61539678963aa0bebe52a27",
+    "auth_provider": "local",
+    "role": "worker",
+    "profile_completed": false,
+    "completion_percentage": 0,
+    "profile": null,
+    "saved_data": null,
+    "created_at": "2026-10-08T11:24:17.985Z",
+    "updated_at": "2026-10-08T11:24:17.985Z"
+  },
+  {
+    "user_id": "usr_a2ccaa7e060c483c8f9cc60b01ec5c44",
+    "username": "Priya Sharma",
+    "name": "Priya Sharma",
+    "email": "seeker_test_1791458658124@example.com",
+    "mobile_number": "9876543210",
+    "account_type": "job_seeker",
+    "password_hash": "5ed5eb9cdefa5bbb3bca1c52f470fd7eb712578a5cf63925b6d097a41770fcc2f27b27666c8f00106263510a57b2a8ed64d196ced453f8abc8b49c877bc70d4a",
+    "salt": "02c2f7eaedafaa4b522f37a4af1bd20a",
+    "auth_provider": "local",
+    "role": "worker",
+    "profile_completed": true,
+    "completion_percentage": 100,
+    "profile": null,
+    "saved_data": null,
+    "created_at": "2026-10-08T11:24:18.262Z",
+    "updated_at": "2026-10-08T11:24:18.277Z",
+    "job_seeker_profile": {
+      "personal": {
+        "full_name": "Priya Sharma",
+        "profile_photo": "https://example.com/photo.jpg",
+        "date_of_birth": "1998-05-15",
+        "age": 28,
+        "gender": "Female",
+        "mobile_number": "9876543210",
+        "email": "seeker_test_1791458658124@example.com",
+        "current_city": "Bengaluru",
+        "current_state": "Karnataka",
+        "country": "India",
+        "preferred_language": "English"
+      },
+      "employment_status": {
+        "status": "Working Professional",
+        "current_job_title": "Software Developer",
+        "current_company": "Tech Solutions",
+        "total_experience_years": "3",
+        "current_industry": "Information Technology"
+      },
+      "education": [
+        {
+          "level": "Undergraduate",
+          "degree": "B.Tech in Computer Science",
+          "university": "VTU Belagavi",
+          "graduation_year": "2020",
+          "status": "Completed"
+        }
+      ],
+      "skills": [
+        {
+          "name": "JavaScript",
+          "category": "Technical",
+          "level": "Advanced"
+        },
+        {
+          "name": "React",
+          "category": "Technical",
+          "level": "Intermediate"
+        }
+      ],
+      "has_experience": true,
+      "experience": [
+        {
+          "job_title": "Junior Engineer",
+          "company_name": "Tech Solutions",
+          "employment_type": "Full-time",
+          "start_date": "2021-01-01",
+          "end_date": "2024-01-01",
+          "is_current": true,
+          "location": "Bengaluru"
+        }
+      ],
+      "preferences": {
+        "looking_for": [
+          "Full-time"
+        ],
+        "preferred_roles": [
+          "Frontend Developer",
+          "Full Stack Developer"
+        ],
+        "work_modes": [
+          "Hybrid",
+          "Work from Home"
+        ],
+        "preferred_cities": [
+          "Bengaluru"
+        ],
+        "expected_salary_min": 50000,
+        "expected_salary_max": 80000,
+        "is_salary_negotiable": true
+      },
+      "languages": [
+        {
+          "language": "English",
+          "speaking_level": "Fluent/Native",
+          "reading_level": "Fluent/Native",
+          "writing_level": "Fluent/Native"
+        },
+        {
+          "language": "Hindi",
+          "speaking_level": "Intermediate",
+          "reading_level": "Intermediate",
+          "writing_level": "Intermediate"
+        }
+      ],
+      "portfolio": {
+        "resume_url": "https://example.com/resumes/priya_resume.pdf",
+        "linkedin_url": "https://linkedin.com/in/priyasharma",
+        "github_url": "https://github.com/priyasharma"
+      },
+      "visibility": {
+        "visibility": "public_employers",
+        "allow_contact": true
+      },
+      "updated_at": "2026-10-08T11:24:18.277Z",
+      "is_submitted": true
+    },
+    "worker_profile": {
+      "personal": {
+        "full_name": "Priya Sharma",
+        "profile_photo": "https://example.com/photo.jpg",
+        "date_of_birth": "1998-05-15",
+        "age": 28,
+        "gender": "Female",
+        "mobile_number": "9876543210",
+        "email": "seeker_test_1791458658124@example.com",
+        "current_city": "Bengaluru",
+        "current_state": "Karnataka",
+        "country": "India",
+        "preferred_language": "English"
+      },
+      "employment_status": {
+        "status": "Working Professional",
+        "current_job_title": "Software Developer",
+        "current_company": "Tech Solutions",
+        "total_experience_years": "3",
+        "current_industry": "Information Technology"
+      },
+      "education": [
+        {
+          "level": "Undergraduate",
+          "degree": "B.Tech in Computer Science",
+          "university": "VTU Belagavi",
+          "graduation_year": "2020",
+          "status": "Completed"
+        }
+      ],
+      "skills": [
+        {
+          "name": "JavaScript",
+          "category": "Technical",
+          "level": "Advanced"
+        },
+        {
+          "name": "React",
+          "category": "Technical",
+          "level": "Intermediate"
+        }
+      ],
+      "has_experience": true,
+      "experience": [
+        {
+          "job_title": "Junior Engineer",
+          "company_name": "Tech Solutions",
+          "employment_type": "Full-time",
+          "start_date": "2021-01-01",
+          "end_date": "2024-01-01",
+          "is_current": true,
+          "location": "Bengaluru"
+        }
+      ],
+      "preferences": {
+        "looking_for": [
+          "Full-time"
+        ],
+        "preferred_roles": [
+          "Frontend Developer",
+          "Full Stack Developer"
+        ],
+        "work_modes": [
+          "Hybrid",
+          "Work from Home"
+        ],
+        "preferred_cities": [
+          "Bengaluru"
+        ],
+        "expected_salary_min": 50000,
+        "expected_salary_max": 80000,
+        "is_salary_negotiable": true
+      },
+      "languages": [
+        {
+          "language": "English",
+          "speaking_level": "Fluent/Native",
+          "reading_level": "Fluent/Native",
+          "writing_level": "Fluent/Native"
+        },
+        {
+          "language": "Hindi",
+          "speaking_level": "Intermediate",
+          "reading_level": "Intermediate",
+          "writing_level": "Intermediate"
+        }
+      ],
+      "portfolio": {
+        "resume_url": "https://example.com/resumes/priya_resume.pdf",
+        "linkedin_url": "https://linkedin.com/in/priyasharma",
+        "github_url": "https://github.com/priyasharma"
+      },
+      "visibility": {
+        "visibility": "public_employers",
+        "allow_contact": true
+      },
+      "updated_at": "2026-10-08T11:24:18.277Z",
+      "is_submitted": true
+    },
+    "completion_breakdown": {
+      "percentage": 100,
+      "completed_sections": [
+        "Personal Information",
+        "Employment Status",
+        "Education",
+        "Skills",
+        "Work Experience",
+        "Job Preferences",
+        "Languages",
+        "Portfolio & Resume",
+        "Privacy & Visibility",
+        "Final Confirmation"
+      ],
+      "missing_sections": [],
+      "is_ready_for_matching": true
+    },
+    "age": 28
+  },
+  {
+    "user_id": "usr_62f60703c9d64412a0d8f2e9e87aa39a",
+    "username": "Rohan Verma",
+    "name": "Rohan Verma",
+    "email": "recruiter_test_1791458658292@example.com",
+    "mobile_number": "9123456789",
+    "account_type": "employer",
+    "password_hash": "7cd46ae397f482450f90d298c8fa6bc28842af85913fef63a4674053febbb2c504563f4b050522ab3c62975aeac3ed09628354f56eba0eed6163b2180acc2b01",
+    "salt": "c1b56b26d46bb1c73cf0e5450c594e5a",
+    "auth_provider": "local",
+    "role": "employer",
+    "profile_completed": true,
+    "completion_percentage": 100,
+    "profile": null,
+    "saved_data": null,
+    "created_at": "2026-10-08T11:24:18.367Z",
+    "updated_at": "2026-10-08T11:24:18.377Z",
+    "employer_profile": {
+      "business_type": "Private Limited Company",
+      "business_info": {
+        "name": "Apex Innovations Pvt Ltd",
+        "logo_url": "https://example.com/logo.png",
+        "description": "Leading software development enterprise.",
+        "industry": "Information Technology",
+        "year_established": "2018",
+        "employee_count": "51–200"
+      },
+      "location": {
+        "country": "India",
+        "state": "Maharashtra",
+        "city": "Pune",
+        "address": "Tower 4, Cyber City, Magarpatta",
+        "pincode": "411028",
+        "work_model": "Hybrid"
+      },
+      "recruiter_info": {
+        "name": "Rohan Verma",
+        "job_title": "Talent Acquisition Lead",
+        "official_email": "recruiter_test_1791458658292@example.com",
+        "mobile_number": "9123456789",
+        "preferred_contact_method": "Email"
+      },
+      "hiring_info": {
+        "hiring_types": [
+          "Full-time",
+          "Internships"
+        ],
+        "categories": [
+          "IT / Software Development",
+          "Product Design"
+        ]
+      },
+      "hiring_location": {
+        "cities": [
+          "Pune",
+          "Bengaluru"
+        ],
+        "remote_hiring": true,
+        "hybrid_hiring": true,
+        "onsite_hiring": false
+      },
+      "verification": {
+        "status": "pending",
+        "gstin": "27AAACA1234A1Z5",
+        "official_website": "https://apexinnovations.com",
+        "official_email": "recruiter_test_1791458658292@example.com"
+      },
+      "company_profile": {
+        "description": "Global tech products firm.",
+        "mission": "Empower digital transformation.",
+        "website": "https://apexinnovations.com",
+        "benefits": [
+          "Health Insurance",
+          "Performance Bonus",
+          "Flexible Hours"
+        ],
+        "work_culture": "Innovation first with great work-life balance."
+      },
+      "hiring_preferences": {
+        "candidate_experience": "1–3 years",
+        "preferred_education": [
+          "Bachelor's Degree in CS/IT"
+        ],
+        "preferred_skills": [
+          "JavaScript",
+          "Python",
+          "React"
+        ],
+        "salary_min": 40000,
+        "salary_max": 90000,
+        "discuss_during_hiring": true
+      },
+      "visibility": {
+        "visibility": "public",
+        "allow_contact": true
+      },
+      "updated_at": "2026-10-08T11:24:18.377Z",
+      "is_submitted": true
+    },
+    "completion_breakdown": {
+      "percentage": 100,
+      "completed_sections": [
+        "Business Type",
+        "Business Information",
+        "Office Location",
+        "Recruiter Contact",
+        "Hiring Information",
+        "Hiring Locations",
+        "Business Verification",
+        "Company Profile & Culture",
+        "Hiring Preferences",
+        "Profile Visibility"
+      ],
+      "missing_sections": [],
+      "is_ready_for_matching": true
+    }
+  },
+  {
+    "user_id": "usr_16468db745e24400a10e8dc865a49d32",
+    "username": "Tushar",
+    "name": "Tushar",
+    "email": "tusha1400@gmail.com",
+    "mobile_number": null,
+    "account_type": "job_seeker",
+    "password_hash": "699efc047eb4e7b028dcb06e9e0bbf03672f65f24b212157eca6f5d07af790f6fd5a773ae4191785b65814bae8e9279e7e4d55c7f3a47d0b13e74a19866bbd6e",
+    "salt": "8e91dca4e1f334ff9c68e1ce1d138985",
+    "auth_provider": "local",
+    "role": "worker",
+    "profile_completed": false,
+    "completion_percentage": 0,
+    "profile": null,
+    "saved_data": null,
+    "created_at": "2026-10-08T11:30:15.242Z",
+    "updated_at": "2026-10-08T11:30:15.242Z"
+  },
+  {
+    "user_id": "usr_64d1221eed824c028dd63a2113133f92",
+    "username": "Twinkle",
+    "name": "Twinkle",
+    "email": "twinkle@gmail.com",
+    "mobile_number": "7912456994",
+    "account_type": "job_seeker",
+    "password_hash": "9824c5c5e463e050692e42f6e7b1de90eae89d9121a57c8ed769907051db50651d352bb968ba898fdf9dc1d4a01a4ab7651efdcbf28dda034805ff681c8da376",
+    "salt": "a79930720e5845eb2bdbaa06abbffdbf",
+    "auth_provider": "local",
+    "role": "worker",
+    "profile_completed": false,
+    "completion_percentage": 0,
+    "profile": null,
+    "saved_data": null,
+    "created_at": "2026-10-08T11:33:31.746Z",
+    "updated_at": "2026-10-08T11:33:31.746Z"
+  },
+  {
+    "user_id": "usr_51dec2f578124289a7ba9e8a6827b327",
+    "username": "Twinkle",
+    "name": "Tushar",
+    "email": "tusharkumar@gmail.com",
+    "mobile_number": "8815500014",
+    "account_type": "employer",
+    "password_hash": "2e12e44944c2f8c75ee4a62f79c696881d3049563d1f659d727699dc9e146ba8ddee213f12720aa21d2fef083e930498a63af55c526cef360520b00e2156b1a4",
+    "salt": "a4372b5f58826e58aa3814a4394fadca",
+    "auth_provider": "local",
+    "role": "employer",
+    "profile_completed": true,
+    "completion_percentage": 80,
+    "profile": null,
+    "saved_data": null,
+    "created_at": "2026-10-08T11:34:29.018Z",
+    "updated_at": "2026-10-08T11:41:47.018Z",
+    "job_seeker_profile": {
+      "personal": {
+        "full_name": "Twinkle",
+        "profile_photo": "",
+        "date_of_birth": "2008-06-10",
+        "age": 18,
+        "gender": "Female",
+        "mobile_number": "7912456994",
+        "email": "twinkle@gmail.com",
+        "current_city": "Dhamtari",
+        "current_state": "Chhattisgarh",
+        "country": "India",
+        "preferred_language": "Hindi"
+      },
+      "employment_status": {
+        "status": "Currently unemployed",
+        "college_name": "",
+        "course_degree": "",
+        "branch_specialization": "",
+        "current_year_semester": "",
+        "expected_graduation_year": "",
+        "current_job_title": "",
+        "current_company": "",
+        "total_experience_years": "",
+        "current_industry": "",
+        "graduation_year": ""
+      },
+      "education": [
+        {
+          "level": "10th Standard",
+          "degree": "",
+          "specialization": "General",
+          "university": "",
+          "graduation_year": "2024",
+          "status": "Completed",
+          "certifications": ""
+        }
+      ],
+      "skills": [],
+      "has_experience": false,
+      "experience": [],
+      "preferences": {
+        "looking_for": [
+          "Full-time"
+        ],
+        "preferred_roles": [],
+        "preferred_industries": [],
+        "work_modes": [
+          "On-site"
+        ],
+        "preferred_cities": [],
+        "relocation": "Maybe",
+        "expected_salary_min": 10000,
+        "expected_salary_max": 30000,
+        "is_salary_negotiable": true
+      },
+      "languages": [
+        {
+          "language": "Hindi",
+          "speaking_level": "Intermediate",
+          "reading_level": "Fluent/Native",
+          "writing_level": "Fluent/Native"
+        },
+        {
+          "language": "English",
+          "speaking_level": "Beginner",
+          "reading_level": "Intermediate",
+          "writing_level": "Intermediate"
+        }
+      ],
+      "portfolio": {
+        "resume_url": "",
+        "resume_filename": "",
+        "linkedin_url": "",
+        "github_url": "",
+        "portfolio_url": "",
+        "other_url": ""
+      },
+      "visibility": {
+        "visibility": "public_employers",
+        "allow_contact": true
+      },
+      "updated_at": "2026-10-08T11:39:12.244Z",
+      "is_submitted": true
+    },
+    "worker_profile": {
+      "personal": {
+        "full_name": "Twinkle",
+        "profile_photo": "",
+        "date_of_birth": "2008-06-10",
+        "age": 18,
+        "gender": "Female",
+        "mobile_number": "7912456994",
+        "email": "twinkle@gmail.com",
+        "current_city": "Dhamtari",
+        "current_state": "Chhattisgarh",
+        "country": "India",
+        "preferred_language": "Hindi"
+      },
+      "employment_status": {
+        "status": "Currently unemployed",
+        "college_name": "",
+        "course_degree": "",
+        "branch_specialization": "",
+        "current_year_semester": "",
+        "expected_graduation_year": "",
+        "current_job_title": "",
+        "current_company": "",
+        "total_experience_years": "",
+        "current_industry": "",
+        "graduation_year": ""
+      },
+      "education": [
+        {
+          "level": "10th Standard",
+          "degree": "",
+          "specialization": "General",
+          "university": "",
+          "graduation_year": "2024",
+          "status": "Completed",
+          "certifications": ""
+        }
+      ],
+      "skills": [],
+      "has_experience": false,
+      "experience": [],
+      "preferences": {
+        "looking_for": [
+          "Full-time"
+        ],
+        "preferred_roles": [],
+        "preferred_industries": [],
+        "work_modes": [
+          "On-site"
+        ],
+        "preferred_cities": [],
+        "relocation": "Maybe",
+        "expected_salary_min": 10000,
+        "expected_salary_max": 30000,
+        "is_salary_negotiable": true
+      },
+      "languages": [
+        {
+          "language": "Hindi",
+          "speaking_level": "Intermediate",
+          "reading_level": "Fluent/Native",
+          "writing_level": "Fluent/Native"
+        },
+        {
+          "language": "English",
+          "speaking_level": "Beginner",
+          "reading_level": "Intermediate",
+          "writing_level": "Intermediate"
+        }
+      ],
+      "portfolio": {
+        "resume_url": "",
+        "resume_filename": "",
+        "linkedin_url": "",
+        "github_url": "",
+        "portfolio_url": "",
+        "other_url": ""
+      },
+      "visibility": {
+        "visibility": "public_employers",
+        "allow_contact": true
+      },
+      "updated_at": "2026-10-08T11:39:12.244Z",
+      "is_submitted": true
+    },
+    "completion_breakdown": {
+      "percentage": 80,
+      "completed_sections": [
+        "Business Type",
+        "Office Location",
+        "Recruiter Contact",
+        "Hiring Information",
+        "Hiring Locations",
+        "Company Profile & Culture",
+        "Hiring Preferences",
+        "Profile Visibility"
+      ],
+      "missing_sections": [
+        "Business Information",
+        "Business Verification"
+      ],
+      "is_ready_for_matching": false
+    },
+    "age": 18,
+    "employer_profile": {
+      "business_type": "Public Limited Company",
+      "business_info": {
+        "name": "construction company",
+        "logo_url": "",
+        "description": "",
+        "industry": "",
+        "year_established": "2020",
+        "employee_count": "11–50"
+      },
+      "location": {
+        "country": "India",
+        "state": "Chhattisgarh",
+        "city": "Dhamtari",
+        "address": "WARD 06, DARBA, PO: DARBA, DIST DHAMTARI, CHHATTISGARH - 493661",
+        "pincode": "",
+        "work_model": "On-site"
+      },
+      "recruiter_info": {
+        "name": "Tushar",
+        "job_title": "owner",
+        "official_email": "tusharkumar@gmail.com",
+        "mobile_number": "8815500014",
+        "alternate_contact": "",
+        "preferred_contact_method": "Email"
+      },
+      "hiring_info": {
+        "hiring_types": [
+          "Full-time",
+          "Part-time"
+        ],
+        "categories": [
+          "IT / Software Development"
+        ]
+      },
+      "hiring_location": {
+        "cities": [],
+        "states": [],
+        "country": "India",
+        "remote_hiring": true,
+        "hybrid_hiring": true,
+        "onsite_hiring": true
+      },
+      "verification": {
+        "status": "not_verified",
+        "gstin": "",
+        "cin": "",
+        "registration_number": "",
+        "official_website": "",
+        "official_email": ""
+      },
+      "company_profile": {
+        "description": "",
+        "mission": "",
+        "website": "",
+        "linkedin_url": "",
+        "social_links": [],
+        "benefits": [
+          "Health Insurance",
+          "Performance Bonus",
+          "Flexible Hours"
+        ],
+        "work_culture": "Collaborative, growth-oriented environment."
+      },
+      "hiring_preferences": {
+        "candidate_experience": "Fresher",
+        "preferred_education": [
+          "Bachelor's Degree"
+        ],
+        "preferred_skills": [],
+        "salary_min": 25000,
+        "salary_max": 50000,
+        "discuss_during_hiring": true
+      },
+      "visibility": {
+        "visibility": "public",
+        "allow_contact": true
+      },
+      "updated_at": "2026-10-08T11:41:47.018Z",
+      "is_submitted": true
+    }
+  },
+  {
+    "user_id": "usr_963e14b7a355431eaa2a46960b10ca6b",
+    "username": "Tushar Sharma",
+    "name": "Tushar Sharma",
+    "email": "testuser_1791461065456@example.com",
+    "mobile_number": null,
+    "account_type": "job_seeker",
+    "password_hash": "bc9776e16c4eecbe624e6338d2299991d40a45edda4b727e108b36a6a7c1a08933eae10f3894d8e1d23239ce56acff9f3379c56f627a3c3b337a8b462100b76f",
+    "salt": "30ba18ae21b4ac59f54e1a54c4e83e85",
+    "auth_provider": "local",
+    "role": "worker",
+    "profile_completed": false,
+    "completion_percentage": 0,
+    "profile": null,
+    "saved_data": null,
+    "created_at": "2026-10-08T12:04:25.599Z",
+    "updated_at": "2026-10-08T12:04:26.006Z"
+  },
+  {
+    "user_id": "usr_e24e7f08188748e0bf401121066e53a3",
+    "username": "rahul_verma",
+    "name": "rahul_verma",
+    "email": "dailyjob_user_1791461066016@example.com",
+    "mobile_number": null,
+    "account_type": "job_seeker",
+    "password_hash": "837a550f5837fbda32b1df59a60d9bfc32a7814ba88579186b0d8788eaf3f839c83a9aec600e647c94303ef72b7cbab6c92f151ede99b23bffa44b87330d6a52",
+    "salt": "1e045e57c936a962fd30983cfc6648da",
+    "auth_provider": "local",
+    "role": "worker",
+    "profile_completed": false,
+    "completion_percentage": 0,
+    "profile": null,
+    "saved_data": {
+      "savedJobIds": [
+        "job-101",
+        "job-104"
+      ],
+      "appliedJobs": [
+        {
+          "jobId": "job-101",
+          "date": "2026-10-07"
+        }
+      ],
+      "customNotes": "My saved daily jobs checklist"
+    },
+    "created_at": "2026-10-08T12:04:26.082Z",
+    "updated_at": "2026-10-08T12:04:26.350Z"
+  },
+  {
+    "user_id": "usr_fd2a19ebeafc4847b60ca97f53e28dc3",
+    "username": "rohit_worker",
+    "name": "rohit_worker",
+    "email": "prof_user_1791461066360@example.com",
+    "mobile_number": null,
+    "account_type": "job_seeker",
+    "password_hash": "d355bbce357ba4693c2098a104226ec93e819ed5d97e8b99e2efaa28947894d66d4fbacc8e85d1660e9bc3cb1523a9d7978dbdc2257d0a526f778197b41e0a57",
+    "salt": "011f7524a43136f3f55d4da6902858d5",
+    "auth_provider": "local",
+    "role": "worker",
+    "profile_completed": true,
+    "completion_percentage": 0,
+    "profile": {
+      "user_type": "job_seeker",
+      "age": 26,
+      "profession": "Electrician",
+      "custom_profession": null,
+      "completed_at": "2026-10-08T12:04:26.448Z"
+    },
+    "saved_data": null,
+    "created_at": "2026-10-08T12:04:26.431Z",
+    "updated_at": "2026-10-08T12:04:26.681Z",
+    "age": 26,
+    "worker_profile": {
+      "user_type": "job_seeker",
+      "age": 26,
+      "profession": "Electrician",
+      "custom_profession": null,
+      "completed_at": "2026-10-08T12:04:26.448Z"
+    }
+  },
+  {
+    "user_id": "usr_6a5acc340b5446e2a44eda6467889a69",
+    "username": "sharma_contractor",
+    "name": "sharma_contractor",
+    "email": "emp_user_1791461066453@example.com",
+    "mobile_number": null,
+    "account_type": "job_seeker",
+    "password_hash": "05dd9df6ae2aca495769661274fcbe863aed9229676e560ddd34523b5fe15320435a7779827ff32f55b8af6e174a9ef6b6505aefb6402b1469cc5ac8834653a0",
+    "salt": "9ddd312cbc57c5b71bd75fcbbda01131",
+    "auth_provider": "local",
+    "role": "employer",
+    "profile_completed": true,
+    "completion_percentage": 0,
+    "profile": {
+      "user_type": "employer",
+      "age": 38,
+      "profession": "Event Catering & Tent Services",
+      "custom_profession": "Event Catering & Tent Services",
+      "completed_at": "2026-10-08T12:04:26.533Z"
+    },
+    "saved_data": null,
+    "created_at": "2026-10-08T12:04:26.523Z",
+    "updated_at": "2026-10-08T12:04:26.610Z",
+    "age": 38,
+    "employer_profile": {
+      "user_type": "employer",
+      "age": 38,
+      "profession": "Event Catering & Tent Services",
+      "custom_profession": "Event Catering & Tent Services",
+      "completed_at": "2026-10-08T12:04:26.533Z"
+    }
+  },
+  {
+    "user_id": "usr_c6e24ac55518444492d2831096adb2bf",
+    "username": "dual_user_116890",
+    "name": "dual_user_116890",
+    "email": "dual_116890@dailyjob.com",
+    "mobile_number": null,
+    "account_type": "job_seeker",
+    "password_hash": "3dd53cb2b84259aab95773b46d69dba5fc0ea4c056bd29e17f8ad3244bfdfe81c82880ecf25e2d4293373fe8dd663d8d6b0407f0190ca014b1d886b442348ae6",
+    "salt": "b70ddc863c42d6019d5a03d1ea3ad65a",
+    "auth_provider": "local",
+    "role": "employer",
+    "profile_completed": true,
+    "completion_percentage": 0,
+    "profile": {
+      "user_type": "employer",
+      "age": 25,
+      "profession": "Shop & Retail",
+      "custom_profession": null,
+      "completed_at": "2026-10-08T12:04:26.921Z"
+    },
+    "saved_data": null,
+    "created_at": "2026-10-08T12:04:26.901Z",
+    "updated_at": "2026-10-08T12:04:27.014Z",
+    "age": 25,
+    "worker_profile": {
+      "user_type": "job_seeker",
+      "age": 25,
+      "profession": "Plumber",
+      "custom_profession": null,
+      "completed_at": "2026-10-08T12:04:26.914Z"
+    },
+    "employer_profile": {
+      "user_type": "employer",
+      "age": 25,
+      "profession": "Shop & Retail",
+      "custom_profession": null,
+      "completed_at": "2026-10-08T12:04:26.921Z"
+    }
+  },
+  {
+    "user_id": "usr_8f64eadcfb4d4bf68bac4b76f5e17415",
+    "username": "user_1791461067165",
+    "name": "user_1791461067165",
+    "email": "role_test_1791461067165@example.com",
+    "mobile_number": null,
+    "account_type": "job_seeker",
+    "password_hash": "5ede6d9aec01db74b8a8f366ed5c72033e976a99359c04859e3755652937a538601167a8a5d3af7ef90c08a5114b19bafa34efcb47617aad3eb64f56692cfdd7",
+    "salt": "b2290dfefe1da5de965c4d7853c3f62a",
+    "auth_provider": "local",
+    "role": "worker",
+    "profile_completed": true,
+    "completion_percentage": 0,
+    "profile": {
+      "user_type": "job_seeker",
+      "age": 27,
+      "profession": "Electrician",
+      "custom_profession": null,
+      "completed_at": "2026-10-08T12:04:27.289Z"
+    },
+    "saved_data": null,
+    "created_at": "2026-10-08T12:04:27.273Z",
+    "updated_at": "2026-10-08T12:04:27.308Z",
+    "age": 27,
+    "worker_profile": {
+      "user_type": "job_seeker",
+      "age": 27,
+      "profession": "Electrician",
+      "custom_profession": null,
+      "completed_at": "2026-10-08T12:04:27.289Z"
+    }
+  },
+  {
+    "user_id": "usr_c6ee3ebdae764a8794d32d157b996ff7",
+    "username": "suresh_electrician",
+    "name": "suresh_electrician",
+    "email": "seeker_flow_1791461067427@example.com",
+    "mobile_number": null,
+    "account_type": "job_seeker",
+    "password_hash": "3cd6b13b94c675b9aa312ec2b62f98ab0bb641a1768b4307c4eff516a18f35cce8ca31e76bb82c505d5059ada5c6ee31453736984f3c02f18df730e95d9f8332",
+    "salt": "00f00595c6cc0a6584307c87ce05945c",
+    "auth_provider": "local",
+    "role": "worker",
+    "profile_completed": true,
+    "completion_percentage": 0,
+    "profile": {
+      "user_type": "job_seeker",
+      "age": 26,
+      "profession": "Electrician",
+      "custom_profession": null,
+      "completed_at": "2026-10-08T12:04:27.541Z"
+    },
+    "saved_data": null,
+    "created_at": "2026-10-08T12:04:27.529Z",
+    "updated_at": "2026-10-08T12:04:27.615Z",
+    "age": 26,
+    "worker_profile": {
+      "user_type": "job_seeker",
+      "age": 26,
+      "profession": "Electrician",
+      "custom_profession": null,
+      "completed_at": "2026-10-08T12:04:27.541Z"
+    }
+  },
+  {
+    "user_id": "usr_7ed4a0b0047840769af9df8ce49c5450",
+    "username": "vikram_builder",
+    "name": "vikram_builder",
+    "email": "emp_flow_1791461067623@example.com",
+    "mobile_number": null,
+    "account_type": "job_seeker",
+    "password_hash": "135f54d632a15818166160551a51d91da392a96f280f5683fce7949891ce7dca3838b250e1ac8c7b31ef98e610547790734607f6c0e454bbed6c6531cdda03b9",
+    "salt": "a88eebb5cae08c8bfcb5ec01a1bffe93",
+    "auth_provider": "local",
+    "role": "employer",
+    "profile_completed": true,
+    "completion_percentage": 0,
+    "profile": {
+      "user_type": "employer",
+      "age": 35,
+      "profession": "Solar Panel Installation & Roofing",
+      "custom_profession": "Solar Panel Installation & Roofing",
+      "completed_at": "2026-10-08T12:04:27.699Z"
+    },
+    "saved_data": null,
+    "created_at": "2026-10-08T12:04:27.690Z",
+    "updated_at": "2026-10-08T12:04:27.780Z",
+    "age": 35,
+    "employer_profile": {
+      "user_type": "employer",
+      "age": 35,
+      "profession": "Solar Panel Installation & Roofing",
+      "custom_profession": "Solar Panel Installation & Roofing",
+      "completed_at": "2026-10-08T12:04:27.699Z"
+    }
+  },
+  {
+    "user_id": "usr_b1d50c63b10c4dd0af3673eb659047d8",
+    "username": "temp_user",
+    "name": "temp_user",
+    "email": "temp_1791461067787@example.com",
+    "mobile_number": null,
+    "account_type": "job_seeker",
+    "password_hash": "720dc7aeb27892cf40d147fc2f1582656c03ce7920cc62e1b2517d5c910effd86df3fe438f7985496e0ba7ef6da726388a01c4a0095a251ffd3188b983702545",
+    "salt": "19a47031f77267794802d72b2dfa841e",
+    "auth_provider": "local",
+    "role": "worker",
+    "profile_completed": false,
+    "completion_percentage": 0,
+    "profile": null,
+    "saved_data": null,
+    "created_at": "2026-10-08T12:04:27.856Z",
+    "updated_at": "2026-10-08T12:04:27.856Z"
+  },
+  {
+    "user_id": "usr_10a9380a22794ea098c6090b96517c5d",
+    "username": "Priya Sharma",
+    "name": "Priya Sharma",
+    "email": "seeker_test_1791461067968@example.com",
+    "mobile_number": "9876543210",
+    "account_type": "job_seeker",
+    "password_hash": "e9ebff6881e38e000bf2dcd358054aba4ffee77e8d8641d40b818ee5e4f66a41228dec9dab4aa106880dc2d7d1a1874444f6f4694157f65acecc271d5220d86d",
+    "salt": "f22c95b94c5543fd6aad609177dc1d29",
+    "auth_provider": "local",
+    "role": "worker",
+    "profile_completed": true,
+    "completion_percentage": 100,
+    "profile": null,
+    "saved_data": null,
+    "created_at": "2026-10-08T12:04:28.066Z",
+    "updated_at": "2026-10-08T12:04:28.081Z",
+    "job_seeker_profile": {
+      "personal": {
+        "full_name": "Priya Sharma",
+        "profile_photo": "https://example.com/photo.jpg",
+        "date_of_birth": "1998-05-15",
+        "age": 28,
+        "gender": "Female",
+        "mobile_number": "9876543210",
+        "email": "seeker_test_1791461067968@example.com",
+        "current_city": "Bengaluru",
+        "current_state": "Karnataka",
+        "country": "India",
+        "preferred_language": "English"
+      },
+      "employment_status": {
+        "status": "Working Professional",
+        "current_job_title": "Software Developer",
+        "current_company": "Tech Solutions",
+        "total_experience_years": "3",
+        "current_industry": "Information Technology"
+      },
+      "education": [
+        {
+          "level": "Undergraduate",
+          "degree": "B.Tech in Computer Science",
+          "university": "VTU Belagavi",
+          "graduation_year": "2020",
+          "status": "Completed"
+        }
+      ],
+      "skills": [
+        {
+          "name": "JavaScript",
+          "category": "Technical",
+          "level": "Advanced"
+        },
+        {
+          "name": "React",
+          "category": "Technical",
+          "level": "Intermediate"
+        }
+      ],
+      "has_experience": true,
+      "experience": [
+        {
+          "job_title": "Junior Engineer",
+          "company_name": "Tech Solutions",
+          "employment_type": "Full-time",
+          "start_date": "2021-01-01",
+          "end_date": "2024-01-01",
+          "is_current": true,
+          "location": "Bengaluru"
+        }
+      ],
+      "preferences": {
+        "looking_for": [
+          "Full-time"
+        ],
+        "preferred_roles": [
+          "Frontend Developer",
+          "Full Stack Developer"
+        ],
+        "work_modes": [
+          "Hybrid",
+          "Work from Home"
+        ],
+        "preferred_cities": [
+          "Bengaluru"
+        ],
+        "expected_salary_min": 50000,
+        "expected_salary_max": 80000,
+        "is_salary_negotiable": true
+      },
+      "languages": [
+        {
+          "language": "English",
+          "speaking_level": "Fluent/Native",
+          "reading_level": "Fluent/Native",
+          "writing_level": "Fluent/Native"
+        },
+        {
+          "language": "Hindi",
+          "speaking_level": "Intermediate",
+          "reading_level": "Intermediate",
+          "writing_level": "Intermediate"
+        }
+      ],
+      "portfolio": {
+        "resume_url": "https://example.com/resumes/priya_resume.pdf",
+        "linkedin_url": "https://linkedin.com/in/priyasharma",
+        "github_url": "https://github.com/priyasharma"
+      },
+      "visibility": {
+        "visibility": "public_employers",
+        "allow_contact": true
+      },
+      "updated_at": "2026-10-08T12:04:28.081Z",
+      "is_submitted": true
+    },
+    "worker_profile": {
+      "personal": {
+        "full_name": "Priya Sharma",
+        "profile_photo": "https://example.com/photo.jpg",
+        "date_of_birth": "1998-05-15",
+        "age": 28,
+        "gender": "Female",
+        "mobile_number": "9876543210",
+        "email": "seeker_test_1791461067968@example.com",
+        "current_city": "Bengaluru",
+        "current_state": "Karnataka",
+        "country": "India",
+        "preferred_language": "English"
+      },
+      "employment_status": {
+        "status": "Working Professional",
+        "current_job_title": "Software Developer",
+        "current_company": "Tech Solutions",
+        "total_experience_years": "3",
+        "current_industry": "Information Technology"
+      },
+      "education": [
+        {
+          "level": "Undergraduate",
+          "degree": "B.Tech in Computer Science",
+          "university": "VTU Belagavi",
+          "graduation_year": "2020",
+          "status": "Completed"
+        }
+      ],
+      "skills": [
+        {
+          "name": "JavaScript",
+          "category": "Technical",
+          "level": "Advanced"
+        },
+        {
+          "name": "React",
+          "category": "Technical",
+          "level": "Intermediate"
+        }
+      ],
+      "has_experience": true,
+      "experience": [
+        {
+          "job_title": "Junior Engineer",
+          "company_name": "Tech Solutions",
+          "employment_type": "Full-time",
+          "start_date": "2021-01-01",
+          "end_date": "2024-01-01",
+          "is_current": true,
+          "location": "Bengaluru"
+        }
+      ],
+      "preferences": {
+        "looking_for": [
+          "Full-time"
+        ],
+        "preferred_roles": [
+          "Frontend Developer",
+          "Full Stack Developer"
+        ],
+        "work_modes": [
+          "Hybrid",
+          "Work from Home"
+        ],
+        "preferred_cities": [
+          "Bengaluru"
+        ],
+        "expected_salary_min": 50000,
+        "expected_salary_max": 80000,
+        "is_salary_negotiable": true
+      },
+      "languages": [
+        {
+          "language": "English",
+          "speaking_level": "Fluent/Native",
+          "reading_level": "Fluent/Native",
+          "writing_level": "Fluent/Native"
+        },
+        {
+          "language": "Hindi",
+          "speaking_level": "Intermediate",
+          "reading_level": "Intermediate",
+          "writing_level": "Intermediate"
+        }
+      ],
+      "portfolio": {
+        "resume_url": "https://example.com/resumes/priya_resume.pdf",
+        "linkedin_url": "https://linkedin.com/in/priyasharma",
+        "github_url": "https://github.com/priyasharma"
+      },
+      "visibility": {
+        "visibility": "public_employers",
+        "allow_contact": true
+      },
+      "updated_at": "2026-10-08T12:04:28.081Z",
+      "is_submitted": true
+    },
+    "completion_breakdown": {
+      "percentage": 100,
+      "completed_sections": [
+        "Personal Information",
+        "Employment Status",
+        "Education",
+        "Skills",
+        "Work Experience",
+        "Job Preferences",
+        "Languages",
+        "Portfolio & Resume",
+        "Privacy & Visibility",
+        "Final Confirmation"
+      ],
+      "missing_sections": [],
+      "is_ready_for_matching": true
+    },
+    "age": 28
+  },
+  {
+    "user_id": "usr_45a0d9572df04348bb78189554d42760",
+    "username": "Rohan Verma",
+    "name": "Rohan Verma",
+    "email": "recruiter_test_1791461068097@example.com",
+    "mobile_number": "9123456789",
+    "account_type": "employer",
+    "password_hash": "ebc830fe15ef0ad3f92322a3e2a55c84a8a9a515b2cc360026d3b2ad5b7179677a5607e0d34a30346fa0f4131d53bf59cedfc84d75e985b9992b66fa9c4917c9",
+    "salt": "76791b7fedab02141cf4e04c16f35771",
+    "auth_provider": "local",
+    "role": "employer",
+    "profile_completed": true,
+    "completion_percentage": 100,
+    "profile": null,
+    "saved_data": null,
+    "created_at": "2026-10-08T12:04:28.163Z",
+    "updated_at": "2026-10-08T12:04:28.172Z",
+    "employer_profile": {
+      "business_type": "Private Limited Company",
+      "business_info": {
+        "name": "Apex Innovations Pvt Ltd",
+        "logo_url": "https://example.com/logo.png",
+        "description": "Leading software development enterprise.",
+        "industry": "Information Technology",
+        "year_established": "2018",
+        "employee_count": "51–200"
+      },
+      "location": {
+        "country": "India",
+        "state": "Maharashtra",
+        "city": "Pune",
+        "address": "Tower 4, Cyber City, Magarpatta",
+        "pincode": "411028",
+        "work_model": "Hybrid"
+      },
+      "recruiter_info": {
+        "name": "Rohan Verma",
+        "job_title": "Talent Acquisition Lead",
+        "official_email": "recruiter_test_1791461068097@example.com",
+        "mobile_number": "9123456789",
+        "preferred_contact_method": "Email"
+      },
+      "hiring_info": {
+        "hiring_types": [
+          "Full-time",
+          "Internships"
+        ],
+        "categories": [
+          "IT / Software Development",
+          "Product Design"
+        ]
+      },
+      "hiring_location": {
+        "cities": [
+          "Pune",
+          "Bengaluru"
+        ],
+        "remote_hiring": true,
+        "hybrid_hiring": true,
+        "onsite_hiring": false
+      },
+      "verification": {
+        "status": "pending",
+        "gstin": "27AAACA1234A1Z5",
+        "official_website": "https://apexinnovations.com",
+        "official_email": "recruiter_test_1791461068097@example.com"
+      },
+      "company_profile": {
+        "description": "Global tech products firm.",
+        "mission": "Empower digital transformation.",
+        "website": "https://apexinnovations.com",
+        "benefits": [
+          "Health Insurance",
+          "Performance Bonus",
+          "Flexible Hours"
+        ],
+        "work_culture": "Innovation first with great work-life balance."
+      },
+      "hiring_preferences": {
+        "candidate_experience": "1–3 years",
+        "preferred_education": [
+          "Bachelor's Degree in CS/IT"
+        ],
+        "preferred_skills": [
+          "JavaScript",
+          "Python",
+          "React"
+        ],
+        "salary_min": 40000,
+        "salary_max": 90000,
+        "discuss_during_hiring": true
+      },
+      "visibility": {
+        "visibility": "public",
+        "allow_contact": true
+      },
+      "updated_at": "2026-10-08T12:04:28.172Z",
+      "is_submitted": true
+    },
+    "completion_breakdown": {
+      "percentage": 100,
+      "completed_sections": [
+        "Business Type",
+        "Business Information",
+        "Office Location",
+        "Recruiter Contact",
+        "Hiring Information",
+        "Hiring Locations",
+        "Business Verification",
+        "Company Profile & Culture",
+        "Hiring Preferences",
+        "Profile Visibility"
+      ],
+      "missing_sections": [],
+      "is_ready_for_matching": true
+    }
+  },
+  {
+    "user_id": "usr_7bfb72d3cd884e659bb30aeaa2d68137",
+    "username": "Ramu Mason",
+    "name": "Ramu Mason",
+    "email": "ramu_1791461068277@test.com",
+    "mobile_number": "9876540001",
+    "account_type": "job_seeker",
+    "password_hash": "6ca1fc76295ff83be90819ab5531609916af1f49cd047816900fcf2aca6a11544bfeddfac5e8cc1c7c6231f1d146b36dc7e95f5c5f5d4463ac005d5fc1b0804a",
+    "salt": "e6fe4e7a4ce4f2a2a267912aadd59917",
+    "auth_provider": "local",
+    "role": "worker",
+    "profile_completed": true,
+    "completion_percentage": 60,
+    "profile": null,
+    "saved_data": null,
+    "created_at": "2026-10-08T12:04:28.376Z",
+    "updated_at": "2026-10-08T12:04:28.388Z",
+    "job_seeker_profile": {
+      "personal": {
+        "full_name": "Ramu Mason",
+        "mobile_number": "9876540001",
+        "current_city": "Raipur"
+      },
+      "employment_status": {
+        "status": "Daily Wage Worker"
+      },
+      "skills": [
+        {
+          "name": "निर्माण / मिस्त्री (Mason)",
+          "category": "Technical"
+        }
+      ],
+      "has_experience": true,
+      "experience": [
+        {
+          "job_title": "Mason",
+          "company_name": "Local Site"
+        }
+      ],
+      "preferences": {
+        "looking_for": [
+          "Daily Wage"
+        ],
+        "work_modes": [
+          "On-site"
+        ],
+        "expected_salary_min": 600
+      },
+      "updated_at": "2026-10-08T12:04:28.388Z",
+      "is_submitted": true
+    },
+    "worker_profile": {
+      "personal": {
+        "full_name": "Ramu Mason",
+        "mobile_number": "9876540001",
+        "current_city": "Raipur"
+      },
+      "employment_status": {
+        "status": "Daily Wage Worker"
+      },
+      "skills": [
+        {
+          "name": "निर्माण / मिस्त्री (Mason)",
+          "category": "Technical"
+        }
+      ],
+      "has_experience": true,
+      "experience": [
+        {
+          "job_title": "Mason",
+          "company_name": "Local Site"
+        }
+      ],
+      "preferences": {
+        "looking_for": [
+          "Daily Wage"
+        ],
+        "work_modes": [
+          "On-site"
+        ],
+        "expected_salary_min": 600
+      },
+      "updated_at": "2026-10-08T12:04:28.388Z",
+      "is_submitted": true
+    },
+    "completion_breakdown": {
+      "percentage": 60,
+      "completed_sections": [
+        "Personal Information",
+        "Employment Status",
+        "Skills",
+        "Work Experience",
+        "Job Preferences",
+        "Final Confirmation"
+      ],
+      "missing_sections": [
+        "Education",
+        "Languages",
+        "Portfolio & Resume",
+        "Privacy & Visibility"
+      ],
+      "is_ready_for_matching": true
+    }
+  },
+  {
+    "user_id": "usr_b8d1f9264bfb44218d0f5551ccd016b9",
+    "username": "Sunita Cook",
+    "name": "Sunita Cook",
+    "email": "sunita_1791461068399@test.com",
+    "mobile_number": "9876540002",
+    "account_type": "job_seeker",
+    "password_hash": "f8d802b10accf916646ae964ee67fc31c78fa74eda6bdc8d267fed2a1a9e3a7518be12b0173551c0d1b210b964b297fc8c5d9521322c6ac16e6f77df91ea1716",
+    "salt": "cb4e88a1c32d637c57a3161991ccb770",
+    "auth_provider": "local",
+    "role": "worker",
+    "profile_completed": true,
+    "completion_percentage": 60,
+    "profile": null,
+    "saved_data": null,
+    "created_at": "2026-10-08T12:04:28.466Z",
+    "updated_at": "2026-10-08T12:04:28.473Z",
+    "job_seeker_profile": {
+      "personal": {
+        "full_name": "Sunita Cook",
+        "mobile_number": "9876540002",
+        "current_city": "Bilaspur"
+      },
+      "employment_status": {
+        "status": "Cook / Domestic Help"
+      },
+      "skills": [
+        {
+          "name": "घर का सादा खाना (Home Food)",
+          "category": "Technical"
+        }
+      ],
+      "has_experience": true,
+      "experience": [
+        {
+          "job_title": "Cook",
+          "company_name": "Home cooking"
+        }
+      ],
+      "preferences": {
+        "looking_for": [
+          "Part-time"
+        ],
+        "work_modes": [
+          "On-site"
+        ]
+      },
+      "updated_at": "2026-10-08T12:04:28.473Z",
+      "is_submitted": true
+    },
+    "worker_profile": {
+      "personal": {
+        "full_name": "Sunita Cook",
+        "mobile_number": "9876540002",
+        "current_city": "Bilaspur"
+      },
+      "employment_status": {
+        "status": "Cook / Domestic Help"
+      },
+      "skills": [
+        {
+          "name": "घर का सादा खाना (Home Food)",
+          "category": "Technical"
+        }
+      ],
+      "has_experience": true,
+      "experience": [
+        {
+          "job_title": "Cook",
+          "company_name": "Home cooking"
+        }
+      ],
+      "preferences": {
+        "looking_for": [
+          "Part-time"
+        ],
+        "work_modes": [
+          "On-site"
+        ]
+      },
+      "updated_at": "2026-10-08T12:04:28.473Z",
+      "is_submitted": true
+    },
+    "completion_breakdown": {
+      "percentage": 60,
+      "completed_sections": [
+        "Personal Information",
+        "Employment Status",
+        "Skills",
+        "Work Experience",
+        "Job Preferences",
+        "Final Confirmation"
+      ],
+      "missing_sections": [
+        "Education",
+        "Languages",
+        "Portfolio & Resume",
+        "Privacy & Visibility"
+      ],
+      "is_ready_for_matching": true
+    }
+  },
+  {
+    "user_id": "usr_6fff0cf6dbfd4dd0a2745986afb87ecf",
+    "username": "Rajesh Driver",
+    "name": "Rajesh Driver",
+    "email": "rajesh_1791461068481@test.com",
+    "mobile_number": "9876540003",
+    "account_type": "job_seeker",
+    "password_hash": "fab67969ae7635a7966fe78801cee2385995ddbb7022b688caf232545629c446408e6152ea0729eb4bc592e581a0b3ea112790eaad3a8a14802b9f6c9fecb7d5",
+    "salt": "534f9952b0c057dab93ab8de0d3c3eaf",
+    "auth_provider": "local",
+    "role": "worker",
+    "profile_completed": true,
+    "completion_percentage": 60,
+    "profile": null,
+    "saved_data": null,
+    "created_at": "2026-10-08T12:04:28.549Z",
+    "updated_at": "2026-10-08T12:04:28.557Z",
+    "job_seeker_profile": {
+      "personal": {
+        "full_name": "Rajesh Driver",
+        "mobile_number": "9876540003",
+        "current_city": "Durg"
+      },
+      "employment_status": {
+        "status": "Commercial Driver"
+      },
+      "skills": [
+        {
+          "name": "LMV (Commercial Taxi)",
+          "category": "Technical"
+        }
+      ],
+      "has_experience": true,
+      "experience": [
+        {
+          "job_title": "Cab Driver",
+          "company_name": "City Taxi"
+        }
+      ],
+      "preferences": {
+        "looking_for": [
+          "Full-time"
+        ],
+        "work_modes": [
+          "On-site"
+        ]
+      },
+      "updated_at": "2026-10-08T12:04:28.557Z",
+      "is_submitted": true
+    },
+    "worker_profile": {
+      "personal": {
+        "full_name": "Rajesh Driver",
+        "mobile_number": "9876540003",
+        "current_city": "Durg"
+      },
+      "employment_status": {
+        "status": "Commercial Driver"
+      },
+      "skills": [
+        {
+          "name": "LMV (Commercial Taxi)",
+          "category": "Technical"
+        }
+      ],
+      "has_experience": true,
+      "experience": [
+        {
+          "job_title": "Cab Driver",
+          "company_name": "City Taxi"
+        }
+      ],
+      "preferences": {
+        "looking_for": [
+          "Full-time"
+        ],
+        "work_modes": [
+          "On-site"
+        ]
+      },
+      "updated_at": "2026-10-08T12:04:28.557Z",
+      "is_submitted": true
+    },
+    "completion_breakdown": {
+      "percentage": 60,
+      "completed_sections": [
+        "Personal Information",
+        "Employment Status",
+        "Skills",
+        "Work Experience",
+        "Job Preferences",
+        "Final Confirmation"
+      ],
+      "missing_sections": [
+        "Education",
+        "Languages",
+        "Portfolio & Resume",
+        "Privacy & Visibility"
+      ],
+      "is_ready_for_matching": true
+    }
+  },
+  {
+    "user_id": "usr_6dd2d6869e1a4079bc297c2b37e10c17",
+    "username": "Geeta Cleaner",
+    "name": "Geeta Cleaner",
+    "email": "geeta_1791461068564@test.com",
+    "mobile_number": "9876540004",
+    "account_type": "job_seeker",
+    "password_hash": "58ab1a337e95ab1f6460855a05fbcb8f7ce3ed8eb71d11e7433eb4ce706d5c37417c0614989b31564e536d5c1bef8873a11eb9d7e51d86f154a4d69f07e3b1a8",
+    "salt": "55a96c73e511723c410331277709b64a",
+    "auth_provider": "local",
+    "role": "worker",
+    "profile_completed": true,
+    "completion_percentage": 60,
+    "profile": null,
+    "saved_data": null,
+    "created_at": "2026-10-08T12:04:28.636Z",
+    "updated_at": "2026-10-08T12:04:28.645Z",
+    "job_seeker_profile": {
+      "personal": {
+        "full_name": "Geeta Cleaner",
+        "mobile_number": "9876540004",
+        "current_city": "Raipur"
+      },
+      "employment_status": {
+        "status": "House Helper"
+      },
+      "skills": [
+        {
+          "name": "साफ़-सफ़ाई / झाड़ू-पोछा",
+          "category": "General"
+        }
+      ],
+      "has_experience": false,
+      "preferences": {
+        "looking_for": [
+          "Part-time",
+          "Daily"
+        ],
+        "work_modes": [
+          "On-site"
+        ]
+      },
+      "updated_at": "2026-10-08T12:04:28.645Z",
+      "is_submitted": true
+    },
+    "worker_profile": {
+      "personal": {
+        "full_name": "Geeta Cleaner",
+        "mobile_number": "9876540004",
+        "current_city": "Raipur"
+      },
+      "employment_status": {
+        "status": "House Helper"
+      },
+      "skills": [
+        {
+          "name": "साफ़-सफ़ाई / झाड़ू-पोछा",
+          "category": "General"
+        }
+      ],
+      "has_experience": false,
+      "preferences": {
+        "looking_for": [
+          "Part-time",
+          "Daily"
+        ],
+        "work_modes": [
+          "On-site"
+        ]
+      },
+      "updated_at": "2026-10-08T12:04:28.645Z",
+      "is_submitted": true
+    },
+    "completion_breakdown": {
+      "percentage": 60,
+      "completed_sections": [
+        "Personal Information",
+        "Employment Status",
+        "Skills",
+        "Work Experience",
+        "Job Preferences",
+        "Final Confirmation"
+      ],
+      "missing_sections": [
+        "Education",
+        "Languages",
+        "Portfolio & Resume",
+        "Privacy & Visibility"
+      ],
+      "is_ready_for_matching": true
+    }
+  },
+  {
+    "user_id": "usr_f2a1d8b7f2bf4e20b10226e5132a9e37",
+    "username": "Amit Engineer",
+    "name": "Amit Engineer",
+    "email": "amit_1791461068652@test.com",
+    "mobile_number": "9876540005",
+    "account_type": "job_seeker",
+    "password_hash": "305ebbb186298334a74cadc946b8da3ec9719118b4f24f502ddccccae211a08df115f3a931a3d9ccaef4351938678b9bd88c8030616def72ae135bd6fd98b644",
+    "salt": "88e08617aac49e62ca9f42fe4e5c1c43",
+    "auth_provider": "local",
+    "role": "worker",
+    "profile_completed": true,
+    "completion_percentage": 80,
+    "profile": null,
+    "saved_data": null,
+    "created_at": "2026-10-08T12:04:28.717Z",
+    "updated_at": "2026-10-08T12:04:28.728Z",
+    "job_seeker_profile": {
+      "personal": {
+        "full_name": "Amit Engineer",
+        "mobile_number": "9876540005",
+        "current_city": "Bengaluru"
+      },
+      "employment_status": {
+        "status": "Working Professional"
+      },
+      "education": [
+        {
+          "level": "Undergraduate",
+          "degree": "B.Tech in Computer Science",
+          "graduation_year": "2022"
+        }
+      ],
+      "skills": [
+        {
+          "name": "Web Development (React / Python)",
+          "category": "Technical",
+          "level": "Advanced"
+        }
+      ],
+      "has_experience": true,
+      "experience": [
+        {
+          "job_title": "Software Developer",
+          "company_name": "Tech Corp"
+        }
+      ],
+      "preferences": {
+        "looking_for": [
+          "Full-time"
+        ],
+        "work_modes": [
+          "Work from Home",
+          "Hybrid"
+        ],
+        "expected_salary_min": 50000
+      },
+      "portfolio": {
+        "resume_url": "https://example.com/resume.pdf",
+        "github_url": "https://github.com/amit"
+      },
+      "updated_at": "2026-10-08T12:04:28.728Z",
+      "is_submitted": true
+    },
+    "worker_profile": {
+      "personal": {
+        "full_name": "Amit Engineer",
+        "mobile_number": "9876540005",
+        "current_city": "Bengaluru"
+      },
+      "employment_status": {
+        "status": "Working Professional"
+      },
+      "education": [
+        {
+          "level": "Undergraduate",
+          "degree": "B.Tech in Computer Science",
+          "graduation_year": "2022"
+        }
+      ],
+      "skills": [
+        {
+          "name": "Web Development (React / Python)",
+          "category": "Technical",
+          "level": "Advanced"
+        }
+      ],
+      "has_experience": true,
+      "experience": [
+        {
+          "job_title": "Software Developer",
+          "company_name": "Tech Corp"
+        }
+      ],
+      "preferences": {
+        "looking_for": [
+          "Full-time"
+        ],
+        "work_modes": [
+          "Work from Home",
+          "Hybrid"
+        ],
+        "expected_salary_min": 50000
+      },
+      "portfolio": {
+        "resume_url": "https://example.com/resume.pdf",
+        "github_url": "https://github.com/amit"
+      },
+      "updated_at": "2026-10-08T12:04:28.728Z",
+      "is_submitted": true
+    },
+    "completion_breakdown": {
+      "percentage": 80,
+      "completed_sections": [
+        "Personal Information",
+        "Employment Status",
+        "Education",
+        "Skills",
+        "Work Experience",
+        "Job Preferences",
+        "Portfolio & Resume",
+        "Final Confirmation"
+      ],
+      "missing_sections": [
+        "Languages",
+        "Privacy & Visibility"
+      ],
+      "is_ready_for_matching": true
+    }
+  },
+  {
+    "user_id": "usr_b40f6bc01d994ad785dd79d5ab6ffac2",
+    "username": "Sharma Family",
+    "name": "Mrs. Sharma",
+    "email": "sharma_1791461068735@test.com",
+    "mobile_number": "9876540006",
+    "account_type": "employer",
+    "password_hash": "c69b7b6be4dc4f7a047a333b4c0c77dcf5f1394e4276a0ec34857012881fc1e4b3f56d5663ed7ce62f752d496853a62975ea5b65658d681eba31f829fcf9757c",
+    "salt": "e624198a9511cc44c6b69ffef1dede9a",
+    "auth_provider": "local",
+    "role": "employer",
+    "profile_completed": true,
+    "completion_percentage": 60,
+    "profile": null,
+    "saved_data": null,
+    "created_at": "2026-10-08T12:04:28.801Z",
+    "updated_at": "2026-10-08T12:04:28.811Z",
+    "employer_profile": {
+      "business_type": "Individual / Household",
+      "business_info": {
+        "name": "Sharma Household",
+        "industry": "Domestic Service"
+      },
+      "location": {
+        "city": "Raipur",
+        "work_model": "On-site"
+      },
+      "recruiter_info": {
+        "name": "Mrs. Sharma",
+        "mobile_number": "9876540006"
+      },
+      "hiring_info": {
+        "hiring_types": [
+          "Daily Wage"
+        ],
+        "categories": [
+          "खाना बनाने वाला (Cook)"
+        ]
+      },
+      "hiring_location": {
+        "cities": [
+          "Raipur"
+        ],
+        "onsite_hiring": true
+      },
+      "updated_at": "2026-10-08T12:04:28.811Z",
+      "is_submitted": true
+    },
+    "completion_breakdown": {
+      "percentage": 60,
+      "completed_sections": [
+        "Business Type",
+        "Business Information",
+        "Office Location",
+        "Recruiter Contact",
+        "Hiring Information",
+        "Hiring Locations"
+      ],
+      "missing_sections": [
+        "Business Verification",
+        "Company Profile & Culture",
+        "Hiring Preferences",
+        "Profile Visibility"
+      ],
+      "is_ready_for_matching": true
+    }
+  },
+  {
+    "user_id": "usr_504c5100fdbc4e44ad1f21de36a4a930",
+    "username": "Innovate Tech HR",
+    "name": "HR Manager",
+    "email": "hr_1791461068818@test.com",
+    "mobile_number": "9876540007",
+    "account_type": "employer",
+    "password_hash": "eab7834a54b220e67044fbc5f9fda713d1beb0db0309289512f3b1e364038e590172186d392b0bd887c4aad102dc24ae2de7248e8dd9874628403de6b17c84ff",
+    "salt": "28f4ecb3eb811b3092736750ec069dc5",
+    "auth_provider": "local",
+    "role": "employer",
+    "profile_completed": true,
+    "completion_percentage": 60,
+    "profile": null,
+    "saved_data": null,
+    "created_at": "2026-10-08T12:04:28.885Z",
+    "updated_at": "2026-10-08T12:04:28.895Z",
+    "employer_profile": {
+      "business_type": "Private Limited Company",
+      "business_info": {
+        "name": "Innovate Tech Solutions",
+        "industry": "Software / IT"
+      },
+      "location": {
+        "city": "Pune",
+        "work_model": "Hybrid"
+      },
+      "recruiter_info": {
+        "name": "HR Manager",
+        "mobile_number": "9876540007"
+      },
+      "hiring_info": {
+        "hiring_types": [
+          "Full-time"
+        ],
+        "categories": [
+          "Software Engineers"
+        ]
+      },
+      "hiring_location": {
+        "cities": [
+          "Pune"
+        ],
+        "hybrid_hiring": true
+      },
+      "updated_at": "2026-10-08T12:04:28.895Z",
+      "is_submitted": true
+    },
+    "completion_breakdown": {
+      "percentage": 60,
+      "completed_sections": [
+        "Business Type",
+        "Business Information",
+        "Office Location",
+        "Recruiter Contact",
+        "Hiring Information",
+        "Hiring Locations"
+      ],
+      "missing_sections": [
+        "Business Verification",
+        "Company Profile & Culture",
+        "Hiring Preferences",
+        "Profile Visibility"
+      ],
+      "is_ready_for_matching": true
+    }
+  },
+  {
+    "user_id": "usr_00ac2e6594d54859883a0ac77c8b8f79",
+    "username": "Tushar",
+    "name": "Tushar",
+    "email": "dewangan1400@gmail.com",
+    "mobile_number": "9876544444",
+    "account_type": "job_seeker",
+    "password_hash": "877965633c3f12d48349f062db5052cd127b186739d606dd084d7d829514a95f7466f238d329f36107e13ea946accc85bcc2abcaac1734985d077efbb2684738",
+    "salt": "4b30c68b4b80c11e233f8183916514c7",
+    "auth_provider": "local",
+    "role": "worker",
+    "profile_completed": false,
+    "completion_percentage": 0,
+    "profile": null,
+    "saved_data": null,
+    "created_at": "2026-10-08T12:07:51.621Z",
+    "updated_at": "2026-10-08T12:07:51.621Z"
+  },
+  {
+    "user_id": "usr_d4995723052e45fe99e38ad3d979e15c",
+    "username": "Twinkle",
+    "name": "Twinkle",
+    "email": "twinklet@gmail.com",
+    "mobile_number": "9876543211",
+    "account_type": "employer",
+    "password_hash": "97ad5665748f6069929eaed277670f1afc86fad41bc468a42518e0525052f6e580a14f3fa03a95a24a8e32f8e0c0ff2d837d9f911722b4f82b56fc686decfda2",
+    "salt": "e06bb4b6d37ec00f7da36d00fe7ae48e",
+    "auth_provider": "local",
+    "role": "employer",
+    "profile_completed": true,
+    "completion_percentage": 80,
+    "profile": null,
+    "saved_data": null,
+    "created_at": "2026-10-08T12:09:21.675Z",
+    "updated_at": "2026-10-08T12:10:25.482Z",
+    "employer_profile": {
+      "business_type": "Individual / Household",
+      "business_info": {
+        "name": "Twinkle",
+        "industry": "कारीगर (प्लंबर / बिजली)"
+      },
+      "location": {
+        "city": "रायपुर (Raipur)",
+        "state": "छत्तीसगढ़",
+        "work_model": "On-site"
+      },
+      "recruiter_info": {
+        "name": "Twinkle",
+        "mobile_number": "9876543211",
+        "official_email": "twinklet@gmail.com"
+      },
+      "hiring_info": {
+        "hiring_types": [
+          "Full-time",
+          "Daily Wage"
+        ],
+        "categories": [
+          "कारीगर (प्लंबर / बिजली)"
+        ]
+      },
+      "hiring_location": {
+        "cities": [
+          "Raipur"
+        ],
+        "onsite_hiring": true
+      },
+      "verification": {
+        "status": "not_verified"
+      },
+      "company_profile": {},
+      "hiring_preferences": {
+        "candidate_experience": "Fresher"
+      },
+      "visibility": {
+        "visibility": "public"
+      },
+      "updated_at": "2026-10-08T12:10:25.482Z",
+      "is_submitted": true
+    },
+    "completion_breakdown": {
+      "percentage": 80,
+      "completed_sections": [
+        "Business Type",
+        "Business Information",
+        "Office Location",
+        "Recruiter Contact",
+        "Hiring Information",
+        "Hiring Locations",
+        "Hiring Preferences",
+        "Profile Visibility"
+      ],
+      "missing_sections": [
+        "Business Verification",
+        "Company Profile & Culture"
+      ],
+      "is_ready_for_matching": true
+    }
+  },
+  {
+    "user_id": "usr_38659f5bbc8744bdad78648223fac1d1",
+    "username": "Twinkle",
+    "name": "Twinkle",
+    "email": "twink@gmail.com",
+    "mobile_number": "9876543211",
+    "account_type": "employer",
+    "password_hash": "f923f0e0acf90fc3a8b06a990b63ba1783b5503ed4257becafeff3af63a961fc7d6955afecb879815df746ff17fd50cfec2c8cfa10da0ae60f919ad4a369f781",
+    "salt": "aec75bac701d65e766c7748541cd8fab",
+    "auth_provider": "local",
+    "role": "employer",
+    "profile_completed": true,
+    "completion_percentage": 80,
+    "profile": null,
+    "saved_data": null,
+    "created_at": "2026-10-08T12:12:17.538Z",
+    "updated_at": "2026-10-08T12:12:22.608Z",
+    "employer_profile": {
+      "business_type": "Individual / Household",
+      "business_info": {
+        "name": "Twinkle",
+        "industry": "कारीगर (प्लंबर / बिजली)"
+      },
+      "location": {
+        "city": "रायपुर (Raipur)",
+        "state": "छत्तीसगढ़",
+        "work_model": "On-site"
+      },
+      "recruiter_info": {
+        "name": "Twinkle",
+        "mobile_number": "9876543211",
+        "official_email": "twinklet@gmail.com"
+      },
+      "hiring_info": {
+        "hiring_types": [
+          "Full-time",
+          "Daily Wage"
+        ],
+        "categories": [
+          "कारीगर (प्लंबर / बिजली)"
+        ]
+      },
+      "hiring_location": {
+        "cities": [
+          "Raipur"
+        ],
+        "onsite_hiring": true
+      },
+      "verification": {
+        "status": "not_verified"
+      },
+      "company_profile": {},
+      "hiring_preferences": {
+        "candidate_experience": "Fresher"
+      },
+      "visibility": {
+        "visibility": "public"
+      },
+      "updated_at": "2026-10-08T12:12:22.608Z",
+      "is_submitted": true
+    },
+    "completion_breakdown": {
+      "percentage": 80,
+      "completed_sections": [
+        "Business Type",
+        "Business Information",
+        "Office Location",
+        "Recruiter Contact",
+        "Hiring Information",
+        "Hiring Locations",
+        "Hiring Preferences",
+        "Profile Visibility"
+      ],
+      "missing_sections": [
+        "Business Verification",
+        "Company Profile & Culture"
+      ],
+      "is_ready_for_matching": true
+    }
+  },
+  {
+    "user_id": "usr_febcd2752a5047d382bfe1466e83bcac",
+    "username": "tushar",
+    "name": "tushar",
+    "email": "rahsut@gmail.com",
+    "mobile_number": "9123567609",
+    "account_type": "employer",
+    "password_hash": "d37764f5b7f1936cc1748d4060331bffc5f8e9c00e628c15cbc159ee06fd4d7c8c5d9f2264f3c2fdda10146dc2005a6f7bb1479f8fc2a5ca63bb0f71a2c1579d",
+    "salt": "4c5adac30e1a08ed6f502d88d7f2a9d9",
+    "auth_provider": "local",
+    "role": "employer",
+    "profile_completed": true,
+    "completion_percentage": 80,
+    "profile": null,
+    "saved_data": null,
+    "created_at": "2026-10-08T13:17:46.888Z",
+    "updated_at": "2026-10-08T13:18:21.638Z",
+    "employer_profile": {
+      "business_type": "Individual / Household",
+      "business_info": {
+        "name": "tushar",
+        "industry": "कारीगर (प्लंबर / बिजली)"
+      },
+      "location": {
+        "city": "रायपुर (Raipur)",
+        "state": "छत्तीसगढ़",
+        "work_model": "On-site"
+      },
+      "recruiter_info": {
+        "name": "tushar",
+        "mobile_number": "9123567609",
+        "official_email": "rahsut@gmail.com"
+      },
+      "hiring_info": {
+        "hiring_types": [
+          "Full-time",
+          "Daily Wage"
+        ],
+        "categories": [
+          "खाना बनाने वाला (Cook)"
+        ]
+      },
+      "hiring_location": {
+        "cities": [
+          "Raipur"
+        ],
+        "onsite_hiring": true
+      },
+      "verification": {
+        "status": "not_verified"
+      },
+      "company_profile": {},
+      "hiring_preferences": {
+        "candidate_experience": "Fresher"
+      },
+      "visibility": {
+        "visibility": "public"
+      },
+      "updated_at": "2026-10-08T13:18:21.638Z",
+      "is_submitted": true
+    },
+    "completion_breakdown": {
+      "percentage": 80,
+      "completed_sections": [
+        "Business Type",
+        "Business Information",
+        "Office Location",
+        "Recruiter Contact",
+        "Hiring Information",
+        "Hiring Locations",
+        "Hiring Preferences",
+        "Profile Visibility"
+      ],
+      "missing_sections": [
+        "Business Verification",
+        "Company Profile & Culture"
+      ],
+      "is_ready_for_matching": true
+    }
+  },
+  {
+    "user_id": "usr_a8e7542f1e9e4888be0ec931aba339a7",
+    "username": "alice",
+    "name": "alice",
+    "email": "alice@gmail.com",
+    "mobile_number": "8236349809",
+    "account_type": "job_seeker",
+    "password_hash": "b41b4c812fd2c1a564fbbd306e08905ceeaea37beb017c7c0f11be9857f3b3b935f9e8fe1aa8f73222491dcc78f107ec1ab056d340789bf5089e4f8375963c36",
+    "salt": "bc598b3d2de910e5cf365314a7e3d280",
+    "auth_provider": "local",
+    "role": "worker",
+    "profile_completed": true,
+    "completion_percentage": 80,
+    "profile": null,
+    "saved_data": null,
+    "created_at": "2026-10-08T13:19:50.724Z",
+    "updated_at": "2026-10-08T13:21:07.509Z",
+    "job_seeker_profile": {
+      "personal": {
+        "full_name": "alice",
+        "profile_photo": "",
+        "date_of_birth": "1998-01-01",
+        "age": 26,
+        "gender": "Prefer not to say",
+        "mobile_number": "8236349809",
+        "email": "alice@gmail.com",
+        "current_city": "रायपुर (Raipur)",
+        "current_state": "छत्तीसगढ़ (Chhattisgarh)",
+        "country": "India",
+        "preferred_language": "Hindi"
+      },
+      "employment_status": {
+        "status": "Daily Wage Worker"
+      },
+      "education": [],
+      "skills": [
+        {
+          "name": "सभी सामान्य बिजली का काम",
+          "category": "Technical",
+          "level": "Intermediate"
+        }
+      ],
+      "has_experience": true,
+      "experience": [
+        {
+          "job_title": "बिजली / इलेक्ट्रीशियन",
+          "company_name": "Prior Work",
+          "employment_type": "Daily"
+        }
+      ],
+      "preferences": {
+        "looking_for": [
+          "Daily Wage"
+        ],
+        "preferred_roles": [
+          "बिजली / इलेक्ट्रीशियन"
+        ],
+        "work_modes": [
+          "On-site"
+        ],
+        "preferred_cities": [
+          "Raipur"
+        ],
+        "expected_salary_min": 500
+      },
+      "languages": [
+        {
+          "language": "Hindi",
+          "speaking_level": "Fluent/Native"
+        }
+      ],
+      "portfolio": {
+        "resume_url": "",
+        "linkedin_url": ""
+      },
+      "visibility": {
+        "visibility": "public_employers",
+        "allow_contact": true
+      },
+      "updated_at": "2026-10-08T13:21:07.509Z",
+      "is_submitted": true
+    },
+    "worker_profile": {
+      "personal": {
+        "full_name": "alice",
+        "profile_photo": "",
+        "date_of_birth": "1998-01-01",
+        "age": 26,
+        "gender": "Prefer not to say",
+        "mobile_number": "8236349809",
+        "email": "alice@gmail.com",
+        "current_city": "रायपुर (Raipur)",
+        "current_state": "छत्तीसगढ़ (Chhattisgarh)",
+        "country": "India",
+        "preferred_language": "Hindi"
+      },
+      "employment_status": {
+        "status": "Daily Wage Worker"
+      },
+      "education": [],
+      "skills": [
+        {
+          "name": "सभी सामान्य बिजली का काम",
+          "category": "Technical",
+          "level": "Intermediate"
+        }
+      ],
+      "has_experience": true,
+      "experience": [
+        {
+          "job_title": "बिजली / इलेक्ट्रीशियन",
+          "company_name": "Prior Work",
+          "employment_type": "Daily"
+        }
+      ],
+      "preferences": {
+        "looking_for": [
+          "Daily Wage"
+        ],
+        "preferred_roles": [
+          "बिजली / इलेक्ट्रीशियन"
+        ],
+        "work_modes": [
+          "On-site"
+        ],
+        "preferred_cities": [
+          "Raipur"
+        ],
+        "expected_salary_min": 500
+      },
+      "languages": [
+        {
+          "language": "Hindi",
+          "speaking_level": "Fluent/Native"
+        }
+      ],
+      "portfolio": {
+        "resume_url": "",
+        "linkedin_url": ""
+      },
+      "visibility": {
+        "visibility": "public_employers",
+        "allow_contact": true
+      },
+      "updated_at": "2026-10-08T13:21:07.509Z",
+      "is_submitted": true
+    },
+    "completion_breakdown": {
+      "percentage": 80,
+      "completed_sections": [
+        "Personal Information",
+        "Employment Status",
+        "Skills",
+        "Work Experience",
+        "Job Preferences",
+        "Languages",
+        "Privacy & Visibility",
+        "Final Confirmation"
+      ],
+      "missing_sections": [
+        "Education",
+        "Portfolio & Resume"
+      ],
+      "is_ready_for_matching": true
+    },
+    "age": 26
+  }
+]

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>DailyJob - Local Work & Workforce Platform | CGNeeti (कामसाथी)</title>
+  <meta name="description" content="DailyJob - A verified local work and workforce platform connecting skilled workers and employers with transparent daily wages and secure opportunities.">
+  <meta name="theme-color" content="#1d4ed8">
+
+  <!-- Core Stylesheets -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/responsive.css">
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤝</text></svg>">
+</head>
+<body>
+  <div id="app-root">
+    <!-- Header -->
+    <header class="site-header" id="site-header" role="banner">
+      <div class="header-container" id="header-content-inner">
+        <!-- Dynamically injected by js/app.js -->
+      </div>
+    </header>
+
+    <!-- Main Content Outlet -->
+    <main class="main-content" id="app-view-container" role="main" aria-live="polite">
+      <!-- Dynamically injected by router.js -->
+    </main>
+
+    <!-- Mobile Bottom Navigation -->
+    <nav class="bottom-nav" id="bottom-navigation-bar" role="navigation" aria-label="Mobile Navigation">
+      <!-- Dynamically injected based on active role & route -->
+    </nav>
+
+    <!-- Global Toast Notifications Container -->
+    <div id="toast-container" class="toast-container" aria-live="polite"></div>
+
+    <!-- Global App Drawer / Sidebar & Overlay -->
+    <div id="sidebar-overlay" class="sidebar-overlay" onclick="window.closeSidebar()" aria-hidden="true"></div>
+    <aside id="app-sidebar" class="app-sidebar" role="dialog" aria-modal="true" aria-label="मुख्य मेनू">
+      <!-- Injected dynamically by js/sidebar.js -->
+    </aside>
+  </div>
+
+  <!-- JavaScript Modules in Strict Dependency Order -->
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <script src="js/translations.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/state.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/components.js"></script>
+  <script src="js/authService.js"></script>
+
+  <!-- Views -->
+  <script src="js/views/landing.js"></script>
+  <script src="js/views/authView.js"></script>
+  <script src="js/views/profileCreation.js"></script>
+  <script src="js/views/auth.js"></script>
+  <script src="js/views/workerHome.js"></script>
+  <script src="js/views/jobs.js"></script>
+  <script src="js/views/jobDetails.js"></script>
+  <script src="js/views/todayWork.js"></script>
+  <script src="js/views/workerProfile.js"></script>
+  <script src="js/views/skills.js"></script>
+  <script src="js/views/employerHome.js"></script>
+  <script src="js/views/postJob.js"></script>
+  <script src="js/views/applicants.js"></script>
+  <script src="js/views/activeWork.js"></script>
+  <script src="js/views/messages.js"></script>
+  <script src="js/views/notifications.js"></script>
+  <script src="js/views/safety.js"></script>
+  <script src="js/views/disputes.js"></script>
+  <script src="js/views/earnings.js"></script>
+  <script src="js/views/admin.js"></script>
+  <script src="js/views/more.js"></script>
+
+  <!-- Global Sidebar & Feature Hub -->
+  <script src="js/sidebar.js"></script>
+
+  <!-- Router and Bootstrap -->
+  <script src="js/router.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

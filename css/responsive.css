@@ -1,0 +1,192 @@
+/* ==========================================================================
+   CGNeeti / कामसाथी - Responsive Layouts (360px to 1440px+)
+   Mobile-First Intentional Design
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Default Mobile (< 768px)
+   -------------------------------------------------------------------------- */
+.desktop-only {
+  display: none !important;
+}
+
+.mobile-only {
+  display: flex !important;
+}
+
+.grid-cols-2 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.grid-cols-3 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.grid-cols-4 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+}
+
+/* --------------------------------------------------------------------------
+   Small Mobile (360px - 390px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 390px) {
+  :root {
+    --header-height: 58px;
+    --bottom-nav-height: 64px;
+    --font-size-base: 0.9375rem;
+  }
+
+  .site-header .brand-logo {
+    font-size: 1.1rem;
+  }
+
+  .btn-lg {
+    min-height: 48px;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+  }
+
+  .hero-action-card {
+    padding: 1rem;
+  }
+
+  .card {
+    padding: 1rem;
+  }
+
+  .timeline-stepper {
+    padding: 0;
+  }
+
+  .timeline-label {
+    font-size: 0.65rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Tablets (768px - 1023px)
+   -------------------------------------------------------------------------- */
+@media (min-width: 768px) {
+  .grid-cols-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid-cols-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid-cols-4 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .main-content {
+    padding-top: 1.5rem;
+    padding-bottom: calc(var(--bottom-nav-height) + 2rem);
+  }
+
+  .hero-split {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 1.5rem;
+    align-items: center;
+  }
+
+  .chat-container {
+    max-height: 600px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Desktop & Laptop (1024px and above)
+   -------------------------------------------------------------------------- */
+@media (min-width: 1024px) {
+  .mobile-only {
+    display: none !important;
+  }
+
+  .desktop-only {
+    display: flex !important;
+  }
+
+  /* Hide bottom nav on desktop, content reaches bottom naturally */
+  .bottom-nav {
+    display: none !important;
+  }
+
+  .main-content {
+    padding-bottom: 3rem;
+  }
+
+  .grid-cols-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .grid-cols-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  /* Two Column Dashboard Layout (Main list + Contextual details) */
+  .dashboard-layout {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 2rem;
+    align-items: start;
+  }
+
+  .dashboard-layout-with-sidebar {
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: 1.5rem;
+    align-items: start;
+  }
+
+  .sidebar-nav {
+    background: var(--bg-surface);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-subtle);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    position: sticky;
+    top: calc(var(--header-height) + 1.5rem);
+  }
+
+  .sidebar-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    border-radius: var(--radius-md);
+    color: var(--text-secondary);
+    font-weight: 500;
+    transition: all var(--transition-fast);
+  }
+
+  .sidebar-link:hover {
+    background: var(--bg-surface-muted);
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+
+  .sidebar-link.active {
+    background: var(--color-primary-light);
+    color: var(--color-primary);
+    font-weight: 700;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Wide Desktop (1280px to 1440px+)
+   -------------------------------------------------------------------------- */
+@media (min-width: 1280px) {
+  .main-content {
+    max-width: 1240px;
+  }
+}

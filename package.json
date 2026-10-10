@@ -1,0 +1,26 @@
+{
+  "name": "cgneeti",
+  "version": "1.0.0",
+  "description": "CGNeeti (कामसाथी) - स्थानीय काम और कामगार मंच | Local Work & Job Matching Platform",
+  "scripts": {
+    "start": "RUN.bat",
+    "serve": "node server.js",
+    "serve:backend": "cd backend && python -m uvicorn app.main:app --host 0.0.0.0 --port 8001 --reload",
+    "run": "RUN.bat",
+    "test": "node tests/auth_test.js && node tests/dual_profile_test.js && node tests/role_feature_isolation_test.js && node tests/profile_flow_e2e_test.js && node tests/multistep_profile_test.js && node tests/adaptive_profile_engine_test.js",
+    "test:profile": "node tests/multistep_profile_test.js",
+    "test:adaptive": "node tests/adaptive_profile_engine_test.js",
+    "test:auth": "node tests/auth_test.js",
+    "test:backend": "cd backend && python -m pytest -v"
+  },
+  "keywords": [
+    "cgneeti",
+    "local-jobs",
+    "chhattisgarh"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "firebase-admin": "^14.5.0"
+  }
+}

@@ -1,0 +1,90 @@
+# ================================================================
+#  CGNeeti (कामसाथी) - Git Ignore Configuration
+# ================================================================
+
+# Dependencies (निर्भरताएं)
+node_modules/
+jspm_packages/
+web_modules/
+
+# Environment Variables & Secrets (गोपनीय फाइलें और API Keys)
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.env
+backend/.env
+backend/.env.local
+backend/.env.development
+backend/.env.production
+!.env.example
+!backend/.env.example
+serviceAccountKey.json
+service-account*.json
+*serviceAccount*.json
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Logs (लॉग फाइल्स)
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Build Outputs & Bundles (उत्पादित बिल्ड फोल्डर्स)
+dist/
+build/
+out/
+.next/
+.nuxt/
+.vuepress/dist/
+
+# Caches & Temporary Files (अस्थायी कैशे)
+.cache/
+.parcel-cache/
+tmp/
+temp/
+*.tmp
+*.temp
+
+# Testing & Coverage (टेस्टिंग डेटा)
+coverage/
+.nyc_output/
+
+# IDE & Code Editors (एडिटर कॉन्फिगरेशन)
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.idea/
+*.sublime-workspace
+*.sublime-project
+*.swp
+*.swo
+
+# Operating System Files (ऑपरेटिंग सिस्टम फाइल्स)
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Archives (ज़िप/आर्काइव फाइल्स)
+*.zip
+*.tar.gz
+*.rar
+*.7z
