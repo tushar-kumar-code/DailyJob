@@ -7,7 +7,7 @@
     "serve": "node server.js",
     "serve:backend": "cd backend && python -m uvicorn app.main:app --host 0.0.0.0 --port 8001 --reload",
     "run": "RUN.bat",
-    "test": "node tests/auth_test.js && node tests/dual_profile_test.js && node tests/role_feature_isolation_test.js && node tests/profile_flow_e2e_test.js && node tests/multistep_profile_test.js && node tests/adaptive_profile_engine_test.js",
+    "test": "node tests/auth_test.js && node tests/dual_profile_test.js && node tests/role_feature_isolation_test.js && node tests/profile_flow_e2e_test.js && node tests/multistep_profile_test.js && node tests/adaptive_profile_engine_test.js && node tests/smart_job_posting_test.js",
     "test:profile": "node tests/multistep_profile_test.js",
     "test:adaptive": "node tests/adaptive_profile_engine_test.js",
     "test:auth": "node tests/auth_test.js",

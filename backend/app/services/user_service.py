@@ -221,6 +221,12 @@ class UserService:
         req_dict["updated_at"] = utc_now_iso()
         req_dict["is_submitted"] = True
 
+        # Normalize work_type and workType
+        if req_dict.get("workType") and not req_dict.get("work_type"):
+            req_dict["work_type"] = req_dict["workType"]
+        elif req_dict.get("work_type") and not req_dict.get("workType"):
+            req_dict["workType"] = req_dict["work_type"]
+
         breakdown = self.calculate_job_seeker_completion(req_dict)
         percentage = breakdown["percentage"]
 

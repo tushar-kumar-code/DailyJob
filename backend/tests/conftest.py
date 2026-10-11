@@ -1,5 +1,12 @@
 import pytest
 from fastapi.testclient import TestClient
+from app.firebase import client as fb_client, firestore as fb_firestore
+
+# Force Mock Firestore for all automated pytest tests to keep live database 100% clean
+fb_client._is_mock_mode = True
+if fb_firestore._mock_db is None:
+    fb_firestore._mock_db = fb_firestore.MockFirestoreDB()
+
 from app.main import app
 from app.repositories.user_repository import user_repo
 

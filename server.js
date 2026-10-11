@@ -123,18 +123,33 @@ const BACKEND_HOST = process.env.BACKEND_HOST || '127.0.0.1';
  */
 function proxyToBackend(req, res, targetPath) {
   const targetUrl = targetPath || req.url;
+  const outgoingHeaders = {
+    ...req.headers,
+    host: `${BACKEND_HOST}:${BACKEND_PORT}`,
+    'x-forwarded-for': req.socket.remoteAddress || '',
+    'x-forwarded-proto': 'http',
+    'x-forwarded-host': req.headers.host || `localhost:${PORT}`
+  };
+
+  // Ensure authenticated session token is forwarded to FastAPI backend
+  const authenticatedToken = req.token || (typeof extractToken === 'function' ? extractToken(req) : null);
+  const currentAuth = outgoingHeaders.authorization || '';
+  const isDummyAuth = !currentAuth ||
+                      currentAuth.includes('session_token') ||
+                      currentAuth.includes('token_local') ||
+                      currentAuth === 'Bearer null' ||
+                      currentAuth === 'Bearer undefined';
+
+  if (isDummyAuth && authenticatedToken) {
+    outgoingHeaders.authorization = `Bearer ${authenticatedToken}`;
+  }
+
   const options = {
     hostname: BACKEND_HOST,
     port: BACKEND_PORT,
     path: targetUrl,
     method: req.method,
-    headers: {
-      ...req.headers,
-      host: `${BACKEND_HOST}:${BACKEND_PORT}`,
-      'x-forwarded-for': req.socket.remoteAddress || '',
-      'x-forwarded-proto': 'http',
-      'x-forwarded-host': req.headers.host || `localhost:${PORT}`
-    }
+    headers: outgoingHeaders
   };
 
   const proxyReq = http.request(options, (proxyRes) => {
@@ -1457,7 +1472,8 @@ const server = http.createServer(async (req, res) => {
 
     return sendJSON(res, 200, {
       authenticated: true,
-      user: sanitizeUser(user)
+      user: sanitizeUser(user),
+      token: req.token || (typeof extractToken === 'function' ? extractToken(req) : null)
     });
   }
 
@@ -1791,8 +1807,56 @@ const server = http.createServer(async (req, res) => {
 // ---------------------------------------------------------------------------
 // 8. Backend Process Management (Auto-starts FastAPI if not running)
 // ---------------------------------------------------------------------------
-const { spawn } = require('child_process');
+const os = require('os');
+const { spawn, execSync } = require('child_process');
 let backendProcess = null;
+
+function getLocalIpAddress() {
+  try {
+    const interfaces = os.networkInterfaces();
+    for (const name of Object.keys(interfaces)) {
+      for (const iface of interfaces[name]) {
+        if (iface.family === 'IPv4' && !iface.internal) {
+          return iface.address;
+        }
+      }
+    }
+  } catch (_) {}
+  return '127.0.0.1';
+}
+
+function freePort(port) {
+  try {
+    if (process.platform === 'win32') {
+      const output = execSync(`netstat -ano | findstr :${port}`, { encoding: 'utf8', stdio: ['pipe', 'pipe', 'ignore'] });
+      const lines = output.trim().split('\n');
+      for (const line of lines) {
+        const parts = line.trim().split(/\s+/);
+        const state = parts[3];
+        const pid = parseInt(parts[parts.length - 1], 10);
+        if (state === 'LISTENING' && pid && pid !== process.pid) {
+          log.warn(`Port ${port} was occupied by process PID ${pid}. Clearing stale process...`);
+          try {
+            execSync(`taskkill /F /PID ${pid}`, { stdio: 'ignore' });
+          } catch (_) {}
+        }
+      }
+    }
+  } catch (_) {}
+}
+
+function openBrowser(targetUrl) {
+  if (process.env.NO_OPEN === 'true') return;
+  try {
+    if (process.platform === 'win32') {
+      spawn('cmd', ['/c', 'start', '', targetUrl], { detached: true, stdio: 'ignore' }).unref();
+    } else if (process.platform === 'darwin') {
+      spawn('open', [targetUrl], { detached: true, stdio: 'ignore' }).unref();
+    } else {
+      spawn('xdg-open', [targetUrl], { detached: true, stdio: 'ignore' }).unref();
+    }
+  } catch (_) {}
+}
 
 function checkPortResponding(port) {
   return new Promise((resolve) => {
@@ -1836,7 +1900,11 @@ async function ensureBackendRunning() {
 function cleanup() {
   if (backendProcess) {
     try {
-      backendProcess.kill();
+      if (process.platform === 'win32' && backendProcess.pid) {
+        execSync(`taskkill /pid ${backendProcess.pid} /T /F`, { stdio: 'ignore' });
+      } else {
+        backendProcess.kill();
+      }
     } catch (_) {}
     backendProcess = null;
   }
@@ -1854,39 +1922,63 @@ process.on('unhandledRejection', (reason) => {
 
 // Start listening if executed directly (Dual-stack: supports both IPv6 and IPv4 localhost)
 if (require.main === module) {
-  server.listen(PORT, '0.0.0.0', async () => {
-    log.divider();
-    log.banner('  DailyJob (कामसाथी) — Node.js Frontend Server');
-    log.info(`${CLR.bright}Frontend UI  ${CLR.reset}: ${CLR.cyan}http://localhost:${PORT}${CLR.reset}`);
-    log.info(`${CLR.bright}Loopback     ${CLR.reset}: ${CLR.cyan}http://127.0.0.1:${PORT}${CLR.reset}`);
-    log.info(`${CLR.bright}API Proxy    ${CLR.reset}: ${CLR.cyan}http://localhost:${PORT}/api/*${CLR.reset} ${CLR.gray}→ :${BACKEND_PORT}${CLR.reset}`);
-    log.info(`${CLR.bright}Swagger Docs ${CLR.reset}: ${CLR.cyan}http://localhost:${PORT}/docs${CLR.reset}`);
-    log.info(`${CLR.bright}FastAPI      ${CLR.reset}: ${CLR.cyan}http://localhost:${BACKEND_PORT}${CLR.reset}`);
-    log.divider();
-    log.info(`${CLR.gray}Format: [TIME] METHOD STATUS TIME  IP  PATH${CLR.reset}`);
-    log.divider();
+  const shouldOpenBrowser = process.argv.includes('--open') || process.env.AUTO_OPEN === 'true';
 
-    await ensureBackendRunning();
+  // Automatically free port from any lingering zombie process before binding
+  freePort(PORT);
 
-    if (firestoreDb) {
-      const existingUsers = getUsers();
-      if (existingUsers && existingUsers.length > 0) {
-        log.info(`Syncing ${existingUsers.length} user(s) to Firebase Firestore...`);
-        for (const u of existingUsers) {
-          syncUserToFirestore(u);
+  let bindAttempts = 0;
+  function bindServer() {
+    bindAttempts++;
+    server.listen(PORT, async () => {
+      const localIp = getLocalIpAddress();
+      log.divider();
+      log.banner('  DailyJob (कामसाथी) — Node.js Frontend Server');
+      log.info(`${CLR.bright}Frontend UI  ${CLR.reset}: ${CLR.cyan}http://localhost:${PORT}${CLR.reset}`);
+      log.info(`${CLR.bright}Loopback     ${CLR.reset}: ${CLR.cyan}http://127.0.0.1:${PORT}${CLR.reset}`);
+      log.info(`${CLR.bright}Mobile/Wi-Fi ${CLR.reset}: ${CLR.cyan}http://${localIp}:${PORT}${CLR.reset}`);
+      log.info(`${CLR.bright}API Proxy    ${CLR.reset}: ${CLR.cyan}http://localhost:${PORT}/api/*${CLR.reset} ${CLR.gray}→ :${BACKEND_PORT}${CLR.reset}`);
+      log.info(`${CLR.bright}Swagger Docs ${CLR.reset}: ${CLR.cyan}http://localhost:${PORT}/docs${CLR.reset}`);
+      log.info(`${CLR.bright}FastAPI      ${CLR.reset}: ${CLR.cyan}http://localhost:${BACKEND_PORT}${CLR.reset}`);
+      log.divider();
+      log.info(`${CLR.gray}Format: [TIME] METHOD STATUS TIME  IP  PATH${CLR.reset}`);
+      log.divider();
+
+      await ensureBackendRunning();
+
+      if (firestoreDb) {
+        const existingUsers = getUsers();
+        if (existingUsers && existingUsers.length > 0) {
+          log.info(`Syncing ${existingUsers.length} user(s) to Firebase Firestore...`);
+          for (const u of existingUsers) {
+            syncUserToFirestore(u);
+          }
         }
       }
-    }
-  });
+
+      // Automatically open browser only AFTER server is confirmed up and listening
+      if (shouldOpenBrowser) {
+        log.info(`Opening browser at http://localhost:${PORT}...`);
+        openBrowser(`http://localhost:${PORT}`);
+      }
+    });
+  }
 
   server.on('error', (err) => {
-    if (err.code === 'EADDRINUSE') {
-      log.error(`Port ${PORT} already in use! Koi aur process is port par chal rahi hai.`);
-    } else {
-      log.error(`Server error: ${err.message}`);
+    if (err.code === 'EADDRINUSE' && bindAttempts <= 2) {
+      log.warn(`Port ${PORT} in use. Automatically clearing stale socket and retrying (attempt ${bindAttempts})...`);
+      freePort(PORT);
+      setTimeout(() => {
+        try { server.close(); } catch (_) {}
+        bindServer();
+      }, 600);
+      return;
     }
+    log.error(`Server error: ${err.message}`);
     process.exit(1);
   });
+
+  bindServer();
 }
 
 module.exports = { server, getUsers, saveUsers, hashPassword, verifyPassword, generateJWT, verifyJWT, syncUserToFirestore, getFirestoreDb: () => firestoreDb };

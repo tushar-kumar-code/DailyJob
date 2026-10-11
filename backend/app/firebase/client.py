@@ -1,4 +1,5 @@
 import os
+import sys
 import json
 import logging
 from typing import Optional, Any
@@ -19,6 +20,11 @@ def initialize_firebase() -> bool:
     Returns True if live Firebase was initialized, False if fallback mode is active.
     """
     global _firebase_app, _firestore_client, _storage_bucket, _is_mock_mode
+
+    if os.environ.get("FORCE_MOCK_FIREBASE") == "true" or "pytest" in sys.modules or os.environ.get("PYTEST_CURRENT_TEST"):
+        _is_mock_mode = True
+        logger.info("Test environment detected; using isolated mock Firestore.")
+        return False
 
     if _firebase_app is not None:
         return not _is_mock_mode
@@ -77,4 +83,6 @@ def get_firebase_app():
     return _firebase_app
 
 def is_mock_mode() -> bool:
+    if os.environ.get("FORCE_MOCK_FIREBASE") == "true" or "pytest" in sys.modules or os.environ.get("PYTEST_CURRENT_TEST"):
+        return True
     return _is_mock_mode

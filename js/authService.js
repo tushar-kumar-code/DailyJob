@@ -130,7 +130,7 @@ class AuthService {
 
     if (this.user) {
       this.user.role = role;
-      this.storeSession(this.token || "token_local", this.user, true);
+      this.storeSession(this.token, this.user, true);
       this._updateLocalUserDb(this.user);
       this.setStatus("authenticated", this.user);
     }
@@ -167,13 +167,30 @@ class AuthService {
       if (res.ok) {
         const data = await res.json();
         if (data.authenticated && data.user) {
-          this.storeSession(this.token || data.token || "session_token", data.user, false);
+          const validToken = data.token || (this.token && !this.token.includes('session_token') ? this.token : null);
+          if (validToken) {
+            this.storeSession(validToken, data.user, false);
+          } else {
+            this.token = null;
+            this.user = data.user;
+            if (data.user) {
+              localStorage.setItem("cgneeti_auth_user", JSON.stringify(data.user));
+              sessionStorage.setItem("cgneeti_auth_user", JSON.stringify(data.user));
+            }
+          }
           if (window.appState && window.appState.loadUserData) {
             window.appState.loadUserData(data.user);
           }
           this.setStatus("authenticated", data.user);
           return { success: true, user: data.user };
         }
+      } else if (res.status === 401 || res.status === 403 || res.status === 404) {
+        this.clearLocalSession();
+        if (window.appState && window.appState.clearUserData) {
+          window.appState.clearUserData();
+        }
+        this.setStatus("unauthenticated", null);
+        return { success: false };
       }
     } catch (err) {
       // Backend offline or static host (GitHub Pages)
@@ -770,14 +787,18 @@ class AuthService {
   // Session helpers & Resilient Local Persistence
   // ---------------------------------------------------------------------------
   storeSession(token, user, rememberMe = true) {
-    this.token = token;
+    const isDummy = !token || token === "session_token" || token === "token_local" || token === "null" || token === "undefined";
+    this.token = isDummy ? null : token;
     this.user = user;
-    if (token) {
+    if (!isDummy) {
       const storage = rememberMe ? localStorage : sessionStorage;
       storage.setItem("cgneeti_auth_token", token);
       if (rememberMe) {
         sessionStorage.removeItem("cgneeti_auth_token");
       }
+    } else {
+      localStorage.removeItem("cgneeti_auth_token");
+      sessionStorage.removeItem("cgneeti_auth_token");
     }
     if (user) {
       localStorage.setItem("cgneeti_auth_user", JSON.stringify(user));

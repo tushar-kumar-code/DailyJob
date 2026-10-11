@@ -1,0 +1,24 @@
+# Render Deployment Blueprint for DailyJob Platform
+# Docs: https://render.com/docs/blueprint-spec
+
+services:
+  - type: web
+    name: dailyjob-platform
+    runtime: python
+    plan: free
+    region: oregon
+    buildCommand: pip install -r backend/requirements.txt
+    startCommand: uvicorn backend.app.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9
+      - key: ENVIRONMENT
+        value: production
+      - key: FIREBASE_PROJECT_ID
+        sync: false
+      - key: FIREBASE_CREDENTIALS_JSON
+        sync: false
+      - key: USE_FIREBASE_MOCK_FALLBACK
+        value: "false"

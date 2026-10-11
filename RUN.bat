@@ -64,12 +64,12 @@ if %errorlevel% neq 0 goto end_pause
 call :check_python
 if %errorlevel% neq 0 goto end_pause
 
-echo [*] Starting Integrated Services (Frontend + Backend Proxy)...
-echo [*] Browser will open automatically once server is active...
-echo.
+echo [*] Checking and freeing ports 8000 and 8001...
+call :free_ports
 
-:: Launch browser in background after 3 seconds so server has bound first
-start "" cmd /c "timeout /t 3 /nobreak >nul && start http://localhost:8000"
+echo [*] Starting Integrated Services (Frontend + Backend Proxy)...
+echo [*] Browser will open automatically as soon as server is ready...
+echo.
 
 echo ----------------------------------------------------------------
 echo   INTEGRATED SERVICES STATUS:
@@ -84,7 +84,7 @@ echo ================================================================
 echo.
 
 title DailyJob (कामसाथी) - Integrated Server
-node server.js
+node server.js --open
 goto end_pause
 
 :: -------------------------------------------------------------
@@ -100,9 +100,8 @@ echo.
 call :check_node
 if %errorlevel% neq 0 goto end_pause
 
-echo [*] Opening Browser: http://localhost:8000
-timeout /t 1 /nobreak >nul 2>&1
-start http://localhost:8000
+echo [*] Checking and freeing port 8000...
+call :free_ports
 
 echo ----------------------------------------------------------------
 echo   Frontend URL: http://localhost:8000
@@ -111,7 +110,7 @@ echo ================================================================
 echo.
 
 title DailyJob Frontend (Node.js - Port 8000)
-node server.js
+node server.js --open
 goto end_pause
 
 :: -------------------------------------------------------------
@@ -201,11 +200,24 @@ if %errorlevel% neq 0 (
 )
 exit /b 0
 
+:free_ports
+:: Free ports 8000 and 8001 using netstat and taskkill if occupied by stale processes
+node -e "const { execSync } = require('child_process'); [8000, 8001].forEach(port => { try { const out = execSync('netstat -ano | findstr :' + port, { encoding: 'utf8', stdio: ['pipe', 'pipe', 'ignore'] }); out.trim().split('\n').forEach(line => { const parts = line.trim().split(/\s+/); const pid = parseInt(parts[parts.length - 1], 10); if (parts[3] === 'LISTENING' && pid && pid !== process.pid) { try { execSync('taskkill /F /PID ' + pid, { stdio: 'ignore' }); } catch(_) {} } }); } catch(_) {} });" >nul 2>&1
+exit /b 0
+
 :end_pause
 if %errorlevel% neq 0 (
     echo.
-    echo [!] Process stopped with an error code: %errorlevel%
-    pause
+    echo ================================================================
+    echo [!] Server ruk gaya hai (Exit code: %errorlevel%).
+    echo [R] Dubara restart karne ke liye 'R' dabayein, ya band karne ke liye Enter.
+    echo ================================================================
+    set "restart_choice="
+    set /p "restart_choice=Choice (R/Enter): "
+    if /i "!restart_choice!"=="r" (
+        cls
+        goto start_both
+    )
 )
 goto :eof
 

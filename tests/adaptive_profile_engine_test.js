@@ -212,6 +212,61 @@ async function runAdaptiveEngineTests() {
   assert(res7.statusCode === 200, 'Corporate employer profile successfully saved');
   assert(res7.json?.profile?.business_type === 'Private Limited Company', 'Business type preserved');
 
+  // ---------------------------------------------------------------------------
+  // Persona 8: Worker Creating Custom Options (Custom Trade, Specialty, Timing, Wage)
+  // ---------------------------------------------------------------------------
+  console.log('\n▶ [Persona 8] Worker Creating Custom Options (Trade, Specialty, Wage)');
+  const token8 = await createTestAccount('Vikas Solar Tech', `vikas_${Date.now()}@test.com`, '9876540008', 'job_seeker');
+  const res8 = await request('POST', '/api/user/profile/job-seeker', {
+    personal: { full_name: 'Vikas Solar Tech', mobile_number: '9876540008', current_city: 'Bilaspur', age: 26 },
+    employment_status: { status: 'सोलर पैनल और इन्वर्टर फिटिंग (Solar Technician)' },
+    profession: 'सोलर पैनल और इन्वर्टर फिटिंग (Solar Technician)',
+    category: 'custom',
+    categoryTitle: 'सोलर पैनल और इन्वर्टर फिटिंग (Solar Technician)',
+    workType: 'ठेका एवं दिहाड़ी काम',
+    work_type: 'ठेका एवं दिहाड़ी काम',
+    expectedWage: '₹950 प्रति दिन',
+    timing: 'सुबह 8 से दोपहर 2 बजे',
+    education: [{ level: 'पॉलिटेक्निक डिप्लोमा (Electrical)', degree: 'पॉलिटेक्निक डिप्लोमा' }],
+    skills: [{ name: 'रूफटॉप सोलर स्ट्रक्चर व वायरिंग', category: 'Solar', level: 'Primary' }],
+    has_experience: true,
+    experience: [{ job_title: 'सोलर पैनल और इन्वर्टर फिटिंग', years: '3 से 5 साल', description: '4 साल तक सोलर प्लांट्स और घरेलू छतों पर फिटिंग का काम किया' }],
+    preferences: {
+      looking_for: ['ठेका एवं दिहाड़ी काम'],
+      preferred_roles: ['सोलर पैनल और इन्वर्टर फिटिंग (Solar Technician)'],
+      preferred_cities: ['Bilaspur'],
+      expected_salary_min: 950,
+      preferred_timing: 'सुबह 8 से दोपहर 2 बजे'
+    }
+  }, { 'Authorization': `Bearer ${token8}` });
+
+  assert(res8.statusCode === 200, 'Worker with custom trade, specialty, and wage saved successfully (200 OK)');
+  assert(res8.json?.profile?.profession === 'सोलर पैनल और इन्वर्टर फिटिंग (Solar Technician)', 'Custom trade profession preserved exactly');
+  assert(res8.json?.profile?.work_type === 'ठेका एवं दिहाड़ी काम', 'Custom work type preserved');
+
+  // ---------------------------------------------------------------------------
+  // Persona 9: Employer Creating Custom Business Category & Custom Role
+  // ---------------------------------------------------------------------------
+  console.log('\n▶ [Persona 9] Employer Creating Custom Category & Custom Role Title');
+  const token9 = await createTestAccount('Aman Event Care', `aman_${Date.now()}@test.com`, '9876540009', 'employer');
+  const res9 = await request('POST', '/api/user/profile/employer', {
+    business_type: 'Individual / Household',
+    business_info: { name: 'अमन इवेंट्स एंड कैटरिंग', industry: 'इवेंट मैनेजमेंट व शादी पार्टी' },
+    location: { city: 'Raipur', work_model: 'On-site' },
+    recruiter_info: { name: 'Aman Verma', mobile_number: '9876540009' },
+    hiring_info: {
+      hiring_types: ['शाम 5:00 से रात 1:00 बजे (Event Shift)'],
+      categories: ['तंदूर शेफ व कैटरिंग हेल्पर (15 लोग)']
+    },
+    hiring_location: { cities: ['Raipur'], onsite_hiring: true },
+    needed_count: '15 लोग',
+    payment_offer: '₹800 प्रति इवेंट शिफ्ट'
+  }, { 'Authorization': `Bearer ${token9}` });
+
+  assert(res9.statusCode === 200, 'Employer with custom business category & custom role saved successfully');
+  assert(res9.json?.profile?.business_info?.industry === 'इवेंट मैनेजमेंट व शादी पार्टी', 'Custom business industry preserved');
+  assert(res9.json?.profile?.hiring_info?.categories?.includes('तंदूर शेफ व कैटरिंग हेल्पर (15 लोग)'), 'Custom needed role preserved in hiring info');
+
   console.log('\n======================================================');
   console.log(`  ADAPTIVE ENGINE RESULTS: ${testsPassed} PASSED, ${testsFailed} FAILED`);
   console.log('======================================================\n');

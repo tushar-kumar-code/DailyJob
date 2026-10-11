@@ -201,21 +201,22 @@ if os.path.exists(os.path.join(_frontend_dir, "index.html")):
     if os.path.exists(os.path.join(_frontend_dir, "assets")):
         app.mount("/assets", StaticFiles(directory=os.path.join(_frontend_dir, "assets")), name="assets")
 
+    @app.get("/", tags=["Frontend"], include_in_schema=False)
     @app.get("/app", tags=["Frontend"], include_in_schema=False)
     @app.get("/index.html", tags=["Frontend"], include_in_schema=False)
     def serve_frontend_app():
         return FileResponse(os.path.join(_frontend_dir, "index.html"))
 
-@app.get("/", tags=["Health"])
+@app.get("/api", tags=["Health"])
 def root():
     return {
         "name": "DailyJob Platform (कामसाथी) - Integrated API",
         "status": "online",
         "version": "1.0.0",
         "integration": {
-            "frontend_url": "http://localhost:8000 (also accessible at /app)",
-            "backend_url": "http://localhost:8001",
-            "proxy_gateway": "http://localhost:8000/api/*",
+            "frontend_url": "/",
+            "backend_url": "/api",
+            "proxy_gateway": "/api/*",
             "swagger_docs": "/docs",
             "redoc_docs": "/redoc"
         },

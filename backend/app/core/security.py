@@ -28,5 +28,9 @@ def authenticate_firebase_token(id_token: str) -> Dict[str, Any]:
             "role": decoded.get("role", "worker"),
             "profile_completed": False
         })
+    else:
+        token_role = decoded.get("role")
+        if token_role and user.get("role") != token_role:
+            user = user_repo.switch_role(uid, token_role) or user
 
     return user

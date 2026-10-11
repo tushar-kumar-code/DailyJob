@@ -1,0 +1,1204 @@
+[
+  {
+    "user_id": "usr_c11b153107f240c98cbb7ffb05c6556a",
+    "username": "Tushar Kumar",
+    "name": "Tushar Kumar",
+    "email": "tushar@gmail.com",
+    "mobile_number": "8815051400",
+    "account_type": "employer",
+    "password_hash": "ccdc41334f16515c01c04644a8f5e9f131e19c60a9576aaaa3339b56ab9e21387c811d3b1e26cf922694d8a8048f396740eb2b94bacf83bc5ba343f41748d09d",
+    "salt": "58cb1b6e098786f59e2bf632bb71c49a",
+    "auth_provider": "local",
+    "role": "employer",
+    "profile_completed": true,
+    "completion_percentage": 80,
+    "profile": null,
+    "saved_data": null,
+    "created_at": "2026-10-09T02:07:49.125Z",
+    "updated_at": "2026-10-09T02:10:57.124Z",
+    "employer_profile": {
+      "business_type": "Individual / Household",
+      "business_info": {
+        "name": "Tushar Kumar",
+        "industry": "कारीगर (प्लंबर / बिजली)"
+      },
+      "location": {
+        "city": "रायपुर (Raipur)",
+        "state": "छत्तीसगढ़",
+        "work_model": "On-site"
+      },
+      "recruiter_info": {
+        "name": "Tushar Kumar",
+        "mobile_number": "8815051400",
+        "official_email": "tushar@gmail.com"
+      },
+      "hiring_info": {
+        "hiring_types": [
+          "Full-time",
+          "Daily Wage"
+        ],
+        "categories": [
+          "खाना बनाने वाला (Cook)"
+        ]
+      },
+      "hiring_location": {
+        "cities": [
+          "Raipur"
+        ],
+        "onsite_hiring": true
+      },
+      "verification": {
+        "status": "not_verified"
+      },
+      "company_profile": {},
+      "hiring_preferences": {
+        "candidate_experience": "Fresher"
+      },
+      "visibility": {
+        "visibility": "public"
+      },
+      "updated_at": "2026-10-09T02:08:13.015Z",
+      "is_submitted": true
+    },
+    "completion_breakdown": {
+      "percentage": 80,
+      "completed_sections": [
+        "Business Type",
+        "Business Information",
+        "Office Location",
+        "Recruiter Contact",
+        "Hiring Information",
+        "Hiring Locations",
+        "Hiring Preferences",
+        "Profile Visibility"
+      ],
+      "missing_sections": [
+        "Business Verification",
+        "Company Profile & Culture"
+      ],
+      "is_ready_for_matching": true
+    }
+  },
+  {
+    "user_id": "usr_486785982aa2400b93c63ca9908ae987",
+    "username": "Rahul",
+    "name": "Rahul",
+    "email": "rahuldewangan1400@gmail.com",
+    "mobile_number": "9988776655",
+    "account_type": "job_seeker",
+    "password_hash": "715727fe8d0be3d3695fa072d6e7e7b6fa4409eb7ec07f23a0fb914700c591b86c8fe1a7fa1ffbd4876104c70278bb8bc6bad71fd3fe22e3d8d18d7cdf09788a",
+    "salt": "08dc63c8293c19a14fbe379105e458b2",
+    "auth_provider": "local",
+    "role": "worker",
+    "profile_completed": true,
+    "completion_percentage": 80,
+    "profile": null,
+    "saved_data": null,
+    "created_at": "2026-10-09T07:22:03.033Z",
+    "updated_at": "2026-10-09T07:22:51.193Z",
+    "job_seeker_profile": {
+      "personal": {
+        "full_name": "Rahul",
+        "profile_photo": "",
+        "date_of_birth": "1998-01-01",
+        "age": 26,
+        "gender": "Prefer not to say",
+        "mobile_number": "9988776655",
+        "email": "rahuldewangan1400@gmail.com",
+        "current_city": "रायपुर (Raipur)",
+        "current_state": "छत्तीसगढ़ (Chhattisgarh)",
+        "country": "India",
+        "preferred_language": "Hindi"
+      },
+      "employment_status": {
+        "status": "Daily Wage Worker"
+      },
+      "education": [],
+      "skills": [
+        {
+          "name": "साफ़-सफ़ाई / हेल्पर",
+          "category": "Technical",
+          "level": "Intermediate"
+        }
+      ],
+      "has_experience": true,
+      "experience": [
+        {
+          "job_title": "साफ़-सफ़ाई / हेल्पर",
+          "company_name": "Prior Work",
+          "employment_type": "Daily"
+        }
+      ],
+      "preferences": {
+        "looking_for": [
+          "Daily Wage"
+        ],
+        "preferred_roles": [
+          "साफ़-सफ़ाई / हेल्पर"
+        ],
+        "work_modes": [
+          "On-site"
+        ],
+        "preferred_cities": [
+          "Raipur"
+        ],
+        "expected_salary_min": 500
+      },
+      "languages": [
+        {
+          "language": "Hindi",
+          "speaking_level": "Fluent/Native"
+        }
+      ],
+      "portfolio": {
+        "resume_url": "",
+        "linkedin_url": ""
+      },
+      "visibility": {
+        "visibility": "public_employers",
+        "allow_contact": true
+      },
+      "updated_at": "2026-10-09T07:22:51.193Z",
+      "is_submitted": true
+    },
+    "worker_profile": {
+      "personal": {
+        "full_name": "Rahul",
+        "profile_photo": "",
+        "date_of_birth": "1998-01-01",
+        "age": 26,
+        "gender": "Prefer not to say",
+        "mobile_number": "9988776655",
+        "email": "rahuldewangan1400@gmail.com",
+        "current_city": "रायपुर (Raipur)",
+        "current_state": "छत्तीसगढ़ (Chhattisgarh)",
+        "country": "India",
+        "preferred_language": "Hindi"
+      },
+      "employment_status": {
+        "status": "Daily Wage Worker"
+      },
+      "education": [],
+      "skills": [
+        {
+          "name": "साफ़-सफ़ाई / हेल्पर",
+          "category": "Technical",
+          "level": "Intermediate"
+        }
+      ],
+      "has_experience": true,
+      "experience": [
+        {
+          "job_title": "साफ़-सफ़ाई / हेल्पर",
+          "company_name": "Prior Work",
+          "employment_type": "Daily"
+        }
+      ],
+      "preferences": {
+        "looking_for": [
+          "Daily Wage"
+        ],
+        "preferred_roles": [
+          "साफ़-सफ़ाई / हेल्पर"
+        ],
+        "work_modes": [
+          "On-site"
+        ],
+        "preferred_cities": [
+          "Raipur"
+        ],
+        "expected_salary_min": 500
+      },
+      "languages": [
+        {
+          "language": "Hindi",
+          "speaking_level": "Fluent/Native"
+        }
+      ],
+      "portfolio": {
+        "resume_url": "",
+        "linkedin_url": ""
+      },
+      "visibility": {
+        "visibility": "public_employers",
+        "allow_contact": true
+      },
+      "updated_at": "2026-10-09T07:22:51.193Z",
+      "is_submitted": true
+    },
+    "completion_breakdown": {
+      "percentage": 80,
+      "completed_sections": [
+        "Personal Information",
+        "Employment Status",
+        "Skills",
+        "Work Experience",
+        "Job Preferences",
+        "Languages",
+        "Privacy & Visibility",
+        "Final Confirmation"
+      ],
+      "missing_sections": [
+        "Education",
+        "Portfolio & Resume"
+      ],
+      "is_ready_for_matching": true
+    },
+    "age": 26
+  },
+  {
+    "user_id": "usr_791463ecf19449c8b11e62f81a88f664",
+    "username": "Khusboo",
+    "name": "Khusboo",
+    "email": "khusbhoo@gmail.com",
+    "mobile_number": "9988774455",
+    "account_type": "job_seeker",
+    "password_hash": "6a5c613b0b5e3a9059970f1d8daa5ea7cd98e1725852a3bb77e8378e583d6b73ab531c52f68dbc8de7d344017e00705e82774c1cf8d98a8e5ca1b709ac3500db",
+    "salt": "b122e1d95b0cea9d31c16eadae2677e4",
+    "auth_provider": "local",
+    "role": "worker",
+    "profile_completed": true,
+    "completion_percentage": 80,
+    "profile": null,
+    "saved_data": null,
+    "created_at": "2026-10-09T07:27:15.107Z",
+    "updated_at": "2026-10-09T07:28:57.319Z",
+    "job_seeker_profile": {
+      "personal": {
+        "full_name": "Khusboo",
+        "profile_photo": "",
+        "date_of_birth": "1998-01-01",
+        "age": 26,
+        "gender": "Prefer not to say",
+        "mobile_number": "9988774455",
+        "email": "khusbhoo@gmail.com",
+        "current_city": "रायपुर (Raipur)",
+        "current_state": "छत्तीसगढ़ (Chhattisgarh)",
+        "country": "India",
+        "preferred_language": "Hindi"
+      },
+      "employment_status": {
+        "status": "Working Professional"
+      },
+      "education": [],
+      "skills": [
+        {
+          "name": "कोई भी खाना बना लेंगे",
+          "category": "Technical",
+          "level": "Intermediate"
+        }
+      ],
+      "has_experience": false,
+      "experience": [],
+      "preferences": {
+        "looking_for": [
+          "Full-time"
+        ],
+        "preferred_roles": [
+          "खाना बनाना"
+        ],
+        "work_modes": [
+          "On-site"
+        ],
+        "preferred_cities": [
+          "Raipur"
+        ],
+        "expected_salary_min": 500
+      },
+      "languages": [
+        {
+          "language": "Hindi",
+          "speaking_level": "Fluent/Native"
+        }
+      ],
+      "portfolio": {
+        "resume_url": "",
+        "linkedin_url": ""
+      },
+      "visibility": {
+        "visibility": "public_employers",
+        "allow_contact": true
+      },
+      "updated_at": "2026-10-09T07:28:57.319Z",
+      "is_submitted": true
+    },
+    "worker_profile": {
+      "personal": {
+        "full_name": "Khusboo",
+        "profile_photo": "",
+        "date_of_birth": "1998-01-01",
+        "age": 26,
+        "gender": "Prefer not to say",
+        "mobile_number": "9988774455",
+        "email": "khusbhoo@gmail.com",
+        "current_city": "रायपुर (Raipur)",
+        "current_state": "छत्तीसगढ़ (Chhattisgarh)",
+        "country": "India",
+        "preferred_language": "Hindi"
+      },
+      "employment_status": {
+        "status": "Working Professional"
+      },
+      "education": [],
+      "skills": [
+        {
+          "name": "कोई भी खाना बना लेंगे",
+          "category": "Technical",
+          "level": "Intermediate"
+        }
+      ],
+      "has_experience": false,
+      "experience": [],
+      "preferences": {
+        "looking_for": [
+          "Full-time"
+        ],
+        "preferred_roles": [
+          "खाना बनाना"
+        ],
+        "work_modes": [
+          "On-site"
+        ],
+        "preferred_cities": [
+          "Raipur"
+        ],
+        "expected_salary_min": 500
+      },
+      "languages": [
+        {
+          "language": "Hindi",
+          "speaking_level": "Fluent/Native"
+        }
+      ],
+      "portfolio": {
+        "resume_url": "",
+        "linkedin_url": ""
+      },
+      "visibility": {
+        "visibility": "public_employers",
+        "allow_contact": true
+      },
+      "updated_at": "2026-10-09T07:28:57.319Z",
+      "is_submitted": true
+    },
+    "completion_breakdown": {
+      "percentage": 80,
+      "completed_sections": [
+        "Personal Information",
+        "Employment Status",
+        "Skills",
+        "Work Experience",
+        "Job Preferences",
+        "Languages",
+        "Privacy & Visibility",
+        "Final Confirmation"
+      ],
+      "missing_sections": [
+        "Education",
+        "Portfolio & Resume"
+      ],
+      "is_ready_for_matching": true
+    },
+    "age": 26
+  },
+  {
+    "user_id": "usr_8ed651f2e4ab45039f648459d1c79511",
+    "username": "BHOJRAM",
+    "name": "BHOJRAM",
+    "email": "tushar400@gmail.com",
+    "mobile_number": "9123456789",
+    "account_type": "job_seeker",
+    "password_hash": "b8ac56b6e9cbfd1dc98c1607a77ab227925ffaa3db627df21db83d28f0f310df8956b628ee1ce2bbe19045828dd94763ee04450f77b78a0bfd6de291b0941499",
+    "salt": "a2cfacb0cc0e36a6e406dedd740442f8",
+    "auth_provider": "local",
+    "role": "employer",
+    "profile_completed": true,
+    "completion_percentage": 80,
+    "profile": null,
+    "saved_data": null,
+    "created_at": "2026-10-09T08:12:41.939Z",
+    "updated_at": "2026-10-09T15:49:16.312Z",
+    "job_seeker_profile": {
+      "personal": {
+        "full_name": "BHOJRAM",
+        "profile_photo": "",
+        "date_of_birth": "1998-01-01",
+        "age": 26,
+        "gender": "Prefer not to say",
+        "mobile_number": "9123456789",
+        "email": "tushar400@gmail.com",
+        "current_city": "रायपुर (Raipur)",
+        "current_state": "छत्तीसगढ़ (Chhattisgarh)",
+        "country": "India",
+        "preferred_language": "Hindi"
+      },
+      "employment_status": {
+        "status": "Daily Wage Worker"
+      },
+      "education": [],
+      "skills": [
+        {
+          "name": "कोई भी खाना बना लेंगे",
+          "category": "Technical",
+          "level": "Intermediate"
+        }
+      ],
+      "has_experience": true,
+      "experience": [
+        {
+          "job_title": "खाना बनाना (Cook)",
+          "company_name": "Prior Work",
+          "employment_type": "Daily"
+        }
+      ],
+      "preferences": {
+        "looking_for": [
+          "Daily Wage"
+        ],
+        "preferred_roles": [
+          "खाना बनाना (Cook)"
+        ],
+        "work_modes": [
+          "On-site"
+        ],
+        "preferred_cities": [
+          "Raipur"
+        ],
+        "expected_salary_min": 500
+      },
+      "languages": [
+        {
+          "language": "Hindi",
+          "speaking_level": "Fluent/Native"
+        }
+      ],
+      "portfolio": {
+        "resume_url": "",
+        "linkedin_url": ""
+      },
+      "visibility": {
+        "visibility": "public_employers",
+        "allow_contact": true
+      },
+      "updated_at": "2026-10-09T08:13:34.667Z",
+      "is_submitted": true
+    },
+    "worker_profile": {
+      "personal": {
+        "full_name": "BHOJRAM",
+        "profile_photo": "",
+        "date_of_birth": "1998-01-01",
+        "age": 26,
+        "gender": "Prefer not to say",
+        "mobile_number": "9123456789",
+        "email": "tushar400@gmail.com",
+        "current_city": "रायपुर (Raipur)",
+        "current_state": "छत्तीसगढ़ (Chhattisgarh)",
+        "country": "India",
+        "preferred_language": "Hindi"
+      },
+      "employment_status": {
+        "status": "Daily Wage Worker"
+      },
+      "education": [],
+      "skills": [
+        {
+          "name": "कोई भी खाना बना लेंगे",
+          "category": "Technical",
+          "level": "Intermediate"
+        }
+      ],
+      "has_experience": true,
+      "experience": [
+        {
+          "job_title": "खाना बनाना (Cook)",
+          "company_name": "Prior Work",
+          "employment_type": "Daily"
+        }
+      ],
+      "preferences": {
+        "looking_for": [
+          "Daily Wage"
+        ],
+        "preferred_roles": [
+          "खाना बनाना (Cook)"
+        ],
+        "work_modes": [
+          "On-site"
+        ],
+        "preferred_cities": [
+          "Raipur"
+        ],
+        "expected_salary_min": 500
+      },
+      "languages": [
+        {
+          "language": "Hindi",
+          "speaking_level": "Fluent/Native"
+        }
+      ],
+      "portfolio": {
+        "resume_url": "",
+        "linkedin_url": ""
+      },
+      "visibility": {
+        "visibility": "public_employers",
+        "allow_contact": true
+      },
+      "updated_at": "2026-10-09T08:13:34.667Z",
+      "is_submitted": true
+    },
+    "completion_breakdown": {
+      "percentage": 80,
+      "completed_sections": [
+        "Personal Information",
+        "Employment Status",
+        "Skills",
+        "Work Experience",
+        "Job Preferences",
+        "Languages",
+        "Privacy & Visibility",
+        "Final Confirmation"
+      ],
+      "missing_sections": [
+        "Education",
+        "Portfolio & Resume"
+      ],
+      "is_ready_for_matching": true
+    },
+    "age": 26
+  },
+  {
+    "user_id": "usr_f6148e229c06414f8f7c25fe2a69cb74",
+    "username": "Palak",
+    "name": "Palak",
+    "email": "palak@gmail.com",
+    "mobile_number": "9876123456",
+    "account_type": "employer",
+    "password_hash": "5ce9e58dcd9c40d718258988fcc53e3246fbec7436231b3c69ca887f22fd90193f3b5aa23a9cdd94ec400d0e05c98097961cc14acdbdf0f50986e26a27fd2139",
+    "salt": "c5cc90153c025ce797eae25d85de6c62",
+    "auth_provider": "local",
+    "role": "employer",
+    "profile_completed": true,
+    "completion_percentage": 80,
+    "profile": null,
+    "saved_data": null,
+    "created_at": "2026-10-09T10:03:33.336Z",
+    "updated_at": "2026-10-09T10:03:48.275Z",
+    "employer_profile": {
+      "business_type": "Individual / Household",
+      "business_info": {
+        "name": "Palak",
+        "industry": "होटल / रेस्टोरेंट"
+      },
+      "location": {
+        "city": "रायपुर (Raipur)",
+        "state": "छत्तीसगढ़",
+        "work_model": "On-site"
+      },
+      "recruiter_info": {
+        "name": "Palak",
+        "mobile_number": "9876123456",
+        "official_email": "palak@gmail.com"
+      },
+      "hiring_info": {
+        "hiring_types": [
+          "Full-time",
+          "Daily Wage"
+        ],
+        "categories": [
+          "खाना बनाने वाला (Cook)"
+        ]
+      },
+      "hiring_location": {
+        "cities": [
+          "Raipur"
+        ],
+        "onsite_hiring": true
+      },
+      "verification": {
+        "status": "not_verified"
+      },
+      "company_profile": {},
+      "hiring_preferences": {
+        "candidate_experience": "Fresher"
+      },
+      "visibility": {
+        "visibility": "public"
+      },
+      "updated_at": "2026-10-09T10:03:48.275Z",
+      "is_submitted": true
+    },
+    "completion_breakdown": {
+      "percentage": 80,
+      "completed_sections": [
+        "Business Type",
+        "Business Information",
+        "Office Location",
+        "Recruiter Contact",
+        "Hiring Information",
+        "Hiring Locations",
+        "Hiring Preferences",
+        "Profile Visibility"
+      ],
+      "missing_sections": [
+        "Business Verification",
+        "Company Profile & Culture"
+      ],
+      "is_ready_for_matching": true
+    }
+  },
+  {
+    "user_id": "usr_82d6275a982a47eeb2346ae3dcd895e3",
+    "username": "Santosh",
+    "name": "Santosh",
+    "email": "santosh@gmail.com",
+    "mobile_number": "9911882277",
+    "account_type": "employer",
+    "password_hash": "64ca6eb818b79be7d70f9f91184d9e355f6939d3f7166b2b3b50b73e913c929c3e01962363356cfeda7e1b19612a7f38341bb45cee3ef33276a0a753c2661f4e",
+    "salt": "12a0cc3e631366bee2c8ca9fa7151ab1",
+    "auth_provider": "local",
+    "role": "employer",
+    "profile_completed": true,
+    "completion_percentage": 80,
+    "profile": null,
+    "saved_data": null,
+    "created_at": "2026-10-09T15:13:08.319Z",
+    "updated_at": "2026-10-09T15:13:38.357Z",
+    "employer_profile": {
+      "business_type": "Individual / Household",
+      "business_info": {
+        "name": "Santosh",
+        "industry": "सिक्योरिटी गार्ड"
+      },
+      "location": {
+        "city": "रायपुर (Raipur)",
+        "state": "छत्तीसगढ़",
+        "work_model": "On-site"
+      },
+      "recruiter_info": {
+        "name": "Santosh",
+        "mobile_number": "9911882277",
+        "official_email": "santosh@gmail.com"
+      },
+      "hiring_info": {
+        "hiring_types": [
+          "Full-time",
+          "Daily Wage"
+        ],
+        "categories": [
+          "खाना बनाने वाला (Cook)"
+        ]
+      },
+      "hiring_location": {
+        "cities": [
+          "Raipur"
+        ],
+        "onsite_hiring": true
+      },
+      "verification": {
+        "status": "not_verified"
+      },
+      "company_profile": {},
+      "hiring_preferences": {
+        "candidate_experience": "Fresher"
+      },
+      "visibility": {
+        "visibility": "public"
+      },
+      "updated_at": "2026-10-09T15:13:38.357Z",
+      "is_submitted": true
+    },
+    "completion_breakdown": {
+      "percentage": 80,
+      "completed_sections": [
+        "Business Type",
+        "Business Information",
+        "Office Location",
+        "Recruiter Contact",
+        "Hiring Information",
+        "Hiring Locations",
+        "Hiring Preferences",
+        "Profile Visibility"
+      ],
+      "missing_sections": [
+        "Business Verification",
+        "Company Profile & Culture"
+      ],
+      "is_ready_for_matching": true
+    }
+  },
+  {
+    "user_id": "usr_ramesh_elec",
+    "username": "Ramesh Patel",
+    "name": "Ramesh Patel",
+    "email": "ramesh.elec@gmail.com",
+    "mobile_number": "9826112233",
+    "account_type": "job_seeker",
+    "password_hash": "b8ac56b6e9cbfd1dc98c1607a77ab227925ffaa3db627df21db83d28f0f310df8956b628ee1ce2bbe19045828dd94763ee04450f77b78a0bfd6de291b0941499",
+    "salt": "a2cfacb0cc0e36a6e406dedd740442f8",
+    "auth_provider": "local",
+    "role": "worker",
+    "profile_completed": true,
+    "completion_percentage": 85,
+    "job_seeker_profile": {
+      "personal": {
+        "full_name": "Ramesh Patel",
+        "date_of_birth": "1996-05-10",
+        "age": 28,
+        "mobile_number": "9826112233",
+        "email": "ramesh.elec@gmail.com",
+        "current_city": "रायपुर (Raipur)",
+        "current_state": "छत्तीसगढ़",
+        "preferred_language": "Hindi"
+      },
+      "skills": [
+        {
+          "name": "बिजली वायरिंग व मरम्मत",
+          "category": "Technical",
+          "level": "Expert"
+        }
+      ],
+      "experience": [
+        {
+          "job_title": "इलेक्ट्रीशियन (Electrician)",
+          "company_name": "Local Works",
+          "employment_type": "Daily"
+        }
+      ],
+      "preferences": {
+        "looking_for": [
+          "Daily Wage"
+        ],
+        "preferred_roles": [
+          "इलेक्ट्रीशियन (Electrician)"
+        ],
+        "preferred_cities": [
+          "Raipur"
+        ],
+        "expected_salary_min": 750
+      }
+    },
+    "worker_profile": {
+      "personal": {
+        "full_name": "Ramesh Patel",
+        "age": 28,
+        "mobile_number": "9826112233",
+        "email": "ramesh.elec@gmail.com",
+        "current_city": "रायपुर (Raipur)"
+      },
+      "skills": [
+        {
+          "name": "बिजली वायरिंग व मरम्मत",
+          "category": "Technical",
+          "level": "Expert"
+        }
+      ],
+      "experience": [
+        {
+          "job_title": "इलेक्ट्रीशियन (Electrician)",
+          "company_name": "Local Works",
+          "employment_type": "Daily"
+        }
+      ],
+      "preferences": {
+        "preferred_roles": [
+          "इलेक्ट्रीशियन (Electrician)"
+        ],
+        "expected_salary_min": 750
+      }
+    }
+  },
+  {
+    "user_id": "usr_sunil_plumb",
+    "username": "Sunil Verma",
+    "name": "Sunil Verma",
+    "email": "sunil.plumb@gmail.com",
+    "mobile_number": "9826445566",
+    "account_type": "job_seeker",
+    "password_hash": "b8ac56b6e9cbfd1dc98c1607a77ab227925ffaa3db627df21db83d28f0f310df8956b628ee1ce2bbe19045828dd94763ee04450f77b78a0bfd6de291b0941499",
+    "salt": "a2cfacb0cc0e36a6e406dedd740442f8",
+    "auth_provider": "local",
+    "role": "worker",
+    "profile_completed": true,
+    "completion_percentage": 85,
+    "job_seeker_profile": {
+      "personal": {
+        "full_name": "Sunil Verma",
+        "date_of_birth": "1997-08-15",
+        "age": 27,
+        "mobile_number": "9826445566",
+        "email": "sunil.plumb@gmail.com",
+        "current_city": "रायपुर (Raipur)",
+        "current_state": "छत्तीसगढ़",
+        "preferred_language": "Hindi"
+      },
+      "skills": [
+        {
+          "name": "नल, पाइप व सेनेटरी फिटिंग",
+          "category": "Technical",
+          "level": "Expert"
+        }
+      ],
+      "experience": [
+        {
+          "job_title": "प्लंबर (Plumber)",
+          "company_name": "City Plumbing",
+          "employment_type": "Daily"
+        }
+      ],
+      "preferences": {
+        "looking_for": [
+          "Daily Wage"
+        ],
+        "preferred_roles": [
+          "प्लंबर (Plumber)"
+        ],
+        "preferred_cities": [
+          "Raipur"
+        ],
+        "expected_salary_min": 650
+      }
+    },
+    "worker_profile": {
+      "personal": {
+        "full_name": "Sunil Verma",
+        "age": 27,
+        "mobile_number": "9826445566",
+        "email": "sunil.plumb@gmail.com",
+        "current_city": "रायपुर (Raipur)"
+      },
+      "skills": [
+        {
+          "name": "नल, पाइप व सेनेटरी फिटिंग",
+          "category": "Technical",
+          "level": "Expert"
+        }
+      ],
+      "experience": [
+        {
+          "job_title": "प्लंबर (Plumber)",
+          "company_name": "City Plumbing",
+          "employment_type": "Daily"
+        }
+      ],
+      "preferences": {
+        "preferred_roles": [
+          "प्लंबर (Plumber)"
+        ],
+        "expected_salary_min": 650
+      }
+    }
+  },
+  {
+    "user_id": "usr_rajesh_mason",
+    "username": "Rajesh Yadav",
+    "name": "Rajesh Yadav",
+    "email": "rajesh.mason@gmail.com",
+    "mobile_number": "9826778899",
+    "account_type": "job_seeker",
+    "password_hash": "b8ac56b6e9cbfd1dc98c1607a77ab227925ffaa3db627df21db83d28f0f310df8956b628ee1ce2bbe19045828dd94763ee04450f77b78a0bfd6de291b0941499",
+    "salt": "a2cfacb0cc0e36a6e406dedd740442f8",
+    "auth_provider": "local",
+    "role": "worker",
+    "profile_completed": true,
+    "completion_percentage": 85,
+    "job_seeker_profile": {
+      "personal": {
+        "full_name": "Rajesh Yadav",
+        "date_of_birth": "1994-03-20",
+        "age": 30,
+        "mobile_number": "9826778899",
+        "email": "rajesh.mason@gmail.com",
+        "current_city": "रायपुर (Raipur)",
+        "current_state": "छत्तीसगढ़",
+        "preferred_language": "Hindi"
+      },
+      "skills": [
+        {
+          "name": "ईंट जुड़ाई, प्लास्टर व टाइल्स",
+          "category": "Technical",
+          "level": "Expert"
+        }
+      ],
+      "experience": [
+        {
+          "job_title": "राजमिस्त्री (Mason)",
+          "company_name": "Construction",
+          "employment_type": "Daily"
+        }
+      ],
+      "preferences": {
+        "looking_for": [
+          "Daily Wage"
+        ],
+        "preferred_roles": [
+          "राजमिस्त्री (Mason)"
+        ],
+        "preferred_cities": [
+          "Raipur"
+        ],
+        "expected_salary_min": 800
+      }
+    },
+    "worker_profile": {
+      "personal": {
+        "full_name": "Rajesh Yadav",
+        "age": 30,
+        "mobile_number": "9826778899",
+        "email": "rajesh.mason@gmail.com",
+        "current_city": "रायपुर (Raipur)"
+      },
+      "skills": [
+        {
+          "name": "ईंट जुड़ाई, प्लास्टर व टाइल्स",
+          "category": "Technical",
+          "level": "Expert"
+        }
+      ],
+      "experience": [
+        {
+          "job_title": "राजमिस्त्री (Mason)",
+          "company_name": "Construction",
+          "employment_type": "Daily"
+        }
+      ],
+      "preferences": {
+        "preferred_roles": [
+          "राजमिस्त्री (Mason)"
+        ],
+        "expected_salary_min": 800
+      }
+    }
+  },
+  {
+    "user_id": "usr_dinesh_driver",
+    "username": "Dinesh Sahu",
+    "name": "Dinesh Sahu",
+    "email": "dinesh.driver@gmail.com",
+    "mobile_number": "9826332211",
+    "account_type": "job_seeker",
+    "password_hash": "b8ac56b6e9cbfd1dc98c1607a77ab227925ffaa3db627df21db83d28f0f310df8956b628ee1ce2bbe19045828dd94763ee04450f77b78a0bfd6de291b0941499",
+    "salt": "a2cfacb0cc0e36a6e406dedd740442f8",
+    "auth_provider": "local",
+    "role": "worker",
+    "profile_completed": true,
+    "completion_percentage": 85,
+    "job_seeker_profile": {
+      "personal": {
+        "full_name": "Dinesh Sahu",
+        "date_of_birth": "1995-11-12",
+        "age": 29,
+        "mobile_number": "9826332211",
+        "email": "dinesh.driver@gmail.com",
+        "current_city": "रायपुर (Raipur)",
+        "current_state": "छत्तीसगढ़",
+        "preferred_language": "Hindi"
+      },
+      "skills": [
+        {
+          "name": "LMV व हेवी कमर्शियल ड्राइविंग",
+          "category": "Technical",
+          "level": "Intermediate"
+        }
+      ],
+      "experience": [
+        {
+          "job_title": "ड्राइविंग (Driver)",
+          "company_name": "Transport",
+          "employment_type": "Daily"
+        }
+      ],
+      "preferences": {
+        "looking_for": [
+          "Daily Wage"
+        ],
+        "preferred_roles": [
+          "ड्राइविंग (Driver)"
+        ],
+        "preferred_cities": [
+          "Raipur"
+        ],
+        "expected_salary_min": 600
+      }
+    },
+    "worker_profile": {
+      "personal": {
+        "full_name": "Dinesh Sahu",
+        "age": 29,
+        "mobile_number": "9826332211",
+        "email": "dinesh.driver@gmail.com",
+        "current_city": "रायपुर (Raipur)"
+      },
+      "skills": [
+        {
+          "name": "LMV व हेवी कमर्शियल ड्राइविंग",
+          "category": "Technical",
+          "level": "Intermediate"
+        }
+      ],
+      "experience": [
+        {
+          "job_title": "ड्राइविंग (Driver)",
+          "company_name": "Transport",
+          "employment_type": "Daily"
+        }
+      ],
+      "preferences": {
+        "preferred_roles": [
+          "ड्राइविंग (Driver)"
+        ],
+        "expected_salary_min": 600
+      }
+    }
+  },
+  {
+    "user_id": "usr_mohan_paint",
+    "username": "Mohan Dewangan",
+    "name": "Mohan Dewangan",
+    "email": "mohan.painter@gmail.com",
+    "mobile_number": "9826554433",
+    "account_type": "job_seeker",
+    "password_hash": "b8ac56b6e9cbfd1dc98c1607a77ab227925ffaa3db627df21db83d28f0f310df8956b628ee1ce2bbe19045828dd94763ee04450f77b78a0bfd6de291b0941499",
+    "salt": "a2cfacb0cc0e36a6e406dedd740442f8",
+    "auth_provider": "local",
+    "role": "worker",
+    "profile_completed": true,
+    "completion_percentage": 85,
+    "job_seeker_profile": {
+      "personal": {
+        "full_name": "Mohan Dewangan",
+        "date_of_birth": "1999-07-04",
+        "age": 25,
+        "mobile_number": "9826554433",
+        "email": "mohan.painter@gmail.com",
+        "current_city": "रायपुर (Raipur)",
+        "current_state": "छत्तीसगढ़",
+        "preferred_language": "Hindi"
+      },
+      "skills": [
+        {
+          "name": "दीवार पेंट, पुट्टी व प्राइमर",
+          "category": "Technical",
+          "level": "Intermediate"
+        }
+      ],
+      "experience": [
+        {
+          "job_title": "पेंटर (Painter)",
+          "company_name": "Painting Services",
+          "employment_type": "Daily"
+        }
+      ],
+      "preferences": {
+        "looking_for": [
+          "Daily Wage"
+        ],
+        "preferred_roles": [
+          "पेंटर (Painter)"
+        ],
+        "preferred_cities": [
+          "Raipur"
+        ],
+        "expected_salary_min": 650
+      }
+    },
+    "worker_profile": {
+      "personal": {
+        "full_name": "Mohan Dewangan",
+        "age": 25,
+        "mobile_number": "9826554433",
+        "email": "mohan.painter@gmail.com",
+        "current_city": "रायपुर (Raipur)"
+      },
+      "skills": [
+        {
+          "name": "दीवार पेंट, पुट्टी व प्राइमर",
+          "category": "Technical",
+          "level": "Expert"
+        }
+      ],
+      "experience": [
+        {
+          "job_title": "पेंटर (Painter)",
+          "company_name": "Painting Services",
+          "employment_type": "Daily"
+        }
+      ],
+      "preferences": {
+        "preferred_roles": [
+          "पेंटर (Painter)"
+        ],
+        "expected_salary_min": 650
+      }
+    }
+  },
+  {
+    "user_id": "usr_c83c72f8af3f4a1eb27b702c9211c714",
+    "username": "user_1791690774303",
+    "name": "user_1791690774303",
+    "email": "role_test_1791690774303@example.com",
+    "mobile_number": null,
+    "account_type": "job_seeker",
+    "password_hash": "dd3022de48c9ea91406314686b04545b24f2468301bae851aa23bc36463e22684644dc2b625e2a7827fd545a95252a61260aef1f7194d470c74ceeb6c702a613",
+    "salt": "718c5b1cab098639723da841a9e5ebb4",
+    "auth_provider": "local",
+    "role": "worker",
+    "profile_completed": true,
+    "completion_percentage": 0,
+    "profile": {
+      "user_type": "job_seeker",
+      "age": 27,
+      "profession": "Electrician",
+      "custom_profession": null,
+      "completed_at": "2026-10-11T03:52:54.773Z"
+    },
+    "saved_data": null,
+    "created_at": "2026-10-11T03:52:54.398Z",
+    "updated_at": "2026-10-11T03:52:54.846Z",
+    "age": 27,
+    "worker_profile": {
+      "user_type": "job_seeker",
+      "age": 27,
+      "profession": "Electrician",
+      "custom_profession": null,
+      "completed_at": "2026-10-11T03:52:54.773Z"
+    }
+  },
+  {
+    "user_id": "usr_982d604c34f04eac97f6980ba75fd874",
+    "username": "ramesh_emp",
+    "name": "ramesh_emp",
+    "email": "employer_1791690875170@example.com",
+    "mobile_number": "9876543210",
+    "account_type": "employer",
+    "password_hash": "8a8b3550299479bcd19632eb4fe1c0fd1a3354fc6c9d36863f238980c1fa9b1236b1b6a928819bf3f9c240bc32eac3245d6cc24f0d03856812734122cfeb4097",
+    "salt": "d089943e369bf99121310553d347dcc1",
+    "auth_provider": "local",
+    "role": "employer",
+    "profile_completed": false,
+    "completion_percentage": 0,
+    "profile": null,
+    "saved_data": null,
+    "created_at": "2026-10-11T03:54:35.246Z",
+    "updated_at": "2026-10-11T03:54:35.246Z"
+  },
+  {
+    "user_id": "usr_43d83615cbca47babd83e032144fc4b9",
+    "username": "test_dummy",
+    "name": "test_dummy",
+    "email": "emp_dummy_1791690888066@example.com",
+    "mobile_number": "9876543210",
+    "account_type": "employer",
+    "password_hash": "a14596bb94a9bed28b64a0961886769f6728be7feef6a7d9aa0a2f3a4b7d05e0d385a3ae42c9781ae637a4eabedd8f417c1a45d5f3f12c1401e08c4e0fc1bc3f",
+    "salt": "3322afac1338931023e4052dc50f0da9",
+    "auth_provider": "local",
+    "role": "employer",
+    "profile_completed": false,
+    "completion_percentage": 0,
+    "profile": null,
+    "saved_data": null,
+    "created_at": "2026-10-11T03:54:48.153Z",
+    "updated_at": "2026-10-11T03:54:48.153Z"
+  }
+]

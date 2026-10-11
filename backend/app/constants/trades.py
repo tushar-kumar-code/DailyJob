@@ -11,8 +11,10 @@ INITIAL_TRADES: List[Dict[str, Any]] = [
     {"id": "helper", "nameHi": "मजदूर / हेल्पर", "nameEn": "Construction Helper", "icon": "👷", "minWage": 500, "maxWage": 650},
     {"id": "carpenter", "nameHi": "बढ़ई", "nameEn": "Carpenter", "icon": "🪚", "minWage": 750, "maxWage": 1000},
     {"id": "loader", "nameHi": "लोडर / हमाल", "nameEn": "Loader / Porter", "icon": "📦", "minWage": 550, "maxWage": 700},
-    {"id": "cleaning", "nameHi": "साफ़-सफ़ाई / हेल्पर", "nameEn": "Cleaning / Help", "icon": "🧹", "minWage": 400, "maxWage": 650},
-    {"id": "driving", "nameHi": "ड्राइविंग", "nameEn": "Driving / Driver", "icon": "🚗", "minWage": 600, "maxWage": 900}
+    {"id": "cleaning", "nameHi": "सफाई कर्मचारी", "nameEn": "Cleaning / Help", "icon": "🧹", "minWage": 400, "maxWage": 650},
+    {"id": "driving", "nameHi": "ड्राइवर", "nameEn": "Driving / Driver", "icon": "🚗", "minWage": 600, "maxWage": 900},
+    {"id": "delivery", "nameHi": "डिलीवरी कर्मचारी", "nameEn": "Delivery Worker", "icon": "🛵", "minWage": 500, "maxWage": 800},
+    {"id": "other", "nameHi": "अन्य काम", "nameEn": "Other Work", "icon": "💼", "minWage": 500, "maxWage": 850}
 ]
 
 def get_trade_by_id(trade_id: str) -> Optional[Dict[str, Any]]:

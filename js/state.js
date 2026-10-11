@@ -3,6 +3,26 @@
  * Handles LocalStorage caching and simulates clean Async Backend APIs
  */
 
+// Global client storage version purge: Clears old test session cache on reload
+(function purgeStaleTestCache() {
+  const CURRENT_DATA_VERSION = "2026_10_11_reset_v3";
+  if (typeof localStorage !== "undefined" && localStorage.getItem("dailyjob_cache_version") !== CURRENT_DATA_VERSION) {
+    const keysToRemove = [];
+    for (let i = 0; i < localStorage.length; i++) {
+      const k = localStorage.key(i);
+      if (k && (k.startsWith("dailyjob_") || k.startsWith("cgneeti_") || k === "cgn_state")) {
+        // Keep language preference if set
+        if (k === "cgn_lang") continue;
+        keysToRemove.push(k);
+      }
+    }
+    keysToRemove.forEach(k => localStorage.removeItem(k));
+    try { sessionStorage.clear(); } catch (_) {}
+    localStorage.setItem("dailyjob_cache_version", CURRENT_DATA_VERSION);
+    console.info("[DailyJob] Stale local storage and test cache cleared.");
+  }
+})();
+
 class AppState {
   constructor() {
     this.STORAGE_KEY = "cgneeti_state_v1";
@@ -46,6 +66,31 @@ class AppState {
     this.savedJobIds = [];
     this.currentUser = null;
     this.save();
+  }
+
+  clearUserData() {
+    this.currentUserId = null;
+    this.currentUser = null;
+    this.jobs = [];
+    this.workers = [];
+    this.employer = null;
+    this.applications = [];
+    this.notifications = [];
+    this.messages = [];
+    this.disputes = [];
+    this.savedJobIds = [];
+    this.currentRole = "worker";
+    try {
+      localStorage.removeItem(this.STORAGE_KEY);
+      const keysToRemove = [];
+      for (let i = 0; i < localStorage.length; i++) {
+        const k = localStorage.key(i);
+        if (k && (k.startsWith("dailyjob_user_") || k === "dailyjob_users_db")) {
+          keysToRemove.push(k);
+        }
+      }
+      keysToRemove.forEach(k => localStorage.removeItem(k));
+    } catch (_) {}
   }
 
   loadUserData(user) {
@@ -209,7 +254,7 @@ class AppState {
   _getAuthHeaders() {
     const headers = { "Content-Type": "application/json" };
     const token = window.authService?.token || sessionStorage.getItem("cgneeti_auth_token") || localStorage.getItem("cgneeti_auth_token");
-    if (token) {
+    if (token && !token.includes("session_token") && !token.includes("token_local") && token !== "null" && token !== "undefined") {
       headers["Authorization"] = `Bearer ${token}`;
     }
     return headers;
@@ -525,69 +570,34 @@ class AppState {
   }
 
   async postJob(jobData) {
-    try {
-      const res = await fetch("/api/jobs", {
-        method: "POST",
-        headers: this._getAuthHeaders(),
-        credentials: "include",
-        body: JSON.stringify(jobData)
-      });
-      if (res.ok) {
-        const data = await res.json();
-        const created = data.job || data;
-        this.jobs.unshift(created);
-        if (!this.employer) {
-          this.employer = { id: this.currentUserId || "emp-user", name: "Employer", activeJobIds: [] };
-        }
-        if (!this.employer.activeJobIds) this.employer.activeJobIds = [];
-        this.employer.activeJobIds.push(created.id);
-        this.save();
-        return created;
-      }
-    } catch (_) {}
+    const res = await fetch("/api/jobs", {
+      method: "POST",
+      headers: this._getAuthHeaders(),
+      credentials: "include",
+      body: JSON.stringify(jobData)
+    });
 
-    const empProfile = await this.getEmployerProfile();
-    const newJob = {
-      id: "job-" + Date.now(),
-      tradeId: jobData.tradeId || "helper",
-      titleHi: jobData.titleHi || "काम की आवश्यकता",
-      titleEn: jobData.titleEn || jobData.titleHi || "Work Requirement",
-      employerId: empProfile.id,
-      employerName: empProfile.name,
-      employerVerified: true,
-      employerRating: empProfile.rating || 4.9,
-      employerHires: empProfile.totalHires || 0,
-      cancellationRate: "0%",
-      locationName: jobData.locationName || "Raipur",
-      city: jobData.city || "Raipur",
-      distanceKm: parseFloat(jobData.distanceKm) || 2.5,
-      travelEstimate: Math.round((parseFloat(jobData.distanceKm) || 2.5) * 35),
-      wage: parseInt(jobData.wage) || 700,
-      wageUnit: "day",
-      date: jobData.date || "कल (Tomorrow)",
-      timeSlot: jobData.timeSlot || "9:00 AM – 5:00 PM",
-      workersNeeded: parseInt(jobData.workersNeeded) || 1,
-      workersApplied: 0,
-      status: "open",
-      urgent: Boolean(jobData.urgent),
-      beginnerFriendly: Boolean(jobData.beginnerFriendly),
-      toolsProvided: jobData.toolsProvided || "औजार साइट पर उपलब्ध होंगे।",
-      safetyProvided: jobData.safetyProvided || "मूलभूत सुरक्षा उपकरण उपलब्ध।",
-      paymentMode: jobData.paymentMode || "काम समाप्त होने पर तुरंत भुगतान",
-      cancellationPolicy: "2 घंटे पहले सूचित करना आवश्यक",
-      descriptionHi: jobData.descriptionHi || "आवश्यक कार्य का विवरण।",
-      descriptionEn: jobData.descriptionEn || jobData.descriptionHi || "Work description."
-    };
+    if (!res.ok) {
+      let errMsg = "Job posting failed";
+      try {
+        const errData = await res.json();
+        errMsg = errData.detail || errData.error || errData.message || errMsg;
+      } catch (_) {}
+      const err = new Error(errMsg);
+      err.status = res.status;
+      throw err;
+    }
 
-    this.jobs.unshift(newJob);
+    const data = await res.json();
+    const created = data.job || data;
+    this.jobs.unshift(created);
     if (!this.employer) {
-      this.employer = { id: empProfile.id, name: empProfile.name, activeJobIds: [] };
+      this.employer = { id: this.currentUserId || "emp-user", name: "Employer", activeJobIds: [] };
     }
     if (!this.employer.activeJobIds) this.employer.activeJobIds = [];
-    this.employer.activeJobIds.push(newJob.id);
-
+    this.employer.activeJobIds.push(created.id);
     this.save();
-    return newJob;
+    return created;
   }
 
   async selectApplicant(appId) {

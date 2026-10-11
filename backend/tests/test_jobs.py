@@ -87,3 +87,43 @@ def test_prevent_unauthorized_job_modification(client: TestClient, worker_header
     # Worker tries to patch
     patch_resp = client.patch(f"/api/jobs/{job_id}", json={"wage": 1200}, headers=worker_headers)
     assert patch_resp.status_code in [403, 404]
+
+def test_smart_job_posting_structured_fields(client: TestClient, employer_headers):
+    # Test structured posting with custom trade, duration, landmark, tools, food, travel & safety
+    payload = {
+        "tradeId": "other",
+        "customTradeTitle": "दुकान सहायक व सुरक्षा",
+        "wage": 850,
+        "wageUnit": "day",
+        "workersNeeded": 3,
+        "city": "Bhilai",
+        "locationName": "Nehru Nagar",
+        "landmark": "Near Hanuman Mandir",
+        "startDate": "12 अक्टूबर",
+        "durationDays": 5,
+        "durationText": "5 दिन चलेगा",
+        "assignmentType": "temporary",
+        "timeSlot": "9:00 AM – 5:00 PM",
+        "breakIncluded": "1 घंटे का लंच ब्रेक शामिल है",
+        "toolsResponsibility": "employer",
+        "foodProvided": "दोपहर का खाना व चाय उपलब्ध",
+        "travelProvided": "किराया अलग से मिलेगा",
+        "safetyEquipment": "दस्ताने व जूते उपलब्ध",
+        "paymentTiming": "daily_end",
+        "paymentTerms": "Cash or UPI",
+        "description": "दुकान में सामान गिनना, व्यवस्थित रखना और ग्राहकों की सहायता करना।"
+    }
+    resp = client.post("/api/jobs", json=payload, headers=employer_headers)
+    assert resp.status_code == 201
+    job = resp.json()["job"]
+    assert job["customTradeTitle"] == "दुकान सहायक व सुरक्षा"
+    assert "दुकान सहायक व सुरक्षा" in job["titleHi"]
+    assert job["wage"] == 850
+    assert job["wageUnit"] == "day"
+    assert job["workersNeeded"] == 3
+    assert job["landmark"] == "Near Hanuman Mandir"
+    assert job["durationDays"] == 5
+    assert job["toolsResponsibility"] == "employer"
+    assert job["foodProvided"] == "दोपहर का खाना व चाय उपलब्ध"
+    assert job["travelProvided"] == "किराया अलग से मिलेगा"
+    assert "दुकान में सामान गिनना" in job["descriptionHi"]

@@ -1,0 +1,20 @@
+[
+  {
+    "user_id": "usr_1532328073ee4b0a913611d48880588a",
+    "username": "ravi",
+    "name": "ravi",
+    "email": "ravi@gmail.com",
+    "mobile_number": "9812734650",
+    "account_type": "job_seeker",
+    "password_hash": "1f27772fa1a954d8bed6a64f9b904cc9045f3c800eb5cc22436ece52483a6cf411fadf6e215e7880ed13d89b467044d549977d152d58379a1f5c120d2db12901",
+    "salt": "27aa10caffb55c40cff1f0274cc28fa3",
+    "auth_provider": "local",
+    "role": "worker",
+    "profile_completed": false,
+    "completion_percentage": 0,
+    "profile": null,
+    "saved_data": null,
+    "created_at": "2026-10-11T08:51:29.233Z",
+    "updated_at": "2026-10-11T08:51:29.233Z"
+  }
+]

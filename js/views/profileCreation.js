@@ -20,19 +20,26 @@ let adaptiveState = {
 
   // Job Seeker Answers - Pure User Selections
   jobSeeker: {
-    workType: "", // "daily" | "part_time" | "full_time" | "permanent" | "temporary" | "remote" | "any" | "undecided"
+    workType: "", // "daily" | "part_time" | "full_time" | "permanent" | "temporary" | "remote" | "any" | "undecided" | custom
+    customWorkType: "",
     category: "", // Category key
     categoryTitle: "",
+    customCategoryTitle: "",
     skillDetail: "",
+    customSkillDetail: "",
     hasExperience: "", // "yes" | "no" | "little"
     experienceYears: "", // "<6m" | "6m-1y" | "1-3y" | "3-5y" | "5y+"
+    customExperience: "",
     education: "",
+    customEducation: "",
     locationType: "",
     cityName: "",
     timing: "",
+    customTiming: "",
     startDate: "",
     wageType: "",
     expectedWage: "",
+    customWage: "",
     fullName: "",
     mobileNumber: "",
     email: "",
@@ -46,6 +53,7 @@ let adaptiveState = {
   employer: {
     empCategory: "",
     empCategoryTitle: "",
+    customCategoryTitle: "",
     isCorporate: false,
     contactName: "",
     companyName: "",
@@ -56,6 +64,7 @@ let adaptiveState = {
     neededCount: "",
     workLocation: "",
     workTiming: "",
+    customWorkTiming: "",
     paymentOffer: "",
     startDate: ""
   }
@@ -122,8 +131,8 @@ function getAdaptiveStepList() {
   // Q2: Work Category (Always asked)
   list.push("js_category");
 
-  // Q3: Adaptive Skill Detail (Only for categories with specific questions)
-  if (["cooking", "driving", "electrician", "software", "teaching"].includes(js.category)) {
+  // Q3: Adaptive Skill Detail (For categories with specific questions or custom work)
+  if (["cooking", "driving", "electrician", "software", "teaching", "custom", "other"].includes(js.category)) {
     list.push("js_skill_detail");
   }
 
@@ -292,8 +301,10 @@ function renderCurrentAdaptiveStepHTML(stepKey) {
     // -------------------------------------------------------------------------
     case "js_work_type": {
       const selected = adaptiveState.jobSeeker.workType;
+      const customVal = adaptiveState.jobSeeker.customWorkType;
+      const isCustomActive = Boolean(customVal && selected === customVal);
       const title = isHi ? "आपको किस तरह का काम चाहिए?" : "What type of work are you looking for?";
-      const subtitle = isHi ? "अपनी पसंद चुनें, आप बाद में भी बदल सकते हैं:" : "Select an option that suits you best:";
+      const subtitle = isHi ? "अपनी पसंद चुनें, या नीचे अपना विकल्प खुद बनाएं:" : "Select an option below or create your own custom option:";
 
       return `
         <div class="adaptive-question-hero">
@@ -326,6 +337,35 @@ function renderCurrentAdaptiveStepHTML(stepKey) {
               </div>
             `).join("")}
           </div>
+
+          <!-- Flexible Custom Work Type Option -->
+          <div class="adaptive-custom-option-box ${isCustomActive ? 'active' : ''}">
+            <div class="adaptive-custom-header">
+              <span>✍️</span>
+              <span>${isHi ? 'क्या आपका काम का प्रकार अलग है? अपना विकल्प खुद लिखें:' : 'Need a different work type? Create your own:'}</span>
+            </div>
+            <div class="adaptive-custom-input-group">
+              <input 
+                type="text" 
+                id="custom-worktype-input"
+                class="adaptive-custom-input" 
+                placeholder="${isHi ? 'उदा. ठेका काम, हफ्ते में 2 दिन, नाइट शिफ्ट, वीकेंड...' : 'e.g. Contract work, 2 days a week, Night shift...'}"
+                value="${escapeHTML(customVal || '')}"
+                onkeydown="if(event.key==='Enter'){ event.preventDefault(); window.applyCustomWorkType(this.value); }"
+              />
+              <button 
+                type="button" 
+                class="btn btn-primary btn-sm" 
+                onclick="window.applyCustomWorkType(document.getElementById('custom-worktype-input').value)">
+                ✓ ${isHi ? 'यह चुनें' : 'Select'}
+              </button>
+            </div>
+            ${isCustomActive ? `
+              <div class="adaptive-custom-badge">
+                <span>✓ आपका चुना हुआ विकल्प: <strong>${escapeHTML(customVal)}</strong></span>
+              </div>
+            ` : ''}
+          </div>
         </div>
       `;
     }
@@ -335,8 +375,10 @@ function renderCurrentAdaptiveStepHTML(stepKey) {
     // -------------------------------------------------------------------------
     case "js_category": {
       const selected = adaptiveState.jobSeeker.category;
+      const customCat = adaptiveState.jobSeeker.customCategoryTitle;
+      const isCustomActive = Boolean(customCat && (selected === 'custom' || selected === 'other'));
       const title = isHi ? "आप कौन सा काम कर सकते हैं?" : "What work or skills can you do?";
-      const subtitle = isHi ? "जिस काम में आपका हुनर या अनुभव है, उसे चुनें:" : "Choose the work you are experienced or interested in:";
+      const subtitle = isHi ? "अपना हुनर चुनें, या नीचे अपना काम खुद लिखें:" : "Choose your skill, or type your own custom trade below:";
 
       return `
         <div class="adaptive-question-hero">
@@ -377,6 +419,35 @@ function renderCurrentAdaptiveStepHTML(stepKey) {
                 <div class="adaptive-card-title">${isHi ? opt.titleHi : opt.titleEn}</div>
               </div>
             `).join("")}
+          </div>
+
+          <!-- Flexible Custom Work / Skill Option -->
+          <div class="adaptive-custom-option-box ${isCustomActive ? 'active' : ''}">
+            <div class="adaptive-custom-header">
+              <span>✍️</span>
+              <span>${isHi ? 'क्या आपका काम इस लिस्ट में नहीं है? अपना काम / हुनर खुद लिखें:' : 'Is your trade not listed? Type your skill / trade:'}</span>
+            </div>
+            <div class="adaptive-custom-input-group">
+              <input 
+                type="text" 
+                id="custom-category-input"
+                class="adaptive-custom-input" 
+                placeholder="${isHi ? 'उदा. कार मैकेनिक, हलवाई, एसी रिपेयर, लॉन्ड्री, फोटोग्राफर...' : 'e.g. Car Mechanic, AC Repair, Photographer, Baker...'}"
+                value="${escapeHTML(customCat || '')}"
+                onkeydown="if(event.key==='Enter'){ event.preventDefault(); window.applyCustomCategory(this.value); }"
+              />
+              <button 
+                type="button" 
+                class="btn btn-primary btn-sm" 
+                onclick="window.applyCustomCategory(document.getElementById('custom-category-input').value)">
+                ✓ ${isHi ? 'यह काम जोड़ें' : 'Add This Skill'}
+              </button>
+            </div>
+            ${isCustomActive ? `
+              <div class="adaptive-custom-badge">
+                <span>⭐ आपका चुना हुआ काम: <strong>${escapeHTML(customCat)}</strong></span>
+              </div>
+            ` : ''}
           </div>
         </div>
       `;
@@ -437,9 +508,19 @@ function renderCurrentAdaptiveStepHTML(stepKey) {
           { key: "english_spoken", icon: "🗣️", titleHi: "इंग्लिश स्पीकिंग", titleEn: "Spoken English" },
           { key: "computer_trainer", icon: "💻", titleHi: "कंप्यूटर सिखाना", titleEn: "Computer Training" }
         ];
+      } else {
+        const tradeTitle = adaptiveState.jobSeeker.categoryTitle || (isHi ? 'इस काम' : 'this work');
+        questionTitle = isHi ? `"${tradeTitle}" में आपकी क्या खासियत है?` : `What is your specialty in "${tradeTitle}"?`;
+        options = [
+          { key: "all_round", icon: "⭐", titleHi: "सभी काम कर लेते हैं", titleEn: "All-round experience" },
+          { key: "experienced", icon: "💼", titleHi: "कुशल व अनुभवी", titleEn: "Skilled & Experienced" },
+          { key: "quick_learner", icon: "⚡", titleHi: "नया काम जल्दी सीख लेते हैं", titleEn: "Quick learner" }
+        ];
       }
 
       const selectedDetail = adaptiveState.jobSeeker.skillDetail;
+      const customDetail = adaptiveState.jobSeeker.customSkillDetail;
+      const isCustomDetailActive = Boolean(customDetail && selectedDetail === customDetail);
 
       return `
         <div class="adaptive-question-hero">
@@ -460,6 +541,35 @@ function renderCurrentAdaptiveStepHTML(stepKey) {
                 <div class="adaptive-card-title">${isHi ? opt.titleHi : opt.titleEn}</div>
               </div>
             `).join("")}
+          </div>
+
+          <!-- Flexible Custom Skill Detail Input -->
+          <div class="adaptive-custom-option-box ${isCustomDetailActive ? 'active' : ''}">
+            <div class="adaptive-custom-header">
+              <span>✍️</span>
+              <span>${isHi ? 'या अपनी विशेषता / खासियत खुद लिखें:' : 'Or type your specific specialty:'}</span>
+            </div>
+            <div class="adaptive-custom-input-group">
+              <input 
+                type="text" 
+                id="custom-skilldetail-input"
+                class="adaptive-custom-input" 
+                placeholder="${isHi ? 'उदा. तंदूरी रोटी, जेसीबी व क्रेन, सोलर पैनल वायरिंग, टिफिन सर्विस...' : 'e.g. Tandoori roti, JCB operator, Solar panels, Tiffin...'}"
+                value="${escapeHTML(customDetail || '')}"
+                onkeydown="if(event.key==='Enter'){ event.preventDefault(); window.applyCustomSkillDetail(this.value); }"
+              />
+              <button 
+                type="button" 
+                class="btn btn-primary btn-sm" 
+                onclick="window.applyCustomSkillDetail(document.getElementById('custom-skilldetail-input').value)">
+                ✓ ${isHi ? 'लागू करें' : 'Apply'}
+              </button>
+            </div>
+            ${isCustomDetailActive ? `
+              <div class="adaptive-custom-badge">
+                <span>✓ चुनी गई खासियत: <strong>${escapeHTML(customDetail)}</strong></span>
+              </div>
+            ` : ''}
           </div>
         </div>
       `;
@@ -534,6 +644,23 @@ function renderCurrentAdaptiveStepHTML(stepKey) {
               </div>
             </div>
           ` : ''}
+
+          <!-- Flexible Custom Experience Description -->
+          <div class="adaptive-custom-option-box ${adaptiveState.jobSeeker.customExperience ? 'active' : ''}">
+            <div class="adaptive-custom-header">
+              <span>✍️</span>
+              <span>${isHi ? 'या अपने अनुभव के बारे में खुद लिखें (वैकल्पिक):' : 'Or describe your experience (optional):'}</span>
+            </div>
+            <div class="adaptive-custom-input-group">
+              <input 
+                type="text" 
+                class="adaptive-custom-input" 
+                placeholder="${isHi ? 'उदा. 7 साल गैराज में काम किया, 2 साल होटल में शेफ रहे, पारिवारिक काम...' : 'e.g. 7 years in auto garage, 2 years in hotel...'}"
+                value="${escapeHTML(adaptiveState.jobSeeker.customExperience || '')}"
+                oninput="adaptiveState.jobSeeker.customExperience = this.value.trim(); if(this.value.trim()){ adaptiveState.jobSeeker.hasExperience = 'yes'; }"
+              />
+            </div>
+          </div>
         </div>
       `;
     }
@@ -604,6 +731,8 @@ function renderCurrentAdaptiveStepHTML(stepKey) {
     // -------------------------------------------------------------------------
     case "js_education": {
       const edu = adaptiveState.jobSeeker.education;
+      const customEdu = adaptiveState.jobSeeker.customEducation;
+      const isCustomEduActive = Boolean(customEdu && (edu === customEdu || edu === 'other'));
       const title = isHi ? "आपकी पढ़ाई क्या है?" : "What is your educational qualification?";
 
       return `
@@ -633,6 +762,35 @@ function renderCurrentAdaptiveStepHTML(stepKey) {
                 <div class="adaptive-card-title">${opt.title}</div>
               </div>
             `).join("")}
+          </div>
+
+          <!-- Flexible Custom Education Input -->
+          <div class="adaptive-custom-option-box ${isCustomEduActive ? 'active' : ''}">
+            <div class="adaptive-custom-header">
+              <span>✍️</span>
+              <span>${isHi ? 'या अपनी पढ़ाई / डिग्री / कोर्स का नाम खुद लिखें:' : 'Or enter your course / degree / qualification:'}</span>
+            </div>
+            <div class="adaptive-custom-input-group">
+              <input 
+                type="text" 
+                id="custom-education-input"
+                class="adaptive-custom-input" 
+                placeholder="${isHi ? 'उदा. आईटीआई (फिटर), बीसीए, पॉलिटेक्निक, 10वीं...' : 'e.g. ITI, BCA, Polytechnic, High School...'}"
+                value="${escapeHTML(customEdu || '')}"
+                onkeydown="if(event.key==='Enter'){ event.preventDefault(); window.applyCustomEducation(this.value); }"
+              />
+              <button 
+                type="button" 
+                class="btn btn-primary btn-sm" 
+                onclick="window.applyCustomEducation(document.getElementById('custom-education-input').value)">
+                ✓ ${isHi ? 'यह चुनें' : 'Select'}
+              </button>
+            </div>
+            ${isCustomEduActive ? `
+              <div class="adaptive-custom-badge">
+                <span>✓ चुनी गई योग्यता: <strong>${escapeHTML(customEdu)}</strong></span>
+              </div>
+            ` : ''}
           </div>
         </div>
       `;
@@ -726,6 +884,8 @@ function renderCurrentAdaptiveStepHTML(stepKey) {
     case "js_timing_availability": {
       const timing = adaptiveState.jobSeeker.timing;
       const start = adaptiveState.jobSeeker.startDate;
+      const customTiming = adaptiveState.jobSeeker.customTiming;
+      const isCustomTimingActive = Boolean(customTiming && timing === customTiming);
       const title = isHi ? "आप कब काम करना चाहते हैं?" : "When are you available to work?";
 
       return `
@@ -755,6 +915,35 @@ function renderCurrentAdaptiveStepHTML(stepKey) {
                 </div>
               `).join("")}
             </div>
+
+            <!-- Flexible Custom Timing Input -->
+            <div class="adaptive-custom-option-box ${isCustomTimingActive ? 'active' : ''}">
+              <div class="adaptive-custom-header">
+                <span>✍️</span>
+                <span>${isHi ? 'या अपनी सुविधा का समय खुद लिखें:' : 'Or type your preferred timing:'}</span>
+              </div>
+              <div class="adaptive-custom-input-group">
+                <input 
+                  type="text" 
+                  id="custom-timing-input"
+                  class="adaptive-custom-input" 
+                  placeholder="${isHi ? 'उदा. सुबह 7 से 11 बजे, केवल शनिवार-रविवार, 4 घंटे पार्ट-टाइम...' : 'e.g. 7 AM to 11 AM, Weekends only, 4 hrs part-time...'}"
+                  value="${escapeHTML(customTiming || '')}"
+                  onkeydown="if(event.key==='Enter'){ event.preventDefault(); window.applyCustomTiming(this.value); }"
+                />
+                <button 
+                  type="button" 
+                  class="btn btn-primary btn-sm" 
+                  onclick="window.applyCustomTiming(document.getElementById('custom-timing-input').value)">
+                  ✓ ${isHi ? 'लागू करें' : 'Apply'}
+                </button>
+              </div>
+              ${isCustomTimingActive ? `
+                <div class="adaptive-custom-badge">
+                  <span>✓ आपका चुना हुआ समय: <strong>${escapeHTML(customTiming)}</strong></span>
+                </div>
+              ` : ''}
+            </div>
           </div>
 
           <div>
@@ -769,7 +958,7 @@ function renderCurrentAdaptiveStepHTML(stepKey) {
               ].map(opt => `
                 <button 
                   type="button" 
-                  class="btn btn-sm ${start === opt.key ? 'btn-primary' : 'btn-secondary'}"
+                  class="btn btn-sm ${start === opt.key ? 'btn-primary' : 'btn-secondary'}" 
                   onclick="adaptiveState.jobSeeker.startDate = '${opt.key}'; renderAdaptiveDOM();">
                   ${opt.label}
                 </button>
@@ -790,6 +979,8 @@ function renderCurrentAdaptiveStepHTML(stepKey) {
         : (isHi ? "महीने की कितनी कमाई / सैलरी चाहिए?" : "Expected monthly payment / salary?");
 
       const currentWage = adaptiveState.jobSeeker.expectedWage;
+      const customWage = adaptiveState.jobSeeker.customWage;
+      const isCustomWageActive = Boolean(customWage && currentWage === customWage);
 
       return `
         <div class="adaptive-question-hero">
@@ -829,6 +1020,35 @@ function renderCurrentAdaptiveStepHTML(stepKey) {
                 <div class="adaptive-card-title">${opt.title}</div>
               </div>
             `).join("")}
+          </div>
+
+          <!-- Flexible Custom Payment Expectation Input -->
+          <div class="adaptive-custom-option-box ${isCustomWageActive ? 'active' : ''}">
+            <div class="adaptive-custom-header">
+              <span>✍️</span>
+              <span>${isHi ? 'या अपनी मनपसंद कमाई / दिहाड़ी खुद लिखें:' : 'Or type your expected payment / salary:'}</span>
+            </div>
+            <div class="adaptive-custom-input-group">
+              <input 
+                type="text" 
+                id="custom-wage-input"
+                class="adaptive-custom-input" 
+                placeholder="${isHi ? 'उदा. ₹800 प्रति दिन, ₹18,000 प्रति माह, काम के हिसाब से...' : 'e.g. ₹800/day, ₹22,000/month, As per task...'}"
+                value="${escapeHTML(customWage || '')}"
+                onkeydown="if(event.key==='Enter'){ event.preventDefault(); window.applyCustomWage(this.value); }"
+              />
+              <button 
+                type="button" 
+                class="btn btn-primary btn-sm" 
+                onclick="window.applyCustomWage(document.getElementById('custom-wage-input').value)">
+                ✓ ${isHi ? 'लागू करें' : 'Apply'}
+              </button>
+            </div>
+            ${isCustomWageActive ? `
+              <div class="adaptive-custom-badge">
+                <span>✓ आपकी तय की गई कमाई: <strong>${escapeHTML(customWage)}</strong></span>
+              </div>
+            ` : ''}
           </div>
         </div>
       `;
@@ -926,6 +1146,8 @@ function renderCurrentAdaptiveStepHTML(stepKey) {
     // -------------------------------------------------------------------------
     case "emp_category": {
       const selected = adaptiveState.employer.empCategory;
+      const customCat = adaptiveState.employer.customCategoryTitle;
+      const isCustomActive = Boolean(customCat && (selected === 'custom' || selected === 'other'));
       const title = isHi ? "आप किस तरह के काम के लिए लोगों को रखना चाहते हैं?" : "What type of work do you want to hire for?";
 
       return `
@@ -933,7 +1155,7 @@ function renderCurrentAdaptiveStepHTML(stepKey) {
           <div class="adaptive-question-header">
             <div>
               <h2 class="adaptive-question-title" id="current-q-text">${title}</h2>
-              <p class="adaptive-question-subtitle">${isHi ? 'अपनी जरूरत के अनुसार चुनें:' : 'Select the category of work needed:'}</p>
+              <p class="adaptive-question-subtitle">${isHi ? 'अपनी जरूरत के अनुसार चुनें, या नीचे अपना काम खुद लिखें:' : 'Select the category of work needed, or type your own below:'}</p>
             </div>
           </div>
 
@@ -961,6 +1183,35 @@ function renderCurrentAdaptiveStepHTML(stepKey) {
                 <div class="adaptive-card-title">${isHi ? opt.titleHi : opt.titleEn}</div>
               </div>
             `).join("")}
+          </div>
+
+          <!-- Flexible Custom Employer Category Creator -->
+          <div class="adaptive-custom-option-box ${isCustomActive ? 'active' : ''}">
+            <div class="adaptive-custom-header">
+              <span>✍️</span>
+              <span>${isHi ? 'क्या आपका काम या व्यवसाय इस लिस्ट में नहीं है? खुद लिखें:' : 'Not in list? Type your business / work type:'}</span>
+            </div>
+            <div class="adaptive-custom-input-group">
+              <input 
+                type="text" 
+                id="custom-emp-category-input"
+                class="adaptive-custom-input" 
+                placeholder="${isHi ? 'उदा. कोचिंग सेंटर, इवेंट व शादी, अस्पताल / क्लिनिक, बेकरी, ट्रांसपोर्ट...' : 'e.g. Coaching Center, Event Management, Clinic, Bakery, Transport...'}"
+                value="${escapeHTML(customCat || '')}"
+                onkeydown="if(event.key==='Enter'){ event.preventDefault(); window.applyCustomEmployerCategory(this.value); }"
+              />
+              <button 
+                type="button" 
+                class="btn btn-primary btn-sm" 
+                onclick="window.applyCustomEmployerCategory(document.getElementById('custom-emp-category-input').value)">
+                ✓ ${isHi ? 'यह काम जोड़ें' : 'Add Category'}
+              </button>
+            </div>
+            ${isCustomActive ? `
+              <div class="adaptive-custom-badge">
+                <span>⭐ आपका चुना हुआ व्यवसाय: <strong>${escapeHTML(customCat)}</strong></span>
+              </div>
+            ` : ''}
           </div>
         </div>
       `;
@@ -1064,38 +1315,65 @@ function renderCurrentAdaptiveStepHTML(stepKey) {
     case "emp_requirement": {
       const emp = adaptiveState.employer;
       const title = isHi ? "किस काम के लिए व्यक्ति चाहिए?" : "What work needs to be done?";
+      const commonRoles = [
+        "हेल्पर / सहायक", "कुक / रसोइया", "ड्राइवर", "सफाई कर्मचारी", 
+        "दुकान सेल्समैन", "डिलीवरी बॉय", "सिक्योरिटी गार्ड", "इलेक्ट्रीशियन", 
+        "प्लंबर", "कंप्यूटर ऑपरेटर", "ऑफिस स्टाफ"
+      ];
 
       return `
         <div class="adaptive-question-hero">
           <div class="adaptive-question-header">
             <div>
               <h2 class="adaptive-question-title" id="current-q-text">${title}</h2>
+              <p class="adaptive-question-subtitle">${isHi ? 'पद का नाम लिखें या नीचे दिए गए सुझावों में से चुनें:' : 'Enter role title or pick from suggestions:'}</p>
             </div>
           </div>
 
           <div class="form-group mb-3">
-            <label class="dailyjob-step-label">${isHi ? 'काम / पद का नाम (Work Title)' : 'Work Title'}</label>
+            <label class="dailyjob-step-label">${isHi ? 'काम / पद का नाम (Work Title) *' : 'Work Title *'}</label>
             <input 
               type="text" 
+              id="emp-needed-role-input"
               class="dailyjob-input" 
-              placeholder="उदा. Cook, Driver, सेल्समैन, हेल्पर, डेवलपर" 
+              placeholder="उदा. Cook, Driver, सेल्समैन, हेल्पर, सॉफ्टवेयर डेवलपर" 
               value="${escapeHTML(emp.neededRole || '')}"
-              onchange="adaptiveState.employer.neededRole = this.value.trim()"
+              oninput="adaptiveState.employer.neededRole = this.value.trim()"
             />
+            <div style="display: flex; gap: 0.4rem; flex-wrap: wrap; margin-top: 0.6rem;">
+              ${commonRoles.map(r => `
+                <button 
+                  type="button" 
+                  class="btn btn-sm btn-outline" 
+                  style="font-size: 0.8rem; padding: 0.25rem 0.6rem; border-radius: 20px;"
+                  onclick="adaptiveState.employer.neededRole = '${r}'; const el = document.getElementById('emp-needed-role-input'); if(el) el.value = '${r}'; renderAdaptiveDOM();">
+                  + ${r}
+                </button>
+              `).join("")}
+            </div>
           </div>
 
           <div class="form-group mb-3">
             <label class="dailyjob-step-label">${isHi ? 'कितने लोगों की जरूरत है?' : 'How many workers needed?'}</label>
-            <div style="display: flex; gap: 0.5rem;">
+            <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.5rem;">
               ${["1", "2", "3–5", "5+"].map(c => `
                 <button 
                   type="button" 
-                  class="btn ${emp.neededCount === c ? 'btn-primary' : 'btn-secondary'}"
+                  class="btn ${emp.neededCount === c ? 'btn-primary' : 'btn-secondary'}" 
                   onclick="adaptiveState.employer.neededCount = '${c}'; renderAdaptiveDOM();"
-                  style="flex: 1;">
+                  style="flex: 1; min-width: 70px;">
                   ${c} ${isHi ? 'लोग' : 'people'}
                 </button>
               `).join("")}
+            </div>
+            <div class="adaptive-custom-input-group mt-2">
+              <input 
+                type="text" 
+                class="adaptive-custom-input" 
+                placeholder="${isHi ? 'या अपनी संख्या खुद लिखें (उदा. 10 लोग, 20 लोग, जितनी जरूरत हो)...' : 'Or type custom count (e.g. 10 people)...'}"
+                value="${escapeHTML(!["1", "2", "3–5", "5+"].includes(emp.neededCount) ? (emp.neededCount || '') : '')}"
+                oninput="if(this.value.trim()){ adaptiveState.employer.neededCount = this.value.trim(); }"
+              />
             </div>
           </div>
         </div>
@@ -1137,6 +1415,15 @@ function renderCurrentAdaptiveStepHTML(stepKey) {
     case "emp_timing_payment": {
       const emp = adaptiveState.employer;
       const title = isHi ? "काम का समय और पेमेंट" : "Work Timing & Payment Offer";
+      const timingOptions = [
+        "फुल टाइम (8 घंटे)",
+        "रोज 2 से 4 घंटे (Part-time)",
+        "केवल सुबह (Morning shift)",
+        "केवल शाम (Evening shift)",
+        "रात की शिफ्ट (Night shift)"
+      ];
+      const customWorkTiming = emp.customWorkTiming;
+      const isCustomTimingActive = Boolean(customWorkTiming && (emp.workTiming === customWorkTiming || emp.workTiming === 'कस्टम / अन्य समय'));
 
       return `
         <div class="adaptive-question-hero">
@@ -1148,13 +1435,45 @@ function renderCurrentAdaptiveStepHTML(stepKey) {
 
           <div class="form-group mb-3">
             <label class="dailyjob-step-label">${isHi ? 'काम का समय:' : 'Work Timing:'}</label>
-            <select class="dailyjob-input" onchange="adaptiveState.employer.workTiming = this.value">
-              <option value="रोज 2-4 घंटे">रोज 2 से 4 घंटे (Part-time)</option>
-              <option value="फुल टाइम (8 घंटे)" selected>फुल टाइम (Full-time)</option>
-              <option value="केवल सुबह">केवल सुबह (Morning only)</option>
-              <option value="केवल शाम">केवल शाम (Evening only)</option>
-              <option value="रात की शिफ्ट">रात की शिफ्ट (Night shift)</option>
-            </select>
+            <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.6rem;">
+              ${timingOptions.map(t => `
+                <button 
+                  type="button" 
+                  class="btn btn-sm ${emp.workTiming === t ? 'btn-primary' : 'btn-secondary'}" 
+                  onclick="adaptiveState.employer.workTiming = '${t}'; renderAdaptiveDOM();">
+                  ${t}
+                </button>
+              `).join("")}
+            </div>
+
+            <!-- Flexible Custom Employer Timing Input -->
+            <div class="adaptive-custom-option-box ${isCustomTimingActive ? 'active' : ''}">
+              <div class="adaptive-custom-header">
+                <span>✍️</span>
+                <span>${isHi ? 'या अपने काम का सटीक समय खुद लिखें:' : 'Or type exact custom hours:'}</span>
+              </div>
+              <div class="adaptive-custom-input-group">
+                <input 
+                  type="text" 
+                  id="custom-emp-timing-input"
+                  class="adaptive-custom-input" 
+                  placeholder="${isHi ? 'उदा. सुबह 9:00 से दोपहर 2:00, 12 घंटे की शिफ्ट, रोटेशनल...' : 'e.g. 9 AM to 2 PM, 12-hour shift, Rotational...'}"
+                  value="${escapeHTML(customWorkTiming || '')}"
+                  onkeydown="if(event.key==='Enter'){ event.preventDefault(); window.applyCustomEmployerTiming(this.value); }"
+                />
+                <button 
+                  type="button" 
+                  class="btn btn-primary btn-sm" 
+                  onclick="window.applyCustomEmployerTiming(document.getElementById('custom-emp-timing-input').value)">
+                  ✓ ${isHi ? 'लागू करें' : 'Apply'}
+                </button>
+              </div>
+              ${isCustomTimingActive ? `
+                <div class="adaptive-custom-badge">
+                  <span>✓ तय किया गया समय: <strong>${escapeHTML(customWorkTiming)}</strong></span>
+                </div>
+              ` : ''}
+            </div>
           </div>
 
           <div class="form-group mb-3">
@@ -1164,7 +1483,7 @@ function renderCurrentAdaptiveStepHTML(stepKey) {
               class="dailyjob-input" 
               placeholder="उदा. ₹500/दिन या ₹12,000/महीना (या बातचीत करके)" 
               value="${escapeHTML(emp.paymentOffer || '')}"
-              onchange="adaptiveState.employer.paymentOffer = this.value.trim()"
+              oninput="adaptiveState.employer.paymentOffer = this.value.trim()"
             />
           </div>
         </div>
@@ -1261,10 +1580,37 @@ window.selectAdaptiveWorkType = function(val) {
   setTimeout(() => window.adaptiveGoNext(), 150);
 };
 
+window.applyCustomWorkType = function(val) {
+  const trimmed = (val || "").trim();
+  if (!trimmed) {
+    if (typeof showToast === 'function') {
+      showToast(adaptiveState.lang === 'hi' ? "कृपया काम का प्रकार लिखें" : "Please enter work type", "info");
+    }
+    return;
+  }
+  adaptiveState.jobSeeker.customWorkType = trimmed;
+  adaptiveState.jobSeeker.workType = trimmed;
+  renderAdaptiveDOM();
+};
+
 window.selectAdaptiveCategory = function(catKey, catTitle) {
   adaptiveState.jobSeeker.category = catKey;
   adaptiveState.jobSeeker.categoryTitle = catTitle;
   setTimeout(() => window.adaptiveGoNext(), 150);
+};
+
+window.applyCustomCategory = function(val) {
+  const trimmed = (val || "").trim();
+  if (!trimmed) {
+    if (typeof showToast === 'function') {
+      showToast(adaptiveState.lang === 'hi' ? "कृपया अपना काम / हुनर लिखें" : "Please enter your skill", "info");
+    }
+    return;
+  }
+  adaptiveState.jobSeeker.customCategoryTitle = trimmed;
+  adaptiveState.jobSeeker.category = "custom";
+  adaptiveState.jobSeeker.categoryTitle = trimmed;
+  renderAdaptiveDOM();
 };
 
 window.selectAdaptiveSkillDetail = function(detailKey, detailTitle) {
@@ -1272,8 +1618,60 @@ window.selectAdaptiveSkillDetail = function(detailKey, detailTitle) {
   setTimeout(() => window.adaptiveGoNext(), 150);
 };
 
+window.applyCustomSkillDetail = function(val) {
+  const trimmed = (val || "").trim();
+  if (!trimmed) {
+    if (typeof showToast === 'function') {
+      showToast(adaptiveState.lang === 'hi' ? "कृपया अपनी खासियत लिखें" : "Please enter your specialty", "info");
+    }
+    return;
+  }
+  adaptiveState.jobSeeker.customSkillDetail = trimmed;
+  adaptiveState.jobSeeker.skillDetail = trimmed;
+  renderAdaptiveDOM();
+};
+
 window.selectAdaptiveExperience = function(val) {
   adaptiveState.jobSeeker.hasExperience = val;
+  renderAdaptiveDOM();
+};
+
+window.applyCustomEducation = function(val) {
+  const trimmed = (val || "").trim();
+  if (!trimmed) {
+    if (typeof showToast === 'function') {
+      showToast(adaptiveState.lang === 'hi' ? "कृपया पढ़ाई / कोर्स लिखें" : "Please enter qualification", "info");
+    }
+    return;
+  }
+  adaptiveState.jobSeeker.customEducation = trimmed;
+  adaptiveState.jobSeeker.education = trimmed;
+  renderAdaptiveDOM();
+};
+
+window.applyCustomTiming = function(val) {
+  const trimmed = (val || "").trim();
+  if (!trimmed) {
+    if (typeof showToast === 'function') {
+      showToast(adaptiveState.lang === 'hi' ? "कृपया समय दर्ज करें" : "Please enter timing", "info");
+    }
+    return;
+  }
+  adaptiveState.jobSeeker.customTiming = trimmed;
+  adaptiveState.jobSeeker.timing = trimmed;
+  renderAdaptiveDOM();
+};
+
+window.applyCustomWage = function(val) {
+  const trimmed = (val || "").trim();
+  if (!trimmed) {
+    if (typeof showToast === 'function') {
+      showToast(adaptiveState.lang === 'hi' ? "कृपया कमाई / सैलरी दर्ज करें" : "Please enter wage expectation", "info");
+    }
+    return;
+  }
+  adaptiveState.jobSeeker.customWage = trimmed;
+  adaptiveState.jobSeeker.expectedWage = trimmed;
   renderAdaptiveDOM();
 };
 
@@ -1287,6 +1685,29 @@ window.selectEmployerCategory = function(catKey, catTitle, isCorp) {
   adaptiveState.employer.empCategoryTitle = catTitle;
   adaptiveState.employer.isCorporate = isCorp;
   setTimeout(() => window.adaptiveGoNext(), 150);
+};
+
+window.applyCustomEmployerCategory = function(val) {
+  const trimmed = (val || "").trim();
+  if (!trimmed) {
+    if (typeof showToast === 'function') {
+      showToast(adaptiveState.lang === 'hi' ? "कृपया कार्य श्रेणी / व्यवसाय लिखें" : "Please enter category", "info");
+    }
+    return;
+  }
+  adaptiveState.employer.customCategoryTitle = trimmed;
+  adaptiveState.employer.empCategory = "custom";
+  adaptiveState.employer.empCategoryTitle = trimmed;
+  adaptiveState.employer.industry = trimmed;
+  renderAdaptiveDOM();
+};
+
+window.applyCustomEmployerTiming = function(val) {
+  const trimmed = (val || "").trim();
+  if (!trimmed) return;
+  adaptiveState.employer.customWorkTiming = trimmed;
+  adaptiveState.employer.workTiming = trimmed;
+  renderAdaptiveDOM();
 };
 
 window.useGPSLocation = function() {
@@ -1312,6 +1733,66 @@ window.useGPSLocation = function() {
 window.adaptiveGoNext = function() {
   const steps = getAdaptiveStepList();
   const currentKey = steps[adaptiveState.currentStepIndex];
+
+  // Auto-capture any custom input typed by user before proceeding
+  const customWorkTypeInput = document.getElementById("custom-worktype-input");
+  if (customWorkTypeInput && customWorkTypeInput.value && customWorkTypeInput.value.trim()) {
+    const val = customWorkTypeInput.value.trim();
+    adaptiveState.jobSeeker.customWorkType = val;
+    adaptiveState.jobSeeker.workType = val;
+  }
+
+  const customCatInput = document.getElementById("custom-category-input");
+  if (customCatInput && customCatInput.value && customCatInput.value.trim()) {
+    const val = customCatInput.value.trim();
+    adaptiveState.jobSeeker.customCategoryTitle = val;
+    adaptiveState.jobSeeker.category = "custom";
+    adaptiveState.jobSeeker.categoryTitle = val;
+  }
+
+  const customSkillInput = document.getElementById("custom-skilldetail-input");
+  if (customSkillInput && customSkillInput.value && customSkillInput.value.trim()) {
+    const val = customSkillInput.value.trim();
+    adaptiveState.jobSeeker.customSkillDetail = val;
+    adaptiveState.jobSeeker.skillDetail = val;
+  }
+
+  const customEduInput = document.getElementById("custom-education-input");
+  if (customEduInput && customEduInput.value && customEduInput.value.trim()) {
+    const val = customEduInput.value.trim();
+    adaptiveState.jobSeeker.customEducation = val;
+    adaptiveState.jobSeeker.education = val;
+  }
+
+  const customTimingInput = document.getElementById("custom-timing-input");
+  if (customTimingInput && customTimingInput.value && customTimingInput.value.trim()) {
+    const val = customTimingInput.value.trim();
+    adaptiveState.jobSeeker.customTiming = val;
+    adaptiveState.jobSeeker.timing = val;
+  }
+
+  const customWageInput = document.getElementById("custom-wage-input");
+  if (customWageInput && customWageInput.value && customWageInput.value.trim()) {
+    const val = customWageInput.value.trim();
+    adaptiveState.jobSeeker.customWage = val;
+    adaptiveState.jobSeeker.expectedWage = val;
+  }
+
+  const customEmpCatInput = document.getElementById("custom-emp-category-input");
+  if (customEmpCatInput && customEmpCatInput.value && customEmpCatInput.value.trim()) {
+    const val = customEmpCatInput.value.trim();
+    adaptiveState.employer.customCategoryTitle = val;
+    adaptiveState.employer.empCategory = "custom";
+    adaptiveState.employer.empCategoryTitle = val;
+    adaptiveState.employer.industry = val;
+  }
+
+  const customEmpTimingInput = document.getElementById("custom-emp-timing-input");
+  if (customEmpTimingInput && customEmpTimingInput.value && customEmpTimingInput.value.trim()) {
+    const val = customEmpTimingInput.value.trim();
+    adaptiveState.employer.customWorkTiming = val;
+    adaptiveState.employer.workTiming = val;
+  }
 
   // Validation: Only proceed if user has chosen an option for required questions
   if (currentKey === "js_work_type" && !adaptiveState.jobSeeker.workType) {
@@ -1379,8 +1860,12 @@ window.completeAdaptiveJobSeekerProfile = async function() {
   const realMobile = (js.mobileNumber || currentUser.mobile_number || currentUser.mobileNumber || currentUser.phone || "").trim();
   const realEmail = (js.email || currentUser.email || "").trim();
   const realCity = (js.cityName || "").trim();
-  const realWage = js.expectedWage ? (parseInt(js.expectedWage, 10) || js.expectedWage) : null;
-  const realProfession = js.categoryTitle || js.skillDetail || (js.category ? js.category : "कामगार");
+  const rawWage = (js.customWage || js.expectedWage || "").trim();
+  const parsedWage = parseInt(rawWage.replace(/[^0-9]/g, ""), 10);
+  const realWage = !isNaN(parsedWage) && parsedWage > 0 ? parsedWage : (rawWage || null);
+  const effectiveWorkType = js.customWorkType || js.workType || "";
+  const effectiveSkill = js.customSkillDetail || js.skillDetail || js.customCategoryTitle || js.categoryTitle || "";
+  const realProfession = js.customCategoryTitle || js.categoryTitle || effectiveSkill || (js.category && js.category !== "custom" && js.category !== "other" ? js.category : "कामगार");
 
   // Build normalized payload - ZERO dummy or hardcoded defaults
   const payload = {
@@ -1398,29 +1883,36 @@ window.completeAdaptiveJobSeekerProfile = async function() {
       preferred_language: adaptiveState.lang === "hi" ? "Hindi" : "English"
     },
     employment_status: {
-      status: js.workType ? (js.workType === "daily" ? "Daily Wage Worker" : (js.hasExperience === "no" ? "Fresher" : "Working Professional")) : "Job Seeker"
+      status: effectiveWorkType ? (effectiveWorkType === "daily" ? "Daily Wage Worker" : (js.hasExperience === "no" ? "Fresher" : "Working Professional")) : "Job Seeker"
     },
-    education: js.education ? [{ level: js.education, degree: js.education, university: "", graduation_year: "" }] : [],
-    skills: (js.categoryTitle || js.skillDetail) ? [
-      { name: js.skillDetail || js.categoryTitle, category: js.category || "General", level: "Primary" }
+    education: (js.customEducation || js.education) ? [{ level: js.customEducation || js.education, degree: js.customEducation || js.education, university: "", graduation_year: "" }] : [],
+    skills: effectiveSkill ? [
+      { name: effectiveSkill, category: js.category || "General", level: "Primary" }
     ] : [],
     has_experience: js.hasExperience === "yes",
-    experience: js.hasExperience === "yes" && (js.categoryTitle || js.experienceYears) ? [{ job_title: js.categoryTitle || "", years: js.experienceYears || "" }] : [],
+    experience: js.hasExperience === "yes" && (realProfession || js.experienceYears || js.customExperience) ? [{ 
+      job_title: realProfession || "", 
+      years: js.experienceYears || "", 
+      description: js.customExperience || "" 
+    }] : [],
     preferences: {
-      looking_for: js.workType ? [js.workType] : [],
-      preferred_roles: js.categoryTitle ? [js.categoryTitle] : [],
+      looking_for: effectiveWorkType ? [effectiveWorkType] : [],
+      preferred_roles: realProfession ? [realProfession] : [],
       work_modes: js.locationType === "home" ? ["Work from Home"] : (js.locationType ? ["On-site"] : []),
       preferred_cities: realCity ? [realCity] : [],
-      expected_salary_min: realWage
+      expected_salary_min: realWage,
+      preferred_timing: js.customTiming || js.timing || ""
     },
     languages: [{ language: adaptiveState.lang === "hi" ? "Hindi" : "English", speaking_level: "Fluent" }],
     portfolio: js.professionalLinks || {},
     visibility: { visibility: "public_employers", allow_contact: true },
     profession: realProfession,
     category: js.category || "",
-    categoryTitle: js.categoryTitle || "",
-    workType: js.workType || "",
-    expectedWage: js.expectedWage || "",
+    categoryTitle: realProfession,
+    workType: effectiveWorkType,
+    work_type: effectiveWorkType,
+    expectedWage: rawWage,
+    timing: js.customTiming || js.timing || "",
     cityName: realCity,
     mobileNumber: realMobile,
     fullName: realFullName
@@ -1452,12 +1944,15 @@ window.completeAdaptiveEmployerProfile = async function() {
   const realEmail = (emp.officialEmail || currentUser.email || "").trim();
   const realCity = (emp.workLocation || "").trim();
   const realCompany = (emp.companyName || realContactName).trim();
+  const effectiveIndustry = emp.customCategoryTitle || emp.empCategoryTitle || emp.industry || "General Services";
+  const effectiveRole = emp.neededRole || effectiveIndustry;
+  const effectiveTiming = emp.customWorkTiming || emp.workTiming || "फुल टाइम";
 
   const payload = {
     business_type: emp.isCorporate ? "Private Company" : "Individual / Household",
     business_info: {
       name: realCompany,
-      industry: emp.empCategoryTitle || emp.industry || "General Services"
+      industry: effectiveIndustry
     },
     location: {
       city: realCity,
@@ -1470,8 +1965,8 @@ window.completeAdaptiveEmployerProfile = async function() {
       official_email: realEmail
     },
     hiring_info: {
-      hiring_types: emp.workTiming ? [emp.workTiming] : [],
-      categories: emp.neededRole ? [emp.neededRole] : (emp.empCategoryTitle ? [emp.empCategoryTitle] : [])
+      hiring_types: effectiveTiming ? [effectiveTiming] : [],
+      categories: effectiveRole ? [effectiveRole] : [effectiveIndustry]
     },
     hiring_location: {
       cities: realCity ? [realCity] : [],
@@ -1483,8 +1978,9 @@ window.completeAdaptiveEmployerProfile = async function() {
     company_profile: {},
     hiring_preferences: {},
     visibility: { visibility: "public" },
-    profession: emp.empCategoryTitle || emp.industry || "",
-    industry: emp.empCategoryTitle || emp.industry || "",
+    profession: effectiveIndustry,
+    industry: effectiveIndustry,
+    neededRole: effectiveRole,
     companyName: realCompany,
     workLocation: realCity,
     mobileNumber: realMobile,

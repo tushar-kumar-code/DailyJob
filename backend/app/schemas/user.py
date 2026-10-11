@@ -1,4 +1,4 @@
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, ConfigDict
 from typing import Optional, Dict, Any, List
 from ..constants.roles import UserRole
 
@@ -89,6 +89,8 @@ class JobSeekerVisibilitySchema(BaseModel):
     allow_contact: Optional[bool] = True
 
 class JobSeekerProfileRequest(BaseModel):
+    model_config = ConfigDict(extra="allow")
+
     personal: Optional[JobSeekerPersonalSchema] = None
     employment_status: Optional[EmploymentStatusSchema] = None
     education: List[EducationRecordSchema] = []
@@ -99,6 +101,17 @@ class JobSeekerProfileRequest(BaseModel):
     languages: List[LanguageRecordSchema] = []
     portfolio: Optional[PortfolioLinksSchema] = None
     visibility: Optional[JobSeekerVisibilitySchema] = None
+
+    profession: Optional[str] = None
+    category: Optional[str] = None
+    categoryTitle: Optional[str] = None
+    workType: Optional[str] = None
+    work_type: Optional[str] = None
+    expectedWage: Optional[str] = None
+    timing: Optional[str] = None
+    cityName: Optional[str] = None
+    mobileNumber: Optional[str] = None
+    fullName: Optional[str] = None
 
 # -----------------------------------------------------------------------------
 # Employer Profile Sub-schemas
@@ -169,6 +182,8 @@ class EmployerVisibilitySchema(BaseModel):
     allow_contact: Optional[bool] = True
 
 class EmployerProfileRequest(BaseModel):
+    model_config = ConfigDict(extra="allow")
+
     business_type: Optional[str] = "Private Company"
     business_info: Optional[EmployerBusinessInfoSchema] = None
     location: Optional[EmployerLocationSchema] = None
@@ -179,6 +194,16 @@ class EmployerProfileRequest(BaseModel):
     company_profile: Optional[EmployerCompanyProfileSchema] = None
     hiring_preferences: Optional[EmployerHiringPreferencesSchema] = None
     visibility: Optional[EmployerVisibilitySchema] = None
+
+    profession: Optional[str] = None
+    industry: Optional[str] = None
+    neededRole: Optional[str] = None
+    needed_count: Optional[str] = None
+    payment_offer: Optional[str] = None
+    companyName: Optional[str] = None
+    workLocation: Optional[str] = None
+    mobileNumber: Optional[str] = None
+    contactName: Optional[str] = None
 
 # -----------------------------------------------------------------------------
 # Completion & Legacy Profile Requests

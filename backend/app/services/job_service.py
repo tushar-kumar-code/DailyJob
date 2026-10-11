@@ -7,10 +7,11 @@ from ..constants.trades import get_trade_by_id
 class JobService:
     def create_job(self, employer: Dict[str, Any], job_req) -> Dict[str, Any]:
         trade = get_trade_by_id(job_req.tradeId)
-        trade_name = trade["nameHi"] if trade else job_req.tradeId
+        trade_name = job_req.customTradeTitle if job_req.customTradeTitle else (trade["nameHi"] if trade else job_req.tradeId)
+        trade_en = job_req.customTradeTitle if job_req.customTradeTitle else (trade["nameEn"] if trade else job_req.tradeId)
 
         title_hi = job_req.titleHi or f"{trade_name} चाहिए - {job_req.locationName}"
-        title_en = job_req.titleEn or f"{trade['nameEn'] if trade else job_req.tradeId} Needed - {job_req.locationName}"
+        title_en = job_req.titleEn or f"{trade_en} Needed - {job_req.locationName}"
         desc_hi = job_req.descriptionHi or f"{trade_name} कार्य हेतु कामगार चाहिए।"
 
         # Calculate estimated travel cost based on distance
@@ -22,6 +23,7 @@ class JobService:
 
         job_data = {
             "tradeId": job_req.tradeId,
+            "customTradeTitle": job_req.customTradeTitle,
             "titleHi": title_hi,
             "titleEn": title_en,
             "employerId": employer_id,
@@ -32,23 +34,38 @@ class JobService:
             "cancellationRate": "0%",
             "locationName": job_req.locationName,
             "city": job_req.city,
+            "landmark": job_req.landmark,
             "latitude": job_req.latitude or 21.2514,
             "longitude": job_req.longitude or 81.6296,
             "distanceKm": distance_km,
             "travelEstimate": travel_est,
             "wage": job_req.wage,
             "wageUnit": job_req.wageUnit,
+            "paymentTiming": job_req.paymentTiming,
+            "paymentTerms": job_req.paymentTerms,
             "date": job_req.date,
+            "startDate": job_req.startDate or job_req.date,
+            "endDate": job_req.endDate,
+            "durationDays": job_req.durationDays,
+            "durationText": job_req.durationText,
+            "assignmentType": job_req.assignmentType,
             "timeSlot": job_req.timeSlot,
+            "breakIncluded": job_req.breakIncluded,
             "workersNeeded": job_req.workersNeeded,
             "workersApplied": 0,
             "status": "open",
             "urgent": job_req.urgent,
             "beginnerFriendly": job_req.beginnerFriendly,
+            "toolsResponsibility": job_req.toolsResponsibility,
             "toolsProvided": job_req.toolsProvided,
+            "foodProvided": job_req.foodProvided,
+            "travelProvided": job_req.travelProvided,
+            "safetyEquipment": job_req.safetyEquipment,
             "safetyProvided": job_req.safetyProvided,
             "paymentMode": job_req.paymentMode,
             "cancellationPolicy": job_req.cancellationPolicy,
+            "specialConditions": job_req.specialConditions,
+            "estimatedTotal": job_req.estimatedTotal,
             "descriptionHi": desc_hi,
             "descriptionEn": job_req.descriptionEn or desc_hi
         }
