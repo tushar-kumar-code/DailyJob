@@ -74,6 +74,9 @@ async function runSmartJobPostingTestSuite() {
     failed++;
   }
 
+  let empToken = null;
+  const createdJobIds = [];
+
   try {
     // 1. Authenticate as an Employer
     const empEmail = `employer_post_${Date.now()}@example.com`;
@@ -88,7 +91,7 @@ async function runSmartJobPostingTestSuite() {
       mobileNumber: '9876543210'
     });
 
-    const empToken = signupRes.json?.token;
+    empToken = signupRes.json?.token;
     assert(empToken, 'Employer signed up with auth token');
     pass('Employer authenticated successfully');
 
@@ -155,6 +158,7 @@ async function runSmartJobPostingTestSuite() {
 
     assert(customJobRes.status === 201, 'Custom job created successfully');
     const createdJob = customJobRes.json?.job || customJobRes.json;
+    if (createdJob?.id) createdJobIds.push(createdJob.id);
     assert(createdJob.customTradeTitle === 'सोलर पैनल तकनीशियन', 'Custom title preserved');
     assert(createdJob.titleHi.includes('सोलर पैनल तकनीशियन'), 'Hindi title reflects custom trade');
     assert(createdJob.wage === 950, 'Wage is 950');
@@ -183,6 +187,7 @@ async function runSmartJobPostingTestSuite() {
 
     assert(monthlyJobRes.status === 201, 'Monthly job created successfully');
     const monthlyJob = monthlyJobRes.json?.job || monthlyJobRes.json;
+    if (monthlyJob?.id) createdJobIds.push(monthlyJob.id);
     assert(monthlyJob.wageUnit === 'month', 'Wage unit month preserved');
     assert(monthlyJob.wage === 18000, 'Monthly wage 18000 preserved');
     pass('Smart Job Posting: Non-daily wage unit (month) saved and preserved without forcing daily');
@@ -215,6 +220,7 @@ async function runSmartJobPostingTestSuite() {
 
     assert(flexibleJobRes.status === 201, 'Flexible custom job created successfully');
     const flexJob = flexibleJobRes.json?.job || flexibleJobRes.json;
+    if (flexJob?.id) createdJobIds.push(flexJob.id);
     assert(flexJob.customTradeTitle === 'सेनेटरी व वाटर टैंक फिटिंग मास्टर', 'Custom title for standard trade preserved');
     assert(flexJob.startDate === '2026-11-15', 'Arbitrary calendar date preserved');
     assert(flexJob.wageUnit === 'प्रति वर्ग फुट (sqft)', 'Custom wage unit preserved');
@@ -264,6 +270,12 @@ async function runSmartJobPostingTestSuite() {
   } catch (err) {
     fail('Smart job posting test suite exception', err);
   } finally {
+    // Delete test jobs immediately so database never has test/dummy data
+    for (const jobId of createdJobIds) {
+      try {
+        await request('DELETE', `/api/jobs/${jobId}`, null, empToken ? { 'Authorization': `Bearer ${empToken}` } : {});
+      } catch (_) {}
+    }
     try {
       const fs = require('fs');
       const path = require('path');

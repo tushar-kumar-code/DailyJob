@@ -88,3 +88,8 @@ $RECYCLE.BIN/
 *.tar.gz
 *.rar
 *.7z
+
+# Backups & Data Dumps
+data/backups/
+data/*.bak
+*.bak
