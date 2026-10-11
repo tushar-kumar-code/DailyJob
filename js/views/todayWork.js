@@ -4,9 +4,23 @@
  */
 
 async function renderTodayWorkView() {
-  const worker = await appState.getWorkerProfile();
-  const applications = appState.applications.filter(a => a.workerId === worker.id);
+  const applications = await appState.getUserApplications();
   const activeApp = applications.find(a => ["selected", "confirmed", "started", "completed"].includes(a.status)) || applications[0];
+
+  // Auto poll status updates while on My Work
+  if (window._todayWorkPollTimer) clearInterval(window._todayWorkPollTimer);
+  window._todayWorkPollTimer = setInterval(async () => {
+    if (window.location.hash.startsWith('#/today-work') || window.location.hash === '#/worker') {
+      const freshApps = await appState.getUserApplications();
+      const freshActive = freshApps.find(a => ["selected", "confirmed", "started", "completed"].includes(a.status)) || freshApps[0];
+      if (freshActive && freshActive.status !== (activeApp?.status)) {
+        router.handleRoute();
+      }
+    } else {
+      clearInterval(window._todayWorkPollTimer);
+      window._todayWorkPollTimer = null;
+    }
+  }, 3500);
 
   return `
     <div class="today-work-page" style="max-width: 640px; margin: 0 auto; padding-bottom: 2rem;">

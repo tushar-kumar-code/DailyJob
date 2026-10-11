@@ -18,6 +18,26 @@ async function renderActiveWorkView() {
     }
   } catch (_) {}
 
+  if (window._activeWorkPollTimer) clearInterval(window._activeWorkPollTimer);
+  window._activeWorkPollTimer = setInterval(async () => {
+    if (window.location.hash.startsWith('#/active-work')) {
+      const employerJobs = await appState.getEmployerJobs();
+      let changed = false;
+      for (const job of employerJobs) {
+        const fresh = await appState.getJobApplicants(job.id);
+        const currentStatus = (activeApps[0]?.status);
+        if (fresh[0] && fresh[0].status !== currentStatus) {
+          changed = true;
+          break;
+        }
+      }
+      if (changed) router.handleRoute();
+    } else {
+      clearInterval(window._activeWorkPollTimer);
+      window._activeWorkPollTimer = null;
+    }
+  }, 4000);
+
   return `
     <div class="active-work-page" style="max-width: 640px; margin: 0 auto; padding-bottom: 2rem;">
       <div class="mb-3 pt-1">

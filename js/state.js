@@ -600,6 +600,24 @@ class AppState {
     return created;
   }
 
+  async getUserApplications() {
+    try {
+      const res = await fetch("/api/user/applications", {
+        headers: this._getAuthHeaders(),
+        credentials: "include"
+      });
+      if (res.ok) {
+        const data = await res.json();
+        if (data.applications && Array.isArray(data.applications)) {
+          this.applications = data.applications;
+          this.save();
+          return data.applications;
+        }
+      }
+    } catch (_) {}
+    return this.applications;
+  }
+
   async selectApplicant(appId) {
     try {
       const res = await fetch(`/api/applications/${appId}/status`, {
