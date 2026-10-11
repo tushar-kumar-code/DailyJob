@@ -4,7 +4,19 @@
  */
 
 async function renderActiveWorkView() {
-  const activeApps = appState.applications;
+  let activeApps = appState.applications || [];
+  try {
+    const employerJobs = await appState.getEmployerJobs();
+    const fetched = [];
+    for (const job of employerJobs) {
+      const apps = await appState.getJobApplicants(job.id);
+      fetched.push(...apps);
+    }
+    if (fetched.length > 0) {
+      activeApps = fetched;
+      appState.applications = fetched;
+    }
+  } catch (_) {}
 
   return `
     <div class="active-work-page" style="max-width: 640px; margin: 0 auto; padding-bottom: 2rem;">
@@ -39,6 +51,7 @@ async function renderActiveWorkView() {
 function renderEmployerWorkCard(app) {
   const job = (appState.jobs || []).find(j => j && j.id === app.jobId) || { titleHi: "काम", wage: app.wage || 700 };
   const worker = (appState.workers || []).find(w => w && w.id === app.workerId) || { name: app.workerName || "कामगार", phone: app.workerPhone || "" };
+  const workerPhone = app.workerPhone || worker.phone || "";
 
   return `
     <div class="card mb-3" style="border-radius: var(--radius-xl); border: 2px solid #93c5fd; padding: 1.25rem;">
@@ -51,7 +64,7 @@ function renderEmployerWorkCard(app) {
             ${escapeHTML(job.titleHi || job.titleEn || 'काम')}
           </h2>
           <div class="text-secondary" style="font-size: 0.85rem; margin-top: 0.2rem;">
-            कामगार: <strong>${escapeHTML(worker.name || 'कामगार')}</strong> (📞 ${escapeHTML(worker.phone || '')})
+            कामगार: <strong>${escapeHTML(app.workerName || worker.name || 'कामगार')}</strong> ${workerPhone ? `(📞 ${escapeHTML(workerPhone)})` : ''}
           </div>
         </div>
 
@@ -80,9 +93,14 @@ function renderEmployerWorkCard(app) {
         ${renderEmployerActionBlock(app)}
       </div>
 
-      <!-- Quick chat link -->
-      <div class="flex justify-between items-center gap-2 pt-2" style="border-top: 1px solid var(--border-subtle);">
-        <button class="btn btn-outline btn-sm flex-1" onclick="window.location.hash='#/messages?jobId=${app.jobId}'">
+      <!-- Quick chat and call link -->
+      <div class="flex justify-between items-center gap-2 pt-2 flex-wrap" style="border-top: 1px solid var(--border-subtle);">
+        ${workerPhone ? `
+          <a href="tel:${escapeHTML(workerPhone)}" class="btn btn-outline btn-sm flex-1" style="color: #0284c7; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 4px; min-width: 140px;">
+            📞 कामगार को कॉल (${escapeHTML(workerPhone)})
+          </a>
+        ` : ''}
+        <button class="btn btn-outline btn-sm flex-1" onclick="window.location.hash='#/messages?jobId=${app.jobId}'" style="font-weight: 700; min-width: 120px;">
           💬 कामगार से बात करें
         </button>
         <button class="btn btn-ghost btn-sm text-danger" onclick="window.location.hash='#/disputes?jobId=${app.jobId}'">

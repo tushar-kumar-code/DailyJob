@@ -4,6 +4,7 @@ from fastapi import HTTPException, status
 from ..repositories.message_repository import message_repo
 from ..repositories.job_repository import job_repo
 from ..repositories.application_repository import application_repo
+from ..repositories.notification_repository import notification_repo
 
 class MessagingService:
     def _verify_job_participant(self, user: Dict[str, Any], job_id: str) -> Dict[str, Any]:
@@ -39,8 +40,8 @@ class MessagingService:
     def send_message(self, user: Dict[str, Any], job_id: str, text: str) -> Dict[str, Any]:
         job = self._verify_job_participant(user, job_id)
         now = datetime.now()
-        sender_role = user.get("role", "worker")
-        sender_name = user.get("username") or user.get("name") or "User"
+        sender_role = "employer" if user["uid"] == job.get("employerId") else user.get("role", "worker")
+        sender_name = user.get("fullName") or user.get("name") or user.get("username") or "User"
 
         msg_data = {
             "jobId": job_id,
@@ -51,6 +52,31 @@ class MessagingService:
             "time": now.strftime("%I:%M %p")
         }
 
-        return message_repo.add_message(msg_data)
+        msg = message_repo.add_message(msg_data)
+
+        # Send instant notification to counterparty
+        recipient_id = None
+        if user["uid"] == job.get("employerId"):
+            apps = application_repo.list_by_job(job_id)
+            if apps:
+                recipient_id = apps[0].get("workerId")
+        else:
+            recipient_id = job.get("employerId")
+
+        if recipient_id and recipient_id != user["uid"]:
+            preview = text.strip()
+            if len(preview) > 50:
+                preview = preview[:47] + "..."
+            notification_repo.create({
+                "userId": recipient_id,
+                "titleHi": f"💬 नया संदेश: {sender_name}",
+                "titleEn": f"💬 New Message: {sender_name}",
+                "messageHi": f"'{job.get('titleHi', 'काम')}' पर नया संदेश: {preview}",
+                "messageEn": f"New message on '{job.get('titleEn', 'Job')}': {preview}",
+                "time": "अभी",
+                "linkHash": f"#/messages?jobId={job_id}"
+            })
+
+        return msg
 
 messaging_service = MessagingService()

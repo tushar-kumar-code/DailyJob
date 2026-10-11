@@ -54,6 +54,7 @@ async function renderActiveJobCard(app) {
   const jobTitle = job ? (getCurrentLanguage() === 'hi' ? job.titleHi : job.titleEn) : "कार्य विवरण";
   const location = job ? job.locationName : "Raipur";
   const employerName = job ? job.employerName : "Employer";
+  const employerPhone = app.employerPhone || job?.employerPhone || "";
 
   return `
     <div class="card mb-4" style="border-radius: var(--radius-xl); border: 2px solid #93c5fd; padding: 1.25rem;">
@@ -87,9 +88,14 @@ async function renderActiveJobCard(app) {
         ${renderActionControls(app)}
       </div>
 
-      <!-- Chat Link -->
-      <div class="flex justify-between items-center gap-2 pt-2" style="border-top: 1px solid var(--border-subtle);">
-        <button class="btn btn-outline btn-sm flex-1" onclick="window.location.hash='#/messages?jobId=${app.jobId}'">
+      <!-- Chat & Call Links -->
+      <div class="flex justify-between items-center gap-2 pt-2 flex-wrap" style="border-top: 1px solid var(--border-subtle);">
+        ${employerPhone ? `
+          <a href="tel:${escapeHTML(employerPhone)}" class="btn btn-outline btn-sm flex-1" style="font-weight: 700; color: #0284c7; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 4px; min-width: 140px;">
+            📞 नियोक्ता को कॉल (${escapeHTML(employerPhone)})
+          </a>
+        ` : ''}
+        <button class="btn btn-outline btn-sm flex-1" onclick="window.location.hash='#/messages?jobId=${app.jobId}'" style="font-weight: 700; min-width: 120px;">
           💬 Employer से चैट
         </button>
         <button class="btn btn-ghost btn-sm text-danger" onclick="window.location.hash='#/safety'">

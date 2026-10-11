@@ -67,8 +67,13 @@ class JobService:
             "specialConditions": job_req.specialConditions,
             "estimatedTotal": job_req.estimatedTotal,
             "descriptionHi": desc_hi,
-            "descriptionEn": job_req.descriptionEn or desc_hi
+            "descriptionEn": job_req.descriptionEn or desc_hi,
+            "employerPhone": employer.get("mobileNumber") or employer.get("phone") or ""
         }
+
+        if not job_data.get("employerPhone"):
+            emp_user = user_repo.get_by_uid(employer_id) or {}
+            job_data["employerPhone"] = emp_user.get("mobileNumber") or emp_user.get("phone") or ""
 
         return job_repo.create(job_data)
 
@@ -76,10 +81,18 @@ class JobService:
         job = job_repo.get_by_id(job_id)
         if not job:
             raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Job not found")
+        if not job.get("employerPhone") and job.get("employerId"):
+            emp_user = user_repo.get_by_uid(job["employerId"]) or {}
+            job["employerPhone"] = emp_user.get("mobileNumber") or emp_user.get("phone") or ""
         return job
 
     def list_jobs(self, **filters) -> List[Dict[str, Any]]:
-        return job_repo.list_jobs(**filters)
+        jobs = job_repo.list_jobs(**filters)
+        for job in jobs:
+            if not job.get("employerPhone") and job.get("employerId"):
+                emp_user = user_repo.get_by_uid(job["employerId"]) or {}
+                job["employerPhone"] = emp_user.get("mobileNumber") or emp_user.get("phone") or ""
+        return jobs
 
     def list_employer_jobs(self, employer_id: str) -> List[Dict[str, Any]]:
         return job_repo.list_by_employer(employer_id)

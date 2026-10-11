@@ -100,13 +100,21 @@ async function renderApplicantsView(jobId) {
               ` : ''}
 
               <!-- Action buttons -->
-              <div class="flex gap-2 pt-1" style="border-top: 1px solid var(--border-subtle);">
+              <div class="flex gap-2 pt-2 flex-wrap" style="border-top: 1px solid var(--border-subtle);">
+                ${app.workerPhone ? `
+                  <a href="tel:${escapeHTML(app.workerPhone)}" class="btn btn-outline btn-sm flex-1" style="font-weight: 700; color: #0284c7; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 4px; min-width: 130px;">
+                    📞 कॉल (${escapeHTML(app.workerPhone)})
+                  </a>
+                ` : ''}
+                <button class="btn btn-outline btn-sm flex-1" onclick="window.location.hash='#/messages?jobId=${job.id}'" style="font-weight: 700; min-width: 100px;">
+                  💬 चैट करें
+                </button>
                 ${isSelected ? `
-                  <button class="btn btn-secondary btn-sm flex-1" disabled style="color: var(--color-success-dark); font-weight: 700;">
+                  <button class="btn btn-secondary btn-sm flex-1" disabled style="color: var(--color-success-dark); font-weight: 700; min-width: 120px;">
                     ✓ चुना गया (Selected)
                   </button>
                 ` : `
-                  <button class="btn btn-success btn-sm flex-1" onclick="window.selectWorkerForJob('${app.id}', '${app.workerId}', '${job.id}')" style="font-weight: 700;">
+                  <button class="btn btn-success btn-sm flex-1" onclick="window.selectWorkerForJob('${app.id}', '${app.workerId}', '${job.id}')" style="font-weight: 700; min-width: 120px;">
                     ✓ काम पर चुनें (Hire)
                   </button>
                 `}

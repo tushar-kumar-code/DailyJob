@@ -32,6 +32,18 @@ async function renderMessagesView(jobId = null) {
   }
 
   const thread = await appState.getMessages(job.id);
+  const counterpartyPhone = isEmployer ? (job.workerPhone || "") : (job.employerPhone || "");
+
+  // Auto-poll messages every 3.5s while chat is open
+  if (window._chatPollTimer) clearInterval(window._chatPollTimer);
+  window._chatPollTimer = setInterval(() => {
+    if (window.location.hash.startsWith('#/messages')) {
+      refreshChatMessages(job.id);
+    } else {
+      clearInterval(window._chatPollTimer);
+      window._chatPollTimer = null;
+    }
+  }, 3500);
 
   return `
     <div class="chat-page" style="max-width: 600px; margin: 0 auto; padding-bottom: 2rem;">
@@ -47,13 +59,18 @@ async function renderMessagesView(jobId = null) {
         <div class="chat-job-bar">
           <div>
             <div class="font-bold text-primary-color" style="font-size: 0.95rem;">
-              ${escapeHTML(job.titleHi)}
+              ${escapeHTML(job.titleHi || job.titleEn || 'काम')}
             </div>
             <div class="text-muted" style="font-size: 0.75rem;">
-              📍 ${escapeHTML(job.locationName)} • 💰 ${formatCurrency(job.wage)}/दिन
+              📍 ${escapeHTML(job.locationName || job.city || '')} • 💰 ${formatCurrency(job.wage)}/दिन
             </div>
           </div>
-          <div class="text-right">
+          <div class="text-right flex items-center gap-1">
+            ${counterpartyPhone ? `
+              <a href="tel:${escapeHTML(counterpartyPhone)}" class="btn btn-outline btn-xs" style="color: #0284c7; text-decoration: none; font-weight: 700;">
+                📞 कॉल (${escapeHTML(counterpartyPhone)})
+              </a>
+            ` : ''}
             <span class="badge badge-neutral">
               ${isEmployer ? 'बातचीत: कामगार से' : 'बातचीत: नियोक्ता से'}
             </span>
@@ -62,14 +79,7 @@ async function renderMessagesView(jobId = null) {
 
         <!-- Chat Messages Flow -->
         <div class="chat-messages-area" id="chat-messages-flow">
-          ${thread.conversation.map(msg => `
-            <div class="chat-bubble ${(msg.sender === 'worker' && !isEmployer) || (msg.sender === 'employer' && isEmployer) ? 'sent' : 'received'}">
-              <div>${escapeHTML(msg.text)}</div>
-              <div style="font-size: 0.65rem; opacity: 0.8; text-align: right; margin-top: 0.2rem;">
-                ${msg.time}
-              </div>
-            </div>
-          `).join('')}
+          ${(thread.conversation || []).map(msg => renderSingleBubble(msg, isEmployer)).join('')}
         </div>
 
         <!-- Quick One-Tap Response Pills (For quick communication) -->
@@ -117,6 +127,28 @@ async function renderMessagesView(jobId = null) {
   `;
 }
 
+function isMyChatMessage(msg, isEmployer) {
+  const currentUid = (window.authService && window.authService.user && window.authService.user.uid) || appState.currentUserId;
+  if (msg.senderId && currentUid && msg.senderId === currentUid) return true;
+  const role = (msg.senderRole || msg.sender || "").toLowerCase();
+  if (role === "employer" && isEmployer) return true;
+  if ((role === "worker" || role === "job_seeker") && !isEmployer) return true;
+  return false;
+}
+
+function renderSingleBubble(msg, isEmployer) {
+  const isSent = isMyChatMessage(msg, isEmployer);
+  return `
+    <div class="chat-bubble ${isSent ? 'sent' : 'received'}">
+      ${msg.senderName && !isSent ? `<div style="font-size: 0.72rem; font-weight: 800; color: #1e3a8a; margin-bottom: 2px;">${escapeHTML(msg.senderName)}</div>` : ''}
+      <div>${escapeHTML(msg.text)}</div>
+      <div style="font-size: 0.65rem; opacity: 0.8; text-align: right; margin-top: 0.2rem;">
+        ${msg.time}
+      </div>
+    </div>
+  `;
+}
+
 window.sendQuickReply = async function(jobId, text) {
   await appState.sendChatMessage(jobId, text);
   refreshChatMessages(jobId);
@@ -138,14 +170,6 @@ async function refreshChatMessages(jobId) {
   const thread = await appState.getMessages(jobId);
   const isEmployer = appState.currentRole === "employer";
 
-  container.innerHTML = thread.conversation.map(msg => `
-    <div class="chat-bubble ${(msg.sender === 'worker' && !isEmployer) || (msg.sender === 'employer' && isEmployer) ? 'sent' : 'received'}">
-      <div>${escapeHTML(msg.text)}</div>
-      <div style="font-size: 0.65rem; opacity: 0.8; text-align: right; margin-top: 0.2rem;">
-        ${msg.time}
-      </div>
-    </div>
-  `).join('');
-
+  container.innerHTML = (thread.conversation || []).map(msg => renderSingleBubble(msg, isEmployer)).join('');
   container.scrollTop = container.scrollHeight;
 }

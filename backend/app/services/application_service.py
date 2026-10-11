@@ -2,6 +2,7 @@ from typing import Dict, Any, List, Optional
 from fastapi import HTTPException, status
 from ..repositories.application_repository import application_repo
 from ..repositories.job_repository import job_repo
+from ..repositories.user_repository import user_repo
 from ..repositories.notification_repository import notification_repo
 from ..constants.application_status import ApplicationStatus, ALLOWED_TRANSITIONS
 from ..utils.helpers import utc_now_iso
@@ -25,12 +26,28 @@ class ApplicationService:
         if existing:
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="You have already applied to this job")
 
-        worker_name = worker.get("username") or worker.get("name") or "Worker"
+        worker_user = user_repo.get_by_uid(worker["uid"]) or {}
+        worker_name = (
+            worker_user.get("fullName")
+            or worker_user.get("name")
+            or worker.get("fullName")
+            or worker.get("username")
+            or worker.get("name")
+            or "Worker"
+        )
+        worker_phone = (
+            worker_user.get("mobileNumber")
+            or worker_user.get("phone")
+            or worker.get("mobileNumber")
+            or worker.get("phone")
+            or ""
+        )
 
         new_app = {
             "jobId": job_id,
             "workerId": worker["uid"],
             "workerName": worker_name,
+            "workerPhone": worker_phone,
             "trade": job.get("tradeId", "general"),
             "wage": job.get("wage", 700),
             "status": ApplicationStatus.APPLIED.value,
@@ -64,10 +81,38 @@ class ApplicationService:
         if job.get("employerId") != user["uid"] and user.get("role") != "admin":
             raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="Access denied: You do not own this job")
 
-        return application_repo.list_by_job(job_id)
+        applicants = application_repo.list_by_job(job_id)
+        for app in applicants:
+            if not app.get("workerPhone") or not app.get("workerName") or app.get("workerName") == "Worker":
+                worker_user = user_repo.get_by_uid(app.get("workerId", ""))
+                if worker_user:
+                    if not app.get("workerPhone"):
+                        app["workerPhone"] = worker_user.get("mobileNumber") or worker_user.get("phone") or ""
+                    if not app.get("workerName") or app.get("workerName") == "Worker":
+                        app["workerName"] = (
+                            worker_user.get("fullName")
+                            or worker_user.get("name")
+                            or worker_user.get("username")
+                            or app.get("workerName")
+                        )
+        return applicants
 
     def get_user_applications(self, worker_id: str) -> List[Dict[str, Any]]:
-        return application_repo.list_by_worker(worker_id)
+        apps = application_repo.list_by_worker(worker_id)
+        for app in apps:
+            job = job_repo.get_by_id(app.get("jobId", ""))
+            if job:
+                app["jobTitleHi"] = job.get("titleHi")
+                app["jobTitleEn"] = job.get("titleEn")
+                app["employerName"] = job.get("employerName")
+                app["employerPhone"] = job.get("employerPhone", "")
+                if not app.get("employerPhone"):
+                    emp_user = user_repo.get_by_uid(job.get("employerId", ""))
+                    if emp_user:
+                        app["employerPhone"] = emp_user.get("mobileNumber") or emp_user.get("phone") or ""
+                app["locationName"] = job.get("locationName")
+                app["city"] = job.get("city")
+        return apps
 
     def get_application_by_id(self, user: Dict[str, Any], app_id: str) -> Dict[str, Any]:
         app = application_repo.get_by_id(app_id)
