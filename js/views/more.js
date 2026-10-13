@@ -106,6 +106,31 @@ async function renderMoreView() {
           <div class="font-bold" style="font-size: 1rem; color: var(--text-primary);">व्यवस्थापक (Admin)</div>
         </a>
       </div>
+
+      <!-- Category: AI सहायक व सेटिंग्स -->
+      <h2 class="font-bold text-secondary mb-2" style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.5px;">
+        🤖 AI सहायक व सेटिंग्स (Smart Assistant)
+      </h2>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.75rem; margin-bottom: 1.5rem;">
+        <div class="card card-interactive" onclick="window.openAIChatModal()" role="button" tabindex="0" style="padding: 1.1rem; cursor: pointer; border-left: 4px solid #4f46e5;">
+          <div style="font-size: 1.8rem; margin-bottom: 0.35rem;">🤖</div>
+          <div class="font-bold" style="font-size: 1rem; color: var(--text-primary);">AI चैट सहायक</div>
+          <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.2rem;">बोलकर या लिखकर काम खोजें</div>
+        </div>
+
+        <div class="card card-interactive" onclick="window.openSettingsModal('ai')" role="button" tabindex="0" style="padding: 1.1rem; cursor: pointer; border-left: 4px solid #0284c7;">
+          <div style="font-size: 1.8rem; margin-bottom: 0.35rem;">🔑</div>
+          <div class="font-bold" style="font-size: 1rem; color: var(--text-primary);">AI Key सेटिंग्स</div>
+          <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.2rem;">Groq या Gemini API Key जोड़ें</div>
+        </div>
+
+        <div class="card card-interactive" onclick="window.openSettingsModal('guidelines')" role="button" tabindex="0" style="padding: 1.1rem; cursor: pointer; border-left: 4px solid #059669;">
+          <div style="font-size: 1.8rem; margin-bottom: 0.35rem;">📘</div>
+          <div class="font-bold" style="font-size: 1rem; color: var(--text-primary);">AI उपयोग गाइड</div>
+          <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.2rem;">सही बनाम गलत तरीका व नियम</div>
+        </div>
+      </div>
     </div>
   `;
 }

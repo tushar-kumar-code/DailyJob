@@ -6,8 +6,8 @@
 async function renderApplicantsView(jobId) {
   let targetJobId = jobId;
   if (!targetJobId || targetJobId === "job-101") {
-    const allJobs = await appState.getJobs();
-    targetJobId = allJobs[0]?.id;
+    const myJobs = await appState.getEmployerJobs();
+    targetJobId = myJobs[0]?.id;
   }
 
   const job = targetJobId ? await appState.getJobById(targetJobId) : null;
@@ -265,6 +265,6 @@ window.selectWorkerForJob = async function(appId, workerId, jobId) {
   }
 
   await appState.selectApplicant(appId);
-  showToast("✓ कामगार चुना गया! कामगार को सूचना भेज दी गई है।", "success");
+  showToast("✓ कामगार चुना गया और काम बुक हो गया! कामगार को सूचना भेज दी गई है।", "success");
   window.location.hash = "#/active-work";
 };

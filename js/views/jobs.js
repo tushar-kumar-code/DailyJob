@@ -20,6 +20,8 @@ async function renderJobsView(queryParams = {}) {
   if (queryParams.filter === "today" || queryParams.filter === "urgent") currentJobFilters.urgentOnly = true;
 
   let allJobs = await appState.getJobs(currentJobFilters);
+  // Strictly filter out any booked, filled, or completed jobs for other users
+  allJobs = (allJobs || []).filter(j => j && (j.status === "open" || !j.status));
 
   // Apply distance filter
   if (currentJobFilters.maxDistance) {

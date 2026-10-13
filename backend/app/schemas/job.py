@@ -111,6 +111,8 @@ class JobResponse(BaseModel):
     workersNeeded: int
     workersApplied: int = 0
     status: str
+    bookedWorkerId: Optional[str] = None
+    bookedWorkerName: Optional[str] = None
     urgent: bool = False
     beginnerFriendly: bool = False
     toolsResponsibility: Optional[str] = None

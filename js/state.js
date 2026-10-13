@@ -275,7 +275,12 @@ class AppState {
       if (res.ok) {
         const data = await res.json();
         const jobsList = Array.isArray(data) ? data : (data.jobs || []);
-        const cleanList = jobsList.filter(j => j && !String(j.id).startsWith("job-10") && j.employerName !== "Sharma Home Infra");
+        const cleanList = jobsList.filter(j => 
+          j && 
+          !String(j.id).startsWith("job-10") && 
+          j.employerName !== "Sharma Home Infra" &&
+          (j.status === "open" || !j.status)
+        );
         this.jobs = cleanList;
         return cleanList;
       }
@@ -283,7 +288,7 @@ class AppState {
       // Offline fallback
     }
 
-    let result = [...this.jobs];
+    let result = [...this.jobs].filter(j => j && (j.status === "open" || !j.status));
     if (filters.tradeId && filters.tradeId !== "all") {
       result = result.filter(j => j.tradeId === filters.tradeId);
     }
@@ -306,6 +311,22 @@ class AppState {
       result = result.filter(j => (j.distanceKm || 0) <= filters.maxDistance);
     }
     return result;
+  }
+
+  async getEmployerJobs() {
+    try {
+      const res = await fetch('/api/employer/jobs', {
+        headers: this._getAuthHeaders(),
+        credentials: 'include'
+      });
+      if (res.ok) {
+        const data = await res.json();
+        const list = Array.isArray(data) ? data : (data.jobs || []);
+        return list.filter(j => j && !String(j.id).startsWith("job-10") && j.employerName !== "Sharma Home Infra");
+      }
+    } catch (_) {}
+    const empId = this.currentUserId;
+    return (this.jobs || []).filter(j => j && (j.employerId === empId || this.employer?.activeJobIds?.includes(j.id)));
   }
 
   async getJobById(id) {
@@ -619,6 +640,9 @@ class AppState {
   }
 
   async selectApplicant(appId) {
+    let targetJobId = null;
+    let targetWorkerId = null;
+    let targetWorkerName = "";
     try {
       const res = await fetch(`/api/applications/${appId}/status`, {
         method: "PATCH",
@@ -630,7 +654,24 @@ class AppState {
         const data = await res.json();
         const updated = data.application || data;
         const localApp = this.applications.find(a => a.id === appId);
-        if (localApp) localApp.status = "selected";
+        if (localApp) {
+          localApp.status = "selected";
+          targetJobId = localApp.jobId;
+          targetWorkerId = localApp.workerId;
+          targetWorkerName = localApp.workerName || "";
+        }
+        if (updated.jobId) targetJobId = updated.jobId;
+        if (updated.workerId) targetWorkerId = updated.workerId;
+        if (updated.workerName) targetWorkerName = updated.workerName;
+
+        if (targetJobId) {
+          const job = this.jobs.find(j => j.id === targetJobId);
+          if (job) {
+            job.status = "booked";
+            job.bookedWorkerId = targetWorkerId;
+            job.bookedWorkerName = targetWorkerName;
+          }
+        }
         this.save();
         return updated;
       }
@@ -639,6 +680,14 @@ class AppState {
     const app = this.applications.find(a => a.id === appId);
     if (!app) throw new Error("Application not found");
     app.status = "selected";
+    if (app.jobId) {
+      const job = this.jobs.find(j => j.id === app.jobId);
+      if (job) {
+        job.status = "booked";
+        job.bookedWorkerId = app.workerId;
+        job.bookedWorkerName = app.workerName || "";
+      }
+    }
 
     this.notifications.unshift({
       id: "notif-" + Date.now(),
@@ -656,6 +705,8 @@ class AppState {
   }
 
   async confirmJob(appId) {
+    let targetJobId = null;
+    let targetWorkerId = null;
     try {
       const res = await fetch(`/api/applications/${appId}/status`, {
         method: "PATCH",
@@ -667,7 +718,21 @@ class AppState {
         const data = await res.json();
         const updated = data.application || data;
         const localApp = this.applications.find(a => a.id === appId);
-        if (localApp) localApp.status = "confirmed";
+        if (localApp) {
+          localApp.status = "confirmed";
+          targetJobId = localApp.jobId;
+          targetWorkerId = localApp.workerId;
+        }
+        if (updated.jobId) targetJobId = updated.jobId;
+        if (updated.workerId) targetWorkerId = updated.workerId;
+
+        if (targetJobId) {
+          const job = this.jobs.find(j => j.id === targetJobId);
+          if (job) {
+            job.status = "booked";
+            job.bookedWorkerId = targetWorkerId;
+          }
+        }
         this.save();
         return updated;
       }
@@ -676,6 +741,13 @@ class AppState {
     const app = this.applications.find(a => a.id === appId);
     if (!app) throw new Error("Application not found");
     app.status = "confirmed";
+    if (app.jobId) {
+      const job = this.jobs.find(j => j.id === app.jobId);
+      if (job) {
+        job.status = "booked";
+        job.bookedWorkerId = app.workerId;
+      }
+    }
     this.save();
     return app;
   }

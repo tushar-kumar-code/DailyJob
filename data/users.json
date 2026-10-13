@@ -1,1 +1,720 @@
-[]
+[
+  {
+    "user_id": "usr_d1b4ab94ad204fd192d23385483ca1bf",
+    "username": "bhim",
+    "name": "bhim",
+    "email": "bhim@gmail.com",
+    "mobile_number": "8815500014",
+    "account_type": "job_seeker",
+    "password_hash": "aadddad950dbc79a4bc2bc5284a4eb2fbb3cd4de0c035b09a09b17fc5b087c66799eb9fafb6f7bb614f639a5583285bdbd44dd8d1312e46bfa4d0558b8ffe71c",
+    "salt": "f198b0e61cce8692f72d3a52cbbc4611",
+    "auth_provider": "local",
+    "role": "worker",
+    "profile_completed": true,
+    "completion_percentage": 80,
+    "profile": null,
+    "saved_data": null,
+    "created_at": "2026-10-11T12:51:13.754Z",
+    "updated_at": "2026-10-11T12:52:03.872Z",
+    "job_seeker_profile": {
+      "personal": {
+        "full_name": "bhim",
+        "profile_photo": "",
+        "date_of_birth": null,
+        "age": 25,
+        "gender": null,
+        "mobile_number": "8815500014",
+        "email": "bhim@gmail.com",
+        "current_city": "",
+        "current_state": "",
+        "country": "India",
+        "preferred_language": "Hindi"
+      },
+      "employment_status": {
+        "status": "Working Professional"
+      },
+      "education": [
+        {
+          "level": "12th",
+          "degree": "12th",
+          "university": "",
+          "graduation_year": ""
+        }
+      ],
+      "skills": [
+        {
+          "name": "कंप्यूटर / डेटा एंट्री",
+          "category": "computer",
+          "level": "Primary"
+        }
+      ],
+      "has_experience": true,
+      "experience": [
+        {
+          "job_title": "कंप्यूटर / डेटा एंट्री",
+          "years": "",
+          "description": ""
+        }
+      ],
+      "preferences": {
+        "looking_for": [
+          "computer operator"
+        ],
+        "preferred_roles": [
+          "कंप्यूटर / डेटा एंट्री"
+        ],
+        "work_modes": [
+          "On-site"
+        ],
+        "preferred_cities": [],
+        "expected_salary_min": "negotiable",
+        "preferred_timing": "any"
+      },
+      "languages": [
+        {
+          "language": "Hindi",
+          "speaking_level": "Fluent"
+        }
+      ],
+      "portfolio": {
+        "resume_url": "",
+        "linkedin_url": ""
+      },
+      "visibility": {
+        "visibility": "public_employers",
+        "allow_contact": true
+      },
+      "profession": "कंप्यूटर / डेटा एंट्री",
+      "category": "computer",
+      "categoryTitle": "कंप्यूटर / डेटा एंट्री",
+      "workType": "computer operator",
+      "work_type": "computer operator",
+      "expectedWage": "negotiable",
+      "timing": "any",
+      "cityName": "",
+      "mobileNumber": "8815500014",
+      "fullName": "bhim",
+      "updated_at": "2026-10-11T12:52:03.872Z",
+      "is_submitted": true
+    },
+    "worker_profile": {
+      "personal": {
+        "full_name": "bhim",
+        "profile_photo": "",
+        "date_of_birth": null,
+        "age": 25,
+        "gender": null,
+        "mobile_number": "8815500014",
+        "email": "bhim@gmail.com",
+        "current_city": "",
+        "current_state": "",
+        "country": "India",
+        "preferred_language": "Hindi"
+      },
+      "employment_status": {
+        "status": "Working Professional"
+      },
+      "education": [
+        {
+          "level": "12th",
+          "degree": "12th",
+          "university": "",
+          "graduation_year": ""
+        }
+      ],
+      "skills": [
+        {
+          "name": "कंप्यूटर / डेटा एंट्री",
+          "category": "computer",
+          "level": "Primary"
+        }
+      ],
+      "has_experience": true,
+      "experience": [
+        {
+          "job_title": "कंप्यूटर / डेटा एंट्री",
+          "years": "",
+          "description": ""
+        }
+      ],
+      "preferences": {
+        "looking_for": [
+          "computer operator"
+        ],
+        "preferred_roles": [
+          "कंप्यूटर / डेटा एंट्री"
+        ],
+        "work_modes": [
+          "On-site"
+        ],
+        "preferred_cities": [],
+        "expected_salary_min": "negotiable",
+        "preferred_timing": "any"
+      },
+      "languages": [
+        {
+          "language": "Hindi",
+          "speaking_level": "Fluent"
+        }
+      ],
+      "portfolio": {
+        "resume_url": "",
+        "linkedin_url": ""
+      },
+      "visibility": {
+        "visibility": "public_employers",
+        "allow_contact": true
+      },
+      "profession": "कंप्यूटर / डेटा एंट्री",
+      "category": "computer",
+      "categoryTitle": "कंप्यूटर / डेटा एंट्री",
+      "workType": "computer operator",
+      "work_type": "computer operator",
+      "expectedWage": "negotiable",
+      "timing": "any",
+      "cityName": "",
+      "mobileNumber": "8815500014",
+      "fullName": "bhim",
+      "updated_at": "2026-10-11T12:52:03.872Z",
+      "is_submitted": true
+    },
+    "completion_breakdown": {
+      "percentage": 80,
+      "completed_sections": [
+        "Employment Status",
+        "Education",
+        "Skills",
+        "Work Experience",
+        "Job Preferences",
+        "Languages",
+        "Privacy & Visibility",
+        "Final Confirmation"
+      ],
+      "missing_sections": [
+        "Personal Information",
+        "Portfolio & Resume"
+      ],
+      "is_ready_for_matching": false
+    },
+    "age": 25
+  },
+  {
+    "user_id": "usr_bafad9f2f3834526abb75438824c9f74",
+    "username": "arjun",
+    "name": "arjun",
+    "email": "arjun@gmail.com",
+    "mobile_number": "9812734650",
+    "account_type": "employer",
+    "password_hash": "df03b18bc772993939464ae71bdd7904922fc58d58a4fc3f429abfd25667fee1aeee8c30cd9189ccdf470a58993ee5e0af20f6b5105d61a47f898105108f7905",
+    "salt": "8e40d17360012030a8bbc43941988241",
+    "auth_provider": "local",
+    "role": "employer",
+    "profile_completed": true,
+    "completion_percentage": 70,
+    "profile": null,
+    "saved_data": null,
+    "created_at": "2026-10-11T12:52:43.432Z",
+    "updated_at": "2026-10-11T12:54:09.696Z",
+    "employer_profile": {
+      "business_type": "Individual / Household",
+      "business_info": {
+        "name": "arjun",
+        "industry": "computer operator"
+      },
+      "location": {
+        "city": "Darba / Kurud / Dhamtari",
+        "state": "",
+        "work_model": "On-site"
+      },
+      "recruiter_info": {
+        "name": "arjun",
+        "mobile_number": "9812734650",
+        "official_email": "arjun@gmail.com"
+      },
+      "hiring_info": {
+        "hiring_types": [
+          "फुल टाइम (8 घंटे)"
+        ],
+        "categories": [
+          "कंप्यूटर ऑपरेटर"
+        ]
+      },
+      "hiring_location": {
+        "cities": [
+          "Darba / Kurud / Dhamtari"
+        ],
+        "onsite_hiring": true
+      },
+      "payment_offer": "",
+      "needed_count": "1",
+      "verification": {
+        "status": "not_verified"
+      },
+      "company_profile": {},
+      "hiring_preferences": {},
+      "visibility": {
+        "visibility": "public"
+      },
+      "profession": "computer operator",
+      "industry": "computer operator",
+      "neededRole": "कंप्यूटर ऑपरेटर",
+      "companyName": "arjun",
+      "workLocation": "Darba / Kurud / Dhamtari",
+      "mobileNumber": "9812734650",
+      "contactName": "arjun",
+      "updated_at": "2026-10-11T12:54:09.696Z",
+      "is_submitted": true
+    },
+    "completion_breakdown": {
+      "percentage": 70,
+      "completed_sections": [
+        "Business Type",
+        "Business Information",
+        "Office Location",
+        "Recruiter Contact",
+        "Hiring Information",
+        "Hiring Locations",
+        "Profile Visibility"
+      ],
+      "missing_sections": [
+        "Business Verification",
+        "Company Profile & Culture",
+        "Hiring Preferences"
+      ],
+      "is_ready_for_matching": true
+    }
+  },
+  {
+    "user_id": "usr_b1b599bccf5143d08a6ccb744da49ecc",
+    "username": "aman",
+    "name": "aman",
+    "email": "aman@gmail.com",
+    "mobile_number": "9876543210",
+    "account_type": "job_seeker",
+    "password_hash": "d28b1417c251d09f3355e1b97a9372bdad8371b329110ef1c2b277ecd67a540db5d0a78ae2c2aa1dbacd6b204d3a9c4b6cff51ff19824ec3d42e1c0bf273a313",
+    "salt": "8fbcec9cfed294f880504ee3ad234f8b",
+    "auth_provider": "local",
+    "role": "worker",
+    "profile_completed": true,
+    "completion_percentage": 80,
+    "profile": null,
+    "saved_data": null,
+    "created_at": "2026-10-12T13:04:24.288Z",
+    "updated_at": "2026-10-12T16:23:45.633Z",
+    "job_seeker_profile": {
+      "personal": {
+        "full_name": "aman",
+        "profile_photo": "",
+        "date_of_birth": null,
+        "age": 18,
+        "gender": null,
+        "mobile_number": "9876543210",
+        "email": "aman@gmail.com",
+        "current_city": "",
+        "current_state": "",
+        "country": "India",
+        "preferred_language": "Hindi"
+      },
+      "employment_status": {
+        "status": "Working Professional"
+      },
+      "education": [
+        {
+          "level": "12th",
+          "degree": "12th",
+          "university": "",
+          "graduation_year": ""
+        }
+      ],
+      "skills": [
+        {
+          "name": "कंप्यूटर / डेटा एंट्री",
+          "category": "computer",
+          "level": "Primary"
+        }
+      ],
+      "has_experience": true,
+      "experience": [
+        {
+          "job_title": "कंप्यूटर / डेटा एंट्री",
+          "years": "",
+          "description": ""
+        }
+      ],
+      "preferences": {
+        "looking_for": [
+          "computer operator"
+        ],
+        "preferred_roles": [
+          "कंप्यूटर / डेटा एंट्री"
+        ],
+        "work_modes": [
+          "On-site"
+        ],
+        "preferred_cities": [],
+        "expected_salary_min": "negotiable",
+        "preferred_timing": "any"
+      },
+      "languages": [
+        {
+          "language": "Hindi",
+          "speaking_level": "Fluent"
+        }
+      ],
+      "portfolio": {
+        "resume_url": "",
+        "linkedin_url": ""
+      },
+      "visibility": {
+        "visibility": "public_employers",
+        "allow_contact": true
+      },
+      "profession": "कंप्यूटर / डेटा एंट्री",
+      "category": "computer",
+      "categoryTitle": "कंप्यूटर / डेटा एंट्री",
+      "workType": "computer operator",
+      "work_type": "computer operator",
+      "expectedWage": "negotiable",
+      "timing": "any",
+      "cityName": "",
+      "mobileNumber": "9876543210",
+      "fullName": "aman",
+      "updated_at": "2026-10-12T13:05:21.436Z",
+      "is_submitted": true
+    },
+    "worker_profile": {
+      "personal": {
+        "full_name": "aman",
+        "profile_photo": "",
+        "date_of_birth": null,
+        "age": 18,
+        "gender": null,
+        "mobile_number": "9876543210",
+        "email": "aman@gmail.com",
+        "current_city": "",
+        "current_state": "",
+        "country": "India",
+        "preferred_language": "Hindi"
+      },
+      "employment_status": {
+        "status": "Working Professional"
+      },
+      "education": [
+        {
+          "level": "12th",
+          "degree": "12th",
+          "university": "",
+          "graduation_year": ""
+        }
+      ],
+      "skills": [
+        {
+          "name": "कंप्यूटर / डेटा एंट्री",
+          "category": "computer",
+          "level": "Primary"
+        }
+      ],
+      "has_experience": true,
+      "experience": [
+        {
+          "job_title": "कंप्यूटर / डेटा एंट्री",
+          "years": "",
+          "description": ""
+        }
+      ],
+      "preferences": {
+        "looking_for": [
+          "computer operator"
+        ],
+        "preferred_roles": [
+          "कंप्यूटर / डेटा एंट्री"
+        ],
+        "work_modes": [
+          "On-site"
+        ],
+        "preferred_cities": [],
+        "expected_salary_min": "negotiable",
+        "preferred_timing": "any"
+      },
+      "languages": [
+        {
+          "language": "Hindi",
+          "speaking_level": "Fluent"
+        }
+      ],
+      "portfolio": {
+        "resume_url": "",
+        "linkedin_url": ""
+      },
+      "visibility": {
+        "visibility": "public_employers",
+        "allow_contact": true
+      },
+      "profession": "कंप्यूटर / डेटा एंट्री",
+      "category": "computer",
+      "categoryTitle": "कंप्यूटर / डेटा एंट्री",
+      "workType": "computer operator",
+      "work_type": "computer operator",
+      "expectedWage": "negotiable",
+      "timing": "any",
+      "cityName": "",
+      "mobileNumber": "9876543210",
+      "fullName": "aman",
+      "updated_at": "2026-10-12T13:05:21.436Z",
+      "is_submitted": true
+    },
+    "completion_breakdown": {
+      "percentage": 80,
+      "completed_sections": [
+        "Employment Status",
+        "Education",
+        "Skills",
+        "Work Experience",
+        "Job Preferences",
+        "Languages",
+        "Privacy & Visibility",
+        "Final Confirmation"
+      ],
+      "missing_sections": [
+        "Personal Information",
+        "Portfolio & Resume"
+      ],
+      "is_ready_for_matching": false
+    },
+    "age": 18
+  },
+  {
+    "user_id": "usr_091987fdd0f64a0da8ac1e676bb2a315",
+    "username": "Test User",
+    "name": "Test User",
+    "email": "test@example.com",
+    "mobile_number": "9876543210",
+    "account_type": "job_seeker",
+    "password_hash": "28cfcf6ae68694f48866d3777895223538409a24a1805d4e761010c8fcb151f05495715901ed9f1b6b3e1cc21272c680ffb9a13952eaed18bcc102e0d2f3f3cc",
+    "salt": "137fdff96671f42993864aa334a2cd0c",
+    "auth_provider": "local",
+    "role": "employer",
+    "profile_completed": true,
+    "completion_percentage": 70,
+    "profile": {
+      "personal": {
+        "full_name": "Test User",
+        "profile_photo": "",
+        "date_of_birth": null,
+        "age": 25,
+        "gender": null,
+        "mobile_number": "9876543210",
+        "email": "test@example.com",
+        "current_city": "",
+        "current_state": "",
+        "country": "India",
+        "preferred_language": "Hindi"
+      },
+      "employment_status": {
+        "status": "Working Professional"
+      },
+      "education": [],
+      "skills": [
+        {
+          "name": "अन्य काम",
+          "category": "other",
+          "level": "Primary"
+        }
+      ],
+      "has_experience": false,
+      "experience": [],
+      "preferences": {
+        "looking_for": [
+          "any"
+        ],
+        "preferred_roles": [
+          "अन्य काम"
+        ],
+        "work_modes": [],
+        "preferred_cities": [],
+        "expected_salary_min": null,
+        "preferred_timing": ""
+      },
+      "languages": [
+        {
+          "language": "Hindi",
+          "speaking_level": "Fluent"
+        }
+      ],
+      "portfolio": {
+        "resume_url": "",
+        "linkedin_url": ""
+      },
+      "visibility": {
+        "visibility": "public_employers",
+        "allow_contact": true
+      },
+      "profession": "अन्य काम",
+      "category": "other",
+      "categoryTitle": "अन्य काम",
+      "workType": "any",
+      "work_type": "any",
+      "expectedWage": "",
+      "timing": "",
+      "cityName": "",
+      "mobileNumber": "9876543210",
+      "fullName": "Test User",
+      "updated_at": "2026-10-12T13:39:13.571Z",
+      "is_submitted": true
+    },
+    "saved_data": null,
+    "created_at": "2026-10-12T13:33:30.139Z",
+    "updated_at": "2026-10-13T03:09:54.882Z",
+    "job_seeker_profile": {
+      "personal": {
+        "full_name": "Test User",
+        "profile_photo": "",
+        "date_of_birth": null,
+        "age": 25,
+        "gender": null,
+        "mobile_number": "9876543210",
+        "email": "test@example.com",
+        "current_city": "",
+        "current_state": "",
+        "country": "India",
+        "preferred_language": "Hindi"
+      },
+      "employment_status": {
+        "status": "Working Professional"
+      },
+      "education": [],
+      "skills": [
+        {
+          "name": "अन्य काम",
+          "category": "other",
+          "level": "Primary"
+        }
+      ],
+      "has_experience": false,
+      "experience": [],
+      "preferences": {
+        "looking_for": [
+          "any"
+        ],
+        "preferred_roles": [
+          "अन्य काम"
+        ],
+        "work_modes": [],
+        "preferred_cities": [],
+        "expected_salary_min": null,
+        "preferred_timing": ""
+      },
+      "languages": [
+        {
+          "language": "Hindi",
+          "speaking_level": "Fluent"
+        }
+      ],
+      "portfolio": {
+        "resume_url": "",
+        "linkedin_url": ""
+      },
+      "visibility": {
+        "visibility": "public_employers",
+        "allow_contact": true
+      },
+      "profession": "अन्य काम",
+      "category": "other",
+      "categoryTitle": "अन्य काम",
+      "workType": "any",
+      "work_type": "any",
+      "expectedWage": "",
+      "timing": "",
+      "cityName": "",
+      "mobileNumber": "9876543210",
+      "fullName": "Test User",
+      "updated_at": "2026-10-12T13:39:13.571Z",
+      "is_submitted": true
+    },
+    "worker_profile": {
+      "personal": {
+        "full_name": "Test User",
+        "profile_photo": "",
+        "date_of_birth": null,
+        "age": 25,
+        "gender": null,
+        "mobile_number": "9876543210",
+        "email": "test@example.com",
+        "current_city": "",
+        "current_state": "",
+        "country": "India",
+        "preferred_language": "Hindi"
+      },
+      "employment_status": {
+        "status": "Working Professional"
+      },
+      "education": [],
+      "skills": [
+        {
+          "name": "अन्य काम",
+          "category": "other",
+          "level": "Primary"
+        }
+      ],
+      "has_experience": false,
+      "experience": [],
+      "preferences": {
+        "looking_for": [
+          "any"
+        ],
+        "preferred_roles": [
+          "अन्य काम"
+        ],
+        "work_modes": [],
+        "preferred_cities": [],
+        "expected_salary_min": null,
+        "preferred_timing": ""
+      },
+      "languages": [
+        {
+          "language": "Hindi",
+          "speaking_level": "Fluent"
+        }
+      ],
+      "portfolio": {
+        "resume_url": "",
+        "linkedin_url": ""
+      },
+      "visibility": {
+        "visibility": "public_employers",
+        "allow_contact": true
+      },
+      "profession": "अन्य काम",
+      "category": "other",
+      "categoryTitle": "अन्य काम",
+      "workType": "any",
+      "work_type": "any",
+      "expectedWage": "",
+      "timing": "",
+      "cityName": "",
+      "mobileNumber": "9876543210",
+      "fullName": "Test User",
+      "updated_at": "2026-10-12T13:39:13.571Z",
+      "is_submitted": true
+    },
+    "completion_breakdown": {
+      "percentage": 70,
+      "completed_sections": [
+        "Employment Status",
+        "Skills",
+        "Work Experience",
+        "Job Preferences",
+        "Languages",
+        "Privacy & Visibility",
+        "Final Confirmation"
+      ],
+      "missing_sections": [
+        "Personal Information",
+        "Education",
+        "Portfolio & Resume"
+      ],
+      "is_ready_for_matching": false
+    },
+    "age": 25
+  }
+]

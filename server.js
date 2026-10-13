@@ -538,6 +538,109 @@ function verifyGoogleToken(idToken) {
 }
 
 // ---------------------------------------------------------------------------
+// 5.5 AI Gateway Helpers (Groq Cloud & Google Gemini)
+// ---------------------------------------------------------------------------
+function callGroqAPI(apiKey, model, messages) {
+  return new Promise((resolve, reject) => {
+    const postData = JSON.stringify({
+      model: model || 'llama-3.3-70b-versatile',
+      messages: messages,
+      temperature: 0.7,
+      max_tokens: 1024
+    });
+
+    const options = {
+      hostname: 'api.groq.com',
+      port: 443,
+      path: '/openai/v1/chat/completions',
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${apiKey}`,
+        'Content-Length': Buffer.byteLength(postData)
+      }
+    };
+
+    const req = https.request(options, (res) => {
+      let data = '';
+      res.on('data', chunk => { data += chunk; });
+      res.on('end', () => {
+        try {
+          const parsed = JSON.parse(data);
+          if (res.statusCode >= 400) {
+            reject(new Error(parsed.error?.message || `Groq error status ${res.statusCode}`));
+          } else {
+            const reply = parsed.choices?.[0]?.message?.content || '';
+            resolve(reply);
+          }
+        } catch (e) {
+          reject(e);
+        }
+      });
+    });
+    req.on('error', reject);
+    req.write(postData);
+    req.end();
+  });
+}
+
+function callGeminiAPI(apiKey, model, prompt, systemInstruction) {
+  return new Promise((resolve, reject) => {
+    const geminiModel = model || 'gemini-1.5-flash';
+    const postBody = {
+      contents: [
+        {
+          role: 'user',
+          parts: [{ text: prompt }]
+        }
+      ],
+      generationConfig: {
+        temperature: 0.7,
+        maxOutputTokens: 1024
+      }
+    };
+    if (systemInstruction) {
+      postBody.systemInstruction = {
+        parts: [{ text: systemInstruction }]
+      };
+    }
+    const postData = JSON.stringify(postBody);
+
+    const options = {
+      hostname: 'generativelanguage.googleapis.com',
+      port: 443,
+      path: `/v1beta/models/${encodeURIComponent(geminiModel)}:generateContent?key=${encodeURIComponent(apiKey)}`,
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Content-Length': Buffer.byteLength(postData)
+      }
+    };
+
+    const req = https.request(options, (res) => {
+      let data = '';
+      res.on('data', chunk => { data += chunk; });
+      res.on('end', () => {
+        try {
+          const parsed = JSON.parse(data);
+          if (res.statusCode >= 400) {
+            reject(new Error(parsed.error?.message || `Gemini error status ${res.statusCode}`));
+          } else {
+            const text = parsed.candidates?.[0]?.content?.parts?.[0]?.text || '';
+            resolve(text);
+          }
+        } catch (e) {
+          reject(e);
+        }
+      });
+    });
+    req.on('error', reject);
+    req.write(postData);
+    req.end();
+  });
+}
+
+// ---------------------------------------------------------------------------
 // 6. Static File MIME Mapping & Security
 // ---------------------------------------------------------------------------
 const MIME_TYPES = {
@@ -1366,6 +1469,73 @@ const server = http.createServer(async (req, res) => {
       );
     } catch (err) {
       return sendJSON(res, 500, { error: 'Failed to switch role.' });
+    }
+  }
+
+  // -------------------------------------------------------------------------
+  // API: AI Chat Assistant Integration (Groq & Gemini)
+  // -------------------------------------------------------------------------
+  if (req.method === 'POST' && pathname === '/api/ai/chat') {
+    try {
+      const body = await parseJSONBody(req);
+      const { provider, apiKey, model, messages, prompt, systemInstruction } = body;
+
+      if (!apiKey) {
+        return sendJSON(res, 400, { error: 'API key is required to use AI features.' });
+      }
+
+      let reply = '';
+      if (provider === 'gemini') {
+        const userPrompt = prompt || (messages && messages.filter(m => m.role === 'user').map(m => m.content).pop()) || 'नमस्ते';
+        reply = await callGeminiAPI(apiKey, model, userPrompt, systemInstruction);
+      } else {
+        // Groq Default
+        const chatMessages = messages && messages.length > 0 ? messages : [
+          { role: 'system', content: systemInstruction || 'You are KaamSaathi AI Assistant.' },
+          { role: 'user', content: prompt || 'नमस्ते' }
+        ];
+        reply = await callGroqAPI(apiKey, model, chatMessages);
+      }
+
+      return sendJSON(res, 200, {
+        success: true,
+        provider: provider || 'groq',
+        reply: reply
+      });
+    } catch (err) {
+      log.error(`[AI Chat Error] ${err.message}`);
+      return sendJSON(res, 500, { error: err.message || 'AI request failed' });
+    }
+  }
+
+  // -------------------------------------------------------------------------
+  // API: AI Key Verification / Test Ping
+  // -------------------------------------------------------------------------
+  if (req.method === 'POST' && pathname === '/api/ai/test-key') {
+    try {
+      const body = await parseJSONBody(req);
+      const { provider, apiKey, model } = body;
+
+      if (!apiKey) {
+        return sendJSON(res, 400, { error: 'Please enter an API key to test.' });
+      }
+
+      if (provider === 'gemini') {
+        await callGeminiAPI(apiKey, model || 'gemini-1.5-flash', 'Respond with OK');
+      } else {
+        await callGroqAPI(apiKey, model || 'llama-3.3-70b-versatile', [
+          { role: 'user', content: 'Respond with OK' }
+        ]);
+      }
+
+      return sendJSON(res, 200, {
+        success: true,
+        message: `${provider === 'gemini' ? 'Google Gemini' : 'Groq Cloud'} API Key verified successfully!`
+      });
+    } catch (err) {
+      return sendJSON(res, 400, {
+        error: `Key validation failed: ${err.message}`
+      });
     }
   }
 

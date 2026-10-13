@@ -111,8 +111,7 @@ async function renderEmployerHomeView() {
   const employer = (await appState.getEmployerProfile()) || {};
   const employerId = employer.id || appState.currentUserId;
   const activeJobIds = employer.activeJobIds || [];
-  const allJobs = await appState.getJobs();
-  const employerJobs = (allJobs || []).filter(j => j && (j.employerId === employerId || activeJobIds.includes(j.id)));
+  const employerJobs = await appState.getEmployerJobs();
 
   const employerName = employer.name || employer.username || 'User';
   const employerBusiness = employer.businessType || employer.industry || 'Employer';
@@ -529,8 +528,7 @@ window.directHireWorker = async function(workerId, jobId, workerName) {
   try {
     let targetJobId = jobId;
     if (!targetJobId) {
-      const allJobs = await appState.getJobs();
-      const myJobs = (allJobs || []).filter(j => j.employerId === appState.currentUserId);
+      const myJobs = await appState.getEmployerJobs();
       if (myJobs.length > 0) {
         targetJobId = myJobs[0].id;
       } else {

@@ -6,10 +6,11 @@
 
 async function renderWorkerHomeView() {
   const worker = await appState.getWorkerProfile();
-  const allJobs = await appState.getJobs();
+  const allJobs = (await appState.getJobs()) || [];
+  const openJobs = allJobs.filter(j => j && (j.status === "open" || !j.status));
 
   // Match jobs strictly against the worker's skill / trade
-  const matchedJobs = allJobs.filter(job => {
+  const matchedJobs = openJobs.filter(job => {
     if (!job) return false;
     // Direct tradeId match (e.g. 'cooking')
     if (worker.tradeId) {

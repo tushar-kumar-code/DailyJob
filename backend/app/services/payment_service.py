@@ -56,6 +56,10 @@ class PaymentService:
             "paidAt": now
         })
 
+        # Update job status to completed
+        if app.get("jobId"):
+            job_repo.update(app["jobId"], {"status": "completed"})
+
         # Increment worker jobsCompleted count
         worker = user_repo.get_by_uid(app["workerId"])
         if worker:

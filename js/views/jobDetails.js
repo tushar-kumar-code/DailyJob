@@ -21,7 +21,35 @@ async function renderJobDetailsView(jobId) {
   const tradeName = trade ? trade.nameHi : "काम";
   const tradeIcon = trade ? trade.icon : "🛠️";
   const isSaved = appState.savedJobIds.includes(job.id);
-  const alreadyApplied = appState.applications.some(a => a.jobId === job.id && a.workerId === appState.workers[0].id);
+  const currentUserId = appState.currentUserId;
+  const isEmployerOwner = job.employerId && (job.employerId === currentUserId || job.employerId === appState.employer?.id);
+  const isBookedWorker = (job.bookedWorkerId && job.bookedWorkerId === currentUserId) || 
+    (appState.applications || []).some(a => a.jobId === job.id && a.workerId === currentUserId && ['selected', 'confirmed', 'started', 'completed'].includes(a.status));
+
+  // If the job is booked or closed, hide it completely from any other user
+  if (job.status && job.status !== 'open' && !isEmployerOwner && !isBookedWorker) {
+    return `
+      <div class="job-details-page" style="max-width: 520px; margin: 2rem auto; padding: 1.5rem;">
+        <button class="btn btn-ghost btn-sm mb-3" onclick="history.back()">
+          ← वापस (Back)
+        </button>
+        <div class="card text-center" style="border-radius: var(--radius-2xl); padding: 3rem 1.5rem; background: var(--bg-surface); border: 2px solid var(--border-color); box-shadow: var(--shadow-md);">
+          <div style="font-size: 3.5rem; margin-bottom: 1rem;">🔒</div>
+          <h2 style="font-size: 1.4rem; font-weight: 800; color: var(--text-primary); margin-bottom: 0.5rem;">
+            यह काम बुक हो चुका है
+          </h2>
+          <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.5rem;">
+            यह काम किसी अन्य कामगार द्वारा बुक कर लिया गया है और अब किसी अन्य यूजर के लिए उपलब्ध नहीं है।
+          </p>
+          <button class="btn btn-primary btn-lg" onclick="window.location.hash='#/jobs'" style="border-radius: var(--radius-full); font-weight: 700; padding: 0.75rem 2rem;">
+            ← अन्य उपलब्ध काम देखें (Browse Jobs)
+          </button>
+        </div>
+      </div>
+    `;
+  }
+
+  const alreadyApplied = appState.applications.some(a => a.jobId === job.id && a.workerId === currentUserId);
 
   return `
     <div class="job-details-page" style="max-width: 600px; margin: 0 auto; padding-bottom: 6rem;">
@@ -43,6 +71,9 @@ async function renderJobDetailsView(jobId) {
           </span>
           ${job.employerVerified ? `
             <span class="simple-verified-chip">🟢 Verified Employer</span>
+          ` : ''}
+          ${job.status === 'booked' ? `
+            <span class="badge font-bold" style="background: #ea580c !important; color: #ffffff !important; border-radius: 9999px; padding: 0.3rem 0.75rem;">🔒 बुक हो चुका है (Booked)</span>
           ` : ''}
         </div>
 
@@ -234,7 +265,7 @@ async function renderJobDetailsView(jobId) {
 
           ${job.status && job.status !== 'open' ? `
             <button class="btn btn-secondary btn-lg" disabled style="min-width: 200px; font-weight: 700;">
-              ⛔ यह काम बंद हो चुका है
+              🔒 यह काम बुक हो चुका है
             </button>
           ` : (alreadyApplied ? `
             <button class="btn btn-secondary btn-lg" disabled style="min-width: 200px; font-weight: 700;">

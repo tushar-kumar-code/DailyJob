@@ -167,6 +167,34 @@ class ApplicationService:
 
         updated = application_repo.update_status(app_id, target_status.value, extra)
 
+        # Synchronize Job Booking Status:
+        # If worker is selected or confirmed, mark job as booked so it is hidden from all other users.
+        job_id = app.get("jobId")
+        if job_id:
+            if target_status in (ApplicationStatus.SELECTED, ApplicationStatus.CONFIRMED):
+                job_repo.update(job_id, {
+                    "status": "booked",
+                    "bookedWorkerId": app.get("workerId"),
+                    "bookedWorkerName": app.get("workerName", ""),
+                    "bookedAppId": app_id
+                })
+            elif target_status == ApplicationStatus.REJECTED:
+                job_obj = job_repo.get_by_id(job_id)
+                if job_obj and job_obj.get("status") == "booked" and job_obj.get("bookedAppId") == app_id:
+                    # Check if any other application is currently selected/confirmed
+                    all_apps = application_repo.list_by_job(job_id)
+                    has_other_booked = any(
+                        a.get("id") != app_id and a.get("status") in (ApplicationStatus.SELECTED.value, ApplicationStatus.CONFIRMED.value, ApplicationStatus.STARTED.value)
+                        for a in all_apps
+                    )
+                    if not has_other_booked:
+                        job_repo.update(job_id, {
+                            "status": "open",
+                            "bookedWorkerId": None,
+                            "bookedWorkerName": None,
+                            "bookedAppId": None
+                        })
+
         # Notify counterpart
         if target_status == ApplicationStatus.SELECTED:
             notification_repo.create({
